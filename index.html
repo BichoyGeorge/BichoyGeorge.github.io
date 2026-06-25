@@ -3,102 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bishoy George | Senior Data Analyst</title>
+    <title>Bishoy George | Portfolio</title>
     <style>
         :root {
-            --bg-dark: #0b132b;
-            --bg-card: #ffffff;
-            --primary-text: #1c2541;
-            --secondary-text: #475569;
-            --accent-blue: #00b4d8;
-            --accent-navy: #1d3557;
-            --light-gray: #f8fafc;
-            --border-color: #e2e8f0;
+            --dark-bg: #111827;
+            --card-bg: #1f2937;
+            --text-main: #f9fafb;
+            --text-muted: #9ca3af;
+            --emerald: #10b981;
+            --royal-blue: #3b82f6;
+            --border: #374151;
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
-        body { background-color: var(--light-gray); color: var(--secondary-text); line-height: 1.7; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: var(--dark-bg); color: var(--text-main); line-height: 1.7; }
         
-        /* هيدر فخم وأنيق */
         header { 
-            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--accent-navy) 100%); 
-            color: white; 
-            padding: 4.5rem 1rem; 
+            background: radial-gradient(circle at top, #1e3a8a 0%, var(--dark-bg) 100%);
+            padding: 5rem 1.5rem; 
             text-align: center; 
-            border-bottom: 4px solid var(--accent-blue);
-            position: relative;
+            border-bottom: 1px solid var(--border);
         }
-        header h1 { font-size: 2.8rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 0.5rem; color: #ffffff; }
-        header p { font-size: 1.25rem; color: var(--accent-blue); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+        header h1 { font-size: 3rem; font-weight: 800; color: #ffffff; margin-bottom: 0.5rem; }
+        header p { font-size: 1.3rem; color: var(--emerald); font-weight: 600; letter-spacing: 1.5px; }
         
-        .container { max-width: 950px; margin: 2.5rem auto; padding: 0 1.5rem; }
+        .container { max-width: 900px; margin: 3rem auto; padding: 0 1.5rem; }
         
-        /* ستايل السكشنز الجديد */
         section { 
-            background: var(--bg-card); 
+            background: var(--card-bg); 
             padding: 2.5rem; 
-            margin-bottom: 2rem; 
-            border-radius: 12px; 
-            border: 1px solid var(--border-color);
-            box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05); 
-            transition: transform 0.3s ease;
+            margin-bottom: 2.5rem; 
+            border-radius: 16px; 
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
         }
-        section:hover { transform: translateY(-3px); }
         
-        h2 { color: var(--primary-text); font-size: 1.6rem; font-weight: 700; position: relative; padding-bottom: 0.75rem; margin-bottom: 1.75rem; }
-        h2::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 4px; background-color: var(--accent-blue); border-radius: 2px; }
+        h2 { color: #ffffff; font-size: 1.7rem; font-weight: 700; margin-bottom: 1.5rem; display: flex; align-items: center; }
+        h2::before { content: '// '; color: var(--royal-blue); margin-right: 0.5rem; font-weight: 800; }
         
-        /* شبكة المهارات بألوان تفاعلية */
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 1rem; }
         .skill-card { 
-            background: var(--light-gray); 
-            color: var(--primary-text);
-            padding: 0.85rem; 
+            background: var(--dark-bg); 
+            color: var(--text-main);
+            padding: 1rem; 
             text-align: center; 
-            border-radius: 8px; 
+            border-radius: 10px; 
             font-weight: 600; 
-            font-size: 0.95rem;
-            border: 1px solid var(--border-color); 
+            border: 1px solid var(--border);
             transition: all 0.3s ease;
         }
         .skill-card:hover { 
-            background: var(--bg-dark); 
-            color: #ffffff; 
-            border-color: var(--bg-dark);
-            transform: scale(1.05);
+            border-color: var(--emerald);
+            color: var(--emerald);
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
         }
         
-        /* كروت المشاريع */
         .project-card { 
-            background: var(--light-gray);
-            padding: 1.5rem; 
-            border-radius: 8px;
-            border-left: 5px solid var(--accent-navy); 
+            background: var(--dark-bg);
+            padding: 1.75rem; 
+            border-radius: 12px;
+            border: 1px solid var(--border);
             margin-bottom: 1.5rem; 
-            transition: all 0.3s ease;
         }
-        .project-card:hover { border-left-color: var(--accent-blue); background: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-        .project-card h3 { color: var(--primary-text); font-size: 1.25rem; margin-bottom: 0.6rem; }
+        .project-card h3 { color: var(--royal-blue); margin-bottom: 0.75rem; font-size: 1.3rem; }
+        .project-card p { color: var(--text-muted); }
         
-        /* زرار التواصل الاحترافي */
         .contact-btn { 
             display: inline-block; 
-            background: linear-gradient(135deg, var(--accent-navy) 0%, var(--bg-dark) 100%); 
-            color: white; 
-            padding: 0.85rem 2rem; 
+            background: var(--emerald); 
+            color: var(--dark-bg); 
+            padding: 1rem 2.5rem; 
             text-decoration: none; 
-            font-weight: 600; 
-            border-radius: 30px; 
+            font-weight: 700; 
+            border-radius: 8px; 
             margin-top: 1rem; 
-            box-shadow: 0 4px 14px rgba(29, 53, 87, 0.3);
             transition: all 0.3s ease;
         }
         .contact-btn:hover { 
-            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-navy) 100%); 
-            transform: translateY(-2px); 
-            box-shadow: 0 6px 20px rgba(0, 180, 216, 0.4);
+            background: #34d399;
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
         }
         
-        footer { text-align: center; padding: 3rem 2rem; color: #94a3b8; font-size: 0.9rem; font-weight: 500; }
+        footer { text-align: center; padding: 4rem 2rem; color: var(--text-muted); font-size: 0.9rem; }
     </style>
 </head>
 <body>
@@ -119,7 +104,7 @@
             <div class="skills-grid">
                 <div class="skill-card">SQL</div>
                 <div class="skill-card">Power BI</div>
-                <div class="skill-card">Excel (Advanced)</div>
+                <div class="skill-card">Excel</div>
                 <div class="skill-card">Power Query</div>
                 <div class="skill-card">DAX</div>
                 <div class="skill-card">Data Modeling</div>
