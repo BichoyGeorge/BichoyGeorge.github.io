@@ -3,87 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bishoy George | Portfolio</title>
+    <title>Bishoy George | Senior Data Analyst</title>
     <style>
         :root {
-            --dark-bg: #111827;
-            --card-bg: #1f2937;
-            --text-main: #f9fafb;
-            --text-muted: #9ca3af;
-            --emerald: #10b981;
-            --royal-blue: #3b82f6;
-            --border: #374151;
+            --bg-main: #f0f4f8;
+            --bg-card: #ffffff;
+            --primary: #1e3a8a;
+            --text-main: #334155;
+            --text-dark: #0f172a;
+            --sky-blue: #0284c7;
+            --sky-light: #e0f2fe;
+            --border: #cbd5e1;
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
-        body { background-color: var(--dark-bg); color: var(--text-main); line-height: 1.7; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: var(--bg-main); color: var(--text-main); line-height: 1.7; }
         
+        /* هيدر فاتح ومبهج جداً */
         header { 
-            background: radial-gradient(circle at top, #1e3a8a 0%, var(--dark-bg) 100%);
-            padding: 5rem 1.5rem; 
+            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); 
+            color: white; 
+            padding: 4.5rem 1rem; 
             text-align: center; 
-            border-bottom: 1px solid var(--border);
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.1);
         }
-        header h1 { font-size: 3rem; font-weight: 800; color: #ffffff; margin-bottom: 0.5rem; }
-        header p { font-size: 1.3rem; color: var(--emerald); font-weight: 600; letter-spacing: 1.5px; }
+        header h1 { font-size: 2.8rem; font-weight: 700; margin-bottom: 0.5rem; color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        header p { font-size: 1.25rem; color: #e0f2fe; font-weight: 600; letter-spacing: 1px; }
         
-        .container { max-width: 900px; margin: 3rem auto; padding: 0 1.5rem; }
+        .container { max-width: 900px; margin: 2.5rem auto; padding: 0 1.5rem; }
         
+        /* كروت بيضاء ناصعة ومحددة بشياكة */
         section { 
-            background: var(--card-bg); 
+            background: var(--bg-card); 
             padding: 2.5rem; 
-            margin-bottom: 2.5rem; 
-            border-radius: 16px; 
+            margin-bottom: 2rem; 
+            border-radius: 14px; 
             border: 1px solid var(--border);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
         }
         
-        h2 { color: #ffffff; font-size: 1.7rem; font-weight: 700; margin-bottom: 1.5rem; display: flex; align-items: center; }
-        h2::before { content: '// '; color: var(--royal-blue); margin-right: 0.5rem; font-weight: 800; }
+        h2 { color: var(--primary); font-size: 1.6rem; font-weight: 700; padding-bottom: 0.5rem; border-bottom: 3px solid var(--sky-blue); margin-bottom: 1.75rem; }
         
         .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 1rem; }
         .skill-card { 
-            background: var(--dark-bg); 
-            color: var(--text-main);
-            padding: 1rem; 
+            background: var(--sky-light); 
+            color: var(--sky-blue);
+            padding: 0.85rem; 
             text-align: center; 
-            border-radius: 10px; 
-            font-weight: 600; 
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
+            border-radius: 8px; 
+            font-weight: 700; 
+            font-size: 0.95rem;
+            border: 1px solid #bae6fd;
+            transition: all 0.2s ease;
         }
         .skill-card:hover { 
-            border-color: var(--emerald);
-            color: var(--emerald);
-            box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+            background: var(--sky-blue);
+            color: white;
+            transform: translateY(-2px);
         }
         
         .project-card { 
-            background: var(--dark-bg);
-            padding: 1.75rem; 
-            border-radius: 12px;
-            border: 1px solid var(--border);
+            background: #f8fafc;
+            padding: 1.5rem; 
+            border-radius: 10px;
+            border-left: 5px solid var(--sky-blue); 
             margin-bottom: 1.5rem; 
         }
-        .project-card h3 { color: var(--royal-blue); margin-bottom: 0.75rem; font-size: 1.3rem; }
-        .project-card p { color: var(--text-muted); }
+        .project-card h3 { color: var(--text-dark); font-size: 1.3rem; margin-bottom: 0.6rem; }
         
         .contact-btn { 
             display: inline-block; 
-            background: var(--emerald); 
-            color: var(--dark-bg); 
-            padding: 1rem 2.5rem; 
+            background: var(--sky-blue); 
+            color: white; 
+            padding: 0.85rem 2.2rem; 
             text-decoration: none; 
             font-weight: 700; 
             border-radius: 8px; 
             margin-top: 1rem; 
-            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.2);
+            transition: all 0.2s ease;
         }
         .contact-btn:hover { 
-            background: #34d399;
-            box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+            background: #0369a1;
+            transform: translateY(-2px);
         }
         
-        footer { text-align: center; padding: 4rem 2rem; color: var(--text-muted); font-size: 0.9rem; }
+        footer { text-align: center; padding: 3rem 2rem; color: #64748b; font-size: 0.9rem; }
     </style>
 </head>
 <body>
@@ -104,7 +108,7 @@
             <div class="skills-grid">
                 <div class="skill-card">SQL</div>
                 <div class="skill-card">Power BI</div>
-                <div class="skill-card">Excel</div>
+                <div class="skill-card">Excel (Advanced)</div>
                 <div class="skill-card">Power Query</div>
                 <div class="skill-card">DAX</div>
                 <div class="skill-card">Data Modeling</div>
