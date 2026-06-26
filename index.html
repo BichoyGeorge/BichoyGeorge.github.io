@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bishoy George | Data Analyst</title>
+    <title>Bishoy George | Senior Data Analyst</title>
     <style>
         :root {
             --bg-main: #f0f4f8;
@@ -26,19 +26,14 @@
         }
         
         .header-container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
         
-        /* القسم الأيسر: زر الـ CV الأنيق والأيقونة التفاعلية */
-        .header-left {
-            flex: 1;
-            display: flex;
-            justify-content: flex-start;
-        }
+        .header-left { flex: 1; display: flex; justify-content: flex-start; }
         
         .cv-download-btn {
             display: flex;
@@ -48,7 +43,7 @@
             color: white;
             text-decoration: none;
             padding: 0.45rem 0.9rem;
-            border-radius: 20px; /* حواف دائرية ناعمة جداً تماثل واجهات مستخدم الهواتف الذكية */
+            border-radius: 20px;
             font-size: 0.8rem;
             font-weight: 600;
             letter-spacing: 0.5px;
@@ -56,7 +51,6 @@
             transition: all 0.25s ease;
         }
         
-        /* رسم أيقونة تحميل سهم لأسفل بالـ CSS النظيف بدون مكتبات خارجية تبطئ الموقع */
         .download-icon {
             width: 12px;
             height: 12px;
@@ -66,133 +60,53 @@
             position: relative;
             margin-bottom: 2px;
         }
-        .download-icon::after {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: 3px;
-            width: 2px;
-            height: 8px;
-            background: white;
-        }
-        .download-icon::before {
-            content: '';
-            position: absolute;
-            top: 2px;
-            left: 1px;
-            width: 4px;
-            height: 4px;
-            border-bottom: 2px solid white;
-            border-right: 2px solid white;
-            transform: rotate(45deg);
-        }
+        .download-icon::after { content: ''; position: absolute; top: -2px; left: 3px; width: 2px; height: 8px; background: white; }
+        .download-icon::before { content: ''; position: absolute; top: 2px; left: 1px; width: 4px; height: 4px; border-bottom: 2px solid white; border-right: 2px solid white; transform: rotate(45deg); }
 
-        .cv-download-btn:hover {
-            background: white;
-            color: var(--sky-blue);
-            border-color: white;
-            transform: translateY(-1px);
-        }
-        .cv-download-btn:hover .download-icon,
-        .cv-download-btn:hover .download-icon::after,
-        .cv-download-btn:hover .download-icon::before {
-            border-color: var(--sky-blue);
-            background-color: var(--sky-blue);
-        }
+        .cv-download-btn:hover { background: white; color: var(--sky-blue); border-color: white; transform: translateY(-1px); }
+        .cv-download-btn:hover .download-icon, .cv-download-btn:hover .download-icon::after, .cv-download-btn:hover .download-icon::before { border-color: var(--sky-blue); background-color: var(--sky-blue); }
         
-        .header-text {
-            flex: 2;
-            text-align: center;
-        }
-
+        .header-text { flex: 2; text-align: center; }
         header h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: 0.1rem; color: #ffffff; text-shadow: 0 1px 3px rgba(0,0,0,0.1); }
         header p { font-size: 0.85rem; color: #e0f2fe; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
         
-        .header-right {
-            flex: 1;
-            display: flex;
-            justify-content: flex-end;
-        }
+        .header-right { flex: 1; display: flex; justify-content: flex-end; }
+        .profile-img { width: 75px; height: 75px; border-radius: 10px; object-fit: cover; border: 2px solid #ffffff; box-shadow: 0 3px 8px rgba(0,0,0,0.15); }
         
-        .profile-img {
-            width: 75px;
-            height: 75px;
-            border-radius: 10px;
-            object-fit: cover;
-            border: 2px solid #ffffff;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
-        }
+        .container { max-width: 1000px; margin: 2rem auto; padding: 0 1.5rem; }
         
-        .container { max-width: 900px; margin: 2rem auto; padding: 0 1.5rem; }
-        
-        section { 
-            background: var(--bg-card); 
-            padding: 2.5rem; 
-            margin-bottom: 2rem; 
-            border-radius: 14px; 
-            border: 1px solid var(--border);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-        }
+        section { background: var(--bg-card); padding: 2.5rem; margin-bottom: 2rem; border-radius: 14px; border: 1px solid var(--border); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); }
         
         h2 { color: var(--primary); font-size: 1.6rem; font-weight: 700; padding-bottom: 0.5rem; border-bottom: 3px solid var(--sky-blue); margin-bottom: 1.75rem; }
         
         .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 1rem; }
-        .skill-card { 
-            background: var(--sky-light); 
-            color: var(--sky-blue);
-            padding: 0.85rem; 
-            text-align: center; 
-            border-radius: 8px; 
-            font-weight: 700; 
-            font-size: 0.95rem;
-            border: 1px solid #bae6fd;
-            transition: all 0.2s ease;
-        }
-        .skill-card:hover { 
-            background: var(--sky-blue);
-            color: white;
-            transform: translateY(-2px);
-        }
+        .skill-card { background: var(--sky-light); color: var(--sky-blue); padding: 0.85rem; text-align: center; border-radius: 8px; font-weight: 700; font-size: 0.95rem; border: 1px solid #bae6fd; transition: all 0.2s ease; }
+        .skill-card:hover { background: var(--sky-blue); color: white; transform: translateY(-2px); }
         
-        .project-card { 
-            background: #f8fafc;
-            padding: 1.5rem; 
-            border-radius: 10px;
-            border-left: 5px solid var(--sky-blue); 
-            margin-bottom: 1.5rem; 
-        }
-        .project-card h3 { color: var(--text-dark); font-size: 1.3rem; margin-bottom: 0.6rem; }
+        .project-card { background: #f8fafc; padding: 2rem; border-radius: 10px; border-left: 5px solid var(--sky-blue); margin-bottom: 2rem; border-top: 1px solid #e2e8f0; border-right: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; }
+        .project-card h3 { color: var(--text-dark); font-size: 1.4rem; margin-bottom: 0.4rem; font-weight: 700; }
+        .project-tool { display: inline-block; background: #f1f5f9; color: #475569; font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 4px; margin-bottom: 1rem; border: 1px solid #cbd5e1; }
         
-        .btn-container { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem; }
+        .project-img { width: 100%; max-height: 450px; object-fit: contain; border-radius: 8px; margin: 12px 0; border: 1px solid var(--border); background: #fff; }
+        .project-pdf-embed { width: 100%; height: 500px; border: 1px solid var(--border); border-radius: 8px; margin: 12px 0; }
+
+        .project-section-title { font-size: 0.95rem; font-weight: 700; color: var(--primary); margin-top: 1rem; margin-bottom: 0.25rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        .project-desc { font-size: 0.95rem; color: #475569; margin-bottom: 0.75rem; }
+
+        .insights-list { padding-left: 20px; margin-top: 0.5rem; }
+        .insights-list li { margin-bottom: 8px; font-size: 0.95rem; color: var(--text-main); }
         
-        .contact-btn { 
-            display: inline-block; 
-            background: var(--sky-blue); 
-            color: white; 
-            padding: 0.85rem 2rem; 
-            text-decoration: none; 
-            font-weight: 700; 
-            border-radius: 8px; 
-            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.2);
-            transition: all 0.2s ease;
-        }
+        .btn-container { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
+        .contact-btn { display: inline-block; background: var(--sky-blue); color: white; padding: 0.85rem 2rem; text-decoration: none; font-weight: 700; border-radius: 8px; box-shadow: 0 4px 12px rgba(2, 132, 199, 0.2); transition: all 0.2s ease; }
         .contact-btn:hover { background: #0369a1; transform: translateY(-2px); }
-        
-        .project-link {
-            display: inline-block;
-            margin-top: 0.75rem;
-            color: var(--sky-blue);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-        }
-        .project-link:hover { text-decoration: underline; }
         
         @media (max-width: 480px) {
             header h1 { font-size: 1.3rem; }
             header p { font-size: 0.75rem; }
             .cv-download-btn { padding: 0.35rem 0.75rem; font-size: 0.7rem; }
             .profile-img { width: 65px; height: 65px; }
+            section { padding: 1.5rem; }
+            .project-pdf-embed { height: 350px; }
         }
         
         footer { text-align: center; padding: 3rem 2rem; color: #64748b; font-size: 0.9rem; }
@@ -202,21 +116,16 @@
 
     <header>
         <div class="header-container">
-            <!-- الشمال: كبسولة تحميل الـ CV متناهية الأناقة -->
             <div class="header-left">
-                <a href="#" class="cv-download-btn" title="Download CV">
+                <a href="Bishoy_George_CV.pdf" class="cv-download-btn" title="Download CV" download>
                     <span class="download-icon"></span>
                     <span>CV</span>
                 </a>
             </div>
-            
-            <!-- الوسط: اسمك ولقبك -->
             <div class="header-text">
                 <h1>Bishoy George</h1>
                 <p>Data Analyst</p>
             </div>
-            
-            <!-- اليمين: صورتك المربعة الاحترافية -->
             <div class="header-right">
                 <img src="Bisho.jpg" alt="Bishoy George" class="profile-img">
             </div>
@@ -226,7 +135,7 @@
     <div class="container">
         <section id="about">
             <h2>About Me</h2>
-            <p>Results-driven Data Analyst with a solid background in data architecture and business intelligence. Experienced in transforming complex corporate datasets into strategic, actionable insights that optimize performance and efficiency. Expert at bridging the gap between advanced analytical operations and executive level decision-making.</p>
+            <p>Results-driven Data Analyst with an industrial and technical background, specializing in data architecture and business intelligence. Experienced in transforming complex multi-sector corporate datasets into strategic, actionable insights that optimize operational efficiency and revenue streams. Expert at leveraging SQL, Power Query, and Power BI to bridge analytical complexity with executive level decision-making.</p>
         </section>
 
         <section id="skills">
@@ -238,21 +147,136 @@
                 <div class="skill-card">Power Query</div>
                 <div class="skill-card">DAX</div>
                 <div class="skill-card">Data Modeling</div>
+                <div class="skill-card">Looker Studio</div>
+                <div class="skill-card">ETL Pipelines</div>
             </div>
         </section>
 
         <section id="projects">
             <h2>Featured Projects</h2>
+            
             <div class="project-card">
-                <h3>Performance Tracking & Analytics Dashboard</h3>
-                <p>Developed an end-to-end business intelligence solution incorporating SQL data extraction and advanced Power BI visualization. Designed a fully interactive dashboard utilizing complex DAX calculations to track representative performance and provide automated management insights.</p>
-                <a href="#" class="project-link" target="_blank">View Live Dashboard →</a>
+                <h3>Hospitality & Hotel Booking Performance</h3>
+                <span class="project-tool">Looker Studio</span>
+                <iframe src="Hotels Reservations Dataset.pdf" class="project-pdf-embed"></iframe>
+                <div class="project-section-title">Business Objective</div>
+                <p class="project-desc">Analyzed comprehensive hotel reservation data to optimize revenue management, evaluate guest preferences, and track cancellation behaviors for data-driven hospitality operations.</p>
+                <div class="project-section-title">Key Insights & Analytics</div>
+                <ul class="insights-list">
+                    <li><strong>Financial Impact:</strong> Captured $3.7M in gross revenue; isolated cancellations to reveal a true net revenue of $2.4M.</li>
+                    <li><strong>Cancellation Analytics:</strong> Identified ~12K cancellations, highlighting a critical need to adjust booking dynamic parameters and strict cancel window policies.</li>
+                    <li><strong>Capacity & Volume:</strong> Monitored 36.5K+ total check-ins, serving 70K adults and 4K children.</li>
+                    <li><strong>Inventory Performance:</strong> <em>Room Type 1</em> emerged as the core driver with 28K+ bookings, while <em>Meal Plan 1</em> completely dominated guest food choices at 77%.</li>
+                    <li><strong>Acquisition Channels:</strong> Digital channels led acquisition, with 64.92% of bookings coming from Online segments, compared to 29.39% Offline.</li>
+                    <li><strong>Seasonality Analysis:</strong> Trend analysis across a 2-year cycle pinpointed October 2018 as the historical peak for visitor volume and revenue generation.</li>
+                </ul>
             </div>
+
             <div class="project-card">
-                <h3>Automated ETL Data Pipeline</h3>
-                <p>Engineered dynamic data processing logic via Excel Power Query and Power Pivot to automate raw data ingestion, streamlining weekly reporting and drastically reducing manual preparation hours.</p>
-                <a href="#" class="project-link" target="_blank">View GitHub Repository →</a>
+                <h3>E-Commerce Perfume Market Analysis</h3>
+                <span class="project-tool">Power BI & Power Query (Advanced ETL)</span>
+                <img src="Perfuem Data.png" alt="Perfume Analytics Dashboard" class="project-img">
+                <div class="project-section-title">Advanced ETL & Data Engineering</div>
+                <p class="project-desc">Engineered an end-to-end data pipeline from raw Kaggle data. Handled intensive string-to-numeric transformations on mixed local currency formats (e.g., SAR, ر.س) using advanced Power Query functions: <code>Text.Select(Price, {"0".."9", "."})</code> followed by precise column splitting to clear trailing decimals. Cleansed structural categorical blanks by strategically injecting "Unisex" as a logical neutral value.</p>
+                <div class="project-section-title">Key Insights & Analytics</div>
+                <ul class="insights-list">
+                    <li><strong>Market Scope:</strong> Mapped 24,300 unique products across 28 major retail stores, representing an aggregated net discounted market value of 2.66M SAR.</li>
+                    <li><strong>Inventory Optimization:</strong> "Al-Khabeer Al-Ateer" store commanded market share with the largest product catalog exceeding 5,800 active items.</li>
+                    <li><strong>Product Segments:</strong> Men's fragrances showed higher distribution volume compared to Women's and Unisex variants. The "Perfume" classification captures over 23K items, dwarfing "Cosmetics" which holds only 352 products.</li>
+                    <li><strong>Premium Pricing Tier:</strong> Isolated the highest-value luxury asset in inventory: "Parfums de Marly Pegasus Set", retailing at a premium price of 5,230 SAR.</li>
+                </ul>
             </div>
+
+            <div class="project-card">
+                <h3>Enterprise E-Commerce Sales Architecture</h3>
+                <span class="project-tool">Power BI & DAX (RLS Architecture)</span>
+                <iframe src="E-Commerce Sales Store.pdf" class="project-pdf-embed"></iframe>
+                <div class="project-section-title">Architecture & Security</div>
+                <p class="project-desc">Designed an interactive 4-page analytical report (Welcome, Visual Analytics, Data Matrix, Contextual Tooltips). Implemented programmatic Row-Level Security (RLS) on the Category dimension to securely restrict data access across different department managers based on organizational permissions.</p>
+                <div class="project-section-title">Key Insights & Analytics</div>
+                <ul class="insights-list">
+                    <li><strong>Territory Distribution:</strong> The West region acts as the primary geographic catalyst, driving 31.58% of total transactional volume.</li>
+                    <li><strong>Category & Temporal Trends:</strong> Technical products stood out as the top revenue generation tier. 2017 recorded peak performance, securing $730K in net sales.</li>
+                    <li><strong>Performance Drivers:</strong> "Andrea" emerged as the premier account executive, surpassing $725K in managed sales volume.</li>
+                    <li><strong>Logistics & Customers:</strong> "Standard Class" serves as the heavily favored logistics mode. "Sean Miller" was identified as the highest lifetime-value customer within the Top 10 customer matrix.</li>
+                </ul>
+            </div>
+
+            <div class="project-card">
+                <h3>Amazon Global Sales Analytics</h3>
+                <span class="project-tool">Power BI & Data Modeling</span>
+                <iframe src="Amazon Data Sales.pdf" class="project-pdf-embed"></iframe>
+                <div class="project-section-title">Business Objective</div>
+                <p class="project-desc">Evaluated a multi-year global Amazon dataset (2010–2017) to uncover cross-border transactional dynamics across diverse fulfillment types.</p>
+                <div class="project-section-title">Key Insights & Analytics</div>
+                <ul class="insights-list">
+                    <li><strong>Macro Metrics:</strong> Formulated analytics over 513K units sold, converting a $93.18M cost of goods sold into $137M+ total revenue, generating a net profit margin exceeding $44M.</li>
+                    <li><strong>Geographic Anchors:</strong> Sub-Saharan Africa represented the highest regional financial footprint, surpassing $39.5M in sales.</li>
+                    <li><strong>Product Categories:</strong> "Cosmetics" ranked as the premier product category, generating a concentrated $37M in sales volume.</li>
+                    <li><strong>Fulfillment Breakdown:</strong> Brick-and-mortar operations led overall channel performance, with Offline sales contributing 57.59% compared to 42.41% generated via Digital Online storefronts.</li>
+                </ul>
+            </div>
+
+            <div class="project-card">
+                <h3>Epidemiological Analysis of COVID-19 in Egypt</h3>
+                <span class="project-tool">Power BI & Time-Series Analysis</span>
+                <iframe src="Covid 19 Egypt Data.pdf" class="project-pdf-embed"></iframe>
+                <div class="project-section-title">Business Objective</div>
+                <p class="project-desc">Conducted a specialized time-series analysis detailing the transmission velocity and mortality metrics of COVID-19 within Egypt from initial outbreak inception (Feb 2020) through peak waves (Dec 2020).</p>
+                <div class="project-section-title">Key Insights & Analytics</div>
+                <ul class="insights-list">
+                    <li><strong>Cumulative Metrics:</strong> Tracked an aggregate volume of ~128K confirmed positive cases and 7,209 registered mortalities.</li>
+                    <li><strong>Peak Critical Thresholds:</strong> Isolated June 19, 2020, as the single day with the highest infection rate (1,774 new cases), and June 15, 2020, as the highest single-day mortality peak (97 deaths).</li>
+                    <li><strong>Density Metrics:</strong> Identified June as the most severe month for transmission, reaching an incidence density of 423 cases per million citizens.</li>
+                    <li><strong>Statistical Correlation:</strong> Mathematical tracking confirmed a strong positive correlation between daily positive test results and mortality metrics.</li>
+                </ul>
+            </div>
+
+            <div class="project-card">
+                <h3>Cinematic Media & Production Analytics</h3>
+                <span class="project-tool">Power BI & ETL Pipeline</span>
+                <iframe src="16K Movies Dataset.pdf" class="project-pdf-embed"></iframe>
+                <div class="project-section-title">Business Objective</div>
+                <p class="project-desc">Constructed an analytical interface over historic cinematic records (1970–2024), extracting, transforming, and loading raw data via Power Query to map production output and director performance metrics.</p>
+                <div class="project-section-title">Key Insights & Analytics</div>
+                <ul class="insights-list">
+                    <li><strong>Data Overview:</strong> Extracted metrics across 1,000 top-tier cinematic productions encompassing 1,654 distinct genre tags.</li>
+                    <li><strong>Top Tier Ratings:</strong> Isolated "Hole in My Heart," "Surviving Eden," and "Turk 182" as the elite productions securing flawless 10-star public ratings.</li>
+                    <li><strong>Volume Leaders:</strong> Crowned Woody Allen as the most prolific industry figure, tracking an output of 46 written and 50 directed assets.</li>
+                    <li><strong>Temporal Clusters & Genres:</strong> 2014 was identified as the peak production year with 704 films released. Drama held the highest market share with 1,514 total listings.</li>
+                </ul>
+            </div>
+
+            <div class="project-card">
+                <h3>Academic Performance & Demographic Correlations</h3>
+                <span class="project-tool">Power BI & Advanced Analytics</span>
+                <iframe src="Students Performance Analysis.pdf" class="project-pdf-embed"></iframe>
+                <div class="project-section-title">Business Objective</div>
+                <p class="project-desc">Analyzed institutional high school metrics to discover correlations between student demographics, parental involvement, and overall grade point averages (GPA).</p>
+                <div class="project-section-title">Key Insights & Analytics</div>
+                <ul class="insights-list">
+                    <li><strong>Performance Critical Status:</strong> Calculated a global sample GPA of 1.91, falling short of the standard passing threshold of 2.00 due to a larger volume of failing marks relative to passing achievements.</li>
+                    <li><strong>Attendance Elasticity:</strong> Discovered a strong inverse correlation between student absenteeism and cumulative GPA, indicating a need for stricter institutional attendance caps.</li>
+                    <li><strong>Socio-Economic Factors:</strong> Proved that active parental support directly leads to better student grades, while the absolute baseline education level of parents showed no statistical variance on a student's capacity to earn high grades.</li>
+                    <li><strong>Grade Distributions:</strong> Only a minor 4.48% segment achieved elite "A" status, while over 50% of the sample clustered around the "F" tier, with the remaining bulk residing between "C" and "D".</li>
+                </ul>
+            </div>
+
+            <div class="project-card">
+                <h3>Global Demographic & Population Density Analysis</h3>
+                <span class="project-tool">Power BI & Geospatial Analysis</span>
+                <iframe src="World Population by Country 2020.pdf" class="project-pdf-embed"></iframe>
+                <div class="project-section-title">Business Objective</div>
+                <p class="project-desc">Mapped demographic distributions, annual net shifts, and spatial density dynamics across international borders using macro data from 2020.</p>
+                <div class="project-section-title">Key Insights & Analytics</div>
+                <ul class="insights-list">
+                    <li><strong>Scale of Analysis:</strong> Evaluated geospatial indicators across 235 distinct countries and regional territories.</li>
+                    <li><strong>Demographic Giants:</strong> Identified 14 countries whose populations surpass the 100M threshold. China held the global lead at 1.4B+ residents, representing 18.5% of the total global population footprint.</li>
+                    <li><strong>Density & Growth Anomalies:</strong> Bangladesh recorded the highest population density acceleration, tracking at 1,265 individuals per square mile. India demonstrated the highest net nominal annual growth, adding 14M residents.</li>
+                    <li><strong>Urbanization Split:</strong> Global urbanization metrics showed a clear division: 24.36% of the population resides in developed urban centers, compared to 75.64% living within rural and non-urban areas.</li>
+                </ul>
+            </div>
+
         </section>
 
         <section id="contact">
