@@ -18,28 +18,30 @@
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body { background-color: var(--bg-main); color: var(--text-main); line-height: 1.7; }
         
+        /* تقليل حجم الهيدر الأزرق ليكون أنيق ومضغوط */
         header { 
             background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); 
             color: white; 
-            padding: 4rem 1rem 3.5rem 1rem; 
+            padding: 2rem 1rem; 
             text-align: center; 
             box-shadow: 0 4px 12px rgba(2, 132, 199, 0.1);
         }
         
+        /* تعديل الصورة لتصبح مربعة بحواف ناعمة واحترافية */
         .profile-img {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            border-radius: 12px; /* حواف دائرية خفيفة جداً للمربع */
             object-fit: cover;
-            border: 4px solid #ffffff;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            margin-bottom: 1.2rem;
+            border: 3px solid #ffffff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            margin-bottom: 0.8rem;
         }
 
-        header h1 { font-size: 2.6rem; font-weight: 700; margin-bottom: 0.3rem; color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        header p { font-size: 1.2rem; color: #e0f2fe; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+        header h1 { font-size: 2.2rem; font-weight: 700; margin-bottom: 0.2rem; color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        header p { font-size: 1rem; color: #e0f2fe; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
         
-        .container { max-width: 900px; margin: 2.5rem auto; padding: 0 1.5rem; }
+        .container { max-width: 900px; margin: 2rem auto; padding: 0 1.5rem; }
         
         section { 
             background: var(--bg-card); 
