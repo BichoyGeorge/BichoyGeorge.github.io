@@ -79,9 +79,12 @@
         
         h2 { color: var(--primary); font-size: 1.6rem; font-weight: 700; padding-bottom: 0.5rem; border-bottom: 3px solid var(--sky-blue); margin-bottom: 1.75rem; }
         
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 1rem; }
-        .skill-card { background: var(--sky-light); color: var(--sky-blue); padding: 0.85rem; text-align: center; border-radius: 8px; font-weight: 700; font-size: 0.95rem; border: 1px solid #bae6fd; transition: all 0.2s ease; }
-        .skill-card:hover { background: var(--sky-blue); color: white; transform: translateY(-2px); }
+        /* Skills Categories Styling */
+        .skills-category { margin-bottom: 1.5rem; }
+        .skills-category h3 { font-size: 1.05rem; color: var(--text-dark); margin-bottom: 0.75rem; font-weight: 700; border-left: 3px solid var(--sky-blue); padding-left: 8px; }
+        .skills-grid { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.5rem; }
+        .skill-card { background: var(--sky-light); color: var(--sky-blue); padding: 0.5rem 1rem; text-align: center; border-radius: 6px; font-weight: 700; font-size: 0.85rem; border: 1px solid #bae6fd; transition: all 0.2s ease; }
+        .skill-card:hover { background: var(--sky-blue); color: white; transform: translateY(-1px); }
         
         .project-card { background: #f8fafc; padding: 2rem; border-radius: 10px; border-left: 5px solid var(--sky-blue); margin-bottom: 2rem; border-top: 1px solid #e2e8f0; border-right: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; }
         .project-card h3 { color: var(--text-dark); font-size: 1.4rem; margin-bottom: 0.4rem; font-weight: 700; }
@@ -123,7 +126,6 @@
     <header>
         <div class="header-container">
             <div class="header-left">
-                <!-- تم تعديل السطر ليعرض الملف في تبويب جديد مباشرة -->
                 <a href="Bishoy_George_CV.pdf" class="cv-download-btn" title="View CV" target="_blank">
                     <span class="download-icon"></span>
                     <span>CV</span>
@@ -145,17 +147,55 @@
             <p>Results-driven Data Analyst with an industrial and technical background, specializing in data architecture and business intelligence. Experienced in transforming complex multi-sector corporate datasets into strategic, actionable insights that optimize operational efficiency and revenue streams. Expert at leveraging SQL, Power Query, and Power BI to bridge analytical complexity with executive level decision-making.</p>
         </section>
 
+        <!-- تحديث قسم الـ Skills بالتقسيمات الاحترافية المأخوذة من الـ CV مباشرة -->
         <section id="skills">
-            <h2>Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-card">SQL</div>
-                <div class="skill-card">Power BI</div>
-                <div class="skill-card">Excel (Advanced)</div>
-                <div class="skill-card">Power Query</div>
-                <div class="skill-card">DAX</div>
-                <div class="skill-card">Data Modeling</div>
-                <div class="skill-card">Looker Studio</div>
-                <div class="skill-card">ETL Pipelines</div>
+            <h2>Technical Skills & Competencies</h2>
+            
+            <div class="skills-category">
+                <h3>Data Visualization & Reporting</h3>
+                <div class="skills-grid">
+                    <div class="skill-card">Power BI</div>
+                    <div class="skill-card">Tableau</div>
+                    <div class="skill-card">Looker Studio</div>
+                    <div class="skill-card">Excel (Advanced)</div>
+                    <div class="skill-card">SSRS</div>
+                    <div class="skill-card">SAP BO</div>
+                    <div class="skill-card">SAP InfoView</div>
+                    <div class="skill-card">Denodo Studio</div>
+                </div>
+            </div>
+
+            <div class="skills-category">
+                <h3>Programming, Databases & Analytics</h3>
+                <div class="skills-grid">
+                    <div class="skill-card">SQL Server</div>
+                    <div class="skill-card">Oracle SQL</div>
+                    <div class="skill-card">Denodo VQL</div>
+                    <div class="skill-card">Python</div>
+                    <div class="skill-card">DAX</div>
+                    <div class="skill-card">Power Pivot</div>
+                    <div class="skill-card">SSAS</div>
+                    <div class="skill-card">OLAP Cube</div>
+                    <div class="skill-card">Data Modeling</div>
+                </div>
+            </div>
+
+            <div class="skills-category">
+                <h3>ETL & Data Management</h3>
+                <div class="skills-grid">
+                    <div class="skill-card">Power Query</div>
+                    <div class="skill-card">SSIS</div>
+                    <div class="skill-card">Data Wrangling</div>
+                    <div class="skill-card">Data Warehousing</div>
+                    <div class="skill-card">Oracle ERP</div>
+                </div>
+            </div>
+
+            <div class="skills-category">
+                <h3>Project & Collaboration Tools</h3>
+                <div class="skills-grid">
+                    <div class="skill-card">Jira</div>
+                </div>
             </div>
         </section>
 
