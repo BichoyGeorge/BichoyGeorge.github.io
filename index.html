@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bishoy George | Data Analyst</title>
+    <!-- استدعاء أيقونات FontAwesome عشان علامة الواتساب والفيسبوك والإيميل -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --bg-main: #fbfbf4; /* الخلفية الكريمي المريحة */
@@ -30,7 +32,7 @@
             padding: 0 1rem;
         }
 
-        /* الهيدر الجديد - الاسم والزرار في كارت */
+        /* الهيدر النظيف */
         header { 
             max-width: 800px;
             margin: 2rem auto 1rem auto;
@@ -59,21 +61,52 @@
             padding-bottom: 2px;
         }
 
-        /* برواز الصورة المنفصل تماماً بالأسفل */
+        /* حاوية الصورة الكبيرة مع النجوم والأشكال العايمة */
         .profile-frame-container {
             max-width: 800px;
-            margin: 1rem auto 2rem auto;
+            margin: 3rem auto;
             text-align: center;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-wrapper {
+            position: relative;
+            display: inline-block;
+            padding: 20px;
         }
 
         .profile-img-frame { 
-            width: 150px; 
-            height: 150px; 
+            width: 200px; 
+            height: 200px; 
             border-radius: 16px; 
             object-fit: cover; 
             border: var(--border-width) solid var(--text-dark);
-            box-shadow: 6px 6px 0px var(--text-dark);
+            box-shadow: 8px 8px 0px var(--text-dark);
             background: #fff;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* الأشكال والنجوم المحيطة بالصورة */
+        .decor-shape {
+            position: absolute;
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            z-index: 1;
+            animation: floatAnim 3s ease-in-out infinite alternate;
+        }
+        
+        .star-1 { top: -10px; left: -10px; animation-delay: 0s; color: var(--accent-yellow); }
+        .star-2 { bottom: 10px; right: -15px; animation-delay: 0.5s; color: var(--accent-blue); }
+        .shape-3 { top: 50%; left: -30px; transform: translateY(-50%); font-size: 1.5rem; }
+        .shape-4 { top: -15px; right: 0px; animation-delay: 0.8s; color: var(--accent-green); }
+
+        @keyframes floatAnim {
+            0% { transform: translateY(0) scale(1) rotate(0deg); }
+            100% { transform: translateY(-10px) scale(1.1) rotate(15deg); }
         }
 
         .cv-download-btn {
@@ -144,7 +177,7 @@
             gap: 8px;
         }
 
-        /* تنسيق كروت الخبرة والتدريب */
+        /* كروت الخبرة والتدريب */
         .experience-card, .training-card {
             background: var(--bg-card);
             border: var(--border-width) solid var(--text-dark);
@@ -190,7 +223,7 @@
             font-size: 0.95rem;
         }
 
-        /* تنسيق قسم الهوايات */
+        /* الهوايات والبطولات */
         .personal-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -225,7 +258,7 @@
             font-weight: 500;
         }
 
-        /* المهارات */
+        /* المهارات التقنية */
         .skills-category { 
             background: var(--bg-card);
             border: var(--border-width) solid var(--text-dark);
@@ -262,7 +295,7 @@
             color: white; 
         }
 
-        /* المشاريع */
+        /* كروت المشاريع */
         .project-card { 
             background: var(--bg-card); 
             padding: 1.5rem; 
@@ -285,18 +318,16 @@
             margin-bottom: 1.25rem; 
         }
 
+        /* جعل كل المهارات داخل المشاريع تأخذ نفس لون الـ Accent Blue */
         .project-tool { 
             display: inline-block; 
-            background: var(--bg-card); 
+            background: var(--accent-blue); 
+            color: var(--text-dark);
             font-size: 0.75rem; 
             font-weight: 700; 
             padding: 0.25rem 0.75rem; 
             border-radius: 20px; 
             border: 2px solid var(--text-dark); 
-        }
-
-        .project-tool.highlight { 
-            background: var(--accent-blue); 
         }
         
         .project-img { 
@@ -348,6 +379,7 @@
             font-size: 0.95rem; 
         }
         
+        /* منطقة التواصل المحدثة */
         .contact-section {
             background: var(--bg-card);
             border: var(--border-width) solid var(--text-dark);
@@ -358,23 +390,72 @@
             margin-top: 3rem;
         }
 
+        .contact-info-list {
+            list-style: none;
+            margin: 1.5rem 0;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .contact-info-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .contact-info-list a {
+            color: var(--text-dark);
+            text-decoration: none;
+            border-bottom: 2px solid var(--text-dark);
+        }
+
+        .social-buttons-flex {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
         .contact-btn { 
-            display: inline-block; 
+            display: inline-flex; 
+            align-items: center;
+            gap: 8px;
             background: var(--text-dark); 
             color: white; 
-            padding: 0.75rem 2rem; 
+            padding: 0.75rem 1.5rem; 
             text-decoration: none; 
             font-weight: 700; 
             border-radius: 25px; 
             border: var(--border-width) solid var(--text-dark);
             transition: all 0.15s ease;
-            margin-top: 1rem;
         }
         .contact-btn:hover { 
             background: var(--bg-main); 
             color: var(--text-dark);
             box-shadow: 4px 4px 0px var(--text-dark);
             transform: translate(-2px, -2px);
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+            color: black;
+        }
+        .whatsapp-btn:hover {
+            background: var(--bg-main);
+            color: #25D366;
+        }
+
+        .facebook-btn {
+            background: #1877F2;
+            color: white;
+        }
+        .facebook-btn:hover {
+            background: var(--bg-main);
+            color: #1877F2;
         }
         
         footer { 
@@ -388,12 +469,13 @@
         @media (max-width: 480px) {
             header { flex-direction: column; gap: 15px; text-align: center; }
             .project-images-grid { grid-template-columns: 1fr; }
+            .social-buttons-flex { flex-direction: column; width: 100%; }
+            .contact-btn { width: 100%; justify-content: center; }
         }
     </style>
 </head>
 <body>
 
-    <!-- الهيدر نظيف ورايق -->
     <header>
         <div class="header-text">
             <h1>Bishoy George</h1>
@@ -404,9 +486,14 @@
         </div>
     </header>
 
-    <!-- برواز الصورة المنفصل لوحده بالأسفل تماماً زي ما اتفقنا -->
     <div class="profile-frame-container">
-        <img src="Bisho.jpg" alt="Bishoy George" class="profile-img-frame">
+        <div class="image-wrapper">
+            <span class="decor-shape star-1">★</span>
+            <span class="decor-shape star-2">✦</span>
+            <span class="decor-shape shape-3">◆</span>
+            <span class="decor-shape shape-4">★</span>
+            <img src="Bisho.jpg" alt="Bishoy George" class="profile-img-frame">
+        </div>
     </div>
 
     <div class="container">
@@ -415,14 +502,14 @@
         <section id="about">
             <h2>About Me</h2>
             <div class="about-box">
-                Results-driven Data Analyst with an industrial and technical background, specializing in data architecture and business intelligence[span_1](start_span)[span_1](end_span). Experienced in transforming complex multi-sector corporate datasets into strategic, actionable insights that optimize operational efficiency and revenue streams[span_2](start_span)[span_2](end_span). Expert at leveraging SQL, Power Query, and Power BI to bridge analytical complexity with executive level decision-making[span_3](start_span)[span_3](end_span).
+                I'm <strong>Bishoy George</strong>, a 26-year-old Data Analyst with a solid background in technical and industrial education[span_0](start_span)[span_0](end_span). This unique foundation fuels my expertise in backend architecture, structural data management, and business intelligence solutions[span_1](start_span)[span_1](end_span). I specialize in translating vast and complex multi-sector organizational datasets into strategic, actionable business insights that maximize operational workflow and elevate corporate performance[span_2](start_span)[span_2](end_span). Expert at building robust ETL routines, mastering SQL query engineering, and rendering high-impact Power BI dashboard spaces to empower corporate executive actions[span_3](start_span)[span_3](end_span).
                 <div class="about-quote">
                     🤍 <span>"Guided by a philosophy of transparency and alignment—deeply appreciating pure hearts, clear intent, and authentic professional connections built on absolute integrity."</span>
                 </div>
             </div>
         </section>
 
-        <!-- قسم الخبرة المهنية المطور (Work Experience) -->
+        <!-- قسم الخبرة المهنية -->
         <section id="experience">
             <h2>Work Experience</h2>
             
@@ -447,7 +534,7 @@
                 <div class="card-header-flex">
                     <div>
                         <div class="job-title">Data Analyst</div>
-                        <div class="company-name">Orascom Investment Holding</div>
+                        <div class="company-name">Orascom Construction PLC</div>
                     </div>
                     <div class="job-date">Previous</div>
                 </div>
@@ -459,7 +546,7 @@
             </div>
         </section>
 
-        <!-- قسم التدريب والكورسات (Training & Certifications) -->
+        <!-- قسم التدريب والكورسات -->
         <section id="training">
             <h2>Training & Certifications</h2>
             
@@ -469,7 +556,7 @@
                         <div class="job-title">Advanced Business Intelligence & Data Modeling</div>
                         <div class="company-name">Professional Training Program</div>
                     </div>
-                    <div class="job-date">Certified</div>
+                    <div class="job-date">Completed</div>
                 </div>
                 <p class="project-desc" style="color: var(--text-dark); font-weight: 500;">
                     Intensive training focusing on end-to-end data pipelines, advanced DAX formulations, relational database schema management, and structural data warehousing paradigms using enterprise infrastructure tools like SSAS, Denodo VQL, and Python.
@@ -477,7 +564,7 @@
             </div>
         </section>
 
-        <!-- قسم خارج نطاق البيانات (الهوايات والبطولات) -->
+        <!-- الهوايات -->
         <section id="beyond-data">
             <h2>Beyond the Data</h2>
             <div class="personal-grid">
@@ -500,7 +587,7 @@
             </div>
         </section>
 
-        <!-- قسم المهارات -->
+        <!-- مهارات التقسيمات كـ كروت مرسومة -->
         <section id="skills">
             <h2>Technical Skills & Competencies</h2>
             
@@ -548,6 +635,7 @@
                 <h3>Project & Collaboration Tools</h3>
                 <div class="skills-grid">
                     <div class="skill-card">Jira</div>
+                    <div class="skill-card">Notion</div>
                 </div>
             </div>
         </section>
@@ -560,8 +648,8 @@
             <div class="project-card">
                 <h3>Hospitality & Hotel Booking Performance</h3>
                 <div class="project-tools-container">
-                    <span class="project-tool highlight">Excel</span>
-                    <span class="project-tool highlight">Power Query</span>
+                    <span class="project-tool">Excel</span>
+                    <span class="project-tool">Power Query</span>
                     <span class="project-tool">Looker Studio</span>
                 </div>
                 <img src="Hotels Reservations Dataset.png" alt="Hotel Booking Dashboard" class="project-img">
@@ -582,8 +670,8 @@
             <div class="project-card">
                 <h3>E-Commerce Perfume Market Analysis</h3>
                 <div class="project-tools-container">
-                    <span class="project-tool highlight">Excel</span>
-                    <span class="project-tool highlight">Power Query</span>
+                    <span class="project-tool">Excel</span>
+                    <span class="project-tool">Power Query</span>
                     <span class="project-tool">SQL</span>
                     <span class="project-tool">Power BI</span>
                 </div>
@@ -599,12 +687,13 @@
                 </ul>
             </div>
 
-            <!-- 3. E-Commerce Sales Store -->
+            <!-- 3. E-Commerce Sales Store (تم إضافة SSIS و SSAS هنا) -->
             <div class="project-card">
                 <h3>Enterprise E-Commerce Sales Architecture</h3>
                 <div class="project-tools-container">
-                    <span class="project-tool highlight">Excel</span>
-                    <span class="project-tool highlight">Power Query</span>
+                    <span class="project-tool">SSIS</span>
+                    <span class="project-tool">SSAS</span>
+                    <span class="project-tool">Excel</span>
                     <span class="project-tool">SQL</span>
                     <span class="project-tool">Power BI & DAX</span>
                 </div>
@@ -614,45 +703,63 @@
                     <img src="E-Commerce Sales Store-3.png" alt="E-Commerce Dashboard Page 3">
                     <img src="E-Commerce Sales Store-4.png" alt="E-Commerce Dashboard Page 4">
                 </div>
-                <div class="project-section-title">Architecture & Security</div>
-                <p class="project-desc">Designed an interactive 4-page analytical report (Welcome, Visual Analytics, Data Matrix, Contextual Tooltips)[span_18](start_span)[span_18](end_span). Implemented programmatic Row-Level Security (RLS) on the Category dimension to securely restrict data access across different department managers based on organizational permissions[span_19](start_span)[span_19](end_span).</p>
+                <div class="project-section-title">Architecture, BI Pipelines & Security</div>
+                <p class="project-desc">Built a comprehensive enterprise data pipeline. Leveraged **SQL Server Integration Services (SSIS)** to extract transactional logs from disparate relational tables, executing high-volume structural mappings into a centralized staging database. Developed a **SQL Server Analysis Services (SSAS)** semantic layer, deploying optimized multi-dimensional OLAP Cubes and tabular data models to minimize computational drag during active frontend execution. Designed an interactive 4-page analytical interface equipped with advanced RLS security on the category dimensions[span_18](start_span)[span_18](end_span).</p>
                 <div class="project-section-title">Key Insights & Analytics</div>
                 <ul class="insights-list">
-                    <li><strong>Territory Distribution:</strong> The West region acts as the primary geographic catalyst, driving 31.58% of total transactional volume[span_20](start_span)[span_20](end_span).</li>
-                    <li><strong>Category & Temporal Trends:</strong> Technical products stood out as the top revenue generation tier[span_21](start_span)[span_21](end_span). 2017 recorded peak performance, securing $730K in net sales[span_22](start_span)[span_22](end_span).</li>
-                    <li><strong>Performance Drivers:</strong> "Andrea" emerged as the premier account executive, surpassing $725K in managed sales volume[span_23](start_span)[span_23](end_span).</li>
-                    <li><strong>Logistics & Customers:</strong> "Standard Class" serves as the heavily favored logistics mode[span_24](start_span)[span_24](end_span). "Sean Miller" was identified as the highest lifetime-value customer within the Top 10 customer matrix[span_25](start_span)[span_25](end_span).</li>
+                    <li><strong>Territory Distribution:</strong> The West region acts as the primary geographic catalyst, driving 31.58% of total transactional volume[span_19](start_span)[span_19](end_span).</li>
+                    <li><strong>Category & Temporal Trends:</strong> Technical products stood out as the top revenue generation tier[span_20](start_span)[span_20](end_span). 2017 recorded peak performance, securing $730K in net sales[span_21](start_span)[span_21](end_span).</li>
+                    <li><strong>Performance Drivers:</strong> "Andrea" emerged as the premier account executive, surpassing $725K in managed sales volume[span_22](start_span)[span_22](end_span).</li>
+                    <li><strong>Logistics & Customers:</strong> "Standard Class" serves as the heavily favored logistics mode[span_23](start_span)[span_23](end_span). "Sean Miller" was identified as the highest lifetime-value customer within the Top 10 customer matrix[span_24](start_span)[span_24](end_span).</li>
                 </ul>
             </div>
 
-            <!-- 4. Amazon Sales Project -->
+            <!-- 4. Amazon Sales Project (تم إضافة SSRS هنا) -->
             <div class="project-card">
                 <h3>Amazon Global Sales Analytics</h3>
                 <div class="project-tools-container">
-                    <span class="project-tool highlight">Excel</span>
-                    <span class="project-tool highlight">Power Query</span>
+                    <span class="project-tool">SSRS</span>
+                    <span class="project-tool">Excel</span>
+                    <span class="project-tool">Power Query</span>
                     <span class="project-tool">SQL</span>
                     <span class="project-tool">Power BI</span>
                 </div>
                 <img src="Amazon Data Sales.png" alt="Amazon Sales Dashboard" class="project-img">
-                <div class="project-section-title">Business Objective</div>
-                <p class="project-desc">Evaluated a multi-year global Amazon dataset (2010–2017) to uncover cross-border transactional dynamics across diverse fulfillment types[span_26](start_span)[span_26](end_span).</p>
+                <div class="project-section-title">Business Objective & Enterprise Reporting</div>
+                <p class="project-desc">Evaluated a multi-year global Amazon dataset (2010–2017) to uncover cross-border transactional dynamics[span_25](start_span)[span_25](end_span). Integrated **SQL Server Reporting Services (SSRS)** alongside the dynamic Power BI layer to produce automated, pixel-perfect standard invoices and operational ledger documents distributed daily to accounting and operational departments.</p>
                 <div class="project-section-title">Key Insights & Analytics</div>
                 <ul class="insights-list">
-                    <li><strong>Macro Metrics:</strong> Formulated analytics over 513K units sold, converting a $93.18M cost of goods sold into $137M+ total revenue, generating a net profit margin exceeding $44M[span_27](start_span)[span_27](end_span).</li>
-                    <li><strong>Geographic Anchors:</strong> Sub-Saharan Africa represented the highest regional financial footprint, surpassing $39.5M in sales[span_28](start_span)[span_28](end_span).</li>
-                    <li><strong>Product Categories:</strong> "Cosmetics" ranked as the premier product category, generating a concentrated $37M in sales volume[span_29](start_span)[span_29](end_span).</li>
-                    <li><strong>Fulfillment Breakdown:</strong> Brick-and-mortar operations led overall channel performance, with Offline sales contributing 57.59% compared to 42.41% generated via Digital Online storefronts[span_30](start_span)[span_30](end_span).</li>
+                    <li><strong>Macro Metrics:</strong> Formulated analytics over 513K units sold, converting a $93.18M cost of goods sold into $137M+ total revenue, generating a net profit margin exceeding $44M[span_26](start_span)[span_26](end_span).</li>
+                    <li><strong>Geographic Anchors:</strong> Sub-Saharan Africa represented the highest regional financial footprint, surpassing $39.5M in sales[span_27](start_span)[span_27](end_span).</li>
+                    <li><strong>Product Categories:</strong> "Cosmetics" ranked as the premier product category, generating a concentrated $37M in sales volume[span_28](start_span)[span_28](end_span).</li>
+                    <li><strong>Fulfillment Breakdown:</strong> Brick-and-mortar operations led overall channel performance, with Offline sales contributing 57.59% compared to 42.41% generated via Digital Online storefronts[span_29](start_span)[span_29](end_span).</li>
                 </ul>
             </div>
-
         </section>
 
-        <!-- كارت التواصل -->
+        <!-- منطقة التواصل الكاملة -->
         <section class="contact-section">
             <h2>Get In Touch</h2>
-            <p>Interested in collaborating or discussing data analytics opportunities?</p>
-            <a href="#" class="contact-btn">Connect on LinkedIn</a>
+            <p>Interested in collaborating or discussing data analytics opportunities? Let's connect!</p>
+            
+            <ul class="contact-info-list">
+                <li><i class="fa-solid fa-envelope"></i> <a href="mailto:bishoygeorge172000@gmail.com">bishoygeorge172000@gmail.com</a></li>
+                <li><i class="fa-solid fa-phone"></i> <span>01224731057</span></li>
+            </ul>
+
+            <div class="social-buttons-flex">
+                <a href="https://wa.me/201224731057" class="contact-btn whatsapp-btn" target="_blank">
+                    <i class="fa-brands fa-whatsapp" style="font-size: 1.2rem;"></i> WhatsApp Chat
+                </a>
+
+                <a href="https://www.facebook.com/share/1HNmX3v45e/" class="contact-btn facebook-btn" target="_blank">
+                    <i class="fa-brands fa-facebook" style="font-size: 1.2rem;"></i> Facebook Profile
+                </a>
+
+                <a href="#" class="contact-btn">
+                    <i class="fa-brands fa-linkedin" style="font-size: 1.2rem;"></i> Connect on LinkedIn
+                </a>
+            </div>
         </section>
     </div>
 
