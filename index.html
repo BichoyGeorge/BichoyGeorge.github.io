@@ -6,12 +6,13 @@
     <title>Bishoy George | Data Analyst</title>
     <style>
         :root {
-            --bg-main: #fbfbf4; /* نفس الخلفية الكريمي المريحة من الصور */
+            --bg-main: #fbfbf4; /* الخلفية الكريمي المريحة */
             --bg-card: #ffffff;
             --text-dark: #000000;
             --text-muted: #4a4a4a;
             --accent-blue: #bae6fd;
             --accent-green: #bbf7d0;
+            --accent-yellow: #fef08a;
             --border-width: 2.5px;
         }
 
@@ -29,7 +30,7 @@
             padding: 0 1rem;
         }
 
-        /* المكونات العلوية والهيدر على استايل نيو-بروتاليزم */
+        /* الهيدر الجديد - الاسم والزرار في كارت */
         header { 
             max-width: 800px;
             margin: 2rem auto 1rem auto;
@@ -41,7 +42,6 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            position: relative;
         }
 
         .header-text h1 { 
@@ -59,18 +59,21 @@
             padding-bottom: 2px;
         }
 
-        .profile-container {
-            display: flex;
-            align-items: center;
-            gap: 12px;
+        /* برواز الصورة المنفصل تماماً بالأسفل */
+        .profile-frame-container {
+            max-width: 800px;
+            margin: 1rem auto 2rem auto;
+            text-align: center;
         }
 
-        .profile-img { 
-            width: 70px; 
-            height: 70px; 
-            border-radius: 12px; 
+        .profile-img-frame { 
+            width: 150px; 
+            height: 150px; 
+            border-radius: 16px; 
             object-fit: cover; 
             border: var(--border-width) solid var(--text-dark);
+            box-shadow: 6px 6px 0px var(--text-dark);
+            background: #fff;
         }
 
         .cv-download-btn {
@@ -91,13 +94,12 @@
             transform: translate(-2px, -2px);
         }
 
-        /* الحاوية الرئيسية للمحتوى */
+        /* الحاوية الرئيسية */
         .container { 
             max-width: 800px; 
             margin: 0 auto; 
         }
 
-        /* العناوين الرئيسية مع خط أسفلها يشبه الرسم اليدوي */
         h2 { 
             font-size: 1.7rem; 
             font-weight: 800; 
@@ -142,7 +144,53 @@
             gap: 8px;
         }
 
-        /* تنسيق قسم الهوايات الجديد */
+        /* تنسيق كروت الخبرة والتدريب */
+        .experience-card, .training-card {
+            background: var(--bg-card);
+            border: var(--border-width) solid var(--text-dark);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 5px 5px 0px var(--text-dark);
+        }
+
+        .card-header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+        }
+
+        .job-title {
+            font-size: 1.2rem;
+            font-weight: 800;
+        }
+
+        .company-name {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-muted);
+        }
+
+        .job-date {
+            background: var(--accent-yellow);
+            padding: 0.2rem 0.6rem;
+            border: 2px solid var(--text-dark);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .experience-list {
+            padding-left: 20px;
+        }
+
+        .experience-list li {
+            margin-bottom: 6px;
+            font-size: 0.95rem;
+        }
+
+        /* تنسيق قسم الهوايات */
         .personal-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -177,7 +225,7 @@
             font-weight: 500;
         }
 
-        /* مهارات التقسيمات كـ كروت مرسومة */
+        /* المهارات */
         .skills-category { 
             background: var(--bg-card);
             border: var(--border-width) solid var(--text-dark);
@@ -189,11 +237,9 @@
         
         .skills-category h3 { 
             font-size: 1rem; 
-            color: var(--text-dark); 
             margin-bottom: 1rem; 
             font-weight: 800; 
             text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
 
         .skills-grid { 
@@ -202,10 +248,8 @@
             gap: 0.6rem; 
         }
 
-        /* الـ Pills المدورة */
         .skill-card { 
             background: var(--bg-card); 
-            color: var(--text-dark); 
             padding: 0.4rem 1rem; 
             border-radius: 20px; 
             font-weight: 600; 
@@ -218,7 +262,7 @@
             color: white; 
         }
 
-        /* كروت المشاريع الاحترافية */
+        /* المشاريع */
         .project-card { 
             background: var(--bg-card); 
             padding: 1.5rem; 
@@ -229,7 +273,6 @@
         }
 
         .project-card h3 { 
-            color: var(--text-dark); 
             font-size: 1.3rem; 
             margin-bottom: 0.6rem; 
             font-weight: 800; 
@@ -245,7 +288,6 @@
         .project-tool { 
             display: inline-block; 
             background: var(--bg-card); 
-            color: var(--text-dark); 
             font-size: 0.75rem; 
             font-weight: 700; 
             padding: 0.25rem 0.75rem; 
@@ -257,7 +299,6 @@
             background: var(--accent-blue); 
         }
         
-        /* ضبط وعرض صور لوحات البيانات لتبدو كإطارات حادة */
         .project-img { 
             width: 100%; 
             max-height: 450px; 
@@ -287,11 +328,9 @@
         .project-section-title { 
             font-size: 0.9rem; 
             font-weight: 800; 
-            color: var(--text-dark); 
             margin-top: 1.25rem; 
             margin-bottom: 0.4rem; 
             text-transform: uppercase; 
-            letter-spacing: 0.5px;
         }
 
         .project-desc { 
@@ -307,10 +346,8 @@
         .insights-list li { 
             margin-bottom: 6px; 
             font-size: 0.95rem; 
-            color: var(--text-dark); 
         }
         
-        /* منطقة التواصل في الأسفل */
         .contact-section {
             background: var(--bg-card);
             border: var(--border-width) solid var(--text-dark);
@@ -350,25 +387,31 @@
 
         @media (max-width: 480px) {
             header { flex-direction: column; gap: 15px; text-align: center; }
-            .profile-container { flex-direction: column; }
             .project-images-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
+    <!-- الهيدر نظيف ورايق -->
     <header>
         <div class="header-text">
             <h1>Bishoy George</h1>
             <p>Data Analyst</p>
         </div>
-        <div class="profile-container">
+        <div>
             <a href="Bishoy_George_CV.pdf" class="cv-download-btn" target="_blank">View CV</a>
-            <img src="Bisho.jpg" alt="Bishoy George" class="profile-img">
         </div>
     </header>
 
+    <!-- برواز الصورة المنفصل لوحده بالأسفل تماماً زي ما اتفقنا -->
+    <div class="profile-frame-container">
+        <img src="Bisho.jpg" alt="Bishoy George" class="profile-img-frame">
+    </div>
+
     <div class="container">
+        
+        <!-- قسم نبذة عني -->
         <section id="about">
             <h2>About Me</h2>
             <div class="about-box">
@@ -379,23 +422,76 @@
             </div>
         </section>
 
+        <!-- قسم الخبرة المهنية المطور (Work Experience) -->
+        <section id="experience">
+            <h2>Work Experience</h2>
+            
+            <!-- بنك مصر -->
+            <div class="experience-card">
+                <div class="card-header-flex">
+                    <div>
+                        <div class="job-title">Data Analyst</div>
+                        <div class="company-name">Banque Misr</div>
+                    </div>
+                    <div class="job-date">Present</div>
+                </div>
+                <ul class="experience-list">
+                    <li>Utilizing advanced SQL Server and Oracle SQL backend systems to pull, clean, and map corporate banking records.</li>
+                    <li>Designing automated performance dashboards in Power BI to monitor departmental performance and operations efficiency.</li>
+                    <li>Writing efficient scripts and advanced Power Query routines to automate daily and weekly reporting operations.</li>
+                </ul>
+            </div>
+
+            <!-- أوراسكوم -->
+            <div class="experience-card">
+                <div class="card-header-flex">
+                    <div>
+                        <div class="job-title">Data Analyst</div>
+                        <div class="company-name">Orascom Investment Holding</div>
+                    </div>
+                    <div class="job-date">Previous</div>
+                </div>
+                <ul class="experience-list">
+                    <li>Aggregated and evaluated data indicators across industrial and commercial project fields to deliver cross-functional insights.</li>
+                    <li>Built interactive metrics matrices in Excel Power Pivot and Looker Studio for operations optimization and cost tracking.</li>
+                    <li>Collaborated directly with engineering and finance teams to transform raw project logs into standardized structural reports.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- قسم التدريب والكورسات (Training & Certifications) -->
+        <section id="training">
+            <h2>Training & Certifications</h2>
+            
+            <div class="training-card">
+                <div class="card-header-flex">
+                    <div>
+                        <div class="job-title">Advanced Business Intelligence & Data Modeling</div>
+                        <div class="company-name">Professional Training Program</div>
+                    </div>
+                    <div class="job-date">Certified</div>
+                </div>
+                <p class="project-desc" style="color: var(--text-dark); font-weight: 500;">
+                    Intensive training focusing on end-to-end data pipelines, advanced DAX formulations, relational database schema management, and structural data warehousing paradigms using enterprise infrastructure tools like SSAS, Denodo VQL, and Python.
+                </p>
+            </div>
+        </section>
+
+        <!-- قسم خارج نطاق البيانات (الهوايات والبطولات) -->
         <section id="beyond-data">
             <h2>Beyond the Data</h2>
             <div class="personal-grid">
                 
-                <!-- كارت بطولة تنس الطاولة -->
                 <div class="personal-card" style="background: var(--accent-green);">
                     <h3>🏓 Table Tennis Champion</h3>
                     <p>3-Time University Table Tennis Tournament Winner. Combining sharp focus, lightning-fast reflexes, and tactical strategy—both on the table and inside the data pipelines.</p>
                 </div>
 
-                <!-- كارت القراءة والثقافة -->
                 <div class="personal-card">
                     <h3>📚 Avid Reader</h3>
                     <p>Passionate about continuous learning. Diving deep into diverse domains, history, and analytical literature to consistently cultivate a broader, data-informed worldview.</p>
                 </div>
 
-                <!-- كارت مضاف من عندي: التفكير المنظم وحل المشكلات -->
                 <div class="personal-card" style="background: var(--accent-blue);">
                     <h3>🎯 Precision & Focus</h3>
                     <p>Applying the discipline of a sports champion and the insight of a dedicated reader to deconstruct complex backend infrastructure and build seamless dashboards.</p>
@@ -404,6 +500,7 @@
             </div>
         </section>
 
+        <!-- قسم المهارات -->
         <section id="skills">
             <h2>Technical Skills & Competencies</h2>
             
@@ -455,6 +552,7 @@
             </div>
         </section>
 
+        <!-- قسم المشاريع المميزة -->
         <section id="projects">
             <h2>Featured Projects</h2>
             
@@ -548,90 +646,9 @@
                 </ul>
             </div>
 
-            <!-- 5. Covid-19 Egypt Analysis -->
-            <div class="project-card">
-                <h3>Epidemiological Analysis of COVID-19 in Egypt</h3>
-                <div class="project-tools-container">
-                    <span class="project-tool highlight">Excel</span>
-                    <span class="project-tool highlight">Power Query</span>
-                    <span class="project-tool">Power BI</span>
-                </div>
-                <img src="Covid 19 Egypt Data.png" alt="Covid-19 Egypt Dashboard" class="project-img">
-                <div class="project-section-title">Business Objective</div>
-                <p class="project-desc">Conducted a specialized time-series analysis detailing the transmission velocity and mortality metrics of COVID-19 within Egypt from initial outbreak inception (Feb 2020) through peak waves (Dec 2020)[span_31](start_span)[span_31](end_span).</p>
-                <div class="project-section-title">Key Insights & Analytics</div>
-                <ul class="insights-list">
-                    <li><strong>Cumulative Metrics:</strong> Tracked an aggregate volume of ~128K confirmed positive cases and 7,209 registered mortalities[span_32](start_span)[span_32](end_span).</li>
-                    <li><strong>Peak Critical Thresholds:</strong> Isolated June 19, 2020, as the single day with the highest infection rate (1,774 new cases), and June 15, 2020, as the highest single-day mortality peak (97 deaths)[span_33](start_span)[span_33](end_span).</li>
-                    <li><strong>Density Metrics:</strong> Identified June as the most severe month for transmission, reaching an incidence density of 423 cases per million citizens[span_34](start_span)[span_34](end_span).</li>
-                    <li><strong>Statistical Correlation:</strong> Mathematical tracking confirmed a strong positive correlation between daily positive test results and mortality metrics[span_35](start_span)[span_35](end_span).</li>
-                </ul>
-            </div>
-
-            <!-- 6. 16K Movies Dataset Dashboard -->
-            <div class="project-card">
-                <h3>Cinematic Media & Production Analytics</h3>
-                <div class="project-tools-container">
-                    <span class="project-tool highlight">Excel</span>
-                    <span class="project-tool highlight">Power Query</span>
-                    <span class="project-tool">SQL</span>
-                    <span class="project-tool">Power BI</span>
-                </div>
-                <img src="16K Movies Dataset.png" alt="16K Movies Dashboard" class="project-img">
-                <div class="project-section-title">Business Objective</div>
-                <p class="project-desc">Constructed an analytical interface over historic cinematic records (1970–2024), extracting, transforming, and loading raw data via Power Query to map production output and director performance metrics[span_36](start_span)[span_36](end_span).</p>
-                <div class="project-section-title">Key Insights & Analytics</div>
-                <ul class="insights-list">
-                    <li><strong>Data Overview:</strong> Extracted metrics across 1,000 top-tier cinematic productions encompassing 1,654 distinct genre tags[span_37](start_span)[span_37](end_span).</li>
-                    <li><strong>Top Tier Ratings:</strong> Isolated "Hole in My Heart," "Surviving Eden," and "Turk 182" as the elite productions securing flawless 10-star public ratings[span_38](start_span)[span_38](end_span).</li>
-                    <li><strong>Volume Leaders:</strong> Crowned Woody Allen as the most prolific industry figure, tracking an output of 46 written and 50 directed assets[span_39](start_span)[span_39](end_span).</li>
-                    <li><strong>Temporal Clusters & Genres:</strong> 2014 was identified as the peak production year with 704 films released[span_40](start_span)[span_40](end_span). Drama held the highest market share with 1,514 total listings[span_41](start_span)[span_41](end_span).</li>
-                </ul>
-            </div>
-
-            <!-- 7. High School Students Performance Analysis -->
-            <div class="project-card">
-                <h3>Academic Performance & Demographic Correlations</h3>
-                <div class="project-tools-container">
-                    <span class="project-tool highlight">Excel</span>
-                    <span class="project-tool highlight">Power Query</span>
-                    <span class="project-tool">Power BI</span>
-                </div>
-                <img src="Students Performance Analysis.png" alt="Student Performance Dashboard" class="project-img">
-                <div class="project-section-title">Business Objective</div>
-                <p class="project-desc">Analyzed institutional high school metrics to discover correlations between student demographics, parental involvement, and overall grade point averages (GPA)[span_42](start_span)[span_42](end_span).</p>
-                <div class="project-section-title">Key Insights & Analytics</div>
-                <ul class="insights-list">
-                    <li><strong>Performance Critical Status:</strong> Calculated a global sample GPA of 1.91, falling short of the standard passing threshold of 2.00 due to a larger volume of failing marks relative to passing achievements[span_43](start_span)[span_43](end_span).</li>
-                    <li><strong>Attendance Elasticity:</strong> Discovered a strong inverse correlation between student absenteeism and cumulative GPA, indicating a need for stricter institutional attendance caps[span_44](start_span)[span_44](end_span).</li>
-                    <li><strong>Socio-Economic Factors:</strong> Proved that active parental support directly leads to better student grades, while the absolute baseline education level of parents showed no statistical variance on a student's capacity to earn high grades[span_45](start_span)[span_45](end_span).</li>
-                    <li><strong>Grade Distributions:</strong> Only a minor 4.48% segment achieved elite "A" status, while over 50% of the sample clustered around the "F" tier, with the remaining bulk residing between "C" and "D[span_46](start_span)"[span_46](end_span).</li>
-                </ul>
-            </div>
-
-            <!-- 8. World Population by Country -->
-            <div class="project-card">
-                <h3>Global Demographic & Population Density Analysis</h3>
-                <div class="project-tools-container">
-                    <span class="project-tool highlight">Excel</span>
-                    <span class="project-tool highlight">Power Query</span>
-                    <span class="project-tool">Power BI</span>
-                </div>
-                <img src="World Population 2020-1.png" alt="World Population Dashboard" class="project-img">
-                <div class="project-section-title">Business Objective</div>
-                <p class="project-desc">Mapped demographic distributions, annual net shifts, and spatial density dynamics across international borders using macro data from 2020[span_47](start_span)[span_47](end_span).</p>
-                <div class="project-section-title">Key Insights & Analytics</div>
-                <ul class="insights-list">
-                    <li><strong>Scale of Analysis:</strong> Evaluated geospatial indicators across 235 distinct countries and regional territories[span_48](start_span)[span_48](end_span).</li>
-                    <li><strong>Demographic Giants:</strong> Identified 14 countries whose populations surpass the 100M threshold[span_49](start_span)[span_49](end_span). China held the global lead at 1.4B+ residents, representing 18.5% of the total global population footprint[span_50](start_span)[span_50](end_span).</li>
-                    <li><strong>Density & Growth Anomalies:</strong> Bangladesh recorded the highest population density acceleration, tracking at 1,265 individuals per square mile[span_51](start_span)[span_51](end_span). India demonstrated the highest net nominal annual growth, adding 14M residents[span_52](start_span)[span_52](end_span).</li>
-                    <li><strong>Urbanization Split:</strong> Global urbanization metrics showed a clear division: 24.36% of the population resides in developed urban centers, compared to 75.64% living within rural and non-urban areas[span_53](start_span)[span_53](end_span).</li>
-                </ul>
-            </div>
-
         </section>
 
-        <!-- كارت التواصل المطور على ستايل النيو-بروتاليزم -->
+        <!-- كارت التواصل -->
         <section class="contact-section">
             <h2>Get In Touch</h2>
             <p>Interested in collaborating or discussing data analytics opportunities?</p>
