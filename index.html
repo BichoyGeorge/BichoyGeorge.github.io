@@ -85,10 +85,15 @@
         
         .project-card { background: #f8fafc; padding: 2rem; border-radius: 10px; border-left: 5px solid var(--sky-blue); margin-bottom: 2rem; border-top: 1px solid #e2e8f0; border-right: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; }
         .project-card h3 { color: var(--text-dark); font-size: 1.4rem; margin-bottom: 0.4rem; font-weight: 700; }
-        .project-tool { display: inline-block; background: #f1f5f9; color: #475569; font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 4px; margin-bottom: 1rem; border: 1px solid #cbd5e1; }
         
-        .project-img { width: 100%; max-height: 450px; object-fit: contain; border-radius: 8px; margin: 12px 0; border: 1px solid var(--border); background: #fff; }
-        .project-pdf-embed { width: 100%; height: 500px; border: 1px solid var(--border); border-radius: 8px; margin: 12px 0; }
+        .project-tools-container { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; }
+        .project-tool { display: inline-block; background: #f1f5f9; color: #475569; font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 4px; border: 1px solid #cbd5e1; }
+        .project-tool.highlight { background: var(--sky-light); color: var(--sky-blue); border-color: #bae6fd; }
+        
+        .project-img { width: 100%; max-height: 500px; object-fit: contain; border-radius: 8px; margin: 12px 0; border: 1px solid var(--border); background: #fff; display: block; }
+        
+        .project-images-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(45%, 1fr)); gap: 12px; margin: 12px 0; }
+        .project-images-grid img { width: 100%; max-height: 350px; object-fit: contain; border: 1px solid var(--border); border-radius: 8px; background: #fff; }
 
         .project-section-title { font-size: 0.95rem; font-weight: 700; color: var(--primary); margin-top: 1rem; margin-bottom: 0.25rem; text-transform: uppercase; letter-spacing: 0.5px; }
         .project-desc { font-size: 0.95rem; color: #475569; margin-bottom: 0.75rem; }
@@ -106,7 +111,8 @@
             .cv-download-btn { padding: 0.35rem 0.75rem; font-size: 0.7rem; }
             .profile-img { width: 65px; height: 65px; }
             section { padding: 1.5rem; }
-            .project-pdf-embed { height: 350px; }
+            .project-img { max-height: 300px; }
+            .project-images-grid { grid-template-columns: 1fr; }
         }
         
         footer { text-align: center; padding: 3rem 2rem; color: #64748b; font-size: 0.9rem; }
@@ -117,14 +123,15 @@
     <header>
         <div class="header-container">
             <div class="header-left">
-                <a href="Bishoy_George_CV.pdf" class="cv-download-btn" title="Download CV" download>
+                <!-- تم تعديل السطر ليعرض الملف في تبويب جديد مباشرة -->
+                <a href="Bishoy_George_CV.pdf" class="cv-download-btn" title="View CV" target="_blank">
                     <span class="download-icon"></span>
                     <span>CV</span>
                 </a>
             </div>
             <div class="header-text">
                 <h1>Bishoy George</h1>
-                <p>Data Analyst</p>
+                <p>Senior Data Analyst</p>
             </div>
             <div class="header-right">
                 <img src="Bisho.jpg" alt="Bishoy George" class="profile-img">
@@ -155,10 +162,15 @@
         <section id="projects">
             <h2>Featured Projects</h2>
             
+            <!-- 1. Hotel Booking Project -->
             <div class="project-card">
                 <h3>Hospitality & Hotel Booking Performance</h3>
-                <span class="project-tool">Looker Studio</span>
-                <iframe src="Hotels Reservations Dataset.pdf" class="project-pdf-embed"></iframe>
+                <div class="project-tools-container">
+                    <span class="project-tool highlight">Excel</span>
+                    <span class="project-tool highlight">Power Query</span>
+                    <span class="project-tool">Looker Studio</span>
+                </div>
+                <img src="Hotels Reservations Dataset.png" alt="Hotel Booking Dashboard" class="project-img">
                 <div class="project-section-title">Business Objective</div>
                 <p class="project-desc">Analyzed comprehensive hotel reservation data to optimize revenue management, evaluate guest preferences, and track cancellation behaviors for data-driven hospitality operations.</p>
                 <div class="project-section-title">Key Insights & Analytics</div>
@@ -172,9 +184,15 @@
                 </ul>
             </div>
 
+            <!-- 2. Perfume Store Project -->
             <div class="project-card">
                 <h3>E-Commerce Perfume Market Analysis</h3>
-                <span class="project-tool">Power BI & Power Query (Advanced ETL)</span>
+                <div class="project-tools-container">
+                    <span class="project-tool highlight">Excel</span>
+                    <span class="project-tool highlight">Power Query</span>
+                    <span class="project-tool">SQL</span>
+                    <span class="project-tool">Power BI</span>
+                </div>
                 <img src="Perfuem Data.png" alt="Perfume Analytics Dashboard" class="project-img">
                 <div class="project-section-title">Advanced ETL & Data Engineering</div>
                 <p class="project-desc">Engineered an end-to-end data pipeline from raw Kaggle data. Handled intensive string-to-numeric transformations on mixed local currency formats (e.g., SAR, ر.س) using advanced Power Query functions: <code>Text.Select(Price, {"0".."9", "."})</code> followed by precise column splitting to clear trailing decimals. Cleansed structural categorical blanks by strategically injecting "Unisex" as a logical neutral value.</p>
@@ -187,10 +205,21 @@
                 </ul>
             </div>
 
+            <!-- 3. E-Commerce Sales Store -->
             <div class="project-card">
                 <h3>Enterprise E-Commerce Sales Architecture</h3>
-                <span class="project-tool">Power BI & DAX (RLS Architecture)</span>
-                <iframe src="E-Commerce Sales Store.pdf" class="project-pdf-embed"></iframe>
+                <div class="project-tools-container">
+                    <span class="project-tool highlight">Excel</span>
+                    <span class="project-tool highlight">Power Query</span>
+                    <span class="project-tool">SQL</span>
+                    <span class="project-tool">Power BI & DAX</span>
+                </div>
+                <div class="project-images-grid">
+                    <img src="E-Commerce Sales Store-1.png" alt="E-Commerce Dashboard Page 1">
+                    <img src="E-Commerce Sales Store-2.png" alt="E-Commerce Dashboard Page 2">
+                    <img src="E-Commerce Sales Store-3.png" alt="E-Commerce Dashboard Page 3">
+                    <img src="E-Commerce Sales Store-4.png" alt="E-Commerce Dashboard Page 4">
+                </div>
                 <div class="project-section-title">Architecture & Security</div>
                 <p class="project-desc">Designed an interactive 4-page analytical report (Welcome, Visual Analytics, Data Matrix, Contextual Tooltips). Implemented programmatic Row-Level Security (RLS) on the Category dimension to securely restrict data access across different department managers based on organizational permissions.</p>
                 <div class="project-section-title">Key Insights & Analytics</div>
@@ -202,10 +231,16 @@
                 </ul>
             </div>
 
+            <!-- 4. Amazon Sales Project -->
             <div class="project-card">
                 <h3>Amazon Global Sales Analytics</h3>
-                <span class="project-tool">Power BI & Data Modeling</span>
-                <iframe src="Amazon Data Sales.pdf" class="project-pdf-embed"></iframe>
+                <div class="project-tools-container">
+                    <span class="project-tool highlight">Excel</span>
+                    <span class="project-tool highlight">Power Query</span>
+                    <span class="project-tool">SQL</span>
+                    <span class="project-tool">Power BI</span>
+                </div>
+                <img src="Amazon Data Sales.png" alt="Amazon Sales Dashboard" class="project-img">
                 <div class="project-section-title">Business Objective</div>
                 <p class="project-desc">Evaluated a multi-year global Amazon dataset (2010–2017) to uncover cross-border transactional dynamics across diverse fulfillment types.</p>
                 <div class="project-section-title">Key Insights & Analytics</div>
@@ -217,10 +252,15 @@
                 </ul>
             </div>
 
+            <!-- 5. Covid-19 Egypt Analysis -->
             <div class="project-card">
                 <h3>Epidemiological Analysis of COVID-19 in Egypt</h3>
-                <span class="project-tool">Power BI & Time-Series Analysis</span>
-                <iframe src="Covid 19 Egypt Data.pdf" class="project-pdf-embed"></iframe>
+                <div class="project-tools-container">
+                    <span class="project-tool highlight">Excel</span>
+                    <span class="project-tool highlight">Power Query</span>
+                    <span class="project-tool">Power BI</span>
+                </div>
+                <img src="Covid 19 Egypt Data.png" alt="Covid-19 Egypt Dashboard" class="project-img">
                 <div class="project-section-title">Business Objective</div>
                 <p class="project-desc">Conducted a specialized time-series analysis detailing the transmission velocity and mortality metrics of COVID-19 within Egypt from initial outbreak inception (Feb 2020) through peak waves (Dec 2020).</p>
                 <div class="project-section-title">Key Insights & Analytics</div>
@@ -232,10 +272,16 @@
                 </ul>
             </div>
 
+            <!-- 6. 16K Movies Dataset Dashboard -->
             <div class="project-card">
                 <h3>Cinematic Media & Production Analytics</h3>
-                <span class="project-tool">Power BI & ETL Pipeline</span>
-                <iframe src="16K Movies Dataset.pdf" class="project-pdf-embed"></iframe>
+                <div class="project-tools-container">
+                    <span class="project-tool highlight">Excel</span>
+                    <span class="project-tool highlight">Power Query</span>
+                    <span class="project-tool">SQL</span>
+                    <span class="project-tool">Power BI</span>
+                </div>
+                <img src="16K Movies Dataset.png" alt="16K Movies Dashboard" class="project-img">
                 <div class="project-section-title">Business Objective</div>
                 <p class="project-desc">Constructed an analytical interface over historic cinematic records (1970–2024), extracting, transforming, and loading raw data via Power Query to map production output and director performance metrics.</p>
                 <div class="project-section-title">Key Insights & Analytics</div>
@@ -247,10 +293,15 @@
                 </ul>
             </div>
 
+            <!-- 7. High School Students Performance Analysis -->
             <div class="project-card">
                 <h3>Academic Performance & Demographic Correlations</h3>
-                <span class="project-tool">Power BI & Advanced Analytics</span>
-                <iframe src="Students Performance Analysis.pdf" class="project-pdf-embed"></iframe>
+                <div class="project-tools-container">
+                    <span class="project-tool highlight">Excel</span>
+                    <span class="project-tool highlight">Power Query</span>
+                    <span class="project-tool">Power BI</span>
+                </div>
+                <img src="Students Performance Analysis.png" alt="Student Performance Dashboard" class="project-img">
                 <div class="project-section-title">Business Objective</div>
                 <p class="project-desc">Analyzed institutional high school metrics to discover correlations between student demographics, parental involvement, and overall grade point averages (GPA).</p>
                 <div class="project-section-title">Key Insights & Analytics</div>
@@ -262,10 +313,15 @@
                 </ul>
             </div>
 
+            <!-- 8. World Population by Country -->
             <div class="project-card">
                 <h3>Global Demographic & Population Density Analysis</h3>
-                <span class="project-tool">Power BI & Geospatial Analysis</span>
-                <iframe src="World Population by Country 2020.pdf" class="project-pdf-embed"></iframe>
+                <div class="project-tools-container">
+                    <span class="project-tool highlight">Excel</span>
+                    <span class="project-tool highlight">Power Query</span>
+                    <span class="project-tool">Power BI</span>
+                </div>
+                <img src="World Population by Country 2020.png" alt="World Population Dashboard" class="project-img">
                 <div class="project-section-title">Business Objective</div>
                 <p class="project-desc">Mapped demographic distributions, annual net shifts, and spatial density dynamics across international borders using macro data from 2020.</p>
                 <div class="project-section-title">Key Insights & Analytics</div>
