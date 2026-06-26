@@ -18,15 +18,14 @@
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body { background-color: var(--bg-main); color: var(--text-main); line-height: 1.7; }
         
-        /* ضبط الهيدر ليكون هيدر أفقي مضغوط جداً */
+        /* تعديل الهيدر ليحتوي على 3 أقسام متوازنة */
         header { 
             background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); 
             color: white; 
-            padding: 1.25rem 1.5rem; 
+            padding: 1rem 1.5rem; 
             box-shadow: 0 4px 12px rgba(2, 132, 199, 0.1);
         }
         
-        /* حاوية داخلية لتنسيق العناصر جنب بعضها */
         .header-container {
             max-width: 900px;
             margin: 0 auto;
@@ -35,17 +34,48 @@
             justify-content: space-between;
         }
         
+        /* زرار سريع في الشمال */
+        .header-left {
+            flex: 1;
+            display: flex;
+            justify-content: flex-start;
+        }
+        
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            transition: all 0.2s ease;
+        }
+        .nav-btn:hover {
+            background: white;
+            color: var(--sky-blue);
+        }
+        
+        /* الكلام في المنتصف تماماً */
         .header-text {
-            text-align: left;
+            flex: 2;
+            text-align: center;
         }
 
-        header h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.1rem; color: #ffffff; text-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-        header p { font-size: 0.95rem; color: #e0f2fe; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+        header h1 { font-size: 1.7rem; font-weight: 700; margin-bottom: 0.1rem; color: #ffffff; text-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        header p { font-size: 0.9rem; color: #e0f2fe; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
         
-        /* الصورة على اليمين بحجم مثالي ومربعة بحواف ناعمة */
+        /* الصورة على اليمين */
+        .header-right {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+        }
+        
         .profile-img {
-            width: 85px;
-            height: 85px;
+            width: 80px;
+            height: 80px;
             border-radius: 10px;
             object-fit: cover;
             border: 2.5px solid #ffffff;
@@ -117,6 +147,14 @@
         }
         .project-link:hover { text-decoration: underline; }
         
+        /* تكييف الهيدر لشاشات الموبايل الصغيرة */
+        @media (max-width: 480px) {
+            header h1 { font-size: 1.4rem; }
+            header p { font-size: 0.8rem; }
+            .nav-btn { padding: 0.4rem 0.75rem; font-size: 0.75rem; }
+            .profile-img { width: 70px; height: 70px; }
+        }
+        
         footer { text-align: center; padding: 3rem 2rem; color: #64748b; font-size: 0.9rem; }
     </style>
 </head>
@@ -124,11 +162,21 @@
 
     <header>
         <div class="header-container">
+            <!-- الشمال: زرار لينكد إن سرييع ومتناسق -->
+            <div class="header-left">
+                <a href="#" class="nav-btn" target="_blank">LinkedIn</a>
+            </div>
+            
+            <!-- الوسط: اسمك واللقب الوظيفي -->
             <div class="header-text">
                 <h1>Bishoy George</h1>
                 <p>Data Analyst</p>
             </div>
-            <img src="Bisho.jpg" alt="Bishoy George" class="profile-img">
+            
+            <!-- اليمين: صورتك المربعة الممتازة -->
+            <div class="header-right">
+                <img src="Bisho.jpg" alt="Bishoy George" class="profile-img">
+            </div>
         </div>
     </header>
 
