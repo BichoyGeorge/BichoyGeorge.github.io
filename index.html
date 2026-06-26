@@ -18,7 +18,6 @@
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body { background-color: var(--bg-main); color: var(--text-main); line-height: 1.7; }
         
-        /* تعديل الهيدر ليحتوي على 3 أقسام متوازنة */
         header { 
             background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); 
             color: white; 
@@ -34,39 +33,81 @@
             justify-content: space-between;
         }
         
-        /* زرار سريع في الشمال */
+        /* القسم الأيسر: زر الـ CV الأنيق والأيقونة التفاعلية */
         .header-left {
             flex: 1;
             display: flex;
             justify-content: flex-start;
         }
         
-        .nav-btn {
-            background: rgba(255, 255, 255, 0.2);
+        .cv-download-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.12);
             color: white;
             text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            font-size: 0.85rem;
+            padding: 0.45rem 0.9rem;
+            border-radius: 20px; /* حواف دائرية ناعمة جداً تماثل واجهات مستخدم الهواتف الذكية */
+            font-size: 0.8rem;
             font-weight: 600;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            transition: all 0.2s ease;
-        }
-        .nav-btn:hover {
-            background: white;
-            color: var(--sky-blue);
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            transition: all 0.25s ease;
         }
         
-        /* الكلام في المنتصف تماماً */
+        /* رسم أيقونة تحميل سهم لأسفل بالـ CSS النظيف بدون مكتبات خارجية تبطئ الموقع */
+        .download-icon {
+            width: 12px;
+            height: 12px;
+            border-bottom: 2px solid white;
+            border-left: 2px solid white;
+            border-right: 2px solid white;
+            position: relative;
+            margin-bottom: 2px;
+        }
+        .download-icon::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 3px;
+            width: 2px;
+            height: 8px;
+            background: white;
+        }
+        .download-icon::before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 1px;
+            width: 4px;
+            height: 4px;
+            border-bottom: 2px solid white;
+            border-right: 2px solid white;
+            transform: rotate(45deg);
+        }
+
+        .cv-download-btn:hover {
+            background: white;
+            color: var(--sky-blue);
+            border-color: white;
+            transform: translateY(-1px);
+        }
+        .cv-download-btn:hover .download-icon,
+        .cv-download-btn:hover .download-icon::after,
+        .cv-download-btn:hover .download-icon::before {
+            border-color: var(--sky-blue);
+            background-color: var(--sky-blue);
+        }
+        
         .header-text {
             flex: 2;
             text-align: center;
         }
 
-        header h1 { font-size: 1.7rem; font-weight: 700; margin-bottom: 0.1rem; color: #ffffff; text-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-        header p { font-size: 0.9rem; color: #e0f2fe; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+        header h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: 0.1rem; color: #ffffff; text-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        header p { font-size: 0.85rem; color: #e0f2fe; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
         
-        /* الصورة على اليمين */
         .header-right {
             flex: 1;
             display: flex;
@@ -74,11 +115,11 @@
         }
         
         .profile-img {
-            width: 80px;
-            height: 80px;
+            width: 75px;
+            height: 75px;
             border-radius: 10px;
             object-fit: cover;
-            border: 2.5px solid #ffffff;
+            border: 2px solid #ffffff;
             box-shadow: 0 3px 8px rgba(0,0,0,0.15);
         }
         
@@ -147,12 +188,11 @@
         }
         .project-link:hover { text-decoration: underline; }
         
-        /* تكييف الهيدر لشاشات الموبايل الصغيرة */
         @media (max-width: 480px) {
-            header h1 { font-size: 1.4rem; }
-            header p { font-size: 0.8rem; }
-            .nav-btn { padding: 0.4rem 0.75rem; font-size: 0.75rem; }
-            .profile-img { width: 70px; height: 70px; }
+            header h1 { font-size: 1.3rem; }
+            header p { font-size: 0.75rem; }
+            .cv-download-btn { padding: 0.35rem 0.75rem; font-size: 0.7rem; }
+            .profile-img { width: 65px; height: 65px; }
         }
         
         footer { text-align: center; padding: 3rem 2rem; color: #64748b; font-size: 0.9rem; }
@@ -162,18 +202,21 @@
 
     <header>
         <div class="header-container">
-            <!-- الشمال: زرار لينكد إن سرييع ومتناسق -->
+            <!-- الشمال: كبسولة تحميل الـ CV متناهية الأناقة -->
             <div class="header-left">
-                <a href="#" class="nav-btn" target="_blank">LinkedIn</a>
+                <a href="#" class="cv-download-btn" title="Download CV">
+                    <span class="download-icon"></span>
+                    <span>CV</span>
+                </a>
             </div>
             
-            <!-- الوسط: اسمك واللقب الوظيفي -->
+            <!-- الوسط: اسمك ولقبك -->
             <div class="header-text">
                 <h1>Bishoy George</h1>
                 <p>Data Analyst</p>
             </div>
             
-            <!-- اليمين: صورتك المربعة الممتازة -->
+            <!-- اليمين: صورتك المربعة الاحترافية -->
             <div class="header-right">
                 <img src="Bisho.jpg" alt="Bishoy George" class="profile-img">
             </div>
