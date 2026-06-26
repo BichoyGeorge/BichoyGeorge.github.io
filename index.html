@@ -18,28 +18,39 @@
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body { background-color: var(--bg-main); color: var(--text-main); line-height: 1.7; }
         
-        /* تقليل حجم الهيدر الأزرق ليكون أنيق ومضغوط */
+        /* ضبط الهيدر ليكون هيدر أفقي مضغوط جداً */
         header { 
             background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); 
             color: white; 
-            padding: 2rem 1rem; 
-            text-align: center; 
+            padding: 1.25rem 1.5rem; 
             box-shadow: 0 4px 12px rgba(2, 132, 199, 0.1);
         }
         
-        /* تعديل الصورة لتصبح مربعة بحواف ناعمة واحترافية */
-        .profile-img {
-            width: 120px;
-            height: 120px;
-            border-radius: 12px; /* حواف دائرية خفيفة جداً للمربع */
-            object-fit: cover;
-            border: 3px solid #ffffff;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-            margin-bottom: 0.8rem;
+        /* حاوية داخلية لتنسيق العناصر جنب بعضها */
+        .header-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .header-text {
+            text-align: left;
         }
 
-        header h1 { font-size: 2.2rem; font-weight: 700; margin-bottom: 0.2rem; color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        header p { font-size: 1rem; color: #e0f2fe; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+        header h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.1rem; color: #ffffff; text-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        header p { font-size: 0.95rem; color: #e0f2fe; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+        
+        /* الصورة على اليمين بحجم مثالي ومربعة بحواف ناعمة */
+        .profile-img {
+            width: 85px;
+            height: 85px;
+            border-radius: 10px;
+            object-fit: cover;
+            border: 2.5px solid #ffffff;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+        }
         
         .container { max-width: 900px; margin: 2rem auto; padding: 0 1.5rem; }
         
@@ -112,9 +123,13 @@
 <body>
 
     <header>
-        <img src="Bisho.jpg" alt="Bishoy George" class="profile-img">
-        <h1>Bishoy George</h1>
-        <p>Data Analyst</p>
+        <div class="header-container">
+            <div class="header-text">
+                <h1>Bishoy George</h1>
+                <p>Data Analyst</p>
+            </div>
+            <img src="Bisho.jpg" alt="Bishoy George" class="profile-img">
+        </div>
     </header>
 
     <div class="container">
