@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bishoy George | Senior Data Analyst</title>
+    <title>Bishoy George | Data Analyst</title>
     <style>
         :root {
             --bg-main: #fbfbf4; /* نفس الخلفية الكريمي المريحة من الصور */
@@ -11,6 +11,7 @@
             --text-dark: #000000;
             --text-muted: #4a4a4a;
             --accent-blue: #bae6fd;
+            --accent-green: #bbf7d0;
             --border-width: 2.5px;
         }
 
@@ -129,6 +130,53 @@
             font-weight: 500;
         }
 
+        .about-quote {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1.5px dashed var(--text-dark);
+            font-style: italic;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* تنسيق قسم الهوايات الجديد */
+        .personal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .personal-card {
+            background: var(--bg-card);
+            border: var(--border-width) solid var(--text-dark);
+            border-radius: 16px;
+            padding: 1.25rem;
+            box-shadow: 4px 4px 0px var(--text-dark);
+            transition: transform 0.15s ease;
+        }
+        .personal-card:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px var(--text-dark);
+        }
+
+        .personal-card h3 {
+            font-size: 1.1rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .personal-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
         /* مهارات التقسيمات كـ كروت مرسومة */
         .skills-category { 
             background: var(--bg-card);
@@ -154,7 +202,7 @@
             gap: 0.6rem; 
         }
 
-        /* الـ Pills المدورة تماماً مثل صور سيف باسم */
+        /* الـ Pills المدورة */
         .skill-card { 
             background: var(--bg-card); 
             color: var(--text-dark); 
@@ -312,7 +360,7 @@
     <header>
         <div class="header-text">
             <h1>Bishoy George</h1>
-            <p>Senior Data Analyst</p>
+            <p>Data Analyst</p>
         </div>
         <div class="profile-container">
             <a href="Bishoy_George_CV.pdf" class="cv-download-btn" target="_blank">View CV</a>
@@ -324,7 +372,35 @@
         <section id="about">
             <h2>About Me</h2>
             <div class="about-box">
-                Results-driven Data Analyst with an industrial and technical background, specializing in data architecture and business intelligence. Experienced in transforming complex multi-sector corporate datasets into strategic, actionable insights that optimize operational efficiency and revenue streams. Expert at leveraging SQL, Power Query, and Power BI to bridge analytical complexity with executive level decision-making.
+                Results-driven Data Analyst with an industrial and technical background, specializing in data architecture and business intelligence[span_1](start_span)[span_1](end_span). Experienced in transforming complex multi-sector corporate datasets into strategic, actionable insights that optimize operational efficiency and revenue streams[span_2](start_span)[span_2](end_span). Expert at leveraging SQL, Power Query, and Power BI to bridge analytical complexity with executive level decision-making[span_3](start_span)[span_3](end_span).
+                <div class="about-quote">
+                    🤍 <span>"Guided by a philosophy of transparency and alignment—deeply appreciating pure hearts, clear intent, and authentic professional connections built on absolute integrity."</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="beyond-data">
+            <h2>Beyond the Data</h2>
+            <div class="personal-grid">
+                
+                <!-- كارت بطولة تنس الطاولة -->
+                <div class="personal-card" style="background: var(--accent-green);">
+                    <h3>🏓 Table Tennis Champion</h3>
+                    <p>3-Time University Table Tennis Tournament Winner. Combining sharp focus, lightning-fast reflexes, and tactical strategy—both on the table and inside the data pipelines.</p>
+                </div>
+
+                <!-- كارت القراءة والثقافة -->
+                <div class="personal-card">
+                    <h3>📚 Avid Reader</h3>
+                    <p>Passionate about continuous learning. Diving deep into diverse domains, history, and analytical literature to consistently cultivate a broader, data-informed worldview.</p>
+                </div>
+
+                <!-- كارت مضاف من عندي: التفكير المنظم وحل المشكلات -->
+                <div class="personal-card" style="background: var(--accent-blue);">
+                    <h3>🎯 Precision & Focus</h3>
+                    <p>Applying the discipline of a sports champion and the insight of a dedicated reader to deconstruct complex backend infrastructure and build seamless dashboards.</p>
+                </div>
+
             </div>
         </section>
 
@@ -392,15 +468,15 @@
                 </div>
                 <img src="Hotels Reservations Dataset.png" alt="Hotel Booking Dashboard" class="project-img">
                 <div class="project-section-title">Business Objective</div>
-                <p class="project-desc">Analyzed comprehensive hotel reservation data to optimize revenue management, evaluate guest preferences, and track cancellation behaviors for data-driven hospitality operations.</p>
+                <p class="project-desc">Analyzed comprehensive hotel reservation data to optimize revenue management, evaluate guest preferences, and track cancellation behaviors for data-driven hospitality operations[span_4](start_span)[span_4](end_span).</p>
                 <div class="project-section-title">Key Insights & Analytics</div>
                 <ul class="insights-list">
-                    <li><strong>Financial Impact:</strong> Captured $3.7M in gross revenue; isolated cancellations to reveal a true net revenue of $2.4M.</li>
-                    <li><strong>Cancellation Analytics:</strong> Identified ~12K cancellations, highlighting a critical need to adjust booking dynamic parameters and strict cancel window policies.</li>
-                    <li><strong>Capacity & Volume:</strong> Monitored 36.5K+ total check-ins, serving 70K adults and 4K children.</li>
-                    <li><strong>Inventory Performance:</strong> <em>Room Type 1</em> emerged as the core driver with 28K+ bookings, while <em>Meal Plan 1</em> completely dominated guest food choices at 77%.</li>
-                    <li><strong>Acquisition Channels:</strong> Digital channels led acquisition, with 64.92% of bookings coming from Online segments, compared to 29.39% Offline.</li>
-                    <li><strong>Seasonality Analysis:</strong> Trend analysis across a 2-year cycle pinpointed October 2018 as the historical peak for visitor volume and revenue generation.</li>
+                    <li><strong>Financial Impact:</strong> Captured $3.7M in gross revenue; isolated cancellations to reveal a true net revenue of $2.4M[span_5](start_span)[span_5](end_span).</li>
+                    <li><strong>Cancellation Analytics:</strong> Identified ~12K cancellations, highlighting a critical need to adjust booking dynamic parameters and strict cancel window policies[span_6](start_span)[span_6](end_span).</li>
+                    <li><strong>Capacity & Volume:</strong> Monitored 36.5K+ total check-ins, serving 70K adults and 4K children[span_7](start_span)[span_7](end_span).</li>
+                    <li><strong>Inventory Performance:</strong> <em>Room Type 1</em> emerged as the core driver with 28K+ bookings, while <em>Meal Plan 1</em> completely dominated guest food choices at 77%[span_8](start_span)[span_8](end_span).</li>
+                    <li><strong>Acquisition Channels:</strong> Digital channels led acquisition, with 64.92% of bookings coming from Online segments, compared to 29.39% Offline[span_9](start_span)[span_9](end_span).</li>
+                    <li><strong>Seasonality Analysis:</strong> Trend analysis across a 2-year cycle pinpointed October 2018 as the historical peak for visitor volume and revenue generation[span_10](start_span)[span_10](end_span).</li>
                 </ul>
             </div>
 
@@ -415,13 +491,13 @@
                 </div>
                 <img src="Perfuem Data.png" alt="Perfume Analytics Dashboard" class="project-img">
                 <div class="project-section-title">Advanced ETL & Data Engineering</div>
-                <p class="project-desc">Engineered an end-to-end data pipeline from raw Kaggle data. Handled intensive string-to-numeric transformations on mixed local currency formats (e.g., SAR, ر.س) using advanced Power Query functions: <code>Text.Select(Price, {"0".."9", "."})</code> followed by precise column splitting to clear trailing decimals. Cleansed structural categorical blanks by strategically injecting "Unisex" as a logical neutral value.</p>
+                <p class="project-desc">Engineered an end-to-end data pipeline from raw Kaggle data. Handled intensive string-to-numeric transformations on mixed local currency formats (e.g., SAR, ر.س) using advanced Power Query functions: <code>Text.Select(Price, {"0".."9", "."})</code> followed by precise column splitting to clear trailing decimals[span_11](start_span)[span_11](end_span). Cleansed structural categorical blanks by strategically injecting "Unisex" as a logical neutral value[span_12](start_span)[span_12](end_span).</p>
                 <div class="project-section-title">Key Insights & Analytics</div>
                 <ul class="insights-list">
-                    <li><strong>Market Scope:</strong> Mapped 24,300 unique products across 28 major retail stores, representing an aggregated net discounted market value of 2.66M SAR.</li>
-                    <li><strong>Inventory Optimization:</strong> "Al-Khabeer Al-Ateer" store commanded market share with the largest product catalog exceeding 5,800 active items.</li>
-                    <li><strong>Product Segments:</strong> Men's fragrances showed higher distribution volume compared to Women's and Unisex variants. The "Perfume" classification captures over 23K items, dwarfing "Cosmetics" which holds only 352 products.</li>
-                    <li><strong>Premium Pricing Tier:</strong> Isolated the highest-value luxury asset in inventory: "Parfums de Marly Pegasus Set", retailing at a premium price of 5,230 SAR.</li>
+                    <li><strong>Market Scope:</strong> Mapped 24,300 unique products across 28 major retail stores, representing an aggregated net discounted market value of 2.66M SAR[span_13](start_span)[span_13](end_span).</li>
+                    <li><strong>Inventory Optimization:</strong> "Al-Khabeer Al-Ateer" store commanded market share with the largest product catalog exceeding 5,800 active items[span_14](start_span)[span_14](end_span).</li>
+                    <li><strong>Product Segments:</strong> Men's fragrances showed higher distribution volume compared to Women's and Unisex variants[span_15](start_span)[span_15](end_span). The "Perfume" classification captures over 23K items, dwarfing "Cosmetics" which holds only 352 products[span_16](start_span)[span_16](end_span).</li>
+                    <li><strong>Premium Pricing Tier:</strong> Isolated the highest-value luxury asset in inventory: "Parfums de Marly Pegasus Set", retailing at a premium price of 5,230 SAR[span_17](start_span)[span_17](end_span).</li>
                 </ul>
             </div>
 
@@ -441,13 +517,13 @@
                     <img src="E-Commerce Sales Store-4.png" alt="E-Commerce Dashboard Page 4">
                 </div>
                 <div class="project-section-title">Architecture & Security</div>
-                <p class="project-desc">Designed an interactive 4-page analytical report (Welcome, Visual Analytics, Data Matrix, Contextual Tooltips). Implemented programmatic Row-Level Security (RLS) on the Category dimension to securely restrict data access across different department managers based on organizational permissions.</p>
+                <p class="project-desc">Designed an interactive 4-page analytical report (Welcome, Visual Analytics, Data Matrix, Contextual Tooltips)[span_18](start_span)[span_18](end_span). Implemented programmatic Row-Level Security (RLS) on the Category dimension to securely restrict data access across different department managers based on organizational permissions[span_19](start_span)[span_19](end_span).</p>
                 <div class="project-section-title">Key Insights & Analytics</div>
                 <ul class="insights-list">
-                    <li><strong>Territory Distribution:</strong> The West region acts as the primary geographic catalyst, driving 31.58% of total transactional volume.</li>
-                    <li><strong>Category & Temporal Trends:</strong> Technical products stood out as the top revenue generation tier. 2017 recorded peak performance, securing $730K in net sales.</li>
-                    <li><strong>Performance Drivers:</strong> "Andrea" emerged as the premier account executive, surpassing $725K in managed sales volume.</li>
-                    <li><strong>Logistics & Customers:</strong> "Standard Class" serves as the heavily favored logistics mode. "Sean Miller" was identified as the highest lifetime-value customer within the Top 10 customer matrix.</li>
+                    <li><strong>Territory Distribution:</strong> The West region acts as the primary geographic catalyst, driving 31.58% of total transactional volume[span_20](start_span)[span_20](end_span).</li>
+                    <li><strong>Category & Temporal Trends:</strong> Technical products stood out as the top revenue generation tier[span_21](start_span)[span_21](end_span). 2017 recorded peak performance, securing $730K in net sales[span_22](start_span)[span_22](end_span).</li>
+                    <li><strong>Performance Drivers:</strong> "Andrea" emerged as the premier account executive, surpassing $725K in managed sales volume[span_23](start_span)[span_23](end_span).</li>
+                    <li><strong>Logistics & Customers:</strong> "Standard Class" serves as the heavily favored logistics mode[span_24](start_span)[span_24](end_span). "Sean Miller" was identified as the highest lifetime-value customer within the Top 10 customer matrix[span_25](start_span)[span_25](end_span).</li>
                 </ul>
             </div>
 
@@ -462,13 +538,13 @@
                 </div>
                 <img src="Amazon Data Sales.png" alt="Amazon Sales Dashboard" class="project-img">
                 <div class="project-section-title">Business Objective</div>
-                <p class="project-desc">Evaluated a multi-year global Amazon dataset (2010–2017) to uncover cross-border transactional dynamics across diverse fulfillment types.</p>
+                <p class="project-desc">Evaluated a multi-year global Amazon dataset (2010–2017) to uncover cross-border transactional dynamics across diverse fulfillment types[span_26](start_span)[span_26](end_span).</p>
                 <div class="project-section-title">Key Insights & Analytics</div>
                 <ul class="insights-list">
-                    <li><strong>Macro Metrics:</strong> Formulated analytics over 513K units sold, converting a $93.18M cost of goods sold into $137M+ total revenue, generating a net profit margin exceeding $44M.</li>
-                    <li><strong>Geographic Anchors:</strong> Sub-Saharan Africa represented the highest regional financial footprint, surpassing $39.5M in sales.</li>
-                    <li><strong>Product Categories:</strong> "Cosmetics" ranked as the premier product category, generating a concentrated $37M in sales volume.</li>
-                    <li><strong>Fulfillment Breakdown:</strong> Brick-and-mortar operations led overall channel performance, with Offline sales contributing 57.59% compared to 42.41% generated via Digital Online storefronts.</li>
+                    <li><strong>Macro Metrics:</strong> Formulated analytics over 513K units sold, converting a $93.18M cost of goods sold into $137M+ total revenue, generating a net profit margin exceeding $44M[span_27](start_span)[span_27](end_span).</li>
+                    <li><strong>Geographic Anchors:</strong> Sub-Saharan Africa represented the highest regional financial footprint, surpassing $39.5M in sales[span_28](start_span)[span_28](end_span).</li>
+                    <li><strong>Product Categories:</strong> "Cosmetics" ranked as the premier product category, generating a concentrated $37M in sales volume[span_29](start_span)[span_29](end_span).</li>
+                    <li><strong>Fulfillment Breakdown:</strong> Brick-and-mortar operations led overall channel performance, with Offline sales contributing 57.59% compared to 42.41% generated via Digital Online storefronts[span_30](start_span)[span_30](end_span).</li>
                 </ul>
             </div>
 
@@ -482,13 +558,13 @@
                 </div>
                 <img src="Covid 19 Egypt Data.png" alt="Covid-19 Egypt Dashboard" class="project-img">
                 <div class="project-section-title">Business Objective</div>
-                <p class="project-desc">Conducted a specialized time-series analysis detailing the transmission velocity and mortality metrics of COVID-19 within Egypt from initial outbreak inception (Feb 2020) through peak waves (Dec 2020).</p>
+                <p class="project-desc">Conducted a specialized time-series analysis detailing the transmission velocity and mortality metrics of COVID-19 within Egypt from initial outbreak inception (Feb 2020) through peak waves (Dec 2020)[span_31](start_span)[span_31](end_span).</p>
                 <div class="project-section-title">Key Insights & Analytics</div>
                 <ul class="insights-list">
-                    <li><strong>Cumulative Metrics:</strong> Tracked an aggregate volume of ~128K confirmed positive cases and 7,209 registered mortalities.</li>
-                    <li><strong>Peak Critical Thresholds:</strong> Isolated June 19, 2020, as the single day with the highest infection rate (1,774 new cases), and June 15, 2020, as the highest single-day mortality peak (97 deaths).</li>
-                    <li><strong>Density Metrics:</strong> Identified June as the most severe month for transmission, reaching an incidence density of 423 cases per million citizens.</li>
-                    <li><strong>Statistical Correlation:</strong> Mathematical tracking confirmed a strong positive correlation between daily positive test results and mortality metrics.</li>
+                    <li><strong>Cumulative Metrics:</strong> Tracked an aggregate volume of ~128K confirmed positive cases and 7,209 registered mortalities[span_32](start_span)[span_32](end_span).</li>
+                    <li><strong>Peak Critical Thresholds:</strong> Isolated June 19, 2020, as the single day with the highest infection rate (1,774 new cases), and June 15, 2020, as the highest single-day mortality peak (97 deaths)[span_33](start_span)[span_33](end_span).</li>
+                    <li><strong>Density Metrics:</strong> Identified June as the most severe month for transmission, reaching an incidence density of 423 cases per million citizens[span_34](start_span)[span_34](end_span).</li>
+                    <li><strong>Statistical Correlation:</strong> Mathematical tracking confirmed a strong positive correlation between daily positive test results and mortality metrics[span_35](start_span)[span_35](end_span).</li>
                 </ul>
             </div>
 
@@ -503,13 +579,13 @@
                 </div>
                 <img src="16K Movies Dataset.png" alt="16K Movies Dashboard" class="project-img">
                 <div class="project-section-title">Business Objective</div>
-                <p class="project-desc">Constructed an analytical interface over historic cinematic records (1970–2024), extracting, transforming, and loading raw data via Power Query to map production output and director performance metrics.</p>
+                <p class="project-desc">Constructed an analytical interface over historic cinematic records (1970–2024), extracting, transforming, and loading raw data via Power Query to map production output and director performance metrics[span_36](start_span)[span_36](end_span).</p>
                 <div class="project-section-title">Key Insights & Analytics</div>
                 <ul class="insights-list">
-                    <li><strong>Data Overview:</strong> Extracted metrics across 1,000 top-tier cinematic productions encompassing 1,654 distinct genre tags.</li>
-                    <li><strong>Top Tier Ratings:</strong> Isolated "Hole in My Heart," "Surviving Eden," and "Turk 182" as the elite productions securing flawless 10-star public ratings.</li>
-                    <li><strong>Volume Leaders:</strong> Crowned Woody Allen as the most prolific industry figure, tracking an output of 46 written and 50 directed assets.</li>
-                    <li><strong>Temporal Clusters & Genres:</strong> 2014 was identified as the peak production year with 704 films released. Drama held the highest market share with 1,514 total listings.</li>
+                    <li><strong>Data Overview:</strong> Extracted metrics across 1,000 top-tier cinematic productions encompassing 1,654 distinct genre tags[span_37](start_span)[span_37](end_span).</li>
+                    <li><strong>Top Tier Ratings:</strong> Isolated "Hole in My Heart," "Surviving Eden," and "Turk 182" as the elite productions securing flawless 10-star public ratings[span_38](start_span)[span_38](end_span).</li>
+                    <li><strong>Volume Leaders:</strong> Crowned Woody Allen as the most prolific industry figure, tracking an output of 46 written and 50 directed assets[span_39](start_span)[span_39](end_span).</li>
+                    <li><strong>Temporal Clusters & Genres:</strong> 2014 was identified as the peak production year with 704 films released[span_40](start_span)[span_40](end_span). Drama held the highest market share with 1,514 total listings[span_41](start_span)[span_41](end_span).</li>
                 </ul>
             </div>
 
@@ -523,13 +599,13 @@
                 </div>
                 <img src="Students Performance Analysis.png" alt="Student Performance Dashboard" class="project-img">
                 <div class="project-section-title">Business Objective</div>
-                <p class="project-desc">Analyzed institutional high school metrics to discover correlations between student demographics, parental involvement, and overall grade point averages (GPA).</p>
+                <p class="project-desc">Analyzed institutional high school metrics to discover correlations between student demographics, parental involvement, and overall grade point averages (GPA)[span_42](start_span)[span_42](end_span).</p>
                 <div class="project-section-title">Key Insights & Analytics</div>
                 <ul class="insights-list">
-                    <li><strong>Performance Critical Status:</strong> Calculated a global sample GPA of 1.91, falling short of the standard passing threshold of 2.00 due to a larger volume of failing marks relative to passing achievements.</li>
-                    <li><strong>Attendance Elasticity:</strong> Discovered a strong inverse correlation between student absenteeism and cumulative GPA, indicating a need for stricter institutional attendance caps.</li>
-                    <li><strong>Socio-Economic Factors:</strong> Proved that active parental support directly leads to better student grades, while the absolute baseline education level of parents showed no statistical variance on a student's capacity to earn high grades.</li>
-                    <li><strong>Grade Distributions:</strong> Only a minor 4.48% segment achieved elite "A" status, while over 50% of the sample clustered around the "F" tier, with the remaining bulk residing between "C" and "D".</li>
+                    <li><strong>Performance Critical Status:</strong> Calculated a global sample GPA of 1.91, falling short of the standard passing threshold of 2.00 due to a larger volume of failing marks relative to passing achievements[span_43](start_span)[span_43](end_span).</li>
+                    <li><strong>Attendance Elasticity:</strong> Discovered a strong inverse correlation between student absenteeism and cumulative GPA, indicating a need for stricter institutional attendance caps[span_44](start_span)[span_44](end_span).</li>
+                    <li><strong>Socio-Economic Factors:</strong> Proved that active parental support directly leads to better student grades, while the absolute baseline education level of parents showed no statistical variance on a student's capacity to earn high grades[span_45](start_span)[span_45](end_span).</li>
+                    <li><strong>Grade Distributions:</strong> Only a minor 4.48% segment achieved elite "A" status, while over 50% of the sample clustered around the "F" tier, with the remaining bulk residing between "C" and "D[span_46](start_span)"[span_46](end_span).</li>
                 </ul>
             </div>
 
@@ -541,16 +617,15 @@
                     <span class="project-tool highlight">Power Query</span>
                     <span class="project-tool">Power BI</span>
                 </div>
-                <!-- اسم الصورة مضاف بالكامل هنا وصحيح تماماً -->
                 <img src="World Population 2020-1.png" alt="World Population Dashboard" class="project-img">
                 <div class="project-section-title">Business Objective</div>
-                <p class="project-desc">Mapped demographic distributions, annual net shifts, and spatial density dynamics across international borders using macro data from 2020.</p>
+                <p class="project-desc">Mapped demographic distributions, annual net shifts, and spatial density dynamics across international borders using macro data from 2020[span_47](start_span)[span_47](end_span).</p>
                 <div class="project-section-title">Key Insights & Analytics</div>
                 <ul class="insights-list">
-                    <li><strong>Scale of Analysis:</strong> Evaluated geospatial indicators across 235 distinct countries and regional territories.</li>
-                    <li><strong>Demographic Giants:</strong> Identified 14 countries whose populations surpass the 100M threshold. China held the global lead at 1.4B+ residents, representing 18.5% of the total global population footprint.</li>
-                    <li><strong>Density & Growth Anomalies:</strong> Bangladesh recorded the highest population density acceleration, tracking at 1,265 individuals per square mile. India demonstrated the highest net nominal annual growth, adding 14M residents.</li>
-                    <li><strong>Urbanization Split:</strong> Global urbanization metrics showed a clear division: 24.36% of the population resides in developed urban centers, compared to 75.64% living within rural and non-urban areas.</li>
+                    <li><strong>Scale of Analysis:</strong> Evaluated geospatial indicators across 235 distinct countries and regional territories[span_48](start_span)[span_48](end_span).</li>
+                    <li><strong>Demographic Giants:</strong> Identified 14 countries whose populations surpass the 100M threshold[span_49](start_span)[span_49](end_span). China held the global lead at 1.4B+ residents, representing 18.5% of the total global population footprint[span_50](start_span)[span_50](end_span).</li>
+                    <li><strong>Density & Growth Anomalies:</strong> Bangladesh recorded the highest population density acceleration, tracking at 1,265 individuals per square mile[span_51](start_span)[span_51](end_span). India demonstrated the highest net nominal annual growth, adding 14M residents[span_52](start_span)[span_52](end_span).</li>
+                    <li><strong>Urbanization Split:</strong> Global urbanization metrics showed a clear division: 24.36% of the population resides in developed urban centers, compared to 75.64% living within rural and non-urban areas[span_53](start_span)[span_53](end_span).</li>
                 </ul>
             </div>
 
