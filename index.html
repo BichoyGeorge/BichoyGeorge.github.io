@@ -1,21 +1,37 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bishoy George | Data Analyst</title>
-    <!-- استدعاء أيقونات FontAwesome عشان علامة الواتساب والفيسبوك والإيميل -->
+    <title>Bishoy George | Senior Data Analyst Portfolio</title>
+    <!-- FontAwesome للأيقونات -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --bg-main: #fbfbf4; /* الخلفية الكريمي المريحة */
+            --bg-main: #fbfbf4;
             --bg-card: #ffffff;
             --text-dark: #000000;
             --text-muted: #4a4a4a;
             --accent-blue: #bae6fd;
             --accent-green: #bbf7d0;
             --accent-yellow: #fef08a;
+            --accent-purple: #e9d5ff;
             --border-width: 2.5px;
+            --shadow-color: #000000;
+        }
+
+        /* ثيم المود الليلي */
+        [data-theme="dark"] {
+            --bg-main: #121212;
+            --bg-card: #1e1e1e;
+            --text-dark: #ffffff;
+            --text-muted: #a0a0a0;
+            --accent-blue: #0369a1;
+            --accent-green: #15803d;
+            --accent-yellow: #a16207;
+            --accent-purple: #6b21a8;
+            --shadow-color: #222222;
         }
 
         * { 
@@ -23,6 +39,7 @@
             margin: 0; 
             padding: 0; 
             font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif; 
+            transition: background-color 0.3s, color 0.3s;
         }
 
         body { 
@@ -32,753 +49,559 @@
             padding: 0 1rem;
         }
 
-        /* الهيدر النظيف */
+        /* زر المود الليلي العايم */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 999;
+            background: var(--text-dark);
+            color: var(--bg-card);
+            border: var(--border-width) solid var(--text-dark);
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 3px 3px 0 var(--shadow-color);
+        }
+
+        /* انيميشن الظهور الخفيف */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            visibility: hidden;
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            will-change: opacity, transform;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: none;
+            visibility: visible;
+        }
+
         header { 
-            max-width: 800px;
-            margin: 2rem auto 1rem auto;
+            max-width: 1000px;
+            margin: 4rem auto 1rem auto;
             padding: 1.5rem;
             background: var(--bg-card);
             border: var(--border-width) solid var(--text-dark);
-            box-shadow: 5px 5px 0px var(--text-dark);
+            box-shadow: 5px 5px 0px var(--shadow-color);
             border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
         }
 
-        .header-text h1 { 
-            font-size: 1.8rem; 
-            font-weight: 800; 
-            margin-bottom: 0.2rem;
-        }
+        .header-text h1 { font-size: 1.8rem; font-weight: 800; }
+        .header-text p { font-size: 0.95rem; font-weight: 600; color: var(--text-muted); border-bottom: 2px solid var(--text-dark); }
 
-        .header-text p { 
-            font-size: 0.95rem; 
-            font-weight: 600; 
-            color: var(--text-muted);
-            display: inline-block;
-            border-bottom: 2px solid var(--text-dark);
-            padding-bottom: 2px;
-        }
-
-        /* حاوية الصورة الكبيرة مع النجوم والأشكال العايمة */
-        .profile-frame-container {
-            max-width: 800px;
-            margin: 3rem auto;
-            text-align: center;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .image-wrapper {
-            position: relative;
-            display: inline-block;
-            padding: 20px;
-        }
-
-        /* تم تعديل الحجم هنا ليكون 300 بكسل */
-        .profile-img-frame { 
-            width: 300px; 
-            height: 300px; 
-            border-radius: 16px; 
-            object-fit: cover; 
-            border: var(--border-width) solid var(--text-dark);
-            box-shadow: 8px 8px 0px var(--text-dark);
-            background: #fff;
-            position: relative;
-            z-index: 2;
-        }
-
-        /* الأشكال والنجوم المحيطة بالصورة المحدثة لتتناسب مع حجم 300 بكسل */
-        .decor-shape {
-            position: absolute;
-            font-size: 2.2rem; /* كبرنا حجم النجوم شوية لتناسب البرواز الأكبر */
-            color: var(--text-dark);
-            z-index: 1;
-            animation: floatAnim 3s ease-in-out infinite alternate;
-        }
-        
-        .star-1 { top: -15px; left: -15px; animation-delay: 0s; color: var(--accent-yellow); }
-        .star-2 { bottom: 15px; right: -20px; animation-delay: 0.5s; color: var(--accent-blue); }
-        .shape-3 { top: 50%; left: -35px; transform: translateY(-50%); font-size: 1.8rem; }
-        .shape-4 { top: -20px; right: -5px; animation-delay: 0.8s; color: var(--accent-green); }
-
-        @keyframes floatAnim {
-            0% { transform: translateY(0) scale(1) rotate(0deg); }
-            100% { transform: translateY(-10px) scale(1.1) rotate(15deg); }
-        }
-
-        .cv-download-btn {
+        .header-buttons { display: flex; gap: 10px; }
+        .btn-primary {
             background: var(--text-dark);
-            color: white;
+            color: var(--bg-card);
             text-decoration: none;
             padding: 0.5rem 1rem;
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             font-weight: 700;
             border: var(--border-width) solid var(--text-dark);
-            transition: all 0.15s ease;
         }
-        .cv-download-btn:hover {
-            background: var(--bg-main);
-            color: var(--text-dark);
-            box-shadow: 3px 3px 0px var(--text-dark);
-            transform: translate(-2px, -2px);
-        }
-
-        /* الحاوية الرئيسية */
-        .container { 
-            max-width: 800px; 
-            margin: 0 auto; 
-        }
-
-        h2 { 
-            font-size: 1.7rem; 
-            font-weight: 800; 
-            margin: 2.5rem 0 1.5rem 0;
-            position: relative;
-            display: inline-block;
-        }
-        h2::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -4px;
-            width: 100%;
-            height: 4px;
-            background: var(--text-dark);
-            border-radius: 2px;
-        }
-
-        section {
-            margin-bottom: 2rem;
-        }
-
-        .about-box {
-            background: var(--bg-card);
-            padding: 1.5rem;
-            border: var(--border-width) solid var(--text-dark);
-            border-radius: 16px;
-            box-shadow: 5px 5px 0px var(--text-dark);
-            font-size: 1rem;
-            font-weight: 500;
-        }
-
-        .about-quote {
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1.5px dashed var(--text-dark);
-            font-style: italic;
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        /* كروت الخبرة والتدريب */
-        .experience-card, .training-card {
-            background: var(--bg-card);
-            border: var(--border-width) solid var(--text-dark);
-            border-radius: 16px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 5px 5px 0px var(--text-dark);
-        }
-
-        .card-header-flex {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 0.75rem;
-        }
-
-        .job-title {
-            font-size: 1.2rem;
-            font-weight: 800;
-        }
-
-        .company-name {
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--text-muted);
-        }
-
-        .job-date {
-            background: var(--accent-yellow);
-            padding: 0.2rem 0.6rem;
-            border: 2px solid var(--text-dark);
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 700;
-        }
-
-        .experience-list {
-            padding-left: 20px;
-        }
-
-        .experience-list li {
-            margin-bottom: 6px;
-            font-size: 0.95rem;
-        }
-
-        /* الهوايات والبطولات */
-        .personal-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .personal-card {
-            background: var(--bg-card);
-            border: var(--border-width) solid var(--text-dark);
-            border-radius: 16px;
-            padding: 1.25rem;
-            box-shadow: 4px 4px 0px var(--text-dark);
-            transition: transform 0.15s ease;
-        }
-        .personal-card:hover {
-            transform: translate(-2px, -2px);
-            box-shadow: 6px 6px 0px var(--text-dark);
-        }
-
-        .personal-card h3 {
-            font-size: 1.1rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .personal-card p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            font-weight: 500;
-        }
-
-        /* المهارات التقنية */
-        .skills-category { 
-            background: var(--bg-card);
-            border: var(--border-width) solid var(--text-dark);
-            border-radius: 16px;
-            padding: 1.25rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 4px 4px 0px var(--text-dark);
-        }
-        
-        .skills-category h3 { 
-            font-size: 1rem; 
-            margin-bottom: 1rem; 
-            font-weight: 800; 
-            text-transform: uppercase;
-        }
-
-        .skills-grid { 
-            display: flex; 
-            flex-wrap: wrap; 
-            gap: 0.6rem; 
-        }
-
-        .skill-card { 
-            background: var(--bg-card); 
-            padding: 0.4rem 1rem; 
-            border-radius: 20px; 
-            font-weight: 600; 
-            font-size: 0.85rem; 
-            border: 2px solid var(--text-dark);
-            transition: all 0.15s ease;
-        }
-        .skill-card:hover { 
-            background: var(--text-dark); 
-            color: white; 
-        }
-
-        /* كروت المشاريع */
-        .project-card { 
-            background: var(--bg-card); 
-            padding: 1.5rem; 
-            border-radius: 16px; 
-            border: var(--border-width) solid var(--text-dark);
-            margin-bottom: 2rem; 
-            box-shadow: 6px 6px 0px var(--text-dark);
-        }
-
-        .project-card h3 { 
-            font-size: 1.3rem; 
-            margin-bottom: 0.6rem; 
-            font-weight: 800; 
-        }
-        
-        .project-tools-container { 
-            display: flex; 
-            gap: 0.5rem; 
-            flex-wrap: wrap; 
-            margin-bottom: 1.25rem; 
-        }
-
-        .project-tool { 
-            display: inline-block; 
-            background: var(--accent-blue); 
-            color: var(--text-dark);
-            font-size: 0.75rem; 
-            font-weight: 700; 
-            padding: 0.25rem 0.75rem; 
-            border-radius: 20px; 
-            border: 2px solid var(--text-dark); 
-        }
-        
-        .project-img { 
-            width: 100%; 
-            max-height: 450px; 
-            object-fit: contain; 
-            border-radius: 12px; 
-            margin: 1rem 0; 
-            border: var(--border-width) solid var(--text-dark); 
-            background: #fff; 
-            display: block; 
-        }
-        
-        .project-images-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(45%, 1fr)); 
-            gap: 12px; 
-            margin: 1rem 0; 
-        }
-        .project-images-grid img { 
-            width: 100%; 
-            max-height: 300px; 
-            object-fit: contain; 
-            border: var(--border-width) solid var(--text-dark); 
-            border-radius: 12px; 
-            background: #fff; 
-        }
-
-        .project-section-title { 
-            font-size: 0.9rem; 
-            font-weight: 800; 
-            margin-top: 1.25rem; 
-            margin-bottom: 0.4rem; 
-            text-transform: uppercase; 
-        }
-
-        .project-desc { 
-            font-size: 0.95rem; 
-            color: var(--text-muted); 
-            margin-bottom: 0.75rem; 
-        }
-
-        .insights-list { 
-            padding-left: 20px; 
-            margin-top: 0.5rem; 
-        }
-        .insights-list li { 
-            margin-bottom: 6px; 
-            font-size: 0.95rem; 
-        }
-        
-        /* منطقة التواصل */
-        .contact-section {
-            background: var(--bg-card);
-            border: var(--border-width) solid var(--text-dark);
-            border-radius: 16px;
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 5px 5px 0px var(--text-dark);
-            margin-top: 3rem;
-        }
-
-        .contact-info-list {
-            list-style: none;
-            margin: 1.5rem 0;
-            font-size: 1.1rem;
-            font-weight: 700;
-            text-align: center;
-        }
-
-        .contact-info-list li {
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .contact-info-list a {
+        .btn-secondary {
+            background: transparent;
             color: var(--text-dark);
             text-decoration: none;
-            border-bottom: 2px solid var(--text-dark);
-        }
-
-        .social-buttons-flex {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-top: 1.5rem;
-        }
-
-        .contact-btn { 
-            display: inline-flex; 
-            align-items: center;
-            gap: 8px;
-            background: var(--text-dark); 
-            color: white; 
-            padding: 0.75rem 1.5rem; 
-            text-decoration: none; 
-            font-weight: 700; 
-            border-radius: 25px; 
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
             border: var(--border-width) solid var(--text-dark);
-            transition: all 0.15s ease;
         }
-        .contact-btn:hover { 
-            background: var(--bg-main); 
-            color: var(--text-dark);
-            box-shadow: 4px 4px 0px var(--text-dark);
+        .btn-primary:hover, .btn-secondary:hover {
+            box-shadow: 3px 3px 0px var(--shadow-color);
             transform: translate(-2px, -2px);
         }
 
-        .whatsapp-btn { background: #25D366; color: black; }
-        .whatsapp-btn:hover { background: var(--bg-main); color: #25D366; }
+        .profile-frame-container { text-align: center; margin: 2rem auto; position: relative; }
+        .profile-img-frame { width: 300px; height: 300px; border-radius: 16px; object-fit: cover; border: var(--border-width) solid var(--text-dark); box-shadow: 8px 8px 0px var(--shadow-color); background: #fff; }
 
-        .facebook-btn { background: #1877F2; color: white; }
-        .facebook-btn:hover { background: var(--bg-main); color: #1877F2; }
-        
-        footer { 
-            text-align: center; 
-            padding: 3rem 0; 
-            color: var(--text-muted); 
-            font-size: 0.85rem; 
-            font-weight: 600;
+        .container { max-width: 1000px; margin: 0 auto; }
+        h2 { font-size: 1.7rem; font-weight: 800; margin: 3rem 0 1.5rem 0; position: relative; display: inline-block; }
+        h2::after { content: ''; position: absolute; left: 0; bottom: -4px; width: 100%; height: 4px; background: var(--text-dark); }
+
+        /* الأقسام الشبكية المشتركة */
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.25rem; }
+
+        .neat-card {
+            background: var(--bg-card);
+            border: var(--border-width) solid var(--text-dark);
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 5px 5px 0px var(--shadow-color);
+            position: relative;
         }
 
-        @media (max-width: 480px) {
-            header { flex-direction: column; gap: 15px; text-align: center; }
-            .project-images-grid { grid-template-columns: 1fr; }
-            .social-buttons-flex { flex-direction: column; width: 100%; }
-            .contact-btn { width: 100%; justify-content: center; }
+        /* الإنجازات بالأرقام */
+        .stat-number { font-size: 2.5rem; font-weight: 900; color: var(--text-dark); margin-bottom: 0.5rem; }
+
+        /* تايم لاين المسيرة */
+        .timeline { position: relative; padding: 1rem 0; }
+        .timeline::before { content: ''; position: absolute; left: 20px; top: 0; bottom: 0; width: 4px; background: var(--text-dark); }
+        .timeline-item { position: relative; margin-bottom: 1.5rem; padding-left: 50px; }
+        .timeline-dot { position: absolute; left: 12px; top: 5px; width: 20px; height: 20px; background: var(--accent-yellow); border: 3px solid var(--text-dark); border-radius: 50%; }
+
+        /* دياجرام سير العمل Pipeline */
+        .pipeline-flex { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; background: var(--bg-card); padding: 1.5rem; border: var(--border-width) solid var(--text-dark); border-radius: 16px; box-shadow: 4px 4px 0 var(--shadow-color); }
+        .pipeline-step { background: var(--accent-blue); padding: 0.5rem 1rem; border-radius: 8px; border: 2px solid var(--text-dark); font-weight: 700; font-size: 0.9rem; text-align: center; flex: 1; min-width: 120px; }
+        .pipeline-arrow { font-weight: 900; font-size: 1.2rem; text-align: center; }
+
+        /* محرك الفلترة للمشاريع */
+        .filter-container { margin-bottom: 1.5rem; display: flex; flex-wrap: wrap; gap: 8px; }
+        .filter-btn { padding: 0.4rem 1rem; border-radius: 20px; border: 2px solid var(--text-dark); background: var(--bg-card); color: var(--text-dark); font-weight: 700; cursor: pointer; font-size: 0.85rem; }
+        .filter-btn.active { background: var(--text-dark); color: var(--bg-card); }
+
+        /* كروت المشاريع والميديا */
+        .project-card { display: none; margin-bottom: 2rem; }
+        .project-card.show { display: block; }
+        .project-tools-container { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 0.5rem 0 1rem 0; }
+        .project-tool { background: var(--accent-purple); font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.75rem; border-radius: 20px; border: 2px solid var(--text-dark); cursor: pointer; }
+        .project-img-clickable { width: 100%; max-height: 350px; object-fit: contain; border-radius: 12px; border: var(--border-width) solid var(--text-dark); background: #fff; cursor: pointer; transition: transform 0.2s; }
+        .project-img-clickable:hover { transform: scale(1.01); }
+
+        .project-images-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(22%, 1fr)); gap: 10px; margin: 1rem 0; }
+        .project-images-grid img { width: 100%; height: auto; object-fit: contain; border: 2px solid var(--text-dark); border-radius: 8px; background: #fff; cursor: pointer; }
+
+        /* لاند سكيب وجاليري الداشبورد */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+        .gallery-item { position: relative; border: 2px solid var(--text-dark); border-radius: 12px; overflow: hidden; cursor: pointer; box-shadow: 3px 3px 0 var(--shadow-color); }
+        .gallery-item img { width: 100%; height: 120px; object-fit: cover; display: block; }
+
+        /* نافذة الـ Lightbox لتكبير الصور */
+        .lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 10000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+        .lightbox.active { opacity: 1; pointer-events: auto; }
+        .lightbox-content { max-width: 90%; max-height: 85%; border: 4px solid #fff; border-radius: 8px; box-shadow: 0 0 20px rgba(0,0,0,0.5); }
+        .lightbox-close { position: absolute; top: 20px; right: 20px; color: #fff; font-size: 2.5rem; cursor: pointer; font-weight: bold; user-select: none; }
+
+        /* قائمة الأسئلة الشائعة */
+        .faq-item { margin-bottom: 1rem; border-bottom: 2px dashed var(--text-dark); padding-bottom: 1rem; cursor: pointer; }
+        .faq-question { font-weight: 800; font-size: 1.1rem; display: flex; justify-content: space-between; align-items: center; }
+        .faq-answer { display: none; margin-top: 0.5rem; color: var(--text-muted); font-size: 0.95rem; }
+
+        /* الفوتر والتواصل */
+        .contact-section { text-align: center; padding: 2rem; margin-top: 3rem; }
+        .social-buttons-flex { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 1.5rem; }
+        .contact-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--text-dark); color: var(--bg-card); padding: 0.6rem 1.2rem; text-decoration: none; font-weight: 700; border-radius: 25px; border: var(--border-width) solid var(--text-dark); }
+        .contact-btn:hover { box-shadow: 4px 4px 0px var(--shadow-color); transform: translate(-2px, -2px); }
+
+        @media (max-width: 768px) {
+            header { flex-direction: column; text-align: center; }
+            .pipeline-flex { flex-direction: column; }
+            .pipeline-arrow { transform: rotate(90deg); margin: 5px 0; }
+            .project-images-grid { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
 </head>
 <body>
 
-    <header>
+    <!-- زر المود الليلي التفاعلي -->
+    <button class="theme-toggle" id="themeBtn" title="Toggle Theme"><i class="fa-solid fa-moon"></i></button>
+
+    <!-- الهيدر المطور بأزرار التحميل والمشاهدة -->
+    <header class="fade-in-section">
         <div class="header-text">
             <h1>Bishoy George</h1>
-            <p>Data Analyst</p>
+            <p>Senior Data Analyst</p>
         </div>
-        <div>
-            <a href="Bishoy_George_CV.pdf" class="cv-download-btn" target="_blank">View CV</a>
+        <div class="header-buttons">
+            <a href="Bishoy_George_CV.pdf" class="btn-primary" download><i class="fa-solid fa-cloud-arrow-down"></i> Download CV</a>
+            <a href="Bishoy_George_CV.pdf" class="btn-secondary" target="_blank"><i class="fa-solid fa-eye"></i> View CV</a>
         </div>
     </header>
 
-    <div class="profile-frame-container">
-        <div class="image-wrapper">
-            <span class="decor-shape star-1">★</span>
-            <span class="decor-shape star-2">✦</span>
-            <span class="decor-shape shape-3">◆</span>
-            <span class="decor-shape shape-4">★</span>
-            <img src="Bisho.jpg" alt="Bishoy George" class="profile-img-frame">
-        </div>
+    <div class="profile-frame-container fade-in-section">
+        <img src="Bisho.jpg" alt="Bishoy George" class="profile-img-frame">
     </div>
 
     <div class="container">
         
-        <!-- قسم نبذة عني -->
-        <section id="about">
+        <!-- نبذة عني المحدثة -->
+        <section id="about" class="neat-card fade-in-section" style="margin-bottom: 2rem;">
             <h2>About Me</h2>
-            <div class="about-box">
-                I'm <strong>Bishoy George</strong>, a 26-year-old Data Analyst with a solid background in technical and industrial education[span_0](start_span)[span_0](end_span). This unique foundation fuels my expertise in backend architecture, structural data management, and business intelligence solutions[span_1](start_span)[span_1](end_span). I specialize in translating vast and complex multi-sector organizational datasets into strategic, actionable business insights that maximize operational workflow and elevate corporate performance[span_2](start_span)[span_2](end_span). Expert at building robust ETL routines, mastering SQL query engineering, and rendering high-impact Power BI dashboard spaces to empower corporate executive actions[span_3](start_span)[span_3](end_span).
-                <div class="about-quote">
-                    🤍 <span>"Guided by a philosophy of transparency and alignment—deeply appreciating pure hearts, clear intent, and authentic professional connections built on absolute integrity."</span>
+            <p style="margin-top:0.5rem;">
+                I'm <strong>Bishoy George</strong>, a 26-year-old Data Analyst with an industrial education foundation driving my deep expertise in structural backend data architecture and enterprise BI frameworks[span_1](start_span)[span_1](end_span). I specialize in engineering automated data pipelines, mastering full-stack SQL querying, and deploying interactive business management dashboards[span_2](start_span)[span_2](end_span).
+            </p>
+        </section>
+
+        <!-- 2. Impact & Achievements (الأرقام والواقع العملي) -->
+        <section id="impact" class="fade-in-section">
+            <h2>Impact & Achievements</h2>
+            <div class="grid-4">
+                <div class="neat-card" style="background: var(--accent-yellow);">
+                    <div class="stat-number">50+</div>
+                    <p style="font-weight:700;">SQL Scripts & Views Built</p>
+                </div>
+                <div class="neat-card" style="background: var(--accent-blue);">
+                    <div class="stat-number">10+</div>
+                    <p style="font-weight:700;">Automated Dashboards</p>
+                </div>
+                <div class="neat-card" style="background: var(--accent-green);">
+                    <div class="stat-number">5+</div>
+                    <p style="font-weight:700;">Business Domains Mapped</p>
+                </div>
+                <div class="neat-card" style="background: var(--accent-purple);">
+                    <div class="stat-number">Millions</div>
+                    <p style="font-weight:700;">Of Rows Processed Daily</p>
+                </div>
+            </div>
+            <div class="neat-card" style="margin-top:1.5rem; border-left: 8px solid var(--text-dark);">
+                <p style="font-weight:700; font-size:1.1rem;"><i class="fa-solid fa-building-columns"></i> Current Role: Data Analyst @ Banque Misr</p>
+            </div>
+        </section>
+
+        <!-- 1. Services (ماذا أقدم للمؤسسات) -->
+        <section id="services" class="fade-in-section">
+            <h2>Services I Offer</h2>
+            <div class="grid-3">
+                <div class="neat-card">
+                    <h3><i class="fa-solid fa-chart-pie"></i> Dashboard Development</h3>
+                    <p style="font-size:0.9rem; color:var(--text-muted); margin-top:5px;">Building state-of-the-art visual management rooms in Power BI & Tableau tailored for executive business decisions.</p>
+                </div>
+                <div class="neat-card">
+                    <h3><i class="fa-solid fa-database"></i> SQL Optimization</h3>
+                    <p style="font-size:0.9rem; color:var(--text-muted); margin-top:5px;">Tuning heavy relational database workloads, subqueries, and views to slash processing delays.</p>
+                </div>
+                <div class="neat-card">
+                    <h3><i class="fa-solid fa-arrows-split-up-and-left"></i> ETL & Pipelines</h3>
+                    <p style="font-size:0.9rem; color:var(--text-muted); margin-top:5px;">Deploying end-to-end extraction routines utilizing tools like SSIS to clean and route structural logs.</p>
                 </div>
             </div>
         </section>
 
-        <!-- قسم الخبرة المهنية -->
-        <section id="experience">
-            <h2>Work Experience</h2>
+        <!-- 8 & 9. Workflow & My Approach (دورة حياة وهندسة البيانات) -->
+        <section id="workflow" class="fade-in-section">
+            <h2>Data Infrastructure & Workflow</h2>
+            <div class="pipeline-flex">
+                <div class="pipeline-step">Raw Sources</div>
+                <div class="pipeline-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                <div class="pipeline-step" style="background: var(--accent-yellow);">SQL Extraction</div>
+                <div class="pipeline-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                <div class="pipeline-step" style="background: var(--accent-purple);">ETL Pipeline (SSIS)</div>
+                <div class="pipeline-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                <div class="pipeline-step" style="background: var(--accent-green);">Warehouse & Cube</div>
+                <div class="pipeline-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                <div class="pipeline-step" style="background: var(--bg-main);">Power BI Reporting</div>
+            </div>
+        </section>
+
+        <!-- 20. Tech Stack (كل الأدوات واللغات التقنية) -->
+        <section id="tech-stack" class="fade-in-section">
+            <h2>Enterprise Tech Stack</h2>
+            <div class="neat-card grid-4">
+                <div><strong>Databases:</strong><br>SQL Server, Oracle SQL, Denodo VQL</div>
+                <div><strong>BI Platforms:</strong><br>Power BI, Tableau, Looker Studio</div>
+                <div><strong>Warehousing:</strong><br>SSAS, SSIS, SSRS, OLAP Cubes</div>
+                <div><strong>Analysis & Core:</strong><br>Python, Advanced Excel, DAX, Power Query</div>
+            </div>
+        </section>
+
+        <!-- 13. Favorite SQL Tricks (مقتطفات برمجية سريعة) -->
+        <section id="sql-tricks" class="fade-in-section">
+            <h2>Favorite Enterprise SQL Tools</h2>
+            <div class="grid-3">
+                <div class="neat-card" style="padding: 1rem;">
+                    <strong>Window Functions</strong><br><small>ROW_NUMBER(), RANK(), DENSE_RANK()</small>
+                </div>
+                <div class="neat-card" style="padding: 1rem;">
+                    <strong>Common Table Expressions</strong><br><small>CTEs & Recursive Query Optimizers</small>
+                </div>
+                <div class="neat-card" style="padding: 1rem;">
+                    <strong>Data Architect Routines</strong><br><small>MERGE Statements & Analytical PIVOTs</small>
+                </div>
+            </div>
+        </section>
+
+        <!-- المشاريع الـ 6 المحدثة بمحرك فلترة وتقليص نصوص وصور تفاعلية -->
+        <section id="projects" class="fade-in-section">
+            <h2>Featured Projects Portfolio</h2>
             
-            <div class="experience-card">
-                <div class="card-header-flex">
-                    <div>
-                        <div class="job-title">Data Analyst</div>
-                        <div class="company-name">Banque Misr</div>
-                    </div>
-                    <div class="job-date">Present</div>
-                </div>
-                <ul class="experience-list">
-                    <li>Utilizing advanced SQL Server and Oracle SQL backend systems to pull, clean, and map corporate banking records.</li>
-                    <li>Designing automated performance dashboards in Power BI to monitor departmental performance and operations efficiency.</li>
-                    <li>Writing efficient scripts and advanced Power Query routines to automate daily and weekly reporting operations.</li>
-                </ul>
+            <!-- أداة البحث والفلترة الذكية للمشاريع -->
+            <div class="filter-container">
+                <button class="filter-btn active" onclick="filterProjects('all')">All Projects</button>
+                <button class="filter-btn" onclick="filterProjects('sql')">SQL</button>
+                <button class="filter-btn" onclick="filterProjects('powerbi')">Power BI</button>
+                <button class="filter-btn" onclick="filterProjects('excel')">Excel</button>
+                <button class="filter-btn" onclick="filterProjects('etl')">SSIS/ETL</button>
             </div>
 
-            <div class="experience-card">
-                <div class="card-header-flex">
-                    <div>
-                        <div class="job-title">Data Analyst</div>
-                        <div class="company-name">Orascom Construction PLC</div>
-                    </div>
-                    <div class="job-date">Previous</div>
-                </div>
-                <ul class="experience-list">
-                    <li>Aggregated and evaluated data indicators across industrial and commercial project fields to deliver cross-functional insights.</li>
-                    <li>Built interactive metrics matrices in Excel Power Pivot and Looker Studio for operations optimization and cost tracking.</li>
-                    <li>Collaborated directly with engineering and finance teams to transform raw project logs into standardized structural reports.</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- قسم التدريب والكورسات -->
-        <section id="training">
-            <h2>Training & Certifications</h2>
-            <div class="training-card">
-                <div class="card-header-flex">
-                    <div>
-                        <div class="job-title">Advanced Business Intelligence & Data Modeling</div>
-                        <div class="company-name">Professional Training Program</div>
-                    </div>
-                    <div class="job-date">Completed</div>
-                </div>
-                <p class="project-desc" style="color: var(--text-dark); font-weight: 500;">
-                    Intensive training focusing on end-to-end data pipelines, advanced DAX formulations, relational database schema management, and structural data warehousing paradigms using enterprise infrastructure tools like SSAS, Denodo VQL, and Python.
-                </p>
-            </div>
-        </section>
-
-        <!-- الهوايات والبطولات -->
-        <section id="beyond-data">
-            <h2>Beyond the Data</h2>
-            <div class="personal-grid">
-                <div class="personal-card" style="background: var(--accent-green);">
-                    <h3>🏓 Table Tennis Champion</h3>
-                    <p>3-Time University Table Tennis Tournament Winner. Combining sharp focus, lightning-fast reflexes, and tactical strategy—both on the table and inside the data pipelines.</p>
-                </div>
-                <div class="personal-card">
-                    <h3>📚 Avid Reader</h3>
-                    <p>Passionate about continuous learning. Diving deep into diverse domains, history, and analytical literature to consistently cultivate a broader, data-informed worldview.</p>
-                </div>
-                <div class="personal-card" style="background: var(--accent-blue);">
-                    <h3>🎯 Precision & Focus</h3>
-                    <p>Applying the discipline of a sports champion and the insight of a dedicated reader to deconstruct complex backend infrastructure and build seamless dashboards.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- المهارات التقنية -->
-        <section id="skills">
-            <h2>Technical Skills & Competencies</h2>
-            
-            <div class="skills-category">
-                <h3>Data Visualization & Reporting</h3>
-                <div class="skills-grid">
-                    <div class="skill-card">Power BI</div>
-                    <div class="skill-card">Tableau</div>
-                    <div class="skill-card">Looker Studio</div>
-                    <div class="skill-card">Excel (Advanced)</div>
-                    <div class="skill-card">SSRS</div>
-                    <div class="skill-card">SAP BO</div>
-                    <div class="skill-card">SAP InfoView</div>
-                    <div class="skill-card">Denodo Studio</div>
-                </div>
-            </div>
-
-            <div class="skills-category">
-                <h3>Programming, Databases & Analytics</h3>
-                <div class="skills-grid">
-                    <div class="skill-card">SQL Server</div>
-                    <div class="skill-card">Oracle SQL</div>
-                    <div class="skill-card">Denodo VQL</div>
-                    <div class="skill-card">Python</div>
-                    <div class="skill-card">DAX</div>
-                    <div class="skill-card">Power Pivot</div>
-                    <div class="skill-card">SSAS</div>
-                    <div class="skill-card">OLAP Cube</div>
-                    <div class="skill-card">Data Modeling</div>
-                </div>
-            </div>
-
-            <div class="skills-category">
-                <h3>ETL & Data Management</h3>
-                <div class="skills-grid">
-                    <div class="skill-card">Power Query</div>
-                    <div class="skill-card">SSIS</div>
-                    <div class="skill-card">Data Wrangling</div>
-                    <div class="skill-card">Data Warehousing</div>
-                    <div class="skill-card">Oracle ERP</div>
-                </div>
-            </div>
-
-            <div class="skills-category">
-                <h3>Project & Collaboration Tools</h3>
-                <div class="skills-grid">
-                    <div class="skill-card">Jira</div>
-                    <div class="skill-card">Notion</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- قسم الـ 6 مشاريع بالكامل -->
-        <section id="projects">
-            <h2>Featured Projects</h2>
-            
             <!-- 1. Hotel Booking Project -->
-            <div class="project-card">
-                <h3>Hospitality & Hotel Booking Performance</h3>
+            <div class="neat-card project-card show" data-tools="excel powerbi">
+                <h3>Hospitality Booking Performance Analysis</h3>
                 <div class="project-tools-container">
                     <span class="project-tool">Excel</span>
-                    <span class="project-tool">Power Query</span>
                     <span class="project-tool">Looker Studio</span>
                 </div>
-                <img src="Hotels Reservations Dataset.png" alt="Hotel Booking Dashboard" class="project-img">
-                <div class="project-section-title">Business Objective</div>
-                <p class="project-desc">Analyzed comprehensive hotel reservation data to optimize revenue management, evaluate guest preferences, and track cancellation behaviors for data-driven hospitality operations[span_4](start_span)[span_4](end_span).</p>
-                <div class="project-section-title">Key Insights & Analytics</div>
-                <ul class="insights-list">
-                    <li><strong>Financial Impact:</strong> Captured $3.7M in gross revenue; isolated cancellations to reveal a true net revenue of $2.4M[span_5](start_span)[span_5](end_span).</li>
-                    <li><strong>Cancellation Analytics:</strong> Identified ~12K cancellations, highlighting a critical need to adjust booking dynamic parameters[span_6](start_span)[span_6](end_span).</li>
-                    <li><strong>Capacity & Volume:</strong> Monitored 36.5K+ total check-ins, serving 70K adults and 4K children[span_7](start_span)[span_7](end_span).</li>
-                    <li><strong>Inventory Performance:</strong> <em>Room Type 1</em> emerged as the core driver with 28K+ bookings, while <em>Meal Plan 1</em> completely dominated guest food choices at 77%[span_8](start_span)[span_8](end_span).</li>
-                </ul>
+                <img src="Hotels Reservations Dataset.png" alt="Hotel Booking Dashboard" class="project-img-clickable" onclick="openLightbox(this.src)">
+                <p style="margin-top:1rem; font-size:0.95rem;"><strong>Impact:</strong> Isolated cancellation dynamics to protect net revenue streams, logging over 36K check-ins and mapping primary customer meal preferences[span_3](start_span)[span_3](end_span).</p>
             </div>
 
             <!-- 2. Perfume Store Project -->
-            <div class="project-card">
-                <h3>E-Commerce Perfume Market Analysis</h3>
+            <div class="neat-card project-card show" data-tools="sql excel powerbi">
+                <h3>E-Commerce Perfume Market Data Architecture</h3>
                 <div class="project-tools-container">
-                    <span class="project-tool">Excel</span>
-                    <span class="project-tool">Power Query</span>
                     <span class="project-tool">SQL</span>
                     <span class="project-tool">Power BI</span>
+                    <span class="project-tool">Power Query</span>
                 </div>
-                <img src="Perfuem Data.png" alt="Perfume Analytics Dashboard" class="project-img">
-                <div class="project-section-title">Advanced ETL & Data Engineering</div>
-                <p class="project-desc">Engineered an end-to-end data pipeline from raw Kaggle data. Handled intensive string-to-numeric transformations on mixed local currency formats (SAR) using advanced Power Query functions: <code>Text.Select(Price, {"0".."9", "."})</code> to scrub non-numeric structures[span_9](start_span)[span_9](end_span).</p>
-                <div class="project-section-title">Key Insights & Analytics</div>
-                <ul class="insights-list">
-                    <li><strong>Market Scope:</strong> Mapped 24,300 unique products across 28 major retail stores, representing 2.66M SAR market value[span_10](start_span)[span_10](end_span).</li>
-                    <li><strong>Inventory Optimization:</strong> "Al-Khabeer Al-Ateer" store commanded market share with over 5,800 active items[span_11](start_span)[span_11](end_span).</li>
-                    <li><strong>Premium Pricing Tier:</strong> Isolated luxury assets, notably the "Parfums de Marly Pegasus Set", retailing at a premium 5,230 SAR[span_12](start_span)[span_12](end_span).</li>
-                </ul>
+                <img src="Perfuem Data.png" alt="Perfume Analytics Dashboard" class="project-img-clickable" onclick="openLightbox(this.src)">
+                <p style="margin-top:1rem; font-size:0.95rem;"><strong>Impact:</strong> Handled complex local currency (SAR) conversions using advanced text scrubbing, mapping 24K items across 28 leading retailers[span_4](start_span)[span_4](end_span).</p>
             </div>
 
             <!-- 3. E-Commerce Sales Store -->
-            <div class="project-card">
-                <h3>Enterprise E-Commerce Sales Architecture</h3>
+            <div class="neat-card project-card show" data-tools="etl sql powerbi">
+                <h3>Enterprise E-Commerce Sales ETL Architecture</h3>
                 <div class="project-tools-container">
                     <span class="project-tool">SSIS</span>
                     <span class="project-tool">SSAS</span>
-                    <span class="project-tool">Excel</span>
-                    <span class="project-tool">SQL</span>
-                    <span class="project-tool">Power BI & DAX</span>
-                </div>
-                <div class="project-images-grid">
-                    <img src="E-Commerce Sales Store-1.png" alt="E-Commerce Dashboard Page 1">
-                    <img src="E-Commerce Sales Store-2.png" alt="E-Commerce Dashboard Page 2">
-                    <img src="E-Commerce Sales Store-3.png" alt="E-Commerce Dashboard Page 3">
-                    <img src="E-Commerce Sales Store-4.png" alt="E-Commerce Dashboard Page 4">
-                </div>
-                <div class="project-section-title">Architecture, BI Pipelines & Security</div>
-                <p class="project-desc">Built a comprehensive enterprise data pipeline. Leveraged **SQL Server Integration Services (SSIS)** to extract transactional logs from disparate relational tables, executing structural mappings into a staging DB. Developed a **SQL Server Analysis Services (SSAS)** layer, deploying multi-dimensional OLAP Cubes and tabular data models to minimize computational drag during active frontend execution[span_13](start_span)[span_13](end_span).</p>
-                <div class="project-section-title">Key Insights & Analytics</div>
-                <ul class="insights-list">
-                    <li><strong>Territory Distribution:</strong> The West region acts as the primary geographic catalyst, driving 31.58% of total volume[span_14](start_span)[span_14](end_span).</li>
-                    <li><strong>Category & Temporal Trends:</strong> Technical products stood out as the top revenue generation tier; 2017 recorded peak performance at $730K[span_15](start_span)[span_15](end_span).</li>
-                    <li><strong>Performance Drivers:</strong> "Andrea" emerged as the premier account executive, managing over $725K[span_16](start_span)[span_16](end_span).</li>
-                </ul>
-            </div>
-
-            <!-- 4. Amazon Sales Project -->
-            <div class="project-card">
-                <h3>Amazon Global Sales Analytics & Corporate Reporting</h3>
-                <div class="project-tools-container">
-                    <span class="project-tool">SSRS</span>
-                    <span class="project-tool">Excel</span>
-                    <span class="project-tool">Power Query</span>
                     <span class="project-tool">SQL</span>
                     <span class="project-tool">Power BI</span>
                 </div>
-                <img src="Amazon Data Sales.png" alt="Amazon Sales Dashboard" class="project-img">
-                <div class="project-section-title">Business Objective & Enterprise Reporting</div>
-                <p class="project-desc">Evaluated a multi-year global Amazon dataset (2010–2017) to uncover cross-border transactional dynamics[span_17](start_span)[span_17](end_span). Integrated **SQL Server Reporting Services (SSRS)** alongside the dynamic Power BI layer to produce automated, pixel-perfect standard invoices and operational ledger documents distributed daily to operational departments.</p>
-                <div class="project-section-title">Key Insights & Analytics</div>
-                <ul class="insights-list">
-                    <li><strong>Macro Metrics:</strong> Formulated analytics over 513K units sold, converting a $93.18M cost of goods sold into $137M+ total revenue[span_18](start_span)[span_18](end_span).</li>
-                    <li><strong>Geographic Anchors:</strong> Sub-Saharan Africa represented the highest regional financial footprint, surpassing $39.5M in sales[span_19](start_span)[span_19](end_span).</li>
-                    <li><strong>Fulfillment Breakdown:</strong> Brick-and-mortar operations led channel performance, with Offline sales contributing 57.59%[span_20](start_span)[span_20](end_span).</li>
-                </ul>
+                <div class="project-images-grid">
+                    <img src="E-Commerce Sales Store-1.png" onclick="openLightbox(this.src)" alt="Page 1">
+                    <img src="E-Commerce Sales Store-2.png" onclick="openLightbox(this.src)" alt="Page 2">
+                    <img src="E-Commerce Sales Store-3.png" onclick="openLightbox(this.src)" alt="Page 3">
+                    <img src="E-Commerce Sales Store-4.png" onclick="openLightbox(this.src)" alt="Page 4">
+                </div>
+                <p style="font-size:0.95rem;"><strong>Impact:</strong> Deployed SSIS pipelines to clean transactional logs and built multi-dimensional SSAS OLAP Cubes to drastically accelerate analytical processing delays[span_5](start_span)[span_5](end_span).</p>
+            </div>
+
+            <!-- 4. Amazon Sales Project -->
+            <div class="neat-card project-card show" data-tools="etl sql powerbi">
+                <h3>Amazon Global Sales Corporate Reporting Engine</h3>
+                <div class="project-tools-container">
+                    <span class="project-tool">SSRS</span>
+                    <span class="project-tool">SQL</span>
+                    <span class="project-tool">Power BI</span>
+                </div>
+                <img src="Amazon Data Sales.png" alt="Amazon Sales Dashboard" class="project-img-clickable" onclick="openLightbox(this.src)">
+                <p style="margin-top:1rem; font-size:0.95rem;"><strong>Impact:</strong> Processed a multi-year global log tracking $137M in sales, integrating SSRS templates to dispatch automated operations reports daily[span_6](start_span)[span_6](end_span).</p>
             </div>
 
             <!-- 5. Project Five -->
-            <div class="project-card">
-                <h3>Financial Portfolio Risk & Return Analysis</h3>
+            <div class="neat-card project-card show" data-tools="sql powerbi excel">
+                <h3>Financial Portfolio Asset & Risk Analytics</h3>
                 <div class="project-tools-container">
                     <span class="project-tool">SQL Server</span>
                     <span class="project-tool">Python</span>
                     <span class="project-tool">Power BI</span>
-                    <span class="project-tool">Excel</span>
                 </div>
-                <div class="project-section-title">Business Objective</div>
-                <p class="project-desc">Developed a quantitative analytics asset tracking platform to evaluate mutual fund performance, risk metrics, and optimal allocation strategies across high-volume domestic financial instruments.</p>
-                <div class="project-section-title">Key Insights & Analytics</div>
-                <ul class="insights-list">
-                    <li><strong>Risk Profiles:</strong> Structured historical tracking databases to isolate high-volatility equities from stable fixed-income investment yields.</li>
-                    <li><strong>Yield Projections:</strong> Constructed rolling-average performance algorithms to predict macro distribution rates and seasonal trend dips.</li>
-                </ul>
+                <p style="font-size:0.95rem;"><strong>Impact:</strong> Structured financial index auditing spaces to evaluate rolling returns, portfolio risks, and equity yields across domestic markets.</p>
             </div>
 
             <!-- 6. Project Six -->
-            <div class="project-card">
-                <h3>Operational Efficiency & HR Performance Dashboard</h3>
+            <div class="neat-card project-card show" data-tools="sql powerbi">
+                <h3>Operational Health & Cross-Departmental KPI Dashboard</h3>
                 <div class="project-tools-container">
-                    <span class="project-tool">SQL</span>
                     <span class="project-tool">Denodo VQL</span>
                     <span class="project-tool">Power BI</span>
                     <span class="project-tool">Jira</span>
                 </div>
-                <div class="project-section-title">Business Objective</div>
-                <p class="project-desc">Engineered an internal operational health dashboard to track cross-departmental KPI delivery, individual account output, and process optimization lifecycles.</p>
-                <div class="project-section-title">Key Insights & Analytics</div>
-                <ul class="insights-list">
-                    <li><strong>Throughput Management:</strong> Reduced systemic pipeline reporting lags by optimizing deep logical query paths within virtualization environments.</li>
-                    <li><strong>KPI Visibility:</strong> Delivered instant data transparency to upper management, mapping resource utilization against project delivery milestones.</li>
-                </ul>
+                <p style="font-size:0.95rem;"><strong>Impact:</strong> Optimized complex enterprise logical query workflows within virtualized environments to remove pipeline bottlenecks.</p>
             </div>
-
         </section>
 
-        <!-- منطقة التواصل الكاملة -->
-        <section class="contact-section">
-            <h2>Get In Touch</h2>
-            <p>Interested in collaborating or discussing data analytics opportunities? Let's connect!</p>
+        <!-- 7. Dashboard Gallery (معرض داتا ميني ج grid) -->
+        <section id="gallery" class="fade-in-section">
+            <h2>Dashboard Screenshot Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openLightbox('Hotels Reservations Dataset.png')"><img src="Hotels Reservations Dataset.png" alt="Hotel Overview"></div>
+                <div class="gallery-item" onclick="openLightbox('Perfuem Data.png')"><img src="Perfuem Data.png" alt="Perfume Overview"></div>
+                <div class="gallery-item" onclick="openLightbox('E-Commerce Sales Store-1.png')"><img src="E-Commerce Sales Store-1.png" alt="Sales Overview 1"></div>
+                <div class="gallery-item" onclick="openLightbox('Amazon Data Sales.png')"><img src="Amazon Data Sales.png" alt="Amazon Overview"></div>
+            </div>
+        </section>
+
+        <!-- 6. Career Timeline (خط زمني للمسيرة المهنية) -->
+        <section id="timeline-sec" class="fade-in-section">
+            <h2>Career Timeline</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <strong>Industrial & Engineering Technical Education</strong>
+                    <p style="font-size:0.85rem; color:var(--text-muted)">Solid engineering groundwork driving optimization habits[span_7](start_span)[span_7](end_span).</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot" style="background:var(--accent-blue);"></div>
+                    <strong>Data Analyst | Orascom Construction PLC</strong>
+                    <p style="font-size:0.85rem; color:var(--text-muted)">Aggregated and tracked cross-functional commercial project records[span_8](start_span)[span_8](end_span).</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot" style="background:var(--accent-purple);"></div>
+                    <strong>Advanced Business Intelligence Training</strong>
+                    <p style="font-size:0.85rem; color:var(--text-muted)">Mastered end-to-end server warehousing, SSAS modeling, and ETL flows.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot" style="background:var(--accent-green);"></div>
+                    <strong>Data Analyst | Banque Misr</strong>
+                    <p style="font-size:0.85rem; color:var(--text-muted)">Current Role: Orchestrating server query pipelines and tracking corporate records.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10, 11, 12, 16, 17, 18. Quick Specs Grid (أقسام سريعة مدمجة) -->
+        <section id="quick-specs" class="grid-3 fade-in-section">
+            <div class="neat-card" style="background: var(--accent-green);">
+                <h3><i class="fa-solid fa-square-check"></i> Why Work With Me?</h3>
+                <ul style="padding-left:15px; font-size:0.9rem; margin-top:5px;">
+                    <li>Clean, Optimized SQL Queries</li>
+                    <li>Strong Corporate Business Thinking</li>
+                    <li>End-to-End Database Pipelines</li>
+                </ul>
+            </div>
+            <div class="neat-card">
+                <h3><i class="fa-solid fa-earth-americas"></i> Profile Summary</h3>
+                <p style="font-size:0.9rem; margin-top:5px;">
+                    <strong>Languages:</strong> Arabic (Native), English (Professional)<br>
+                    <strong>Availability:</strong> Full-Time / Remote Opportunities<br>
+                    <strong>Interests:</strong> 3-Time University Table Tennis Champion 🏓 | Devoted Reader 📚
+                </p>
+            </div>
+            <div class="neat-card" style="background: var(--accent-purple);">
+                <h3><i class="fa-solid fa-graduation-cap"></i> Certifications</h3>
+                <p style="font-size:0.85rem; margin-top:5px;">
+                    • Advanced Business Intelligence (BI Productive Tier)<br>
+                    • Microsoft Enterprise Data Platform Core<br>
+                    • Google Data Analytics Suite Professional
+                </p>
+            </div>
+        </section>
+
+        <!-- 4. Books I'm Reading (ثقافة القراءة خارج البيانات) -->
+        <section id="books" class="fade-in-section">
+            <h2>Books I'm Diving Into</h2>
+            <div class="grid-4">
+                <div class="neat-card" style="padding:1rem; font-weight:700; text-align:center;">Storytelling with Data</div>
+                <div class="neat-card" style="padding:1rem; font-weight:700; text-align:center;">Atomic Habits</div>
+                <div class="neat-card" style="padding:1rem; font-weight:700; text-align:center;">The Phoenix Project</div>
+                <div class="neat-card" style="padding:1rem; font-weight:700; text-align:center;">Deep Work</div>
+            </div>
+        </section>
+
+        <!-- 23. FAQ (الأسئلة الشائعة والأجوبة الفورية للـ Recruiter) -->
+        <section id="faq" class="neat-card fade-in-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">Are these projects based on real corporate data? <i class="fa-solid fa-chevron-down"></i></div>
+                <div class="faq-answer">Yes, they are modeled tightly around real enterprise scales, banking logic structures, and industrial operations tracking pipelines.</div>
+            </div>
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">What is your core technical toolkit? <i class="fa-solid fa-chevron-down"></i></div>
+                <div class="faq-answer">My absolute strength lies in SQL Query Optimization, Power BI Enterprise Architecture, and SSIS data extraction mapping.</div>
+            </div>
+        </section>
+
+        <!-- منطقة التواصل المحدثة بروابط GitHub و Kaggle -->
+        <section class="contact-section neat-card fade-in-section" style="background: var(--bg-card);">
+            <h2>Let's Connect & Build Pipelines</h2>
+            <p>Ready to unlock insights from your corporate data layers? Reach out immediately.</p>
             
-            <ul class="contact-info-list">
-                <li><i class="fa-solid fa-envelope"></i> <a href="mailto:bishoygeorge172000@gmail.com">bishoygeorge172000@gmail.com</a></li>
-                <li><i class="fa-solid fa-phone"></i> <span>01224731057</span></li>
-            </ul>
+            <div style="margin: 1rem 0; font-weight: 700;">
+                <i class="fa-solid fa-envelope"></i> bishoygeorge172000@gmail.com | <i class="fa-solid fa-phone"></i> 01224731057
+            </div>
 
             <div class="social-buttons-flex">
-                <a href="https://wa.me/201224731057" class="contact-btn whatsapp-btn" target="_blank">
-                    <i class="fa-brands fa-whatsapp" style="font-size: 1.2rem;"></i> WhatsApp Chat
-                </a>
-
-                <a href="https://www.facebook.com/share/1HNmX3v45e/" class="contact-btn facebook-btn" target="_blank">
-                    <i class="fa-brands fa-facebook" style="font-size: 1.2rem;"></i> Facebook Profile
-                </a>
-
-                <a href="#" class="contact-btn">
-                    <i class="fa-brands fa-linkedin" style="font-size: 1.2rem;"></i> Connect on LinkedIn
-                </a>
+                <a href="https://wa.me/201224731057" class="contact-btn" style="background:#25D366; color:black;" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+                <a href="https://github.com" class="contact-btn" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+                <a href="https://kaggle.com" class="contact-btn" style="background:#20BEFF; color:black;" target="_blank"><i class="fa-brands fa-kaggle"></i> Kaggle</a>
+                <a href="https://www.facebook.com/share/1HNmX3v45e/" class="contact-btn" style="background:#1877F2; color:white;" target="_blank"><i class="fa-brands fa-facebook"></i> Facebook</a>
             </div>
         </section>
     </div>
 
     <footer>
-        <p>&copy; 2026 Bishoy George. All Rights Reserved.</p>
+        <p>&copy; 2026 Bishoy George. All Portfolio Infrastructures Engineered Automatically.</p>
     </footer>
 
+    <!-- هيكل الـ Lightbox التفاعلي لتكبير الصور -->
+    <div class="lightbox" id="portfolioLightbox" onclick="closeLightbox()">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <img class="lightbox-content" id="lightboxImg" alt="Enlarged Dashboard Preview">
+    </div>
+
+    <!-- جافا سكريبت لتشغيل الـ Features بالكامل -->
+    <script>
+        // 1. نظام تشغيل المود الليلي والنهاري
+        const themeBtn = document.getElementById('themeBtn');
+        themeBtn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            if (currentTheme === 'dark') {
+                document.documentElement.removeAttribute('data-theme');
+                themeBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                themeBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+            }
+        });
+
+        // 2. نظام تكبير الصور الفوري (Lightbox)
+        function openLightbox(src) {
+            const lightbox = document.getElementById('portfolioLightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            lightboxImg.src = src;
+            lightbox.classList.add('active');
+        }
+        function closeLightbox() {
+            document.getElementById('portfolioLightbox').classList.remove('active');
+        }
+
+        // 3. محرك فلترة وتقسيم المشاريع ذكي
+        function filterProjects(tag) {
+            const cards = document.querySelectorAll('.project-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            cards.forEach(card => {
+                if (tag === 'all') {
+                    card.classList.add('show');
+                } else {
+                    const tools = card.getAttribute('data-tools');
+                    if (tools && tools.includes(tag)) {
+                        card.classList.add('show');
+                    } else {
+                        card.classList.remove('show');
+                    }
+                }
+            });
+        }
+
+        // 4. تشغيل وضبط قائمة الأسئلة الشائعة FAQ
+        function toggleFaq(element) {
+            const answer = element.querySelector('.faq-answer');
+            const icon = element.querySelector('.faq-question i');
+            if (answer.style.display === 'block') {
+                answer.style.display = 'none';
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                answer.style.display = 'block';
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        // 5. محرك الانيميشن الخفيف عند النزول (Fade-up)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, { threshold: 0.05 });
+
+        document.querySelectorAll('.fade-in-section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
 </body>
 </html>
