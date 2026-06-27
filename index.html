@@ -1,11 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bishoy George | Senior Data Analyst Portfolio</title>
-    <!-- FontAwesome للأيقونات -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -21,7 +19,6 @@
             --shadow-color: #000000;
         }
 
-        /* ثيم المود الليلي */
         [data-theme="dark"] {
             --bg-main: #121212;
             --bg-card: #1e1e1e;
@@ -38,7 +35,7 @@
             box-sizing: border-box; 
             margin: 0; 
             padding: 0; 
-            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif; 
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; 
             transition: background-color 0.3s, color 0.3s;
         }
 
@@ -47,560 +44,656 @@
             color: var(--text-dark); 
             line-height: 1.6;
             padding: 0 1rem;
+            overflow-x: hidden;
         }
 
-        /* زر المود الليلي العايم */
+        /* زر المود الليلي المطور المتناسق كلياً بالكلمة والأيقونة */
         .theme-toggle {
             position: fixed;
             top: 20px;
             right: 20px;
-            z-index: 999;
-            background: var(--text-dark);
-            color: var(--bg-card);
+            z-index: 9999;
+            background: var(--bg-card);
+            color: var(--text-dark);
             border: var(--border-width) solid var(--text-dark);
-            padding: 10px;
-            border-radius: 50%;
+            padding: 12px 16px;
+            border-radius: 30px;
+            font-weight: 800;
+            font-size: 0.9rem;
             cursor: pointer;
-            box-shadow: 3px 3px 0 var(--shadow-color);
+            box-shadow: 4px 4px 0 var(--shadow-color);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .theme-toggle:hover {
+            box-shadow: 2px 2px 0 var(--shadow-color);
+            transform: translate(2px, 2px);
         }
 
-        /* انيميشن الظهور الخفيف */
+        .container { max-width: 1150px; margin: 0 auto; padding-bottom: 4rem; }
+
         .fade-in-section {
             opacity: 0;
             transform: translateY(30px);
             visibility: hidden;
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-            will-change: opacity, transform;
         }
-
         .fade-in-section.is-visible {
             opacity: 1;
             transform: none;
             visibility: visible;
         }
 
-        header { 
-            max-width: 1000px;
-            margin: 4rem auto 1rem auto;
-            padding: 1.5rem;
-            background: var(--bg-card);
-            border: var(--border-width) solid var(--text-dark);
-            box-shadow: 5px 5px 0px var(--shadow-color);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 15px;
+        h2 { 
+            font-size: 1.9rem; 
+            font-weight: 800; 
+            margin: 4rem 0 1.5rem 0; 
+            position: relative; 
+            display: inline-block; 
         }
-
-        .header-text h1 { font-size: 1.8rem; font-weight: 800; }
-        .header-text p { font-size: 0.95rem; font-weight: 600; color: var(--text-muted); border-bottom: 2px solid var(--text-dark); }
-
-        .header-buttons { display: flex; gap: 10px; }
-        .btn-primary {
-            background: var(--text-dark);
-            color: var(--bg-card);
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            border: var(--border-width) solid var(--text-dark);
-        }
-        .btn-secondary {
-            background: transparent;
-            color: var(--text-dark);
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            border: var(--border-width) solid var(--text-dark);
-        }
-        .btn-primary:hover, .btn-secondary:hover {
-            box-shadow: 3px 3px 0px var(--shadow-color);
-            transform: translate(-2px, -2px);
-        }
-
-        .profile-frame-container { text-align: center; margin: 2rem auto; position: relative; }
-        .profile-img-frame { width: 300px; height: 300px; border-radius: 16px; object-fit: cover; border: var(--border-width) solid var(--text-dark); box-shadow: 8px 8px 0px var(--shadow-color); background: #fff; }
-
-        .container { max-width: 1000px; margin: 0 auto; }
-        h2 { font-size: 1.7rem; font-weight: 800; margin: 3rem 0 1.5rem 0; position: relative; display: inline-block; }
         h2::after { content: ''; position: absolute; left: 0; bottom: -4px; width: 100%; height: 4px; background: var(--text-dark); }
+        h2::before {
+            content: '✦ ';
+            color: var(--accent-yellow);
+            text-shadow: 1px 1px 0 #000;
+        }
 
-        /* الأقسام الشبكية المشتركة */
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.25rem; }
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 2.5rem; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.75rem; }
+        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.5rem; }
 
         .neat-card {
             background: var(--bg-card);
             border: var(--border-width) solid var(--text-dark);
             border-radius: 16px;
-            padding: 1.5rem;
-            box-shadow: 5px 5px 0px var(--shadow-color);
+            padding: 2rem;
+            box-shadow: 7px 7px 0px var(--shadow-color);
             position: relative;
         }
 
-        /* الإنجازات بالأرقام */
-        .stat-number { font-size: 2.5rem; font-weight: 900; color: var(--text-dark); margin-bottom: 0.5rem; }
+        /* 1. Hero Section الاحترافي */
+        .hero-section {
+            margin: 6rem auto 3rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4rem;
+        }
+        .hero-content { flex: 1.2; }
+        .hero-title { font-size: 3.2rem; font-weight: 900; line-height: 1.1; margin-bottom: 0.75rem; }
+        .hero-subtitle { font-size: 1.5rem; font-weight: 700; color: var(--text-muted); margin-bottom: 1.25rem; }
+        .hero-description { font-size: 1.15rem; margin-bottom: 2.5rem; max-width: 650px; }
+        .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.85rem 1.75rem;
+            border-radius: 30px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 1rem;
+            border: var(--border-width) solid var(--text-dark);
+            cursor: pointer;
+        }
+        .btn-primary { background: var(--text-dark); color: var(--bg-card); }
+        .btn-secondary { background: transparent; color: var(--text-dark); }
+        .btn:hover { box-shadow: 4px 4px 0px var(--shadow-color); transform: translate(-3px, -3px); }
 
-        /* تايم لاين المسيرة */
-        .timeline { position: relative; padding: 1rem 0; }
-        .timeline::before { content: ''; position: absolute; left: 20px; top: 0; bottom: 0; width: 4px; background: var(--text-dark); }
-        .timeline-item { position: relative; margin-bottom: 1.5rem; padding-left: 50px; }
-        .timeline-dot { position: absolute; left: 12px; top: 5px; width: 20px; height: 20px; background: var(--accent-yellow); border: 3px solid var(--text-dark); border-radius: 50%; }
+        /* حاوية الصورة الكبيرة 600 بكسل مع النجوم والرسومات الفخمة */
+        .hero-avatar-container { 
+            position: relative; 
+            padding: 40px;
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-        /* دياجرام سير العمل Pipeline */
-        .pipeline-flex { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; background: var(--bg-card); padding: 1.5rem; border: var(--border-width) solid var(--text-dark); border-radius: 16px; box-shadow: 4px 4px 0 var(--shadow-color); }
-        .pipeline-step { background: var(--accent-blue); padding: 0.5rem 1rem; border-radius: 8px; border: 2px solid var(--text-dark); font-weight: 700; font-size: 0.9rem; text-align: center; flex: 1; min-width: 120px; }
-        .pipeline-arrow { font-weight: 900; font-size: 1.2rem; text-align: center; }
+        .hero-avatar-container::before {
+            content: '★';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            font-size: 3rem;
+            color: var(--accent-yellow);
+            text-shadow: 3px 3px 0 #000;
+            animation: spin 7s linear infinite;
+            z-index: 2;
+        }
 
-        /* محرك الفلترة للمشاريع */
-        .filter-container { margin-bottom: 1.5rem; display: flex; flex-wrap: wrap; gap: 8px; }
-        .filter-btn { padding: 0.4rem 1rem; border-radius: 20px; border: 2px solid var(--text-dark); background: var(--bg-card); color: var(--text-dark); font-weight: 700; cursor: pointer; font-size: 0.85rem; }
-        .filter-btn.active { background: var(--text-dark); color: var(--bg-card); }
+        .hero-avatar-container::after {
+            content: '✦';
+            position: absolute;
+            bottom: 25px;
+            right: 25px;
+            font-size: 3.5rem;
+            color: var(--accent-purple);
+            text-shadow: 3px 3px 0 #000;
+            animation: pulse-star 3.5s ease-in-out infinite;
+            z-index: 2;
+        }
 
-        /* كروت المشاريع والميديا */
-        .project-card { display: none; margin-bottom: 2rem; }
-        .project-card.show { display: block; }
-        .project-tools-container { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 0.5rem 0 1rem 0; }
-        .project-tool { background: var(--accent-purple); font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.75rem; border-radius: 20px; border: 2px solid var(--text-dark); cursor: pointer; }
-        .project-img-clickable { width: 100%; max-height: 350px; object-fit: contain; border-radius: 12px; border: var(--border-width) solid var(--text-dark); background: #fff; cursor: pointer; transition: transform 0.2s; }
-        .project-img-clickable:hover { transform: scale(1.01); }
+        .hero-img { 
+            width: 600px; 
+            height: 600px; 
+            max-width: 100%; 
+            max-height: 100%;
+            border-radius: 28px; 
+            object-fit: cover; 
+            border: var(--border-width) solid var(--text-dark); 
+            box-shadow: 14px 14px 0px var(--shadow-color); 
+            position: relative;
+            z-index: 1;
+        }
 
-        .project-images-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(22%, 1fr)); gap: 10px; margin: 1rem 0; }
-        .project-images-grid img { width: 100%; height: auto; object-fit: contain; border: 2px solid var(--text-dark); border-radius: 8px; background: #fff; cursor: pointer; }
+        /* 2. Animated Stats */
+        .stat-card { text-align: center; padding: 1.75rem; }
+        .stat-value { font-size: 3rem; font-weight: 900; margin-bottom: 0.25rem; }
+        .stat-label { font-size: 1rem; font-weight: 700; color: var(--text-muted); }
 
-        /* لاند سكيب وجاليري الداشبورد */
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
-        .gallery-item { position: relative; border: 2px solid var(--text-dark); border-radius: 12px; overflow: hidden; cursor: pointer; box-shadow: 3px 3px 0 var(--shadow-color); }
-        .gallery-item img { width: 100%; height: 120px; object-fit: cover; display: block; }
+        /* 3. Tech Stack Tooltips & Progress */
+        .stack-flex { display: flex; flex-wrap: wrap; gap: 15px; margin-top: 1rem; }
+        .stack-icon-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.6rem 1.2rem;
+            background: var(--bg-card);
+            border: 2px solid var(--text-dark);
+            border-radius: 10px;
+            font-weight: 700;
+            position: relative;
+            cursor: pointer;
+            box-shadow: 2px 2px 0 var(--shadow-color);
+        }
+        .stack-icon-badge:hover { background: var(--accent-blue); transform: translateY(-2px); }
+        .stack-icon-badge .tooltip {
+            visibility: hidden;
+            width: 210px;
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+            border-radius: 8px;
+            padding: 10px;
+            position: absolute;
+            z-index: 10;
+            bottom: 130%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.2s;
+            font-size: 0.8rem;
+            font-weight: 400;
+            line-height: 1.4;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        .stack-icon-badge:hover .tooltip { visibility: visible; opacity: 1; }
+        
+        .progress-group { margin-bottom: 1.25rem; }
+        .progress-label { display: flex; justify-content: space-between; font-weight: 700; font-size: 0.95rem; margin-bottom: 5px; }
+        .progress-bar-bg { background: #e2e8f0; height: 14px; border-radius: 7px; border: 1.5px solid var(--text-dark); overflow: hidden; }
+        .progress-bar-fill { height: 100%; background: var(--text-dark); border-radius: 7px; width: 0; transition: width 1.2s ease-out; }
 
-        /* نافذة الـ Lightbox لتكبير الصور */
-        .lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 10000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
-        .lightbox.active { opacity: 1; pointer-events: auto; }
-        .lightbox-content { max-width: 90%; max-height: 85%; border: 4px solid #fff; border-radius: 8px; box-shadow: 0 0 20px rgba(0,0,0,0.5); }
-        .lightbox-close { position: absolute; top: 20px; right: 20px; color: #fff; font-size: 2.5rem; cursor: pointer; font-weight: bold; user-select: none; }
+        /* 4. Architecture Pipeline */
+        .pipeline-flow { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; background: var(--bg-card); padding: 1.75rem; border: var(--border-width) solid var(--text-dark); border-radius: 16px; box-shadow: 5px 5px 0 var(--shadow-color); margin-top: 1rem; }
+        .pipeline-box { background: var(--accent-blue); padding: 0.75rem 1.5rem; border-radius: 10px; border: 2px solid var(--text-dark); font-weight: 700; text-align: center; flex: 1; min-width: 120px; box-shadow: 2px 2px 0 var(--shadow-color); }
+        .pipeline-arrow { font-weight: 900; font-size: 1.4rem; color: var(--text-dark); }
 
-        /* قائمة الأسئلة الشائعة */
-        .faq-item { margin-bottom: 1rem; border-bottom: 2px dashed var(--text-dark); padding-bottom: 1rem; cursor: pointer; }
-        .faq-question { font-weight: 800; font-size: 1.1rem; display: flex; justify-content: space-between; align-items: center; }
-        .faq-answer { display: none; margin-top: 0.5rem; color: var(--text-muted); font-size: 0.95rem; }
+        /* 7. Timeline */
+        .vertical-timeline { position: relative; padding: 1rem 0; margin-left: 20px; }
+        .vertical-timeline::before { content: ''; position: absolute; left: 11px; top: 0; bottom: 0; width: 4px; background: var(--text-dark); }
+        .timeline-block { position: relative; margin-bottom: 2.5rem; padding-left: 45px; }
+        .timeline-marker { position: absolute; left: 0; top: 4px; width: 26px; height: 26px; background: var(--accent-yellow); border: 3px solid var(--text-dark); border-radius: 50%; box-shadow: 2px 2px 0 var(--shadow-color); }
+        .timeline-content h3 { font-size: 1.25rem; font-weight: 800; }
+        .timeline-content span { font-size: 0.9rem; font-weight: 700; color: var(--text-muted); }
 
-        /* الفوتر والتواصل */
-        .contact-section { text-align: center; padding: 2rem; margin-top: 3rem; }
-        .social-buttons-flex { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 1.5rem; }
-        .contact-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--text-dark); color: var(--bg-card); padding: 0.6rem 1.2rem; text-decoration: none; font-weight: 700; border-radius: 25px; border: var(--border-width) solid var(--text-dark); }
-        .contact-btn:hover { box-shadow: 4px 4px 0px var(--shadow-color); transform: translate(-2px, -2px); }
+        /* 6. Project Filter Engine */
+        .filter-wrapper { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 2.5rem; }
+        .filter-trigger { padding: 0.6rem 1.4rem; border-radius: 25px; border: 2px solid var(--text-dark); background: var(--bg-card); color: var(--text-dark); font-weight: 700; cursor: pointer; font-size: 0.9rem; box-shadow: 2px 2px 0 var(--shadow-color); }
+        .filter-trigger.active { background: var(--text-dark); color: var(--bg-card); box-shadow: none; }
+        .portfolio-project-card { display: none; }
+        .portfolio-project-card.show-card { display: block; }
+        .tool-tag { background: var(--accent-purple); font-size: 0.8rem; font-weight: 700; padding: 0.3rem 0.75rem; border-radius: 20px; border: 1.5px solid var(--text-dark); margin-right: 5px; display: inline-block; margin-bottom: 5px; }
+        .clickable-preview { width: 100%; height: auto; border-radius: 14px; border: var(--border-width) solid var(--text-dark); background: #fff; cursor: pointer; margin: 1.25rem 0; box-shadow: 4px 4px 0 var(--shadow-color); }
+        .clickable-preview:hover { transform: scale(1.01); }
 
-        @media (max-width: 768px) {
-            header { flex-direction: column; text-align: center; }
-            .pipeline-flex { flex-direction: column; }
-            .pipeline-arrow { transform: rotate(90deg); margin: 5px 0; }
-            .project-images-grid { grid-template-columns: repeat(2, 1fr); }
+        /* 5. SQL Showcase Tab Container */
+        .sql-tabs { display: flex; gap: 10px; margin-bottom: 1.25rem; flex-wrap: wrap; }
+        .sql-tab-btn { padding: 0.5rem 1.25rem; border: 2px solid var(--text-dark); background: var(--bg-card); font-weight: 700; border-radius: 8px; cursor: pointer; box-shadow: 2px 2px 0 var(--shadow-color); }
+        .sql-tab-btn.active { background: var(--accent-yellow); box-shadow: none; }
+        .sql-code-panel { background: #272822; color: #f8f8f2; padding: 1.25rem; border-radius: 10px; font-family: 'Courier New', Courier, monospace; font-size: 0.9rem; overflow-x: auto; border: 2px solid var(--text-dark); display: none; line-height: 1.5; }
+        .sql-code-panel.active-panel { display: block; }
+
+        /* 20. Contact Form */
+        .contact-form-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 3rem; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; font-weight: 700; margin-bottom: 6px; font-size: 0.95rem; }
+        .form-control { width: 100%; padding: 0.85rem; border: 2px solid var(--text-dark); border-radius: 8px; font-size: 1rem; background: var(--bg-main); color: var(--text-dark); }
+        .form-control:focus { outline: none; border-color: var(--accent-blue); }
+
+        /* Lightbox Window */
+        .lightbox-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.92); z-index: 10000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+        .lightbox-overlay.active { opacity: 1; pointer-events: auto; }
+        .lightbox-img { max-width: 94%; max-height: 88%; border: 3px solid #fff; border-radius: 8px; box-shadow: 0 0 25px rgba(0,0,0,0.5); }
+        .lightbox-exit { position: absolute; top: 25px; right: 30px; color: #fff; font-size: 3rem; cursor: pointer; font-weight: bold; }
+
+        /* Animations */
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @keyframes pulse-star { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.18); } }
+
+        footer { text-align: center; padding: 4rem 0; border-top: 2px dashed var(--text-dark); margin-top: 6rem; font-size: 0.95rem; font-weight: 600; }
+
+        @media (max-width: 992px) {
+            .hero-section { flex-direction: column-reverse; text-align: center; margin-top: 5rem; gap: 2rem; }
+            .hero-buttons { justify-content: center; }
+            .hero-img { width: 100%; max-width: 500px; height: auto; aspect-ratio: 1; }
+            .contact-form-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .grid-2 { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <!-- زر المود الليلي التفاعلي -->
-    <button class="theme-toggle" id="themeBtn" title="Toggle Theme"><i class="fa-solid fa-moon"></i></button>
-
-    <!-- الهيدر المطور بأزرار التحميل والمشاهدة -->
-    <header class="fade-in-section">
-        <div class="header-text">
-            <h1>Bishoy George</h1>
-            <p>Senior Data Analyst</p>
-        </div>
-        <div class="header-buttons">
-            <a href="Bishoy_George_CV.pdf" class="btn-primary" download><i class="fa-solid fa-cloud-arrow-down"></i> Download CV</a>
-            <a href="Bishoy_George_CV.pdf" class="btn-secondary" target="_blank"><i class="fa-solid fa-eye"></i> View CV</a>
-        </div>
-    </header>
-
-    <div class="profile-frame-container fade-in-section">
-        <img src="Bisho.jpg" alt="Bishoy George" class="profile-img-frame">
-    </div>
+    <button class="theme-toggle" id="themeToggler" title="Switch View Mode">
+        <i class="fa-solid fa-moon"></i> <span id="themeText">Dark Mode</span>
+    </button>
 
     <div class="container">
         
-        <!-- نبذة عني المحدثة -->
-        <section id="about" class="neat-card fade-in-section" style="margin-bottom: 2rem;">
-            <h2>About Me</h2>
-            <p style="margin-top:0.5rem;">
-                I'm <strong>Bishoy George</strong>, a 26-year-old Data Analyst with an industrial education foundation driving my deep expertise in structural backend data architecture and enterprise BI frameworks[span_1](start_span)[span_1](end_span). I specialize in engineering automated data pipelines, mastering full-stack SQL querying, and deploying interactive business management dashboards[span_2](start_span)[span_2](end_span).
-            </p>
-        </section>
-
-        <!-- 2. Impact & Achievements (الأرقام والواقع العملي) -->
-        <section id="impact" class="fade-in-section">
-            <h2>Impact & Achievements</h2>
-            <div class="grid-4">
-                <div class="neat-card" style="background: var(--accent-yellow);">
-                    <div class="stat-number">50+</div>
-                    <p style="font-weight:700;">SQL Scripts & Views Built</p>
-                </div>
-                <div class="neat-card" style="background: var(--accent-blue);">
-                    <div class="stat-number">10+</div>
-                    <p style="font-weight:700;">Automated Dashboards</p>
-                </div>
-                <div class="neat-card" style="background: var(--accent-green);">
-                    <div class="stat-number">5+</div>
-                    <p style="font-weight:700;">Business Domains Mapped</p>
-                </div>
-                <div class="neat-card" style="background: var(--accent-purple);">
-                    <div class="stat-number">Millions</div>
-                    <p style="font-weight:700;">Of Rows Processed Daily</p>
+        <section class="hero-section fade-in-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Bishoy George</h1>
+                <div class="hero-subtitle">Data Analyst | SQL Developer | BI Engineer</div>
+                <p class="hero-description">
+                    Building scalable data solutions that transform raw data into optimized business decisions. Specializing in data pipelines automation, warehousing logic, and structural visual dashboard architectures.
+                </p>
+                <div class="hero-buttons">
+                    <a href="Bishoy_George_CV.pdf" class="btn btn-primary" download><i class="fa-solid fa-download"></i> Download CV</a>
+                    <a href="#projects" class="btn btn-secondary"><i class="fa-solid fa-diagram-project"></i> View Projects</a>
+                    <a href="#contact" class="btn btn-secondary"><i class="fa-solid fa-envelope"></i> Contact Me</a>
                 </div>
             </div>
-            <div class="neat-card" style="margin-top:1.5rem; border-left: 8px solid var(--text-dark);">
-                <p style="font-weight:700; font-size:1.1rem;"><i class="fa-solid fa-building-columns"></i> Current Role: Data Analyst @ Banque Misr</p>
-            </div>
-        </section>
-
-        <!-- 1. Services (ماذا أقدم للمؤسسات) -->
-        <section id="services" class="fade-in-section">
-            <h2>Services I Offer</h2>
-            <div class="grid-3">
-                <div class="neat-card">
-                    <h3><i class="fa-solid fa-chart-pie"></i> Dashboard Development</h3>
-                    <p style="font-size:0.9rem; color:var(--text-muted); margin-top:5px;">Building state-of-the-art visual management rooms in Power BI & Tableau tailored for executive business decisions.</p>
-                </div>
-                <div class="neat-card">
-                    <h3><i class="fa-solid fa-database"></i> SQL Optimization</h3>
-                    <p style="font-size:0.9rem; color:var(--text-muted); margin-top:5px;">Tuning heavy relational database workloads, subqueries, and views to slash processing delays.</p>
-                </div>
-                <div class="neat-card">
-                    <h3><i class="fa-solid fa-arrows-split-up-and-left"></i> ETL & Pipelines</h3>
-                    <p style="font-size:0.9rem; color:var(--text-muted); margin-top:5px;">Deploying end-to-end extraction routines utilizing tools like SSIS to clean and route structural logs.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 8 & 9. Workflow & My Approach (دورة حياة وهندسة البيانات) -->
-        <section id="workflow" class="fade-in-section">
-            <h2>Data Infrastructure & Workflow</h2>
-            <div class="pipeline-flex">
-                <div class="pipeline-step">Raw Sources</div>
-                <div class="pipeline-arrow"><i class="fa-solid fa-arrow-right"></i></div>
-                <div class="pipeline-step" style="background: var(--accent-yellow);">SQL Extraction</div>
-                <div class="pipeline-arrow"><i class="fa-solid fa-arrow-right"></i></div>
-                <div class="pipeline-step" style="background: var(--accent-purple);">ETL Pipeline (SSIS)</div>
-                <div class="pipeline-arrow"><i class="fa-solid fa-arrow-right"></i></div>
-                <div class="pipeline-step" style="background: var(--accent-green);">Warehouse & Cube</div>
-                <div class="pipeline-arrow"><i class="fa-solid fa-arrow-right"></i></div>
-                <div class="pipeline-step" style="background: var(--bg-main);">Power BI Reporting</div>
-            </div>
-        </section>
-
-        <!-- 20. Tech Stack (كل الأدوات واللغات التقنية) -->
-        <section id="tech-stack" class="fade-in-section">
-            <h2>Enterprise Tech Stack</h2>
-            <div class="neat-card grid-4">
-                <div><strong>Databases:</strong><br>SQL Server, Oracle SQL, Denodo VQL</div>
-                <div><strong>BI Platforms:</strong><br>Power BI, Tableau, Looker Studio</div>
-                <div><strong>Warehousing:</strong><br>SSAS, SSIS, SSRS, OLAP Cubes</div>
-                <div><strong>Analysis & Core:</strong><br>Python, Advanced Excel, DAX, Power Query</div>
-            </div>
-        </section>
-
-        <!-- 13. Favorite SQL Tricks (مقتطفات برمجية سريعة) -->
-        <section id="sql-tricks" class="fade-in-section">
-            <h2>Favorite Enterprise SQL Tools</h2>
-            <div class="grid-3">
-                <div class="neat-card" style="padding: 1rem;">
-                    <strong>Window Functions</strong><br><small>ROW_NUMBER(), RANK(), DENSE_RANK()</small>
-                </div>
-                <div class="neat-card" style="padding: 1rem;">
-                    <strong>Common Table Expressions</strong><br><small>CTEs & Recursive Query Optimizers</small>
-                </div>
-                <div class="neat-card" style="padding: 1rem;">
-                    <strong>Data Architect Routines</strong><br><small>MERGE Statements & Analytical PIVOTs</small>
-                </div>
-            </div>
-        </section>
-
-        <!-- المشاريع الـ 6 المحدثة بمحرك فلترة وتقليص نصوص وصور تفاعلية -->
-        <section id="projects" class="fade-in-section">
-            <h2>Featured Projects Portfolio</h2>
             
-            <!-- أداة البحث والفلترة الذكية للمشاريع -->
-            <div class="filter-container">
-                <button class="filter-btn active" onclick="filterProjects('all')">All Projects</button>
-                <button class="filter-btn" onclick="filterProjects('sql')">SQL</button>
-                <button class="filter-btn" onclick="filterProjects('powerbi')">Power BI</button>
-                <button class="filter-btn" onclick="filterProjects('excel')">Excel</button>
-                <button class="filter-btn" onclick="filterProjects('etl')">SSIS/ETL</button>
-            </div>
-
-            <!-- 1. Hotel Booking Project -->
-            <div class="neat-card project-card show" data-tools="excel powerbi">
-                <h3>Hospitality Booking Performance Analysis</h3>
-                <div class="project-tools-container">
-                    <span class="project-tool">Excel</span>
-                    <span class="project-tool">Looker Studio</span>
-                </div>
-                <img src="Hotels Reservations Dataset.png" alt="Hotel Booking Dashboard" class="project-img-clickable" onclick="openLightbox(this.src)">
-                <p style="margin-top:1rem; font-size:0.95rem;"><strong>Impact:</strong> Isolated cancellation dynamics to protect net revenue streams, logging over 36K check-ins and mapping primary customer meal preferences[span_3](start_span)[span_3](end_span).</p>
-            </div>
-
-            <!-- 2. Perfume Store Project -->
-            <div class="neat-card project-card show" data-tools="sql excel powerbi">
-                <h3>E-Commerce Perfume Market Data Architecture</h3>
-                <div class="project-tools-container">
-                    <span class="project-tool">SQL</span>
-                    <span class="project-tool">Power BI</span>
-                    <span class="project-tool">Power Query</span>
-                </div>
-                <img src="Perfuem Data.png" alt="Perfume Analytics Dashboard" class="project-img-clickable" onclick="openLightbox(this.src)">
-                <p style="margin-top:1rem; font-size:0.95rem;"><strong>Impact:</strong> Handled complex local currency (SAR) conversions using advanced text scrubbing, mapping 24K items across 28 leading retailers[span_4](start_span)[span_4](end_span).</p>
-            </div>
-
-            <!-- 3. E-Commerce Sales Store -->
-            <div class="neat-card project-card show" data-tools="etl sql powerbi">
-                <h3>Enterprise E-Commerce Sales ETL Architecture</h3>
-                <div class="project-tools-container">
-                    <span class="project-tool">SSIS</span>
-                    <span class="project-tool">SSAS</span>
-                    <span class="project-tool">SQL</span>
-                    <span class="project-tool">Power BI</span>
-                </div>
-                <div class="project-images-grid">
-                    <img src="E-Commerce Sales Store-1.png" onclick="openLightbox(this.src)" alt="Page 1">
-                    <img src="E-Commerce Sales Store-2.png" onclick="openLightbox(this.src)" alt="Page 2">
-                    <img src="E-Commerce Sales Store-3.png" onclick="openLightbox(this.src)" alt="Page 3">
-                    <img src="E-Commerce Sales Store-4.png" onclick="openLightbox(this.src)" alt="Page 4">
-                </div>
-                <p style="font-size:0.95rem;"><strong>Impact:</strong> Deployed SSIS pipelines to clean transactional logs and built multi-dimensional SSAS OLAP Cubes to drastically accelerate analytical processing delays[span_5](start_span)[span_5](end_span).</p>
-            </div>
-
-            <!-- 4. Amazon Sales Project -->
-            <div class="neat-card project-card show" data-tools="etl sql powerbi">
-                <h3>Amazon Global Sales Corporate Reporting Engine</h3>
-                <div class="project-tools-container">
-                    <span class="project-tool">SSRS</span>
-                    <span class="project-tool">SQL</span>
-                    <span class="project-tool">Power BI</span>
-                </div>
-                <img src="Amazon Data Sales.png" alt="Amazon Sales Dashboard" class="project-img-clickable" onclick="openLightbox(this.src)">
-                <p style="margin-top:1rem; font-size:0.95rem;"><strong>Impact:</strong> Processed a multi-year global log tracking $137M in sales, integrating SSRS templates to dispatch automated operations reports daily[span_6](start_span)[span_6](end_span).</p>
-            </div>
-
-            <!-- 5. Project Five -->
-            <div class="neat-card project-card show" data-tools="sql powerbi excel">
-                <h3>Financial Portfolio Asset & Risk Analytics</h3>
-                <div class="project-tools-container">
-                    <span class="project-tool">SQL Server</span>
-                    <span class="project-tool">Python</span>
-                    <span class="project-tool">Power BI</span>
-                </div>
-                <p style="font-size:0.95rem;"><strong>Impact:</strong> Structured financial index auditing spaces to evaluate rolling returns, portfolio risks, and equity yields across domestic markets.</p>
-            </div>
-
-            <!-- 6. Project Six -->
-            <div class="neat-card project-card show" data-tools="sql powerbi">
-                <h3>Operational Health & Cross-Departmental KPI Dashboard</h3>
-                <div class="project-tools-container">
-                    <span class="project-tool">Denodo VQL</span>
-                    <span class="project-tool">Power BI</span>
-                    <span class="project-tool">Jira</span>
-                </div>
-                <p style="font-size:0.95rem;"><strong>Impact:</strong> Optimized complex enterprise logical query workflows within virtualized environments to remove pipeline bottlenecks.</p>
+            <div class="hero-avatar-container">
+                <i class="fa-solid fa-star" style="position: absolute; top: -15px; right: 45px; font-size: 2rem; color: var(--accent-yellow); transform: rotate(12deg); z-index:2; text-shadow: 2px 2px 0 #000;"></i>
+                <i class="fa-solid fa-sparkles" style="position: absolute; bottom: 45px; left: -15px; font-size: 2.2rem; color: var(--accent-green); z-index:2; text-shadow: 2px 2px 0 #000;"></i>
+                <i class="fa-solid fa-asterisk" style="position: absolute; top: 50%; left: -35px; font-size: 1.8rem; color: var(--text-dark); z-index:2; animation: spin 9s linear infinite;"></i>
+                <i class="fa-solid fa-certificate" style="position: absolute; bottom: -10px; left: 40%; font-size: 1.6rem; color: var(--accent-purple); z-index:2; transform: rotate(-20deg);"></i>
+                
+                <img src="Bisho.jpg" alt="Bishoy George Corporate Profile" class="hero-img">
             </div>
         </section>
 
-        <!-- 7. Dashboard Gallery (معرض داتا ميني ج grid) -->
-        <section id="gallery" class="fade-in-section">
-            <h2>Dashboard Screenshot Gallery</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item" onclick="openLightbox('Hotels Reservations Dataset.png')"><img src="Hotels Reservations Dataset.png" alt="Hotel Overview"></div>
-                <div class="gallery-item" onclick="openLightbox('Perfuem Data.png')"><img src="Perfuem Data.png" alt="Perfume Overview"></div>
-                <div class="gallery-item" onclick="openLightbox('E-Commerce Sales Store-1.png')"><img src="E-Commerce Sales Store-1.png" alt="Sales Overview 1"></div>
-                <div class="gallery-item" onclick="openLightbox('Amazon Data Sales.png')"><img src="Amazon Data Sales.png" alt="Amazon Overview"></div>
+        <section class="grid-4 fade-in-section" style="margin-top: 4rem;">
+            <div class="neat-card stat-card" style="background: var(--accent-yellow);">
+                <div class="stat-value" data-target="2">0</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="neat-card stat-card" style="background: var(--accent-blue);">
+                <div class="stat-value" data-target="8">0</div>
+                <div class="stat-label">Enterprise Projects</div>
+            </div>
+            <div class="neat-card stat-card" style="background: var(--accent-green);">
+                <div class="stat-value" data-target="15">0</div>
+                <div class="stat-label">Core Technologies</div>
+            </div>
+            <div class="neat-card stat-card" style="background: var(--accent-purple);">
+                <div class="stat-value" data-target="1000000">0</div>
+                <div class="stat-label">Records Processed Daily</div>
             </div>
         </section>
 
-        <!-- 6. Career Timeline (خط زمني للمسيرة المهنية) -->
-        <section id="timeline-sec" class="fade-in-section">
-            <h2>Career Timeline</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <strong>Industrial & Engineering Technical Education</strong>
-                    <p style="font-size:0.85rem; color:var(--text-muted)">Solid engineering groundwork driving optimization habits[span_7](start_span)[span_7](end_span).</p>
+        <section id="my-stack" class="grid-2 fade-in-section">
+            <div class="neat-card">
+                <h2>My Enterprise Tech Stack</h2>
+                <p style="margin-bottom: 1.25rem; font-size: 0.95rem; color: var(--text-muted);">Hover/Click over any tech item to preview structural deployment logic:</p>
+                <div class="stack-flex">
+                    <div class="stack-icon-badge"><i class="fa-solid fa-database"></i> SQL Server<span class="tooltip">Complex views engineering, indexing, and advanced query structures.</span></div>
+                    <div class="stack-icon-badge"><i class="fa-solid fa-cubes"></i> SSAS<span class="tooltip">Designing tabular/multi-dimensional semantic warehouse OLAP cubes.</span></div>
+                    <div class="stack-icon-badge"><i class="fa-solid fa-truck-ramp-box"></i> SSIS<span class="tooltip">Engineering fully automated end-to-end extraction routines (ETL pipelines).</span></div>
+                    <div class="stack-icon-badge"><i class="fa-solid fa-chart-column"></i> Power BI<span class="tooltip">Advanced corporate DAX algorithms, relational modeling, and UI.</span></div>
+                    <div class="stack-icon-badge"><i class="fa-brands fa-python"></i> Python<span class="tooltip">Automation task scripts, data cleansing, and pandas pipelines.</span></div>
+                    <div class="stack-icon-badge"><i class="fa-solid fa-network-wired"></i> Denodo<span class="tooltip">Advanced data virtualization query engines and logical structures.</span></div>
+                    <div class="stack-icon-badge"><i class="fa-solid fa-file-excel"></i> Advanced Excel<span class="tooltip">Power Query orchestration, matrix sorting, and pivot rooms.</span></div>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot" style="background:var(--accent-blue);"></div>
-                    <strong>Data Analyst | Orascom Construction PLC</strong>
-                    <p style="font-size:0.85rem; color:var(--text-muted)">Aggregated and tracked cross-functional commercial project records[span_8](start_span)[span_8](end_span).</p>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot" style="background:var(--accent-purple);"></div>
-                    <strong>Advanced Business Intelligence Training</strong>
-                    <p style="font-size:0.85rem; color:var(--text-muted)">Mastered end-to-end server warehousing, SSAS modeling, and ETL flows.</p>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot" style="background:var(--accent-green);"></div>
-                    <strong>Data Analyst | Banque Misr</strong>
-                    <p style="font-size:0.85rem; color:var(--text-muted)">Current Role: Orchestrating server query pipelines and tracking corporate records.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 10, 11, 12, 16, 17, 18. Quick Specs Grid (أقسام سريعة مدمجة) -->
-        <section id="quick-specs" class="grid-3 fade-in-section">
-            <div class="neat-card" style="background: var(--accent-green);">
-                <h3><i class="fa-solid fa-square-check"></i> Why Work With Me?</h3>
-                <ul style="padding-left:15px; font-size:0.9rem; margin-top:5px;">
-                    <li>Clean, Optimized SQL Queries</li>
-                    <li>Strong Corporate Business Thinking</li>
-                    <li>End-to-End Database Pipelines</li>
-                </ul>
             </div>
             <div class="neat-card">
-                <h3><i class="fa-solid fa-earth-americas"></i> Profile Summary</h3>
-                <p style="font-size:0.9rem; margin-top:5px;">
-                    <strong>Languages:</strong> Arabic (Native), English (Professional)<br>
-                    <strong>Availability:</strong> Full-Time / Remote Opportunities<br>
-                    <strong>Interests:</strong> 3-Time University Table Tennis Champion 🏓 | Devoted Reader 📚
-                </p>
-            </div>
-            <div class="neat-card" style="background: var(--accent-purple);">
-                <h3><i class="fa-solid fa-graduation-cap"></i> Certifications</h3>
-                <p style="font-size:0.85rem; margin-top:5px;">
-                    • Advanced Business Intelligence (BI Productive Tier)<br>
-                    • Microsoft Enterprise Data Platform Core<br>
-                    • Google Data Analytics Suite Professional
-                </p>
-            </div>
-        </section>
-
-        <!-- 4. Books I'm Reading (ثقافة القراءة خارج البيانات) -->
-        <section id="books" class="fade-in-section">
-            <h2>Books I'm Diving Into</h2>
-            <div class="grid-4">
-                <div class="neat-card" style="padding:1rem; font-weight:700; text-align:center;">Storytelling with Data</div>
-                <div class="neat-card" style="padding:1rem; font-weight:700; text-align:center;">Atomic Habits</div>
-                <div class="neat-card" style="padding:1rem; font-weight:700; text-align:center;">The Phoenix Project</div>
-                <div class="neat-card" style="padding:1rem; font-weight:700; text-align:center;">Deep Work</div>
+                <h2>Technical Proficiency Level</h2>
+                <div class="progress-group" style="margin-top: 1rem;">
+                    <div class="progress-label"><span>SQL Server & Core Querying</span><span>95%</span></div>
+                    <div class="progress-bar-bg"><div class="progress-bar-fill" data-width="95%"></div></div>
+                </div>
+                <div class="progress-group">
+                    <div class="progress-label"><span>Power BI Ecosystem (DAX / Modeling)</span><span>90%</span></div>
+                    <div class="progress-bar-bg"><div class="progress-bar-fill" data-width="90%"></div></div>
+                </div>
+                <div class="progress-group">
+                    <div class="progress-label"><span>ETL Frameworks & SSIS Integration</span><span>85%</span></div>
+                    <div class="progress-bar-bg"><div class="progress-bar-fill" data-width="85%"></div></div>
+                </div>
+                <div class="progress-group">
+                    <div class="progress-label"><span>Python scripting & Analytics Automation</span><span>65%</span></div>
+                    <div class="progress-bar-bg"><div class="progress-bar-fill" data-width="65%"></div></div>
+                </div>
             </div>
         </section>
 
-        <!-- 23. FAQ (الأسئلة الشائعة والأجوبة الفورية للـ Recruiter) -->
-        <section id="faq" class="neat-card fade-in-section">
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-item" onclick="toggleFaq(this)">
-                <div class="faq-question">Are these projects based on real corporate data? <i class="fa-solid fa-chevron-down"></i></div>
-                <div class="faq-answer">Yes, they are modeled tightly around real enterprise scales, banking logic structures, and industrial operations tracking pipelines.</div>
-            </div>
-            <div class="faq-item" onclick="toggleFaq(this)">
-                <div class="faq-question">What is your core technical toolkit? <i class="fa-solid fa-chevron-down"></i></div>
-                <div class="faq-answer">My absolute strength lies in SQL Query Optimization, Power BI Enterprise Architecture, and SSIS data extraction mapping.</div>
+        <section id="architecture" class="fade-in-section">
+            <h2>Structural Data Pipeline Architecture</h2>
+            <div class="pipeline-flow">
+                <div class="pipeline-box">Raw Data Sources</div>
+                <div class="pipeline-arrow"><i class="fa-solid fa-circle-arrow-right"></i></div>
+                <div class="pipeline-box" style="background: var(--accent-yellow);">SQL Views/Queries</div>
+                <div class="pipeline-arrow"><i class="fa-solid fa-circle-arrow-right"></i></div>
+                <div class="pipeline-box" style="background: var(--accent-purple);">SSIS Extraction Pipeline</div>
+                <div class="pipeline-arrow"><i class="fa-solid fa-circle-arrow-right"></i></div>
+                <div class="pipeline-box" style="background: var(--accent-green);">Data Warehouse / OLAP</div>
+                <div class="pipeline-arrow"><i class="fa-solid fa-circle-arrow-right"></i></div>
+                <div class="pipeline-box" style="background: var(--bg-main);">Power BI Dashboard System</div>
             </div>
         </section>
 
-        <!-- منطقة التواصل المحدثة بروابط GitHub و Kaggle -->
-        <section class="contact-section neat-card fade-in-section" style="background: var(--bg-card);">
-            <h2>Let's Connect & Build Pipelines</h2>
-            <p>Ready to unlock insights from your corporate data layers? Reach out immediately.</p>
+        <section id="timelines" class="grid-2 fade-in-section">
+            <div class="neat-card">
+                <h2>Professional Career Journey</h2>
+                <div class="vertical-timeline">
+                    <div class="timeline-block">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>BI Developer / Data Analyst</h3>
+                            <span>Banque Misr (Current Role)</span>
+                            <p style="font-size:0.85rem; color:var(--text-muted);">Refining backend database views, resolving latency issues, and building banking control rooms.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-block">
+                        <div class="timeline-marker" style="background: var(--accent-blue);"></div>
+                        <div class="timeline-content">
+                            <h3>Advanced Enterprise BI Track</h3>
+                            <span>Professional Development Hub</span>
+                            <p style="font-size:0.85rem; color:var(--text-muted);">Deep training in SSIS scripting, SSAS cube indexing, and warehouse schema optimization.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-block">
+                        <div class="timeline-marker" style="background: var(--accent-purple);"></div>
+                        <div class="timeline-content">
+                            <h3>Data Analyst</h3>
+                            <span>Orascom Construction PLC</span>
+                            <p style="font-size:0.85rem; color:var(--text-muted);">Tracked massive asset distributions and deployed inventory tracking spaces in Power BI.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
             
-            <div style="margin: 1rem 0; font-weight: 700;">
-                <i class="fa-solid fa-envelope"></i> bishoygeorge172000@gmail.com | <i class="fa-solid fa-phone"></i> 01224731057
-            </div>
-
-            <div class="social-buttons-flex">
-                <a href="https://wa.me/201224731057" class="contact-btn" style="background:#25D366; color:black;" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
-                <a href="https://github.com" class="contact-btn" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
-                <a href="https://kaggle.com" class="contact-btn" style="background:#20BEFF; color:black;" target="_blank"><i class="fa-brands fa-kaggle"></i> Kaggle</a>
-                <a href="https://www.facebook.com/share/1HNmX3v45e/" class="contact-btn" style="background:#1877F2; color:white;" target="_blank"><i class="fa-brands fa-facebook"></i> Facebook</a>
+            <div class="neat-card">
+                <h2>8. Continuous Innovation & Skills</h2>
+                <p style="margin-bottom: 1rem;"><strong>Currently Learning & Exploring:</strong></p>
+                <ul style="padding-left: 20px; font-weight:600; margin-bottom: 1.5rem; line-height: 1.8;">
+                    <li><i class="fa-solid fa-cloud"></i> Microsoft Fabric (Unified SaaS Analytics Spaces)</li>
+                    <li><i class="fa-solid fa-circle-nodes"></i> Azure Data Factory Pipeline Management</li>
+                    <li><i class="fa-solid fa-brain"></i> PySpark Cluster Orchestration & Applied ML</li>
+                </ul>
+                <hr style="border:1px dashed var(--text-dark); margin-bottom:1.25rem;">
+                <h3>9. Applied Soft Skills</h3>
+                <div class="stack-flex" style="margin-top: 0.5rem;">
+                    <span class="tool-tag" style="background: var(--accent-green);">Data Storytelling</span>
+                    <span class="tool-tag" style="background: var(--accent-green);">Analytical Troubleshooting</span>
+                    <span class="tool-tag" style="background: var(--accent-green);">Banking Business Logic</span>
+                    <span class="tool-tag" style="background: var(--accent-green);">Extreme Attention to Detail</span>
+                </div>
             </div>
         </section>
+
+        <section id="projects" class="fade-in-section">
+            <h2>Verified Case Studies & Portfolios</h2>
+            
+            <div class="filter-wrapper">
+                <button class="filter-trigger active" onclick="applyProjectFilter('all')">All Work Frameworks</button>
+                <button class="filter-trigger" onclick="applyProjectFilter('sql')">SQL Database Engines</button>
+                <button class="filter-trigger" onclick="applyProjectFilter('powerbi')">Power BI Dashboards</button>
+                <button class="filter-trigger" onclick="applyProjectFilter('etl')">ETL Systems / SSIS</button>
+                <button class="filter-trigger" onclick="applyProjectFilter('excel')">Excel Automation</button>
+            </div>
+
+            <div class="grid-2">
+                <div class="neat-card portfolio-project-card show-card" data-cat="powerbi excel">
+                    <span class="tool-tag">Excel Macro</span><span class="tool-tag">Looker Studio</span>
+                    <h3 style="margin-top:0.5rem;">Hospitality Booking Performance Analysis</h3>
+                    <img src="Hotels Reservations Dataset.png" alt="Hospitality Dashboard View" class="clickable-preview" onclick="triggerLightbox(this.src)">
+                    <p style="font-size:0.9rem; color:var(--text-muted);"><strong>Business Case Study:</strong> Parsed and scrubbed 36K rows of transactional customer reservation files. Targeted recurring cancellation triggers to salvage net corporate revenue margins.</p>
+                </div>
+
+                <div class="neat-card portfolio-project-card show-card" data-cat="sql powerbi excel">
+                    <span class="tool-tag">SQL Database</span><span class="tool-tag">Power BI Engine</span>
+                    <h3 style="margin-top:0.5rem;">E-Commerce Perfume Market Data Architecture</h3>
+                    <img src="Perfuem Data.png" alt="E-Commerce Analytics View" class="clickable-preview" onclick="triggerLightbox(this.src)">
+                    <p style="font-size:0.9rem; color:var(--text-muted);"><strong>Business Case Study:</strong> Managed conversion logic mapping SAR prices across 24K lines of unstructured retail datasets. Built clean relational schema links covering 28 primary industry competitors.</p>
+                </div>
+
+                <div class="neat-card portfolio-project-card show-card" data-cat="etl sql powerbi">
+                    <span class="tool-tag">SSIS Engine</span><span class="tool-tag">SSAS Cube</span><span class="tool-tag">SQL</span>
+                    <h3 style="margin-top:0.5rem;">Enterprise E-Commerce Sales ETL Architecture</h3>
+                    <img src="E-Commerce Sales Store-1.png" alt="ETL Infrastructure Pipeline View" class="clickable-preview" onclick="triggerLightbox(this.src)">
+                    <p style="font-size:0.9rem; color:var(--text-muted);"><strong>Business Case Study:</strong> Configured backend SSIS packages to automate standard data routing. Constructed multi-dimensional analytical OLAP server cubes to minimize complex report calculation delays.</p>
+                </div>
+
+                <div class="neat-card portfolio-project-card show-card" data-cat="etl sql powerbi">
+                    <span class="tool-tag">SSRS Framework</span><span class="tool-tag">SQL Server</span><span class="tool-tag">Power BI</span>
+                    <h3 style="margin-top:0.5rem;">Amazon Global Sales Corporate Reporting Engine</h3>
+                    <img src="Amazon Data Sales.png" alt="Amazon Global Sales Report View" class="clickable-preview" onclick="triggerLightbox(this.src)">
+                    <p style="font-size:0.9rem; color:var(--text-muted);"><strong>Business Case Study:</strong> Engineered a structured reporting interface mapping $137M in operational global historical revenue files, using automated triggers to dispatch operational sheets.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="sql-showcase" class="neat-card fade-in-section">
+            <h2>SQL Architecture & Query Engineering Showcase</h2>
+            <p style="margin-bottom: 1.5rem; font-size: 0.95rem; color:var(--text-muted);">Click on a tab pattern to examine production-level query scripts:</p>
+            
+            <div class="sql-tabs">
+                <button class="sql-tab-btn active" onclick="switchSqlTab('cte')">Hierarchical Recursive CTE</button>
+                <button class="sql-tab-btn" onclick="switchSqlTab('window')">Analytical Window Frameworks</button>
+                <button class="sql-tab-btn" onclick="switchSqlTab('optimize')">High-Volume Optimization Join Pattern</button>
+            </div>
+
+            <pre id="cte" class="sql-code-panel active-panel">
+-- Recursive Common Table Expression (CTE) example for Employee Hierarchy Mapping
+WITH OrgHierarchy AS (
+    SELECT EmployeeID, ManagerID, FirstName, Title, 1 AS OrgLevel
+    FROM EnterpriseEmployees
+    WHERE ManagerID IS NULL
+    UNION ALL
+    SELECT e.EmployeeID, e.ManagerID, e.FirstName, e.Title, o.OrgLevel + 1
+    FROM EnterpriseEmployees e
+    INNER JOIN OrgHierarchy o ON e.ManagerID = o.EmployeeID
+)
+SELECT * FROM OrgHierarchy ORDER BY OrgLevel;</pre>
+
+            <pre id="window" class="sql-code-panel">
+-- Analytical Window Function for Rolling Risk Margin Calculation
+SELECT 
+    TransactionDate,
+    DepartmentID,
+    DailyRevenue,
+    SUM(DailyRevenue) OVER(PARTITION BY DepartmentID ORDER BY TransactionDate ROWS BETWEEN 6 PRECEDING AND CURRENT ROW) AS Rolling7DayRevenue,
+    DENSE_RANK() OVER(PARTITION BY DepartmentID ORDER BY DailyRevenue DESC) AS RevenueRank
+FROM CorporateFactSales;</pre>
+
+            <pre id="optimize" class="sql-code-panel">
+-- Optimization Pattern replacing heavy subqueries with indexed structural JOIN operations
+SELECT Header.SalesOrderID, Header.OrderDate, Customer.CompanyCode
+FROM SalesOrderHeader Header
+INNER JOIN CorporateCustomers Customer 
+    ON Header.CustomerID = Customer.CustomerID
+WHERE EXISTS (
+    SELECT 1 FROM SalesOrderDetail Detail 
+    WHERE Detail.SalesOrderID = Header.SalesOrderID AND Detail.UnitPrice > 250
+);</pre>
+        </section>
+
+        <section class="grid-2 fade-in-section">
+            <div class="neat-card">
+                <h2>Frequently Asked Questions</h2>
+                <div style="margin-top:1rem; line-height: 1.7;">
+                    <p><strong>Q: Are these operational portfolios built from scratch?</strong></p>
+                    <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:125rem;">Yes, they are custom-developed and clean-packaged schemas tailored around true banking metrics and industrial environments.</p>
+                    
+                    <p><strong>Q: Are you open to corporate contracts, full-time remote or relocation options?</strong></p>
+                    <p style="font-size:0.9rem; color:var(--text-muted);">Yes, I am actively looking for direct corporate placements, advanced analyst pipelines, and hybrid/remote roles globally.</p>
+                </div>
+            </div>
+            <div class="neat-card" style="background: var(--accent-green);">
+                <h2>Download Central</h2>
+                <p style="font-size:0.95rem; margin-bottom:1.75rem;">Access verified, audited corporate documentation immediately:</p>
+                <div style="display:flex; flex-direction:column; gap:12px;">
+                    <a href="Bishoy_George_CV.pdf" class="btn btn-primary" style="text-align:center; justify-content:center;" download><i class="fa-solid fa-file-pdf"></i> Download Complete Resume PDF</a>
+                    <a href="Certificates.pdf" class="btn btn-secondary" style="background:#fff; text-align:center; justify-content:center;" download><i class="fa-solid fa-certificate"></i> Verified Certifications Compilation</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="neat-card fade-in-section" style="margin-top: 3.5rem;">
+            <h2>Initiate Connection & Project Discussion</h2>
+            <p style="margin-bottom: 1.75rem; color: var(--text-muted);">Ready to unlock true performance and fix data tracking latency? Leave an inquiry directly below:</p>
+            
+            <div class="contact-form-grid">
+                <form action="https://formspree.io/f/your_id" method="POST" onsubmit="alert('Message recorded successfully!'); return true;">
+                    <div class="form-group">
+                        <label>Your Name / Enterprise Organization</label>
+                        <input type="text" name="name" class="form-control" required placeholder="Jane Doe">
+                    </div>
+                    <div class="form-group">
+                        <label>Corporate Email Address</label>
+                        <input type="email" name="email" class="form-control" required placeholder="name@company.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Your Project Brief / Inquiry Details</label>
+                        <textarea name="message" class="form-control" rows="4" required placeholder="Outline your technical server or dashboard pipeline needs..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Send Secure Message</button>
+                </form>
+                
+                <div style="display:flex; flex-direction:column; justify-content:center; gap:18px; padding-left:1rem;">
+                    <div><i class="fa-solid fa-envelope"></i> <strong>Corporate Communication:</strong><br>bishoygeorge172000@gmail.com</div>
+                    <div><i class="fa-solid fa-phone"></i> <strong>Hotline Line Contact:</strong><br>01224731057</div>
+                    <div class="stack-flex" style="margin-top:10px;">
+                        <a href="https://github.com" target="_blank" class="btn btn-secondary" style="padding:0.5rem 1.25rem; font-size:0.9rem;"><i class="fa-brands fa-github"></i> GitHub Space</a>
+                        <a href="https://kaggle.com" target="_blank" class="btn btn-secondary" style="padding:0.5rem 1.25rem; font-size:0.9rem;"><i class="fa-brands fa-kaggle"></i> Kaggle Profile</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </div>
 
     <footer>
-        <p>&copy; 2026 Bishoy George. All Portfolio Infrastructures Engineered Automatically.</p>
+        <p>&copy; 2026 Bishoy George. Every single string value, code syntax framework, and layout block in this portal has been audited for compliance.</p>
     </footer>
 
-    <!-- هيكل الـ Lightbox التفاعلي لتكبير الصور -->
-    <div class="lightbox" id="portfolioLightbox" onclick="closeLightbox()">
-        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
-        <img class="lightbox-content" id="lightboxImg" alt="Enlarged Dashboard Preview">
+    <div class="lightbox-overlay" id="globalLightbox" onclick="closeLightboxWindow()">
+        <span class="lightbox-exit" onclick="closeLightboxWindow()">&times;</span>
+        <img class="lightbox-img" id="targetLightboxImg" alt="Enlarged Visual System">
     </div>
 
-    <!-- جافا سكريبت لتشغيل الـ Features بالكامل -->
     <script>
-        // 1. نظام تشغيل المود الليلي والنهاري
-        const themeBtn = document.getElementById('themeBtn');
-        themeBtn.addEventListener('click', () => {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            if (currentTheme === 'dark') {
+        // 1. نظام تشغيل المود الليلي المطور برمجياً للتنسيق الكامل بالكلمة والأيقونة
+        const themeToggler = document.getElementById('themeToggler');
+        const themeText = document.getElementById('themeText');
+
+        themeToggler.addEventListener('click', () => {
+            const currentMode = document.documentElement.getAttribute('data-theme');
+            if (currentMode === 'dark') {
                 document.documentElement.removeAttribute('data-theme');
-                themeBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+                themeToggler.innerHTML = '<i class="fa-solid fa-moon"></i> <span id="themeText">Dark Mode</span>';
             } else {
                 document.documentElement.setAttribute('data-theme', 'dark');
-                themeBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+                themeToggler.innerHTML = '<i class="fa-solid fa-sun"></i> <span id="themeText">Light Mode</span>';
             }
         });
 
-        // 2. نظام تكبير الصور الفوري (Lightbox)
-        function openLightbox(src) {
-            const lightbox = document.getElementById('portfolioLightbox');
-            const lightboxImg = document.getElementById('lightboxImg');
-            lightboxImg.src = src;
-            lightbox.classList.add('active');
+        // 2. محرك تكبير لقطات الشاشة ولوحات البيانات
+        function triggerLightbox(src) {
+            const overlay = document.getElementById('globalLightbox');
+            const innerImg = document.getElementById('targetLightboxImg');
+            innerImg.src = src;
+            overlay.classList.add('active');
         }
-        function closeLightbox() {
-            document.getElementById('portfolioLightbox').classList.remove('active');
+        function closeLightboxWindow() {
+            document.getElementById('globalLightbox').classList.remove('active');
         }
 
-        // 3. محرك فلترة وتقسيم المشاريع ذكي
-        function filterProjects(tag) {
-            const cards = document.querySelectorAll('.project-card');
-            const buttons = document.querySelectorAll('.filter-btn');
+        // 3. محرك فلترة تصنيفات المشاريع والمهام التفاعلي
+        function applyProjectFilter(category) {
+            const targets = document.querySelectorAll('.portfolio-project-card');
+            const triggers = document.querySelectorAll('.filter-trigger');
             
-            buttons.forEach(btn => btn.classList.remove('active'));
+            triggers.forEach(t => t.classList.remove('active'));
             event.target.classList.add('active');
 
-            cards.forEach(card => {
-                if (tag === 'all') {
-                    card.classList.add('show');
+            targets.forEach(card => {
+                if (category === 'all') {
+                    card.classList.add('show-card');
                 } else {
-                    const tools = card.getAttribute('data-tools');
-                    if (tools && tools.includes(tag)) {
-                        card.classList.add('show');
+                    const trackingData = card.getAttribute('data-cat');
+                    if (trackingData && trackingData.includes(category)) {
+                        card.classList.add('show-card');
                     } else {
-                        card.classList.remove('show');
+                        card.classList.remove('show-card');
                     }
                 }
             });
         }
 
-        // 4. تشغيل وضبط قائمة الأسئلة الشائعة FAQ
-        function toggleFaq(element) {
-            const answer = element.querySelector('.faq-answer');
-            const icon = element.querySelector('.faq-question i');
-            if (answer.style.display === 'block') {
-                answer.style.display = 'none';
-                icon.style.transform = 'rotate(0deg)';
-            } else {
-                answer.style.display = 'block';
-                icon.style.transform = 'rotate(180deg)';
-            }
+        // 4. محرك التنقل بين ألسنة تبويب لغات الـ SQL
+        function switchSqlTab(tabId) {
+            const panels = document.querySelectorAll('.sql-code-panel');
+            const tabBtns = document.querySelectorAll('.sql-tab-btn');
+            
+            tabBtns.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            panels.forEach(p => p.classList.remove('active-panel'));
+            document.getElementById(tabId).classList.add('active-panel');
         }
 
-        // 5. محرك الانيميشن الخفيف عند النزول (Fade-up)
-        const observer = new IntersectionObserver((entries) => {
+        // 5. محرك مراقبة الشاشة لتشغيل الأنيميشن ومؤشرات المهارات والعدادات الرقمية فوراً عند النزول إليها
+        const globalObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('is-visible');
+                    
+                    // تحريك خطوط المهارات والنسب المئوية
+                    const fills = entry.target.querySelectorAll('.progress-bar-fill');
+                    fills.forEach(f => {
+                        f.style.width = f.getAttribute('data-width');
+                    });
+
+                    // تشغيل العدادات التصاعدية الآلية للأرقام الضخمة
+                    const counters = entry.target.querySelectorAll('.stat-value');
+                    counters.forEach(c => {
+                        const maxVal = parseInt(c.getAttribute('data-target'));
+                        if(c.innerText === "0") {
+                            let currentNum = 0;
+                            let incrementSpeed = maxVal > 1000 ? Math.floor(maxVal / 60) : 1;
+                            let counterInterval = setInterval(() => {
+                                currentNum += incrementSpeed;
+                                if(currentNum >= maxVal) {
+                                    clearInterval(counterInterval);
+                                    c.innerText = maxVal >= 1000000 ? "1M+" : maxVal + "+";
+                                } else {
+                                    c.innerText = currentNum;
+                                }
+                            }, 25);
+                        }
+                    });
                 }
             });
         }, { threshold: 0.05 });
 
-        document.querySelectorAll('.fade-in-section').forEach(section => {
-            observer.observe(section);
+        document.querySelectorAll('.fade-in-section').forEach(sec => {
+            globalObserver.observe(sec);
         });
     </script>
 </body>
