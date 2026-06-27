@@ -16,13 +16,17 @@
             --border: 3px solid #000;
         }
 
+        html {
+            scroll-behavior: smooth; /* ميزة الانتقال السلس عند الضغط على القائمة */
+        }
+
         body {
             background: var(--bg-main);
             color: var(--text-dark);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 20px;
-            direction: rtl; /* متوافق مع المحتوى العربي */
+            direction: ltr; /* تحويل اتجاه الموقع بالكامل للإنجليزية */
         }
 
         .container {
@@ -30,14 +34,16 @@
             margin: auto;
         }
 
-        /* الـ Navigation Bar الثابت للـ 8 صفحات */
+        /* الـ Navigation Bar الثابت في أعلى الشاشة لتسهيل الانتقال */
         nav {
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
             margin-bottom: 30px;
-            direction: ltr; /* لجعل الترقيم من اليسار لليمين مظهرًا */
             justify-content: center;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
         }
 
         nav button {
@@ -49,27 +55,21 @@
             box-shadow: 3px 3px 0px #000;
             border-radius: 8px;
             cursor: pointer;
-            transition: transform 0.1s;
+            transition: all 0.1s;
         }
 
-        nav button:active {
-            transform: translate(2px, 2px);
-            box-shadow: 1px 1px 0px #000;
-        }
-
-        nav button.active {
+        nav button:hover {
             background: var(--accent-blue);
+            transform: translate(-2px, -2px);
+            box-shadow: 5px 5px 0px #000;
         }
 
-        /* التحكم في إظهار وإخفاء الصفحات */
-        .page {
-            display: none;
-        }
-        .page.active {
-            display: block;
+        /* ستايل الـ Neo-Brutalism للمقاطع والأقسام */
+        .page-section {
+            scroll-margin-top: 80px; /* مسافة أمان عشان العنوان ميتغطاش بالقائمة الثابتة */
+            margin-bottom: 50px;
         }
 
-        /* ستايل الـ Neo-Brutalism */
         .card {
             background: #fff;
             border: var(--border);
@@ -91,7 +91,7 @@
         .grid-2 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-            gap: 30px;
+            gap: 40px;
         }
 
         .grid-3 {
@@ -100,7 +100,7 @@
             gap: 20px;
         }
 
-        /* إعدادات برواز الصورة الـ 600px والرسومات التزيينية */
+        /* إعدادات برواز الصورة الـ 600px والرسومات التزيينية وبدون الـ Badge */
         .image-container {
             position: relative;
             width: 600px;
@@ -128,17 +128,6 @@
         .star-1 { top: -10px; left: -20px; color: #f59e0b; transform: rotate(-15deg); }
         .star-2 { bottom: 40px; right: -20px; color: #ec4899; transform: rotate(20deg); }
         .star-3 { bottom: -20px; left: 30px; color: #3b82f6; }
-        .badge-decor {
-            position: absolute;
-            top: 20px;
-            right: -30px;
-            background: var(--accent-green);
-            border: var(--border);
-            padding: 8px 15px;
-            font-weight: bold;
-            transform: rotate(15deg);
-            box-shadow: 4px 4px 0px #000;
-        }
 
         .project-img {
             width: 100%;
@@ -156,12 +145,12 @@
             font-size: 0.9rem;
             font-weight: bold;
             display: inline-block;
-            margin: 2px;
+            margin: 4px;
         }
 
         .story-timeline {
-            border-right: 3px dashed #000;
-            padding-right: 20px;
+            border-left: 3px dashed #000;
+            padding-left: 20px;
             margin-top: 15px;
         }
 
@@ -173,7 +162,7 @@
         .timeline-item::before {
             content: "✦";
             position: absolute;
-            right: -28px;
+            left: -28px;
             top: -2px;
             background: var(--bg-main);
             font-weight: bold;
@@ -194,362 +183,348 @@
 
 <div class="container">
 
-    <!-- الـ Navigation Bar للتنقل السريع -->
+    <!-- الـ Navigation Bar للتنقل اللحظي عبر الـ Scrolling -->
     <nav>
-        <button onclick="showPage('page1')" id="btn-page1" class="active">1. Home & About</button>
-        <button onclick="showPage('page2')" id="btn-page2">2. Tech Arsenal</button>
-        <button onclick="showPage('page3')" id="btn-page3">3. Banking & Corporate</button>
-        <button onclick="showPage('page4')" id="btn-page4">4. E-Commerce Deep-Dive</button>
-        <button onclick="showPage('page5')" id="btn-page5">5. Advanced Datasets</button>
-        <button onclick="showPage('page6')" id="btn-page6">6. Certifications</button>
-        <button onclick="showPage('page7')" id="btn-page7">7. Beyond Data & FAQ</button>
-        <button onclick="showPage('page8')" id="btn-page8">8. Connect With Me</button>
+        <button onclick="scrollToSection('page1')">1. Home & About</button>
+        <button onclick="scrollToSection('page2')">2. Tech Arsenal</button>
+        <button onclick="scrollToSection('page3')">3. Banking & Corporate</button>
+        <button onclick="scrollToSection('page4')">4. E-Commerce Showcase</button>
+        <button onclick="scrollToSection('page5')">5. Advanced Datasets</button>
+        <button onclick="scrollToSection('page6')">6. Certifications</button>
+        <button onclick="scrollToSection('page7')">7. Beyond Data & FAQ</button>
+        <button onclick="scrollToSection('page8')">8. Connect With Me</button>
     </nav>
 
-    <!-- ==================== الصفحة 1: HOME & ABOUT (الأقسام 1 - 5) ==================== -->
-    <div id="page1" class="page active">
-        <!-- قسم 1: الـ Hero -->
+    <!-- ==================== PAGE 1: HOME & ABOUT (Sections 1 - 5) ==================== -->
+    <div id="page1" class="page-section">
+        <!-- Section 1 & 2: Hero & Profile Image 600px (No data expert badge) -->
         <header class="card grid-2" style="align-items: center;">
-            <div style="direction: rtl;">
-                <h1>بيشوي جورج</h1>
+            <div>
+                <h1>Bishoy George</h1>
                 <p style="font-size: 1.6rem; font-weight: bold; color: #4b5563; margin: 0;">Senior Data Analyst</p>
-                <p style="font-size: 1.1rem; line-height: 1.6; margin-top: 15px;">أقوم ببناء وتصميم مستودعات البيانات وهندسة لوحات التحكم الذكية لدعم القرارات الاستراتيجية داخل المؤسسات المصرفية والشركات الكبرى.</p>
+                <p style="font-size: 1.1rem; line-height: 1.6; margin-top: 15px;">I engineer robust enterprise data warehouses, streamline complex data pipelines, and design high-impact interactive workspaces that empower strategic corporate decision-making.</p>
                 <br>
                 <a href="https://raw.githubusercontent.com/bichoygeorge/bichoygeorge.github.io/Profile/Bishoy_George_CV.pdf" target="_blank" style="background: var(--accent-yellow); color: #000; padding: 12px 25px; border: var(--border); box-shadow: 4px 4px 0px #000; text-decoration: none; font-weight: bold; border-radius: 8px; display: inline-block;">
-                    <i class="fa-solid fa-file-pdf"></i> تحميل السيرة الذاتية (CV)
+                    <i class="fa-solid fa-file-pdf"></i> Download CV
                 </a>
             </div>
             
-            <!-- قسم 2: برواز الصورة الـ 600px مع النجوم والرسومات -->
             <div class="image-container">
                 <span class="decor-shape star-1">★</span>
                 <span class="decor-shape star-2">✦</span>
                 <span class="decor-shape star-3">⚙️</span>
-                <div class="badge-decor">Data Expert 🚀</div>
                 <img src="https://raw.githubusercontent.com/bichoygeorge/bichoygeorge.github.io/Profile/Profile.jpg" alt="Bishoy George" class="profile-frame">
             </div>
         </header>
 
-        <!-- قسم 3: About Me بالتفصيل الكامل وقصة النجاح -->
+        <!-- Section 3: About Me (Detailed Success Story Translated) -->
         <section class="card">
-            <h2 class="section-title">من أنا | قصة كفاح وتميز</h2>
+            <h2 class="section-title">About Me | A Journey of Academic & Professional Excellence</h2>
             <p style="font-size: 1.1rem; line-height: 1.7;">
-                أهلاً بك، أنا **بيشوي جورج**. ولدتُ في محافظة **المنيا**، ومنها بدأت شغفي بالتعلم والتميز الأكاديمي. طوال مسيرتي التعليمية كنت أضع التفوق هدفاً أساسياً أمامي:
+                Welcome! I am **Bishoy George**. Born and raised in **Minya Governorate**, I cultivated a deep passion for continuous learning and academic distinction from an early age. Throughout my educational path, excellence has always been my benchmark:
             </p>
             <div class="story-timeline">
-                <div class="timeline-item"><strong>المرحلة الإعدادية:</strong> حصلت على **المركز الثاني على مستوى المحافظة** بمجموع **382.5 من 300** (بعد إضافة الدرجات التقديرية والمستوى).</div>
-                <div class="timeline-item"><strong>الصف الأول الثانوي:</strong> واصلت الاجتهاد وحققت **المركز الرابع على مستوى المدرسة**.</div>
-                <div class="timeline-item"><strong>الصف الثاني الثانوي:</strong> حصلت على **المركز السادس على مستوى المدرسة**.</div>
-                <div class="timeline-item"><strong>الصف الثالث الثانوي:</strong> تكلل المجهود بالحصول على **المركز الثاني (علمي رياضة)** على مستوى المدرسة.</div>
-                <div class="timeline-item"><strong>المرحلة الجامعية:</strong> التحقت بـ **كلية الحاسبات والمعلومات - جامعة المنيا (قسم علوم الحاسب)**. هناك تعمقت في فهم البنية التحتية للأنظمة البرمجية، وخلال دراستي اكتشفت شغفي الكبير بـ **مجال تحليل البيانات (Data Analysis)**، وتخصصت فيه عن حب وشغف حقيقي حتى التخرج.</div>
-                <div class="timeline-item"><strong>الخدمة العسكرية والعمل:</strong> بعد التخرج، أتممت خدمتي العسكرية بكل فخر، وانطلقت فوراً في رحلتي المهنية في سوق العمل كـ Senior Data Analyst يدمج بين الفهم البرمجي العميق والذكاء التجاري.</div>
+                <div class="timeline-item"><strong>Preparatory School Education:</strong> Graduated achieving **2nd Place Nationwide/Governorate-level** with a record score of **382.5 out of 300** (inclusive of advanced high-level performance metrics).</div>
+                <div class="timeline-item"><strong>General Secondary School - 1st Year:</strong> Maintained high academic momentum, ranking **4th across the entire school**.</div>
+                <div class="timeline-item"><strong>General Secondary School - 2nd Year:</strong> Advanced consistently to secure the **6th rank school-wide**.</div>
+                <div class="timeline-item"><strong>General Secondary School - 3rd Year (Thanaweya Amma):</strong> Capped off the stage by graduating **2nd Place in the Mathematics & Science Division** school-wide.</div>
+                <div class="timeline-item"><strong>University Education:</strong> Joined the **Faculty of Computers and Information - Minya University (Computer Science Department)**. During my undergraduate studies, I mastered core software engineering principles and found my true calling in **Data Analysis**, specializing in it out of genuine passion and dedication until graduation.</div>
+                <div class="timeline-item"><strong>Military Service & Career Launch:</strong> Upon graduation, I proudly completed my mandatory military service and immediately launched my professional career, stepping into the corporate market as a rigorous Senior Data Analyst blending technical data architecture with strategic business intelligence.</div>
             </div>
         </section>
 
-        <!-- قسم 4: الفلسفة التحليلية -->
+        <!-- Section 4: Analytics Core Philosophy -->
         <section class="card" style="background: var(--accent-purple);">
-            <h3>قسم 4: فلسفتي في التعامل مع البيانات</h3>
-            <p>البيانات ليست مجرد أرقام صماء، بل هي قصص وتوجهات خفية تنتظر من يستخرجها. أؤمن بأن التحليل الناجح يبدأ من الفهم الدقيق لآلية عمل البيزنس وتطهير البيانات من الجذور لتخرج التقارير دقيقة وقابلة للتنفيذ الفوري.</p>
+            <h3>Section 4: Analytical Core Philosophy</h3>
+            <p>Data points are not mere static numbers; they are structural narratives waiting to be decoded. I believe impactful analytics starts with deeply understanding underlying business operations and isolating data anomalies at the root level to deliver flawless, immediately actionable data strategies.</p>
         </section>
 
-        <!-- قسم 5: ملامح سريعة عن الإنجازات الرقمية (Quick Flash KPIs) -->
+        <!-- Section 5: Strategic Quick Flash KPIs -->
         <section class="card">
-            <h3>قسم 5: مؤشرات الأداء الاستراتيجية السريعة</h3>
+            <h3>Section 5: Strategic Flash KPIs</h3>
             <div class="grid-3" style="margin-top: 15px;">
-                <div class="kpi-box">+137M $ مبيعات مدارة وتحليلها</div>
-                <div class="kpi-box">+5 مستودعات بيانات منشأة ومصممة</div>
-                <div class="kpi-box">100% أتمتة للتقارير اليدوية</div>
+                <div class="kpi-box">+$137M Global Sales Analyzed</div>
+                <div class="kpi-box">+5 Enterprise Data Warehouses Built</div>
+                <div class="kpi-box">100% Automation of Manual Reporting</div>
             </div>
         </section>
     </div>
 
-    <!-- ==================== الصفحة 2: TECHNICAL STACK (الأقسام 6 - 10) ==================== -->
-    <div id="page2" class="page">
-        <div class="card"><h2 class="section-title">الصفحة 2: الترسانة التقنية والمهارات</h2></div>
+    <!-- ==================== PAGE 2: TECHNICAL ARSENAL (Sections 6 - 10) ==================== -->
+    <div id="page2" class="page-section">
+        <div class="card"><h2 class="section-title">Page 2: Technical Arsenal & Competencies</h2></div>
         
-        <!-- قسم 6: مهارات وقواعد بيانات SQL -->
+        <!-- Section 6: SQL & Database Management -->
         <div class="card">
-            <h3>قسم 6: إدارة واستعلام قواعد البيانات العملاقة (SQL)</h3>
-            <span class="tag">SQL Server</span> <span class="tag">Oracle Database</span> <span class="tag">PL/SQL</span> <span class="tag">Denodo VQL</span> <span class="tag">Query Optimization</span>
-            <p>كتابة استعلامات معقدة، وبناء الـ Indexing، وعمل Tuning للاستعلامات لضمان أعلى سرعة تنفيذ ممكنة للتقارير المصرفية والمالية الفورية.</p>
+            <h3>Section 6: Enterprise Database Querying & Optimization (SQL)</h3>
+            <span class="tag">SQL Server</span> <span class="tag">Oracle Database</span> <span class="tag">PL/SQL</span> <span class="tag">Denodo VQL</span> <span class="tag">Query Tuning</span>
+            <p>Writing high-performance complex queries, engineering custom indexing, and tuning execution plans to achieve sub-second execution times for real-time banking records.</p>
         </div>
 
-        <!-- قسم 7: ذكاء الأعمال والـ BI -->
+        <!-- Section 7: Business Intelligence Platforms -->
         <div class="card" style="background: var(--accent-blue);">
-            <h3>قسم 7: منصات ذكاء الأعمال وهندسة التقارير التفاعلية (BI)</h3>
-            <span class="tag">Power BI</span> <span class="tag">Looker Studio</span> <span class="tag">Tableau</span> <span class="tag">DAX</span> <span class="tag">Data Modeling</span>
-            <p>بناء العلاقات وتصميم الـ Data Models (Star Schema / Snowflake Schema) وكتابة معادلات الـ DAX المعقدة لحساب الـ KPIs بدقة متناهية.</p>
+            <h3>Section 7: Business Intelligence Platforms & Workspaces (BI)</h3>
+            <span class="tag">Power BI</span> <span class="tag">Looker Studio</span> <span class="tag">Tableau</span> <span class="tag">Advanced DAX</span> <span class="tag">Data Modeling</span>
+            <p>Developing highly relational data models (Star/Snowflake schemas) and implementing advanced DAX calculations to isolate hidden trends and evaluate complex performance KPIs.</p>
         </div>
 
-        <!-- قسم 8: عمليات الـ ETL وهندسة البيانات -->
+        <!-- Section 8: ETL & Data Engineering Pipelines -->
         <div class="card">
-            <h3>قسم 8: هندسة وخطوط نقل البيانات (ETL & Data Pipelines)</h3>
-            <span class="tag">SSIS</span> <span class="tag">Power Query</span> <span class="tag">Data Cleansing</span>
-            <p>سحب وتنظيف وتحويل البيانات من مصادر مختلفة ومبعثرة وتخزينها بشكل منظم داخل مستودعات البيانات المركزية.</p>
+            <h3>Section 8: ETL Architecture & Data Pipelines</h3>
+            <span class="tag">SSIS</span> <span class="tag">Power Query</span> <span class="tag">Data Profiling</span> <span class="tag">Data Cleansing</span>
+            <p>Extracting, transforming, and loading chaotic data structures from disparate, unstructured legacy logs into unified corporate data warehouses.</p>
         </div>
 
-        <!-- قسم 9: التحليل الإحصائي والبرمجة المتقدمة -->
+        <!-- Section 9: Statistical Analysis & Tools -->
         <div class="card" style="background: var(--accent-green);">
-            <h3>قسم 9: التحليل الإحصائي والبرمجة</h3>
-            <span class="tag">Python</span> <span class="tag">Advanced Excel</span> <span class="tag">Power Pivot</span>
-            <p>استخدام بايثون والـ Pivot Tables المتقدمة لتحليل سلوك المستهلكين وبناء التوقعات المستقبلية بناءً على السلاسل الزمنية.</p>
+            <h3>Section 9: Statistical Programming & Analytics</h3>
+            <span class="tag">Python</span> <span class="tag">Advanced Excel</span> <span class="tag">Power Pivot</span> <span class="tag">Time-Series Analysis</span>
+            <p>Utilizing Python libraries and advanced Power Pivot configurations to model customer behaviors, track metrics, and execute long-term statistical trend mapping.</p>
         </div>
 
-        <!-- قسم 10: خطط التعلم المستقبلية ومواكبة السوق -->
+        <!-- Section 10: Future Tech Development Map -->
         <div class="card">
-            <h3>قسم 10: الرؤية المستقبلية للتطوير التقني</h3>
-            <p>التركيز على دمج تقنيات تعلم الآلة (Machine Learning) مع لوحات تحكم Power BI لتقديم تحليلات تنبؤية (Predictive Analytics) تخدم قطاع الائتمان والمبيعات.</p>
+            <h3>Section 10: Future Roadmap & Technology Up-skilling</h3>
+            <p>Actively integrating machine learning algorithms directly with Power BI report servers to implement predictive modeling structures for enterprise risk management and automated credit scoring.</p>
         </div>
     </div>
 
-    <!-- ==================== الصفحة 3: BANKING & CORPORATE (الأقسام 11 - 15) ==================== -->
-    <div id="page3" class="page">
-        <div class="card"><h2 class="section-title">الصفحة 3: الخبرة المصرفية والشركات الكبرى</h2></div>
+    <!-- ==================== PAGE 3: BANKING & CORPORATE (Sections 11 - 15) ==================== -->
+    <div id="page3" class="page-section">
+        <div class="card"><h2 class="section-title">Page 3: Banking Sector & Corporate Experience</h2></div>
         
-        <!-- قسم 11: العمل في قطاع البنوك -->
+        <!-- Section 11: Banking Analytics -->
         <div class="card">
-            <h3>قسم 11: التحليل المصرفي والبيانات المالية (Banque Misr)</h3>
-            <p>تحليل السجلات المالية وحسابات القروض الشخصية، وأتمتة التقارير الدورية التي تخدم قطاع التجزئة المصرفية لضمان متابعة مستمرة لمستهدفات البيع.</p>
+            <h3>Section 11: Banking Operations & Retail Credit Records (Banque Misr)</h3>
+            <p>Analyzing extensive retail banking records and automated processing matrices for personal cash loans, accelerating core compliance and performance reporting timelines.</p>
         </div>
 
-        <!-- قسم 12: تحليل بيانات المقاولات والمشاريع الكبرى -->
+        <!-- Section 12: Commercial Operations -->
         <div class="card" style="background: var(--accent-yellow);">
-            <h3>قسم 12: إدارة البيانات التجارية والـ Commercial Operations (Orascom)</h3>
-            <p>تحليل التكاليف ومقارنة الميزانيات التقديرية بالمصروفات الفعلية للمشاريع الإنشائية العملاقة، واستخراج تقارير تساهم في تقليص الهدر المالي.</p>
+            <h3>Section 12: Commercial Operations & Cost Controlling (Orascom)</h3>
+            <p>Assessing structural project budgets, tracking material cost margins against actual financial expenditures for heavy construction deployments, and engineering budget dashboards.</p>
         </div>
 
-        <!-- قسم 13: تقارير الحوكمة والـ SSRS -->
+        <!-- Section 13: SSRS Corporate Reporting -->
         <div class="card">
-            <h3>قسم 13: حوكمة البيانات والتقارير الرسمية القياسية (SSRS)</h3>
-            <p>بناء وإدارة خوادم التقارير لتوزيع الفواتير والقوائم المالية المؤتمتة بشكل دوري ومباشر لمديري الإدارات بدون أي تدخل بشري.</p>
+            <h3>Section 13: Automated Operational Invoicing & Governance (SSRS)</h3>
+            <p>Deploying production-grade SQL Server Reporting Services (SSRS) instances to auto-distribute automated invoices and pixel-perfect transaction ledgers to logisticians without manual lag.</p>
         </div>
 
-        <!-- قسم 14: النماذج متعددة الأبعاد والـ Cubes -->
+        <!-- Section 14: Analytical Cubes -->
         <div class="card" style="background: var(--accent-purple);">
-            <h3>قسم 14: تسريع الاستعلامات وبناء الـ SSAS Cubes</h3>
-            <p>تصميم مكعبات التحليل (Analytical Cubes) لتقليص زمن معالجة ملايين السجلات المالية والمبيعات من دقائق معدودة إلى أجزاء من الثانية.</p>
+            <h3>Section 14: Performance Tuning via SSAS Tabular/Multi-Dimensional Cubes</h3>
+            <p>Structuring analytical corporate data cubes to handle massive records, reducing query latency and report dashboard rendering times from minutes to milliseconds.</p>
         </div>
 
-        <!-- قسم 15: مهارات التواصل وعرض التقارير للإدارات العليا -->
+        <!-- Section 15: Executive Reporting & Storytelling -->
         <div class="card">
-            <h3>قسم 15: عرض البيانات الفعال وصناعة القرار (Data Storytelling)</h3>
-            <p>ترجمة الأكواد والجداول المعقدة إلى لوحات مرئية تفاعلية يستطيع من خلالها الرؤساء التنفيذيون اتخاذ قرارات مصيرية فورية لحل مشاكل العمل.</p>
+            <h3>Section 15: Executive Data Storytelling & Presentation</h3>
+            <p>Translating back-end relational architecture into intuitive cross-departmental dashboards, converting obscure numbers into reliable growth opportunities for C-suite decision makers.</p>
         </div>
     </div>
 
-    <!-- ==================== الصفحة 4: E-COMMERCE DEEP-DIVE (الأقسام 16 - 20) ==================== -->
-    <div id="page4" class="page">
-        <div class="card"><h2 class="section-title">الصفحة 4: مشروع متجر الإلكترونيات العملاق وأمازون</h2></div>
+    <!-- ==================== PAGE 4: E-COMMERCE DEEP-DIVE (Sections 16 - 20) ==================== -->
+    <div id="page4" class="page-section">
+        <div class="card"><h2 class="section-title">Page 4: Enterprise E-Commerce Sales Architecture</h2></div>
         
-        <!-- قسم 16: مبيعات أمازون -->
+        <!-- Section 16: Amazon Sales Project -->
         <div class="card">
-            <h3>قسم 16: تحليل مبيعات أمازون العالمية (Amazon Global Sales)</h3>
+            <h3>Section 16: Amazon Global Sales & Operations Audit</h3>
             <img src="https://raw.githubusercontent.com/bichoygeorge/bichoygeorge.github.io/Assets/Amazon-Data-Sales.png" class="project-img">
-            <p style="margin-top:15px;">دراسة وتحليل مبيعات تخطت الـ 137 مليون دولار وأتمتة الفواتير لقطاع الخدمات اللوجستية.</p>
+            <p style="margin-top:15px;">Designed comprehensive workflows evaluating over $137 Million in global e-commerce performance and automated multi-currency tracking frameworks.</p>
         </div>
 
-        <!-- قسم 17: لوحة الإلكترونيات الصفحة 1 -->
+        <!-- Section 17: E-Comm Page 1 -->
         <div class="card" style="background: var(--accent-blue);">
-            <h3>قسم 17: هيكل متجر الإلكترونيات - الصفحة 1 (نظرة عامة على المبيعات)</h3>
+            <h3>Section 17: Multi-Store Sales Workspace - Page 1 (Executive Summary)</h3>
             <img src="https://raw.githubusercontent.com/bichoygeorge/bichoygeorge.github.io/Assets/E-Commerce-Sales-Store-1.png" class="project-img">
         </div>
 
-        <!-- قسم 18: لوحة الإلكترونيات الصفحة 2 -->
+        <!-- Section 18: E-Comm Page 2 -->
         <div class="card">
-            <h3>قسم 18: هيكل متجر الإلكترونيات - الصفحة 2 (أداء المنتجات والفئات)</h3>
+            <h3>Section 18: Multi-Store Sales Workspace - Page 2 (Product Performance Grid)</h3>
             <img src="https://raw.githubusercontent.com/bichoygeorge/bichoygeorge.github.io/Assets/E-Commerce-Sales-Store-2.png" class="project-img">
         </div>
 
-        <!-- قسم 19: لوحة الإلكترونيات الصفحة 3 -->
+        <!-- Section 19: E-Comm Page 3 -->
         <div class="card" style="background: var(--accent-green);">
-            <h3>قسم 19: هيكل متجر الإلكترونيات - الصفحة 3 (تحليل أرباح المناطق الجغرافية)</h3>
+            <h3>Section 19: Multi-Store Sales Workspace - Page 3 (Regional Revenue Contribution)</h3>
             <img src="https://raw.githubusercontent.com/bichoygeorge/bichoygeorge.github.io/Assets/E-Commerce-Sales-Store-3.png" class="project-img">
         </div>
 
-        <!-- قسم 20: لوحة الإلكترونيات الصفحة 4 -->
+        <!-- Section 20: E-Comm Page 4 -->
         <div class="card">
-            <h3>قسم 20: هيكل متجر الإلكترونيات - الصفحة 4 (سلوك المشترين والـ Retention Rate)</h3>
+            <h3>Section 20: Multi-Store Sales Workspace - Page 4 (Customer Retention Metrics)</h3>
             <img src="https://raw.githubusercontent.com/bichoygeorge/bichoygeorge.github.io/Assets/E-Commerce-Sales-Store-4.png" class="project-img">
         </div>
     </div>
 
-    <!-- ==================== الصفحة 5: ADVANCED DATASETS (الأقسام 21 - 25) ==================== -->
-    <div id="page5" class="page">
-        <div class="card"><h2 class="section-title">الصفحة 5: دراسات مخصصة ومشاريع متقدمة</h2></div>
+    <!-- ==================== PAGE 5: ADVANCED DATASETS (Sections 21 - 25) ==================== -->
+    <div id="page5" class="page-section">
+        <div class="card"><h2 class="section-title">Page 5: Specialized Analytical Case Studies</h2></div>
         
-        <!-- قسم 21: مشروع الفنادق -->
+        <!-- Section 21: Hospitality Project -->
         <div class="card">
-            <h3>قسم 21: لوحة تحكم أداء وإيرادات الحجوزات الفندقية (Hospitality Revenue)</h3>
+            <h3>Section 21: Hospitality Revenue Management & Cancellation Tracker</h3>
             <img src="https://raw.githubusercontent.com/bichoygeorge/bichoygeorge.github.io/Assets/Hotels-Reservations-Dataset.png" class="project-img">
-            <p style="margin-top:15px;">تتبع أكثر من 36 ألف عملية حجز وتحليل نسب الإلغاء لرفع العوائد الإجمالية للفنادق.</p>
+            <p style="margin-top:15px;">Evaluated 36K+ active reservations to build pricing optimization models and isolate drivers behind seasonal user cancellations.</p>
         </div>
 
-        <!-- قسم 22: مشروع أداء الطلاب -->
+        <!-- Section 22: Student Performance -->
         <div class="card" style="background: var(--accent-purple);">
-            <h3>قسم 22: تحليل العوامل المؤثرة على أداء الطلاب الأكاديمي</h3>
+            <h3>Section 22: Demographics & Environmental Impact on Student Performance</h3>
             <img src="https://raw.githubusercontent.com/bichoygeorge/bichoygeorge.github.io/Assets/Students-Performance-Analysis.png" class="project-img">
-            <p style="margin-top:15px;">ربط العوامل البيئية والاجتماعية بمستويات تحصيل الطلاب ودرجات الاختبارات النهائية.</p>
+            <p style="margin-top:15px;">Applied regression concepts to identify correlation coefficients between social metrics and testing outcomes.</p>
         </div>
 
-        <!-- قسم 23: مشروع كوفيد مصر -->
+        <!-- Section 23: Covid Egypt -->
         <div class="card">
-            <h3>قسم 23: الرصد الإحصائي لبيانات كوفيد 19 في مصر (Covid19 Egypt Data)</h3>
+            <h3>Section 23: Epidemiological Time-Series Trends (Covid-19 Egypt Case Study)</h3>
             <img src="https://raw.githubusercontent.com/bichoygeorge/bichoygeorge.github.io/Assets/Covid19-Egypt-Data.png" class="project-img">
-            <p style="margin-top:15px;">تحليل المنحنيات الوبائية ومعدلات الشفاء والانتشار الجغرافي داخل المحافظات المصرية.</p>
+            <p style="margin-top:15px;">Modeled regional infection velocities, daily recovery indices, and healthcare resource metrics across Egyptian Governorates.</p>
         </div>
 
-        <!-- قسم 24: مشروع الأفلام -->
+        <!-- Section 24: Movie Markets -->
         <div class="card" style="background: var(--accent-yellow);">
-            <h3>قسم 24: دراسة سوق صناعة السينما والتقييمات (16K Movies Dataset)</h3>
+            <h3>Section 24: Cinema Industry Profitability Factors (16K Movies Dataset)</h3>
             <img src="https://raw.githubusercontent.com/bichoygeorge/bichoygeorge.github.io/Assets/16K-Movies-Dataset.png" class="project-img">
-            <p style="margin-top:15px;">تحليل العوامل المتحكمة في الإيرادات والتقييمات لأكثر من 16 ألف فيلم سينمائي عالمي.</p>
+            <p style="margin-top:15px;">Analyzed a dataset of 16,000 films to isolate correlations between audience voting patterns, production budget sizes, and global ROI.</p>
         </div>
 
-        <!-- قسم 25: مشروع تعداد السكان -->
+        <!-- Section 25: World Population -->
         <div class="card">
-            <h3>قسم 25: التحليل الديموغرافي للنمو السكاني العالمي (World Population 2020)</h3>
+            <h3>Section 25: Global Macro Demographic Vectors (World Population Analysis)</h3>
             <img src="https://raw.githubusercontent.com/bichoygeorge/bichoygeorge.github.io/Assets/World-Population-2020.png" class="project-img">
-            <p style="margin-top:15px;">خرائط تفاعلية توضح الكثافة السكانية وتوزيع الموارد ومعدلات النمو السنوي حول العالم.</p>
+            <p style="margin-top:15px;">Designed geospatial population dashboards tracking country-level growth velocity, net density, and cross-border shifts.</p>
         </div>
     </div>
 
-    <!-- ==================== الصفحة 6: CERTIFICATIONS (الأقسام 26 - 30) ==================== -->
-    <div id="page6" class="page">
-        <div class="card"><h2 class="section-title">الصفحة 6: الشهادات والاعتمادات والتطور الأكاديمي</h2></div>
+    <!-- ==================== PAGE 6: CERTIFICATIONS (Sections 26 - 30) ==================== -->
+    <div id="page6" class="page-section">
+        <div class="card"><h2 class="section-title">Page 6: Professional Credentials & Certifications</h2></div>
         
-        <!-- قسم 26: شهادة Power BI Data Analyst -->
+        <!-- Section 26: PL-300 -->
         <div class="card">
-            <h3>قسم 26: شهادة PL-300: Microsoft Power BI Data Analyst</h3>
-            <p>الاعتماد الرسمي من مايكروسوفت لإثبات القدرة الاحترافية على نمذجة وتجهيز واستعراض البيانات التجارية.</p>
+            <h3>Section 26: PL-300: Microsoft Certified Power BI Data Analyst</h3>
+            <p>Validates expert proficiency in data preparation, advanced data modeling, metric calculation, and organizational deployment.</p>
         </div>
 
-        <!-- قسم 27: شهادات قواعد البيانات من أوراكل -->
+        <!-- Section 27: Oracle SQL -->
         <div class="card" style="background: var(--accent-blue);">
-            <h3>قسم 27: شهادات أوراكل المتقدمة في الـ SQL والـ PL/SQL</h3>
-            <p>إتقان كتابة الـ Stored Procedures والـ Triggers والتعامل مع قواعد البيانات الضخمة وبنيتها التحتية.</p>
+            <h3>Section 27: Oracle Database SQL & PL/SQL Specialist</h3>
+            <p>Confirms mastery over database architecture, complex query joins, structural storage optimization, and procedural script pipelines.</p>
         </div>
 
-        <!-- قسم 28: شهادات الـ Data Engineering -->
+        <!-- Section 28: Data Engineering Credits -->
         <div class="card">
-            <h3>قسم 28: اعتمادات هندسة البيانات وبناء مستودعات البيانات (ETL)</h3>
-            <p>دورات متقدمة في دمج وإدارة البيانات باستخدام حزم SQL Server Integration Services (SSIS).</p>
+            <h3>Section 28: Advanced Data Warehousing & SSIS ETL Certifications</h3>
+            <p>Focused on structural data modeling, error handling routines, and multi-source connection mappings within SQL Server environments.</p>
         </div>
 
-        <!-- قسم 29: التكريمات الأكاديمية والجامعية -->
+        <!-- Section 29: Academic Merits -->
         <div class="card" style="background: var(--accent-purple);">
-            <h3>قسم 29: التميز الأكاديمي بكلية الحاسبات والمعلومات</h3>
-            <p>شهادات تقدير وتكريمات طوال فترة الدراسة الجامعية نظير التميز في مشاريع التخرج البرمجية وتصميم الأنظمة.</p>
+            <h3>Section 29: Academic Merits & Faculty Engineering Recognitions</h3>
+            <p>Awarded multiple honors and technical recognition plaques during university milestones for innovative software development and database design.</p>
         </div>
 
-        <!-- قسم 30: التعليم المستمر والتدريب الذاتي -->
+        <!-- Section 30: Continuous Training -->
         <div class="card">
-            <h3>قسم 30: مسارات التعليم الذاتي المستمر (Self-Learning Path)</h3>
-            <p>متابعة أحدث التحديثات الخاصة بـ Microsoft Fabric و Google Cloud لضمان نقل اللوحات إلى البيئات السحابية الحديثة.</p>
+            <h3>Section 30: Continuous Professional Development Tracks</h3>
+            <p>Active learning pathways targeting cloud data architectures, Microsoft Fabric ecosystems, and enterprise-level semantic layer engineering.</p>
         </div>
     </div>
 
-    <!-- ==================== الصفحة 7: BEYOND DATA & FAQ (الأقسام 31 - 35) ==================== -->
-    <div id="page7" class="page">
-        <div class="card"><h2 class="section-title">الصفحة 7: الجانب الشخصي والأسئلة الشائعة</h2></div>
+    <!-- ==================== PAGE 7: BEYOND DATA & FAQ (Sections 31 - 35) ==================== -->
+    <div id="page7" class="page-section">
+        <div class="card"><h2 class="section-title">Page 7: Personal Insights & Technical FAQ</h2></div>
         
-        <!-- قسم 31: هواية تنس الطاولة والرياضة والاتزان -->
+        <!-- Section 31: Table Tennis -->
         <div class="card">
-            <h3>قسم 31: العقل السليم في الجسم السليم | شغف تنس الطاولة</h3>
-            <p>ممارسة رياضة تنس الطاولة (Table Tennis) بشغف كبير، وهي الرياضة التي علمتني سرعة اتخاذ القرار، التركيز الشديد، والصبر الطويل؛ وهي نفس المهارات الذهنية التي أحتاجها تماماً أثناء تحليل مجموعات البيانات المعقدة والمبعثرة.</p>
+            <h3>Section 31: Tactical Focus & Reflexes | Table Tennis Passion</h3>
+            <p>As an active table tennis player, this fast-paced sport has heavily trained my real-time focus, sharp pattern recognition, and tactical endurance. These identical cognitive reflexes translate directly to parsing volatile, uncleaned data matrices under tight timelines.</p>
         </div>
 
-        <!-- قسم 32: الشغف بالقراءة والاطلاع والتحليل المالي -->
+        <!-- Section 32: Financial Reading -->
         <div class="card" style="background: var(--accent-green);">
-            <h3>قسم 32: الاهتمامات الشخصية | القراءة والاستثمار المالي</h3>
-            <p>متابعة مستمرة لكتب الاقتصاد السلوكي والتحليل المالي، والاهتمام بدراسة آليات البورصة وأسواق المال لتطوير الفكر الاستثماري الشخصي والمهني.</p>
+            <h3>Section 32: Behavioral Economics & Local Market Investment</h3>
+            <p>Avid reader of behavioral economics literature and an active investigator of stock market trends and asset allocation models to sharpen real-world economic logic.</p>
         </div>
 
-        <!-- قسم 33: سؤال شائع 1 (التعامل مع البيانات المتسخة) -->
+        <!-- Section 33: FAQ 1 -->
         <div class="card">
-            <h3>قسم 33: FAQ | كيف تتعامل مع البيانات المفقودة أو المليئة بالأخطاء؟</h3>
-            <p><strong>الإجابة:</strong> أقوم بعمل فحص شامل (Profiling) أولاً لعزل الأخطاء، ثم أستخدم الـ Power Query أو الـ SQL لتنظيف وتوحيد الصيغ، مع الحرص التام على عدم تغيير جوهر البيانات لضمان دقة النتائج بنسبة 100%.</p>
+            <h3>Section 33: FAQ | How do you approach heavily corrupted or missing records?</h3>
+            <p><strong>Answer:</strong> I execute thorough profile checks first to map out the anomaly frequency. Then, I isolate bad syntax using Power Query or customized SQL routines, ensuring data integrity remains untouched before visualization.</p>
         </div>
 
-        <!-- قسم 34: سؤال شائع 2 (اختيار الأداة الأفضل) -->
+        <!-- Section 34: FAQ 2 -->
         <div class="card" style="background: var(--accent-yellow);">
-            <h3>قسم 34: FAQ | متى تفضل استخدام SQL ومتى تلجأ لـ Excel أو Power BI؟</h3>
-            <p><strong>الإجابة:</strong> الـ SQL هو الملك عندما يتعلق الأمر بفرز وسحب ملايين السجلات من قواعد البيانات. الـ Power BI هو الأداة الأفضل لعرض المؤشرات بشكل تفاعلي ومباشر للإدارة. بينما يظل الـ Excel ممتازاً للتحليلات السريعة والمحدودة.</p>
+            <h3>Section 34: FAQ | When do you prefer SQL over Excel or Power BI?</h3>
+            <p><strong>Answer:</strong> SQL is unmatched for querying and aggregating millions of raw transaction records. Power BI is my primary terminal for delivering user-driven executive dashboards, while Excel serves perfectly for immediate, isolated testing.</p>
         </div>
 
-        <!-- قسم 35: نصيحة للمبتدئين في المجال -->
+        <!-- Section 35: Advice to Practitioners -->
         <div class="card">
-            <h3>قسم 35: رسالتي لكل من يريد دخول عالم البيانات</h3>
-            <p>ابدأ بفهم "البيزنس" أولاً قبل تعلم الأكواد وأدوات الـ BI. الأداة يمكن تعلمها في أسابيع، ولكن منطق التحليل وفهم احتياج الشركة هو الفارق الحقيقي بين محلل بيانات عادي ومحلل محترف.</p>
+            <h3>Section 35: My Core Philosophy to Budding Data Analysts</h3>
+            <p>Master the underlying business logic before touching tools or visualization code. Tools can be acquired in weeks, but the intuitive analytical vision that uncovers corporate bottlenecks is what distinguishes an extraordinary analyst.</p>
         </div>
     </div>
 
-    <!-- ==================== الصفحة 8: CONNECT WITH ME (الأقسام 36 - 40) ==================== -->
-    <div id="page8" class="page">
-        <div class="card"><h2 class="section-title">الصفحة 8: تواصل معي وابدأ العمل فوراً</h2></div>
+    <!-- ==================== PAGE 8: CONNECT WITH ME (Sections 36 - 40) ==================== -->
+    <div id="page8" class="page-section">
+        <div class="card"><h2 class="section-title">Page 8: Secure Your Business Intelligence Strategy</h2></div>
         
-        <!-- قسم 36: روابط التواصل الاجتماعي الرسمية -->
+        <!-- Section 36: LinkedIn -->
         <div class="card" style="text-align: center;">
-            <h3>قسم 36: شبكة التواصل المهنية</h3>
-            <p>تابعني وتواصل معي مباشرة عبر حسابي الرسمي على منصة لينكد إن لمناقشة فرص العمل والمشاريع المشتركة:</p>
+            <h3>Section 36: Corporate Professional Networking</h3>
+            <p>Let's collaborate on professional engagements, enterprise dashboard contract buildouts, or full-time analytics roles:</p>
             <a href="https://linkedin.com" target="_blank" style="background: #0077b5; color: #fff; padding: 10px 20px; border: var(--border); box-shadow: 4px 4px 0px #000; text-decoration: none; font-weight: bold; border-radius: 8px; display: inline-block;">
                 <i class="fa-brands fa-linkedin"></i> LinkedIn Profile
             </a>
         </div>
 
-        <!-- قسم 37: مستودع الأكواد المفتوحة جيت هاب -->
+        <!-- Section 37: GitHub -->
         <div class="card" style="background: var(--accent-blue);">
-            <h3>قسم 37: معرض الأكواد والمشاريع المفتوحة (GitHub)</h3>
-            <p>يمكنك مراجعة كافة الأكواد والاستعلامات وبناء الأنظمة الخاصة بكافة المشاريع المعروضة من خلال زيارة حسابي على GitHub:</p>
+            <h3>Section 37: Raw Project Code Repositories</h3>
+            <p>Review comprehensive SQL script pipelines, SSRS configuration definitions, and structural ETL designs directly inside my repositories:</p>
             <a href="https://github.com/bichoygeorge" target="_blank" style="background: #333; color: #fff; padding: 10px 20px; border: var(--border); box-shadow: 4px 4px 0px #000; text-decoration: none; font-weight: bold; border-radius: 8px; display: inline-block;">
-                <i class="fa-brands fa-github"></i> GitHub Repository
+                <i class="fa-brands fa-github"></i> GitHub Profile
             </a>
         </div>
 
-        <!-- قسم 38: البريد الإلكتروني المباشر الرسمي -->
+        <!-- Section 38: Email Inquiry -->
         <div class="card">
-            <h3>قسم 38: المراسلة الإلكترونية المباشرة</h3>
-            <p>لطلبات التوظيف أو الاستشارات الخاصة بتحليل البيانات، يسعدني استقبال رسائلك الإلكترونية الرسمية وسأقوم بالرد خلال 24 ساعة كحد أقصى.</p>
+            <h3>Section 38: Direct Corporate Mail Communications</h3>
+            <p>For official technical consultancies or recruitment inquiries, feel free to email me directly. Expect a comprehensive technical response within 24 business hours.</p>
         </div>
 
-        <!-- قسم 39: استمارة تواصل سريعة جوه الموقع -->
+        <!-- Section 39: Contact Form -->
         <div class="card" style="background: var(--accent-purple);">
-            <h3>قسم 39: أرسل لي رسالة فورية (Contact Form)</h3>
+            <h3>Section 39: Immediate Project Transmission Terminal</h3>
             <div style="display: flex; flex-direction: column; gap: 10px; max-width: 500px;">
-                <input type="text" placeholder="الاسم الكريم" style="padding: 10px; border: 2px solid #000; border-radius: 5px;">
-                <input type="email" placeholder="البريد الإلكتروني" style="padding: 10px; border: 2px solid #000; border-radius: 5px;">
-                <textarea placeholder="تفاصيل مشروعك أو طلبك" rows="4" style="padding: 10px; border: 2px solid #000; border-radius: 5px;"></textarea>
-                <button style="background: var(--accent-yellow); font-weight: bold; padding: 10px; border: var(--border); box-shadow: 3px 3px 0px #000; cursor: pointer; border-radius: 5px;">إرسال الرسالة 🚀</button>
+                <input type="text" placeholder="Your Name / Organization" style="padding: 10px; border: 2px solid #000; border-radius: 5px;">
+                <input type="email" placeholder="Official Business Email" style="padding: 10px; border: 2px solid #000; border-radius: 5px;">
+                <textarea placeholder="Outline your analytical challenge or job scope..." rows="4" style="padding: 10px; border: 2px solid #000; border-radius: 5px;"></textarea>
+                <button style="background: var(--accent-yellow); font-weight: bold; padding: 10px; border: var(--border); box-shadow: 3px 3px 0px #000; cursor: pointer; border-radius: 5px;">Transmit Message 🚀</button>
             </div>
         </div>
 
-        <!-- قسم 40: خاتمة وحقوق الملكية للموقع -->
+        <!-- Section 40: Copyright & Footer -->
         <div class="card" style="text-align: center;">
-            <h3>قسم 40: خاتمة بورتفوليو بيشوي جورج</h3>
-            <p>© 2026 بيشوي جورج. تم تصميم وبرمجة هذا الموقع بالكامل بأسلوب الـ Neo-Brutalism الحديث ليعكس الالتزام بالدقة والوضوح التام في عرض البيانات.</p>
+            <h3>Section 40: Portfolio Identity Governance</h3>
+            <p>© 2026 Bishoy George. Engineered entirely with Neo-Brutalism web layout parameters to optimize readability, structure, and system transparency.</p>
         </div>
     </div>
 
 </div>
 
-<!-- السكريبت السحري المسؤول عن التنقل اللحظي بين الصفحات دون إبطاء الموقع -->
+<!-- كود جافا سكريبت الذكي المسؤول عن توجيه المستخدم بالـ Scroll السلس للقسم المختار -->
 <script>
-    function showPage(pageId) {
-        // 1. إخفاء كل الصفحات
-        const pages = document.querySelectorAll('.page');
-        pages.forEach(page => page.classList.remove('active'));
-
-        // 2. إزالة الوضع النشط من كل الأزرار
-        const buttons = document.querySelectorAll('nav button');
-        buttons.forEach(btn => btn.classList.remove('active'));
-
-        // 3. إظهار الصفحة المطلوبة فقط
-        document.getElementById(pageId).classList.add('active');
-
-        // 4. جعل زر الصفحة الحالية نشطاً
-        document.getElementById('btn-' + pageId).classList.add('active');
-
-        // 5. نقل الشاشة لأعلى الصفحة بسلاسة عند الانتقال
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+    function scrollToSection(sectionId) {
+        const targetElement = document.getElementById(sectionId);
+        if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
     }
 </script>
 
