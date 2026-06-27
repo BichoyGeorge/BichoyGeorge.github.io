@@ -1,282 +1,2101 @@
-/* ===========================
-   BISHOY PORTFOLIO V2
-   Neo Brutalism
-=========================== */
+<!DOCTYPE html>
+<html lang="en">
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-scroll-behavior:smooth;
-}
+<head>
 
-body{
+<meta charset="UTF-8">
 
-font-family:'Space Grotesk',sans-serif;
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-background:#FFF8E7;
+<title>Bishoy George | Data Analyst Portfolio</title>
 
-color:#111;
+<meta name="description"
+content="Data Analyst Portfolio - SQL - Oracle - Power BI - ETL">
 
-overflow-x:hidden;
+<link rel="stylesheet" href="style.css">
 
-}
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
-a{
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-text-decoration:none;
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700;800&display=swap"
+rel="stylesheet">
 
-color:inherit;
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
 
-}
+</head>
 
-ul{
+<body>
 
-list-style:none;
+<div class="cursor"></div>
 
-}
+<div class="loading-screen">
 
-/* ================= NAVBAR ================= */
+<div class="loader">
 
-.header{
+<div></div>
 
-position:fixed;
+<div></div>
 
-top:0;
+<div></div>
 
-left:0;
+</div>
 
-width:100%;
+<h2>BISHOY PORTFOLIO</h2>
 
-z-index:999;
+</div>
 
-padding:20px 60px;
+<header class="header">
 
-}
+<nav class="navbar">
 
-.navbar{
+<a href="#" class="logo">
 
-display:flex;
+BISHOY<span>.</span>
 
-justify-content:space-between;
+</a>
 
-align-items:center;
+<ul class="nav-links">
 
-background:#ffffff;
+<li><a href="#home">Home</a></li>
 
-border:4px solid #000;
+<li><a href="#about">About</a></li>
 
-border-radius:20px;
+<li><a href="#skills">Skills</a></li>
 
-padding:18px 30px;
+<li><a href="#experience">Experience</a></li>
 
-box-shadow:8px 8px 0 #000;
+<li><a href="#projects">Projects</a></li>
 
-}
+<li><a href="#certificates">Certificates</a></li>
 
-.logo{
+<li><a href="#contact">Contact</a></li>
 
-font-size:32px;
+</ul>
 
-font-weight:800;
+<div class="right-nav">
 
-}
+<button id="darkMode">
 
-.logo span{
+<i class="fa-solid fa-moon"></i>
 
-color:#ff5e5e;
+</button>
 
-}
+<div class="menu-btn">
 
-.nav-links{
+<i class="fa-solid fa-bars"></i>
 
-display:flex;
+</div>
 
-gap:25px;
+</div>
 
-}
+</nav>
 
-.nav-links a{
+</header>
 
-font-weight:700;
+<section class="hero" id="home">
 
-padding:10px 16px;
+<div class="hero-left">
 
-border-radius:12px;
+<div class="available">
 
-transition:.3s;
+<i class="fa-solid fa-circle"></i>
 
-}
+Available For Work
 
-.nav-links a:hover{
+</div>
 
-background:#90CAF9;
+<h3>Hello, I'm</h3>
 
-border:3px solid black;
+<h1>
 
-box-shadow:4px 4px 0 black;
+Bishoy George
 
-transform:translate(-2px,-2px);
+</h1>
 
-}
+<h2>
 
-/* ================= HERO ================= */
+Data Analyst
 
-.hero{
+</h2>
 
-min-height:100vh;
+<p>
 
-display:grid;
+Transforming raw data into meaningful
+business insights using SQL,
+Oracle,
+Power BI,
+Excel
+and ETL.
 
-/* ===== Animations ===== */
+</p>
 
-.about-card,
-.stat-card{
+<div class="hero-buttons">
 
-opacity:0;
+<a href="#projects" class="primary-btn">
 
-transform:translateY(80px);
+View Projects
 
-transition:.8s;
+</a>
 
-}
+<a href="CV.pdf"
+download
+class="secondary-btn">
 
-.show{
+Download CV
 
-opacity:1;
+</a>
 
-transform:translateY(0);
+</div>
 
-}
+<div class="hero-social">
 
-.cursor{
+<a href="#">
 
-width:20px;
+<i class="fab fa-github"></i>
 
-height:20px;
+</a>
 
-background:#FFD54F;
+<a href="#">
 
-border:3px solid black;
+<i class="fab fa-linkedin"></i>
 
-border-radius:50%;
+</a>
 
-position:fixed;
+<a href="#">
 
-pointer-events:none;
+<i class="fa-solid fa-envelope"></i>
 
-transform:translate(-50%,-50%);
+</a>
 
-z-index:9999;
+<a href="#">
 
-}
+<i class="fab fa-whatsapp"></i>
 
-.top-btn{
+</a>
 
-position:fixed;
+</div>
 
-right:30px;
+</div>
 
-bottom:30px;
+<div class="hero-right">
 
-width:60px;
+<div class="image-card">
 
-height:60px;
+<img src="Bisho.jpg"
+alt="Bishoy George">
 
-font-size:24px;
+<div class="floating-card top">
 
-font-weight:bold;
+SQL
 
-border:4px solid black;
+</div>
 
-border-radius:18px;
+<div class="floating-card right">
 
-background:#FFD54F;
+Power BI
 
-box-shadow:6px 6px 0 black;
+</div>
 
-display:none;
+<div class="floating-card left">
 
-cursor:pointer;
+Oracle
 
-z-index:999;
+</div>
 
-}
+<div class="floating-card bottom">
 
-.top-btn.active{
+ETL
 
-display:block;
+</div>
 
-}
+</div>
 
-.dark-btn{
+</div>
 
-position:fixed;
+</section>
 
-left:30px;
+<!-- ================= STATS ================= -->
 
-bottom:30px;
+<section class="stats">
 
-width:60px;
+<div class="section-title">
 
-height:60px;
+<span>MY NUMBERS</span>
 
-border-radius:18px;
+<h2>Professional Statistics</h2>
 
-border:4px solid black;
+</div>
 
-background:white;
+<div class="stats-grid">
 
-box-shadow:6px 6px 0 black;
+<div class="stat-card">
 
-cursor:pointer;
+<h2 data-target="2">0</h2>
 
-font-size:24px;
+<p>Years Experience</p>
 
-z-index:999;
+</div>
 
-}
+<div class="stat-card">
 
-body.dark{
+<h2 data-target="20">0</h2>
 
-background:#151515;
+<p>Projects</p>
 
-color:white;
+</div>
 
-}
+<div class="stat-card">
 
-body.dark .navbar,
-body.dark .about-card,
-body.dark .stat-card{
+<h2 data-target="10">0</h2>
 
-background:#222;
+<p>Dashboards</p>
 
-color:white;
+</div>
 
-}
+<div class="stat-card">
 
-.loaded{
+<h2 data-target="8">0</h2>
 
-animation:fadeHero 1s ease;
+<p>Certificates</p>
 
-}
+</div>
 
-@keyframes fadeHero{
+<div class="stat-card">
 
-from{
+<h2 data-target="6">0</h2>
 
-opacity:0;
+<p>SQL Systems</p>
 
-transform:translateY(50px);
+</div>
 
-}
+<div class="stat-card">
 
-to{
+<h2 data-target="100">0</h2>
 
-opacity:1;
+<p>Business Reports</p>
 
-transform:translateY(0);
+</div>
 
-}
+</div>
 
-}
+</section>
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about" class="about">
+
+<div class="section-title">
+
+<span>ABOUT ME</span>
+
+<h2>Who Am I?</h2>
+
+</div>
+
+<div class="about-grid">
+
+<div class="about-card large">
+
+<h3>
+
+Professional Summary
+
+</h3>
+
+<p>
+
+I am a passionate Data Analyst focused on transforming
+raw data into meaningful business insights.
+
+My experience includes SQL,
+Oracle,
+Power BI,
+Excel,
+Data Warehousing,
+ETL Pipelines,
+Business Intelligence,
+Dashboard Development
+and Reporting Automation.
+
+</p>
+
+</div>
+
+<div class="about-card">
+
+<h3>
+
+Mission
+
+</h3>
+
+<p>
+
+Helping organizations make
+better business decisions
+using clean and accurate data.
+
+</p>
+
+</div>
+
+<div class="about-card">
+
+<h3>
+
+Vision
+
+</h3>
+
+<p>
+
+Become one of the top
+Business Intelligence
+Engineers.
+
+</p>
+
+</div>
+
+<div class="about-card">
+
+<h3>
+
+Current Focus
+
+</h3>
+
+<p>
+
+SQL Optimization
+
+Power BI
+
+Oracle
+
+ETL
+
+Banking Reports
+
+Data Warehouse
+
+</p>
+
+</div>
+
+<div class="about-card">
+
+<h3>
+
+Soft Skills
+
+</h3>
+
+<p>
+
+Leadership
+
+Communication
+
+Problem Solving
+
+Critical Thinking
+
+Teamwork
+
+Time Management
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= HIGHLIGHTS ================= -->
+
+<section class="highlights">
+
+<div class="section-title">
+
+<span>WHY ME?</span>
+
+<h2>Highlights</h2>
+
+</div>
+
+<div class="highlight-grid">
+
+<div class="highlight-card">
+
+<i class="fa-solid fa-database"></i>
+
+<h3>
+
+SQL Expert
+
+</h3>
+
+<p>
+
+Writing optimized SQL queries,
+Views,
+Stored Procedures,
+Functions
+and Performance Tuning.
+
+</p>
+
+</div>
+
+<div class="highlight-card">
+
+<i class="fa-solid fa-chart-column"></i>
+
+<h3>
+
+Power BI
+
+</h3>
+
+<p>
+
+Professional dashboards
+using DAX,
+Power Query
+and KPIs.
+
+</p>
+
+</div>
+
+<div class="highlight-card">
+
+<i class="fa-solid fa-server"></i>
+
+<h3>
+
+Oracle Database
+
+</h3>
+
+<p>
+
+PL/SQL,
+Packages,
+Triggers,
+Sequences,
+Indexes.
+
+</p>
+
+</div>
+
+<div class="highlight-card">
+
+<i class="fa-solid fa-gears"></i>
+
+<h3>
+
+ETL
+
+</h3>
+
+<p>
+
+Extract,
+Transform,
+Load,
+Data Cleaning
+and Automation.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+<!-- ================= SKILLS ================= -->
+
+<section id="skills" class="skills">
+
+<div class="section-title">
+
+<span>MY SKILLS</span>
+
+<h2>Technical Skills</h2>
+
+</div>
+
+<div class="skills-grid">
+
+<div class="skill-card">
+
+<i class="fa-solid fa-database"></i>
+
+<h3>SQL Server</h3>
+
+<p>
+
+Advanced SQL Queries
+
+CTE
+
+Views
+
+Stored Procedures
+
+Functions
+
+Optimization
+
+</p>
+
+</div>
+
+<div class="skill-card">
+
+<i class="fa-solid fa-server"></i>
+
+<h3>Oracle</h3>
+
+<p>
+
+Oracle SQL
+
+PL/SQL
+
+Packages
+
+Indexes
+
+Sequences
+
+Triggers
+
+</p>
+
+</div>
+
+<div class="skill-card">
+
+<i class="fa-solid fa-chart-column"></i>
+
+<h3>Power BI</h3>
+
+<p>
+
+Dashboards
+
+DAX
+
+Power Query
+
+KPIs
+
+Reports
+
+</p>
+
+</div>
+
+<div class="skill-card">
+
+<i class="fa-solid fa-file-excel"></i>
+
+<h3>Excel</h3>
+
+<p>
+
+Pivot Tables
+
+Charts
+
+Power Query
+
+Data Cleaning
+
+Automation
+
+</p>
+
+</div>
+
+<div class="skill-card">
+
+<i class="fa-brands fa-python"></i>
+
+<h3>Python</h3>
+
+<p>
+
+Pandas
+
+NumPy
+
+Data Analysis
+
+Automation
+
+Visualization
+
+</p>
+
+</div>
+
+<div class="skill-card">
+
+<i class="fa-solid fa-gears"></i>
+
+<h3>ETL</h3>
+
+<p>
+
+Extract
+
+Transform
+
+Load
+
+Data Warehouse
+
+Integration
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= TECH STACK ================= -->
+
+<section class="tech-stack">
+
+<div class="section-title">
+
+<span>TECH STACK</span>
+
+<h2>Daily Technologies</h2>
+
+</div>
+
+<div class="stack-grid">
+
+<div class="stack-box">SQL Server</div>
+
+<div class="stack-box">Oracle</div>
+
+<div class="stack-box">Power BI</div>
+
+<div class="stack-box">Excel</div>
+
+<div class="stack-box">Python</div>
+
+<div class="stack-box">SSIS</div>
+
+<div class="stack-box">SSRS</div>
+
+<div class="stack-box">SSAS</div>
+
+<div class="stack-box">Git</div>
+
+<div class="stack-box">GitHub</div>
+
+<div class="stack-box">Power Query</div>
+
+<div class="stack-box">DAX</div>
+
+</div>
+
+</section>
+
+<!-- ================= SERVICES ================= -->
+
+<section class="services">
+
+<div class="section-title">
+
+<span>SERVICES</span>
+
+<h2>What I Do</h2>
+
+</div>
+
+<div class="services-grid">
+
+<div class="service-card">
+
+<h3>Dashboard Development</h3>
+
+<p>
+
+Interactive dashboards with Power BI.
+
+</p>
+
+</div>
+
+<div class="service-card">
+
+<h3>SQL Development</h3>
+
+<p>
+
+Building optimized SQL solutions.
+
+</p>
+
+</div>
+
+<div class="service-card">
+
+<h3>ETL Pipelines</h3>
+
+<p>
+
+Cleaning and transforming data.
+
+</p>
+
+</div>
+
+<div class="service-card">
+
+<h3>Business Intelligence</h3>
+
+<p>
+
+Turning data into business decisions.
+
+</p>
+
+</div>
+
+<div class="service-card">
+
+<h3>Database Design</h3>
+
+<p>
+
+Designing scalable databases.
+
+</p>
+
+</div>
+
+<div class="service-card">
+
+<h3>Reporting</h3>
+
+<p>
+
+Professional business reports.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= EXPERIENCE ================= -->
+
+<section id="experience" class="experience">
+
+<div class="section-title">
+
+<span>EXPERIENCE</span>
+
+<h2>Professional Experience</h2>
+
+</div>
+
+<div class="experience-grid">
+
+<div class="experience-card">
+
+<div class="experience-year">
+
+2025 - Present
+
+</div>
+
+<h3>Data Analyst</h3>
+
+<h4>Banque Misr</h4>
+
+<p>
+
+Working on banking reports,
+Oracle Database,
+SQL Development,
+ETL,
+Data Validation,
+Performance Optimization,
+Business Intelligence
+and Reporting Solutions.
+
+</p>
+
+</div>
+
+<div class="experience-card">
+
+<div class="experience-year">
+
+2024 - 2025
+
+</div>
+
+<h3>Business Intelligence Trainee</h3>
+
+<h4>Information Technology Institute</h4>
+
+<p>
+
+Designed Power BI dashboards,
+worked with SSIS,
+SSRS,
+SSAS,
+SQL Server,
+ETL
+and Data Warehousing.
+
+</p>
+
+</div>
+
+<div class="experience-card">
+
+<div class="experience-year">
+
+2022 - 2024
+
+</div>
+
+<h3>Civil Engineer</h3>
+
+<h4>Construction Industry</h4>
+
+<p>
+
+Managed construction activities,
+planning,
+reporting,
+quality control
+and project documentation.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= TIMELINE ================= -->
+
+<section class="timeline-section">
+
+<div class="section-title">
+
+<span>CAREER</span>
+
+<h2>Career Timeline</h2>
+
+</div>
+
+<div class="timeline">
+
+<div class="timeline-item">
+
+<h3>2022</h3>
+
+<p>
+
+Started professional career.
+
+</p>
+
+</div>
+
+<div class="timeline-item">
+
+<h3>2024</h3>
+
+<p>
+
+Moved into Data Analysis &
+Business Intelligence.
+
+</p>
+
+</div>
+
+<div class="timeline-item">
+
+<h3>2025</h3>
+
+<p>
+
+Joined Banking Sector.
+
+</p>
+
+</div>
+
+<div class="timeline-item">
+
+<h3>Future</h3>
+
+<p>
+
+Data Engineer &
+Analytics Leader.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= EDUCATION ================= -->
+
+<section class="education">
+
+<div class="section-title">
+
+<span>EDUCATION</span>
+
+<h2>Academic Background</h2>
+
+</div>
+
+<div class="education-grid">
+
+<div class="education-card">
+
+<h3>Bachelor Degree</h3>
+
+<p>
+
+Civil Engineering
+
+</p>
+
+</div>
+
+<div class="education-card">
+
+<h3>Business Intelligence Diploma</h3>
+
+<p>
+
+Power BI
+
+SQL
+
+Data Warehouse
+
+ETL
+
+</p>
+
+</div>
+
+<div class="education-card">
+
+<h3>Continuous Learning</h3>
+
+<p>
+
+SQL
+
+Oracle
+
+Python
+
+Cloud
+
+Machine Learning
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= CERTIFICATES ================= -->
+
+<section id="certificates" class="certificates">
+
+<div class="section-title">
+
+<span>CERTIFICATES</span>
+
+<h2>Professional Certifications</h2>
+
+</div>
+
+<div class="certificate-grid">
+
+<div class="certificate-card">
+
+<h3>Power BI</h3>
+
+<p>
+
+Business Intelligence Dashboard Development.
+
+</p>
+
+</div>
+
+<div class="certificate-card">
+
+<h3>Oracle SQL</h3>
+
+<p>
+
+Advanced Database Development.
+
+</p>
+
+</div>
+
+<div class="certificate-card">
+
+<h3>Business Intelligence</h3>
+
+<p>
+
+ETL,
+SSIS,
+SSRS,
+SSAS,
+Data Warehouse.
+
+</p>
+
+</div>
+
+<div class="certificate-card">
+
+<h3>Excel Analytics</h3>
+
+<p>
+
+Advanced Reporting & Visualization.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= FEATURED PROJECTS ================= -->
+
+<section id="projects" class="projects">
+
+<div class="section-title">
+
+<span>PORTFOLIO</span>
+
+<h2>Featured Projects</h2>
+
+</div>
+
+<div class="projects-grid">
+
+<div class="project-card">
+
+<img src="Amazon Data Sales Dashboard.png" alt="Amazon">
+
+<div class="project-info">
+
+<h3>Amazon Sales Dashboard</h3>
+
+<p>
+
+Power BI dashboard analyzing sales,
+profit,
+products,
+customers
+and KPIs.
+
+</p>
+
+<div class="project-tags">
+
+<span>Power BI</span>
+
+<span>DAX</span>
+
+<span>SQL</span>
+
+</div>
+
+<a href="#" class="project-link">
+
+View Details
+
+</a>
+
+</div>
+
+</div>
+
+<div class="project-card">
+
+<img src="Hotels Reservation Dashboard.png" alt="Hotels">
+
+<div class="project-info">
+
+<h3>Hotel Reservation Dashboard</h3>
+
+<p>
+
+Reservation analysis,
+Revenue,
+Occupancy Rate,
+Booking Trends
+and Customer Insights.
+
+</p>
+
+<div class="project-tags">
+
+<span>Power BI</span>
+
+<span>Excel</span>
+
+</div>
+
+<a href="#" class="project-link">
+
+View Details
+
+</a>
+
+</div>
+
+</div>
+
+<div class="project-card">
+
+<img src="Perfume Data.png" alt="Perfume">
+
+<div class="project-info">
+
+<h3>Perfume Sales Analysis</h3>
+
+<p>
+
+Sales,
+Products,
+Customers,
+Regions
+and KPIs.
+
+</p>
+
+<div class="project-tags">
+
+<span>SQL</span>
+
+<span>Power BI</span>
+
+</div>
+
+<a href="#" class="project-link">
+
+View Details
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= POWER BI ================= -->
+
+<section class="powerbi">
+
+<div class="section-title">
+
+<span>POWER BI</span>
+
+<h2>Dashboard Gallery</h2>
+
+</div>
+
+<div class="dashboard-grid">
+
+<div class="dashboard-box">
+
+<img src="Amazon Data Sales Dashboard.png">
+
+<h3>Amazon Dashboard</h3>
+
+</div>
+
+<div class="dashboard-box">
+
+<img src="Hotels Reservation Dashboard.png">
+
+<h3>Hotel Dashboard</h3>
+
+</div>
+
+<div class="dashboard-box">
+
+<img src="Perfume Data.png">
+
+<h3>Perfume Dashboard</h3>
+
+</div>
+
+<div class="dashboard-box">
+
+<img src="World Population Dashboard.png">
+
+<h3>World Population</h3>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= SQL ================= -->
+
+<section class="sql-showcase">
+
+<div class="section-title">
+
+<span>SQL</span>
+
+<h2>SQL Projects</h2>
+
+</div>
+
+<div class="showcase-grid">
+
+<div class="showcase-card">
+
+<h3>Banking Reports</h3>
+
+<p>
+
+Complex SQL queries for banking reporting.
+
+</p>
+
+</div>
+
+<div class="showcase-card">
+
+<h3>Stored Procedures</h3>
+
+<p>
+
+Optimized procedures and functions.
+
+</p>
+
+</div>
+
+<div class="showcase-card">
+
+<h3>Views & CTE</h3>
+
+<p>
+
+Advanced SQL development.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= ORACLE ================= -->
+
+<section class="oracle-showcase">
+
+<div class="section-title">
+
+<span>ORACLE</span>
+
+<h2>Oracle Database</h2>
+
+</div>
+
+<div class="showcase-grid">
+
+<div class="showcase-card">
+
+<h3>PL/SQL</h3>
+
+</div>
+
+<div class="showcase-card">
+
+<h3>Packages</h3>
+
+</div>
+
+<div class="showcase-card">
+
+<h3>Triggers</h3>
+
+</div>
+
+<div class="showcase-card">
+
+<h3>Indexes</h3>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= ETL ================= -->
+
+<section class="etl">
+
+<div class="section-title">
+
+<span>ETL</span>
+
+<h2>ETL Workflow</h2>
+
+</div>
+
+<div class="etl-flow">
+
+<div>
+
+Extract
+
+</div>
+
+<i class="fa-solid fa-arrow-right"></i>
+
+<div>
+
+Transform
+
+</div>
+
+<i class="fa-solid fa-arrow-right"></i>
+
+<div>
+
+Load
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= DATA WAREHOUSE ================= -->
+
+<section class="warehouse">
+
+<div class="section-title">
+
+<span>DATA WAREHOUSE</span>
+
+<h2>Warehouse Architecture</h2>
+
+</div>
+
+<div class="warehouse-grid">
+
+<div class="warehouse-card">
+
+Source Systems
+
+</div>
+
+<div class="warehouse-card">
+
+ETL
+
+</div>
+
+<div class="warehouse-card">
+
+Data Warehouse
+
+</div>
+
+<div class="warehouse-card">
+
+Power BI
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= BUSINESS IMPACT ================= -->
+
+<section class="business-impact">
+
+<div class="section-title">
+
+<span>BUSINESS IMPACT</span>
+
+<h2>How I Create Value</h2>
+
+</div>
+
+<div class="impact-grid">
+
+<div class="impact-card">
+
+<h3>📊 Reporting</h3>
+
+<p>
+
+Automated reporting solutions that reduce manual effort and improve accuracy.
+
+</p>
+
+</div>
+
+<div class="impact-card">
+
+<h3>⚡ Performance</h3>
+
+<p>
+
+Optimized SQL queries for faster execution and better scalability.
+
+</p>
+
+</div>
+
+<div class="impact-card">
+
+<h3>📈 Decision Making</h3>
+
+<p>
+
+Interactive dashboards supporting business decisions.
+
+</p>
+
+</div>
+
+<div class="impact-card">
+
+<h3>🏦 Banking</h3>
+
+<p>
+
+Experience with banking reports and financial datasets.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= KPI SHOWCASE ================= -->
+
+<section class="kpis">
+
+<div class="section-title">
+
+<span>KPIs</span>
+
+<h2>Business Metrics</h2>
+
+</div>
+
+<div class="kpi-grid">
+
+<div class="kpi-card">
+
+<h3>Revenue</h3>
+
+</div>
+
+<div class="kpi-card">
+
+<h3>Profit</h3>
+
+</div>
+
+<div class="kpi-card">
+
+<h3>Customers</h3>
+
+</div>
+
+<div class="kpi-card">
+
+<h3>Sales Growth</h3>
+
+</div>
+
+<div class="kpi-card">
+
+<h3>Occupancy</h3>
+
+</div>
+
+<div class="kpi-card">
+
+<h3>Retention</h3>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= CASE STUDIES ================= -->
+
+<section class="case-studies">
+
+<div class="section-title">
+
+<span>CASE STUDIES</span>
+
+<h2>Business Problems Solved</h2>
+
+</div>
+
+<div class="case-grid">
+
+<div class="case-card">
+
+<h3>Amazon Sales</h3>
+
+<p>
+
+Analyzed customer purchasing trends and profitability.
+
+</p>
+
+</div>
+
+<div class="case-card">
+
+<h3>Hotel Reservations</h3>
+
+<p>
+
+Improved occupancy analysis and booking insights.
+
+</p>
+
+</div>
+
+<div class="case-card">
+
+<h3>Perfume Sales</h3>
+
+<p>
+
+Identified top-performing products and regions.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= INDUSTRIES ================= -->
+
+<section class="industries">
+
+<div class="section-title">
+
+<span>INDUSTRIES</span>
+
+<h2>Industries I've Worked With</h2>
+
+</div>
+
+<div class="industry-grid">
+
+<div class="industry-card">🏦 Banking</div>
+
+<div class="industry-card">🏗 Construction</div>
+
+<div class="industry-card">🛒 Retail</div>
+
+<div class="industry-card">🏨 Hospitality</div>
+
+</div>
+
+</section>
+
+<!-- ================= ACHIEVEMENTS ================= -->
+
+<section class="achievements">
+
+<div class="section-title">
+
+<span>ACHIEVEMENTS</span>
+
+<h2>Career Highlights</h2>
+
+</div>
+
+<div class="achievement-list">
+
+<div class="achievement-item">
+
+Completed multiple interactive dashboards.
+
+</div>
+
+<div class="achievement-item">
+
+Built optimized SQL reporting solutions.
+
+</div>
+
+<div class="achievement-item">
+
+Worked with Oracle enterprise databases.
+
+</div>
+
+<div class="achievement-item">
+
+Created ETL workflows for reporting.
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= AWARDS ================= -->
+
+<section class="awards">
+
+<div class="section-title">
+
+<span>AWARDS</span>
+
+<h2>Recognition</h2>
+
+</div>
+
+<div class="award-grid">
+
+<div class="award-card">
+
+🥇 Excellence in Analytics
+
+</div>
+
+<div class="award-card">
+
+🏆 Best Dashboard Design
+
+</div>
+
+<div class="award-card">
+
+⭐ SQL Performance Optimization
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= GITHUB ================= -->
+
+<section class="github">
+
+<div class="section-title">
+
+<span>GITHUB</span>
+
+<h2>Open Source</h2>
+
+</div>
+
+<div class="github-card">
+
+<i class="fa-brands fa-github"></i>
+
+<h3>GitHub Portfolio</h3>
+
+<p>
+
+Explore my SQL scripts, Power BI dashboards and personal projects.
+
+</p>
+
+<a href="https://github.com/BichoyGeorge" target="_blank">
+
+Visit GitHub →
+
+</a>
+
+</div>
+
+</section>
+
+
+<!-- ================= TESTIMONIALS ================= -->
+
+<section class="testimonials">
+
+<div class="section-title">
+
+<span>TESTIMONIALS</span>
+
+<h2>What People Say</h2>
+
+</div>
+
+<div class="testimonial-grid">
+
+<div class="testimonial-card">
+
+<p>
+
+"Excellent analytical skills and impressive dashboard designs."
+
+</p>
+
+<h4>- Team Lead</h4>
+
+</div>
+
+<div class="testimonial-card">
+
+<p>
+
+"Professional SQL developer with great attention to detail."
+
+</p>
+
+<h4>- Project Manager</h4>
+
+</div>
+
+<div class="testimonial-card">
+
+<p>
+
+"Outstanding reporting and business intelligence solutions."
+
+</p>
+
+<h4>- Client</h4>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= BLOG ================= -->
+
+<section class="blog">
+
+<div class="section-title">
+
+<span>BLOG</span>
+
+<h2>Latest Articles</h2>
+
+</div>
+
+<div class="blog-grid">
+
+<div class="blog-card">
+
+<h3>Power BI Best Practices</h3>
+
+<p>
+
+How to build fast and interactive dashboards.
+
+</p>
+
+</div>
+
+<div class="blog-card">
+
+<h3>SQL Optimization Tips</h3>
+
+<p>
+
+Improve query performance with simple techniques.
+
+</p>
+
+</div>
+
+<div class="blog-card">
+
+<h3>Data Warehouse Basics</h3>
+
+<p>
+
+Building scalable analytical databases.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= BOOKS ================= -->
+
+<section class="books">
+
+<div class="section-title">
+
+<span>BOOKS</span>
+
+<h2>Learning Resources</h2>
+
+</div>
+
+<div class="books-grid">
+
+<div class="book-card">
+
+SQL Performance Explained
+
+</div>
+
+<div class="book-card">
+
+The Data Warehouse Toolkit
+
+</div>
+
+<div class="book-card">
+
+Storytelling With Data
+
+</div>
+
+<div class="book-card">
+
+Python For Data Analysis
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= CURRENT LEARNING ================= -->
+
+<section class="learning">
+
+<div class="section-title">
+
+<span>LEARNING</span>
+
+<h2>Currently Learning</h2>
+
+</div>
+
+<div class="learning-grid">
+
+<div class="learning-card">
+
+Microsoft Fabric
+
+</div>
+
+<div class="learning-card">
+
+Azure Data Engineering
+
+</div>
+
+<div class="learning-card">
+
+Machine Learning
+
+</div>
+
+<div class="learning-card">
+
+Cloud Analytics
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= ROADMAP ================= -->
+
+<section class="roadmap">
+
+<div class="section-title">
+
+<span>ROADMAP</span>
+
+<h2>Future Goals</h2>
+
+</div>
+
+<div class="roadmap-grid">
+
+<div class="roadmap-card">
+
+Become Senior BI Engineer
+
+</div>
+
+<div class="roadmap-card">
+
+Master Microsoft Fabric
+
+</div>
+
+<div class="roadmap-card">
+
+Azure Data Engineer Certification
+
+</div>
+
+<div class="roadmap-card">
+
+Build Enterprise Data Platforms
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= FUN FACTS ================= -->
+
+<section class="funfacts">
+
+<div class="section-title">
+
+<span>FUN FACTS</span>
+
+<h2>Quick Facts About Me</h2>
+
+</div>
+
+<div class="facts-grid">
+
+<div class="fact-card">
+
+☕ Coffee + SQL = Productivity
+
+</div>
+
+<div class="fact-card">
+
+📊 Love building dashboards
+
+</div>
+
+<div class="fact-card">
+
+📚 Continuous learner
+
+</div>
+
+<div class="fact-card">
+
+🚀 Passionate about automation
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= FAQ ================= -->
+
+<section class="faq">
+
+<div class="section-title">
+
+<span>FAQ</span>
+
+<h2>Frequently Asked Questions</h2>
+
+</div>
+
+<div class="faq-item">
+
+<h3>Which database do you use?</h3>
+
+<p>SQL Server and Oracle.</p>
+
+</div>
+
+<div class="faq-item">
+
+<h3>Favorite BI tool?</h3>
+
+<p>Power BI.</p>
+
+</div>
+
+<div class="faq-item">
+
+<h3>Can you build ETL pipelines?</h3>
+
+<p>Yes, from extraction to reporting.</p>
+
+</div>
+
+<div class="faq-item">
+
+<h3>Available for freelance?</h3>
+
+<p>Yes.</p>
+
+</div>
+
+</section>
+
+
+
