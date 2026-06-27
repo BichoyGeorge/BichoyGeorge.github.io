@@ -1,97 +1,529 @@
-# 📊 Ultimate Data Analyst Portfolio
-<div align="center">
-  <img src="https://img.shields.io/badge/SQL-Exadata%20%7C%20PostgreSQL-blue?style=for-the-badge&logo=biocode" alt="SQL">
-  <img src="https://img.shields.io/badge/Power%20BI-Advanced%20DAX-orange?style=for-the-badge&logo=powerbi" alt="Power BI">
-  <img src="https://img.shields.io/badge/Excel-Power%20Query-green?style=for-the-badge&logo=microsoftexcel" alt="Excel">
-  <img src="https://img.shields.io/badge/Python-Pandas%20%7C%20NumPy-yellow?style=for-the-badge&logo=python" alt="Python">
-</div>
----
-## 📄 الصفحة 1: الواجهة والتعريف والشغف (The Identity & Core Profile)
-### 1. Hero Section
-# 🚀 Turning Raw Data into Strategic Financial & Operational Decisions
-> **Senior Data Analyst** | متخصص في بناء مستودعات البيانات والتقارير التفاعلية التي تدعم اتخاذ القرار المالي والتجاري.
-### 2. About Me
-شغفي بالبيانات بدأ من نقطة التحول بين فهم التفاصيل الفنية المعقدة وترجمتها إلى لغة مبسطة يفهمها أصحاب القرار (C-Suite). أؤمن أن كل صف في قاعدة البيانات يخفي وراءه قصة نجاح أو فرصة ضائعة للبيزنس.
-<details>
-<summary><b>💼 اقرأ المزيد عن أهدافي وميزتي التنافسية</b></summary>
-### 3. Career Objective
-قيادة عمليات تحليل البيانات داخل قطاعات حيوية (كالقطاع المصرفي أو المالي)، بهدف تقليل الهدر، تعظيم الأرباح، ورفع كفاءة النمذجة التحليلية للبيانات الضخمة.
-### 4. Professional Summary
-Data Analyst بخلفية تقنية قوية، بارع في صياغة استعلامات SQL معقدة، وتصميم مستودعات البيانات (Data Warehouses)، وتحويل الأرقام الصامتة إلى لوحات تحكم (Dashboards) تقود حركة المؤسسة بناءً على الحقائق.
-### 5. Why Hire Me
-* **الربط بين الفني والتجاري:** لا أقدم مجرد رسومات بيانية، بل أقدم حلولاً للمشاكل التشغيلية والأثر المالي (ROI).
-* **عقلية التحسين المستمر:** تركيزي دائم على تسريع الاستعلامات (Query Optimization) وتوفير مساحات التخزين والوقت.
-### 6. Location & Availability
-* **الموقع:** القاهرة، مصر 🇪🇬
-* **الإتاحة:** متاح للعمل الكلي (Full-Time)، العمل عن بُعد (Remote)، أو الاستشارات الحرة (Freelance).
-### 7. Languages
-* **العربية:** اللغة الأم (Native).
-* **الإنجليزية:** طلاقة احترافية في بيئة العمل (Professional Working Proficiency).
-### 8. Multi-language (Arabic/English Toggle)
-*🌐 This portfolio is optimized for both Arabic and English. Click the top-right repository tabs to switch branches.*
-</details>
----
-## 📄 الصفحة 2: المهارات، التقنيات والـ Tech Stack (Technical Matrix)
-### 9. Technical Skills & Tech Stack
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Data Analyst Portfolio | Bishoy George</title>
+    <!-- Tailwind CSS للـ Clean & Modern UI -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome للأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap');
+        body { font-family: 'Cairo', sans-serif; background-color: #fcfbf7; transition: background-color 0.3s, color 0.3s; }
+        .dark-mode { background-color: #121212 !important; color: #e0e0e0 !important; }
+        .dark-card { background-color: #1e1e1e !important; border-color: #333 !important; color: #fff !important; }
+    </style>
+</head>
+<body class="text-gray-800 antialiased">
 
-| التقنية / الأداة | المهارات الأساسية | مستوى الإتقان |
-| :--- | :--- | :--- |
-| **Databases** | Oracle Exadata, SQL Server, Denodo (VQL), PostgreSQL | متقدم جداً |
-| **BI Platforms** | Power BI (Advanced DAX, RLS, Power Pivot), Excel | متقدم |
-| **ETL & Data Prep** | Power Query (M Language), SSIS, Python Automation | متقدم |
-| **Programming** | Python (Pandas, NumPy, Matplotlib, Seaborn), SQL | محترف |
+    <!-- [87. Dark/Light Mode] & [88. Multi-language Toggle] Navbar -->
+    <nav class="sticky top-0 z-50 bg-[#fcfbf7] dark:bg-zinc-900 border-b-2 border-black px-6 py-4 transition-colors">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <!-- [1. Hero - Brand Name] -->
+            <div class="flex items-center space-x-2 space-x-reverse font-black text-xl border-2 border-black p-2 bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                <i class="fa-solid fa-chart-line text-indigo-600 ml-2"></i>
+                <span>Bishoy George</span>
+            </div>
+            
+            <!-- أزرار التحكم والـ Toggles -->
+            <div class="flex items-center space-x-4 space-x-reverse">
+                <button onclick="toggleDarkMode()" class="border-2 border-black p-2 bg-gray-200 hover:bg-amber-300 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] font-bold">
+                    <i id="theme-icon" class="fa-solid fa-moon"></i>
+                </button>
+                <button class="border-2 border-black px-4 py-1.5 font-bold bg-amber-300 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                    EN / AR
+                </button>
+            </div>
+        </div>
+    </nav>
 
-<details>
-<summary><b>🧠 مهارات التواصل والمهارات الناعمة (Soft Skills)</b></summary>
-### 10. Soft Skills
-* **إدارة أصحاب المصلحة (Stakeholder Management):** القدرة على استخلاص المتطلبات من الإدارة بدقة.
-* **قصص البيانات (Data Storytelling):** تحويل التقارير المعقدة إلى عرض تقديمي بسيط ومؤثر.
-* **حل المشكلات (Problem-Solving):** عقلية تحليلية تفكك الأزمات التشغيلية إلى أرقام وفرص للتحسين.
-</details>
----
-## 📄 الصفحة 3: رحلة الخبرة، التعليم، والشهادات (Timeline & Growth)
-### 18. Work Experience & Career Timeline
-* **Senior Customer Data Analyst (Outsource - Banking Sector)** | *2024 - الحالي*
-  * قيادة عمليات استخراج وتقييم جودة البيانات الكبيرة من قواعد بيانات معقدة لتتبع أداء المنتجات التمويلية.
-  * تصميم لوحات تحكم تفاعلية لمراقبة نسب التحصيل وتقليل معدلات تسرب العملاء (Churn Rate).
-* **Data Analyst** | *2022 - 2024*
-  * أتمتة التقارير الدورية باستخدام Power Query مما وفر 15 ساعة عمل أسبوعية لفرق المبيعات.
-<details>
-<summary><b>🎓 التعليم، الشهادات، وسجل التحديثات (Resume Changelog)</b></summary>
-### 20. Education
-* **خلفية تقنية وتكنولوجية متينة** تجمع بين الشق التطبيقي والعملي، وهي الأساس في فهم البنية التحتية والأنظمة المعقدة وقواعد البيانات الكبيرة.
-### 21. Certifications & Courses
-* **Microsoft Certified: Power BI Data Analyst Associate (PL-300)**
-* **Google Advanced Data Analytics Professional Certificate**
-### 24. Resume Changelog
-* **V2.1 (2026):** تعميق مهارات الـ Query Tuning وتطوير مشاريع الـ End-to-End Data Pipelines.
-* **V1.5 (2024):** الانتقال الكامل إلى الـ Advanced DAX وإدارة مستودعات البيانات.
-</details>
----
-## 📄 الصفحة 4: المعرض الشامل للمشاريع (The Project Matrix Gallery)
-### 25. Featured Projects (المشاريع المميزة)
-#### 🗄️ Project 1: Credit Risk & Collections Dashboard (Power BI & SQL)
-* **المشكلة:** ارتفاع نسبة القروض غير المنتظمة (NPL) وصعوبة تتبع أداء موظفي التحصيل.
-* **الحل:** بناء مستودع بيانات مصغر على SQL Server وربطه بـ Power BI Dashboard تفاعلي يرسل تنبيهات مبكرة.
-* **الأثر المالي:** تقليل نسبة تسرب العملاء بنسبة **14%** وتحسين كفاءة التحصيل التشغيلية.
-* [🔗 رابط المشروع على GitHub](#) | [🚀 رابط التقرير التفاعلي الحي](#)
-<details>
-<summary><b>📂 تصفح باقي معرض المشاريع حسب التكنولوجيا (SQL, Excel, Python)</b></summary>
-### 26. All Projects Gallery
-* **SQL Projects:** مستودع يحتوي على سكربتات إنشاء الجداول وحساب المقارنات الزمنية المعقدة.
-* **Excel Projects:** تقارير مالية متكاملة تعتمد بالكامل على الـ Data Model والـ Power Pivot.
-* **Python Projects:** سكربتات لتنظيف البيانات الضخمة (Data Wrangling) وعمل Web Scraping.
-### 33. Favorite Project
-* **The Revenue Optimization Engine:** مشروع واجهت فيه قاعدة بيانات ضخمة تحتوي على ملايين الصفوف وبدون أي Indexing، ونجحت في إعادة هيكلتها بالكامل.
-</details>
----
-## 📄 الصفحة 5: كواليس الهندسة العميقة وعمق الأكواد (Deep Technical Deep-Dive)
-### 37. SQL Snippets (أكواد متميزة)
-```sql
--- حساب الأداء التراكمي (Running Total) لكل عميل مع الترتيب حسب التاريخ
-SELECT 
-    TransactionDate,
-    CustomerID,
-    Amount,
-    SUM(Amount) OVER(PARTITION BY CustomerID ORDER BY TransactionDate) AS RunningTotal
-FROM FinancialTransactions;
+    <!-- [1. Hero Section] الرئيسي -->
+    <header class="max-w-6xl mx-auto px-6 py-16 text-center md:text-right flex flex-col md:flex-row items-center justify-between gap-12">
+        <div class="flex-1 space-y-6">
+            <h1 class="text-4xl md:text-6xl font-black leading-tight text-gray-900 dark:text-white">
+                Turning Raw Data into <br>
+                <span class="bg-amber-200 text-black px-3 border-2 border-black inline-block my-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">Strategic Decisions</span>
+            </h1>
+            <!-- [4. Professional Summary] مشتق -->
+            <p class="text-xl font-bold text-indigo-600 dark:text-indigo-400">[4] Senior Data Analyst | خبير تنقيب وهندسة بيانات مالي وتشغيلي</p>
+            
+            <!-- [59. Location & Availability] & [58. Languages] -->
+            <div class="flex flex-wrap gap-3 justify-center md:justify-start">
+                <span class="text-xs font-bold bg-blue-100 border border-black px-3 py-1 text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"><i class="fa-solid fa-location-dot ml-1"></i> [59] القاهرة، مصر</span>
+                <span class="text-xs font-bold bg-green-100 border border-black px-3 py-1 text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"><i class="fa-solid fa-circle-check ml-1"></i> [59] متاح للعمل فوراً</span>
+                <span class="text-xs font-bold bg-purple-100 border border-black px-3 py-1 text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"><i class="fa-solid fa-globe ml-1"></i> [58] العربية (الأم) / الإنجليزية (احترافية)</span>
+            </div>
+        </div>
+        
+        <!-- كارت الأرقام السريعة [39. Statistics & Numbers] -->
+        <div id="stats-card" class="border-4 border-black p-6 bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] grid grid-cols-2 gap-4 text-center w-full md:w-80">
+            <div class="p-2 border border-dashed border-gray-400">
+                <p class="text-3xl font-black text-indigo-600">+3</p>
+                <p class="text-xs font-bold mt-1 text-black">سنوات خبرة</p>
+            </div>
+            <div class="p-2 border border-dashed border-gray-400">
+                <p class="text-3xl font-black text-emerald-600">+40</p>
+                <p class="text-xs font-bold mt-1 text-black">داشبورد منفذة</p>
+            </div>
+            <div class="p-2 border border-dashed border-gray-400">
+                <p class="text-3xl font-black text-amber-500">+10M</p>
+                <p class="text-xs font-bold mt-1 text-black">صف بيانات معالج</p>
+            </div>
+            <div class="p-2 border border-dashed border-gray-400">
+                <p class="text-3xl font-black text-rose-500">+15</p>
+                <p class="text-xs font-bold mt-1 text-black">نظام ETL مؤتمت</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- نظام التبويبات الرئيسي للتنقل الذكي لمنع العك والزحمة -->
+    <div class="max-w-7xl mx-auto px-6 mb-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-2 border-2 border-black p-2 bg-zinc-800 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] text-white font-bold text-center">
+            <button onclick="switchTab('profile')" id="btn-profile" class="tab-btn p-3 bg-amber-400 text-black border border-black">1. الملف الشخصي والخبرة</button>
+            <button onclick="switchTab('tech')" id="btn-tech" class="tab-btn p-3 hover:bg-zinc-700">2. المهارات والعمق التقني</button>
+            <button onclick="switchTab('projects-tab')" id="btn-projects-tab" class="tab-btn p-3 hover:bg-zinc-700">3. معرض المشاريع والإبهار</button>
+            <button onclick="switchTab('growth')" id="btn-growth" class="tab-btn p-3 hover:bg-zinc-700">4. التعلم والجانب الإنساني</button>
+        </div>
+    </div>
+
+    <!-- ==================== TAB 1: الملف الشخصي والخبرة ==================== -->
+    <main id="tab-profile" class="tab-content max-w-7xl mx-auto px-6 space-y-12 py-6">
+        
+        <!-- [2. About Me] & [3. Career Objective] & [5. Why Hire Me] -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="border-2 border-black p-6 bg-white dark-card shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                <h3 class="font-black text-lg mb-2 border-b border-black pb-1"><i class="fa-solid fa-user ml-2 text-blue-500"></i> [2] من أنا (About Me)</h3>
+                <p class="text-sm leading-relaxed text-gray-600 dark:text-gray-300">محلل بيانات أقدم شغوف بالتفاصيل، أركز على سد الفجوة بين البنية التحتية الفنية المعقدة وقرارات الإدارة العليا للاستفادة القصوى من البيانات المتاحة.</p>
+            </div>
+            <div class="border-2 border-black p-6 bg-white dark-card shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                <h3 class="font-black text-lg mb-2 border-b border-black pb-1"><i class="fa-solid fa-bullseye ml-2 text-rose-500"></i> [3] الأهداف المهنية (Objective)</h3>
+                <p class="text-sm leading-relaxed text-gray-600 dark:text-gray-300">قيادة العمليات التحليلية وهندسة الـ Data Pipelines في القطاعات المصرفية والمالية الحيوية لتعظيم العوائد وتقليل المخاطر التشغيلية.</p>
+            </div>
+            <div class="border-2 border-black p-6 bg-white dark-card shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                <h3 class="font-black text-lg mb-2 border-b border-black pb-1"><i class="fa-solid fa-star ml-2 text-amber-500"></i> [5] لماذا توظفني (Why Hire Me)</h3>
+                <p class="text-sm leading-relaxed text-gray-600 dark:text-gray-300">لأنني لا أصمم مجرد تقارير ملونة؛ بل أقوم بهندسة الأداء (Query Tuning) وصياغة مؤشرات أداء (KPIs) حقيقية ترتبط مباشرة بالأثر المالي للشركة.</p>
+            </div>
+        </div>
+
+        <!-- [6. Work Experience] & [7. Career Timeline / 61. Experience Timeline] -->
+        <div class="border-2 border-black p-6 bg-white dark-card shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+            <h3 class="font-black text-2xl mb-6"><i class="fa-solid fa-briefcase ml-2 text-indigo-600"></i> [6/7/61] الخبرة المهنية والتسلسل الزمني</h3>
+            <div class="space-y-6 relative border-r-2 border-black pr-4">
+                <div class="relative">
+                    <div class="absolute -right-[25px] top-1 w-4 h-4 bg-amber-400 border-2 border-black rounded-full"></div>
+                    <span class="text-xs font-bold bg-black text-white px-2 py-0.5">2024 - الحالي</span>
+                    <h4 class="font-bold text-lg mt-1">Senior Customer Data Analyst (Outsource)</h4>
+                    <p class="text-xs font-semibold text-gray-500">القطاع المصرفي والبنوك</p>
+                    <p class="text-sm mt-2 text-gray-600 dark:text-gray-300">مسؤول عن استخراج جودة البيانات من قواعد معقدة، وتطوير الـ Dashboards لتتبع التحصيل ونسب تسرب العملاء الحيوية.</p>
+                </div>
+                <div class="relative">
+                    <div class="absolute -right-[25px] top-1 w-4 h-4 bg-zinc-400 border-2 border-black rounded-full"></div>
+                    <span class="text-xs font-bold bg-black text-white px-2 py-0.5">2022 - 2024</span>
+                    <h4 class="font-bold text-lg mt-1">Data Analyst</h4>
+                    <p class="text-xs font-semibold text-gray-500">الخدمات المالية والاستثمارية</p>
+                    <p class="text-sm mt-2 text-gray-600 dark:text-gray-300">أتمتة كافة التقارير الدورية باستخدام أنظمة Power Query المتقدمة وتوفير ما يعادل 15 ساعة عمل أسبوعياً للمؤسسة.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- [8. Education] & [9. Certifications / 60. Certifications Timeline] & [38. Achievements] & [73. Resume Changelog] -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="border-2 border-black p-6 bg-white dark-card shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] space-y-4">
+                <h3 class="font-black text-xl"><i class="fa-solid fa-graduation-cap ml-2 text-emerald-600"></i> [8/9/60] التعليم والشهادات المعتمدة</h3>
+                <p class="text-sm font-bold text-gray-700 dark:text-gray-200">🎓 [8] خلفية تقنية وتكنولوجية تطبيقية متينة في البنية التحتية والأنظمة المعقدة.</p>
+                <div class="text-sm space-y-2 text-gray-600 dark:text-gray-300">
+                    <p>🏅 <strong>[9/60] Microsoft Certified:</strong> Power BI Data Analyst Associate (PL-300) - 2025</p>
+                    <p>🏅 <strong>[9/60] Google Advanced:</strong> Data Analytics Professional Certificate - 2024</p>
+                </div>
+            </div>
+            <div class="border-2 border-black p-6 bg-white dark-card shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] space-y-4">
+                <h3 class="font-black text-xl"><i class="fa-solid fa-trophy ml-2 text-amber-500"></i> [38/73] الإنجازات وسجل تحديثات السيرة الذاتية</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-300">🏆 <strong>[38] الأبرز:</strong> تكريم من الإدارة العليا بعد تقليص وقت معالجة تقرير مالي ضخم من 45 دقيقة إلى ثوانٍ معدودة.</p>
+                <div class="text-xs border-t border-black pt-2 space-y-1 text-gray-500">
+                    <p>📝 [73] Changelog V2.4 (2026): إضافة مهارات Tuning ومستودعات البيانات المعقدة.</p>
+                    <p>📝 [73] Changelog V1.8 (2024): التمكن التام من دالات Advanced DAX و Row-Level Security.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ==================== TAB 2: المهارات والعمق التقني ==================== -->
+    <main id="tab-tech" class="tab-content max-w-7xl mx-auto px-6 space-y-12 py-6 hidden">
+        <!-- [10. Skills] -> [17. Grid] -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <!-- [10][12][15] -->
+            <div class="border-2 border-black p-4 bg-white dark-card shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                <h4 class="font-black text-md text-blue-600"><i class="fa-solid fa-database ml-1"></i> [15] Databases</h4>
+                <p class="text-xs mt-1 text-gray-600 dark:text-gray-400">Oracle Exadata, MS SQL Server, Denodo VQL, PostgreSQL</p>
+            </div>
+            <!-- [17] -->
+            <div class="border-2 border-black p-4 bg-white dark-card shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                <h4 class="font-black text-md text-amber-500"><i class="fa-solid fa-chart-column ml-1"></i> [17] BI Platforms</h4>
+                <p class="text-xs mt-1 text-gray-600 dark:text-gray-400">Power BI Desktop & Service, Row-Level Security (RLS)</p>
+            </div>
+            <!-- [16] -->
+            <div class="border-2 border-black p-4 bg-white dark-card shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                <h4 class="font-black text-md text-green-600"><i class="fa-solid fa-filter ml-1"></i> [16] ETL Tools</h4>
+                <p class="text-xs mt-1 text-gray-600 dark:text-gray-400">Power Query (M Language), SSIS, ETL Pipelines</p>
+            </div>
+            <!-- [14] -->
+            <div class="border-2 border-black p-4 bg-white dark-card shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                <h4 class="font-black text-md text-yellow-500"><i class="fa-brands fa-python ml-1"></i> [14] Languages</h4>
+                <p class="text-xs mt-1 text-gray-600 dark:text-gray-400">Python (Pandas, NumPy, Matplotlib, Seaborn), SQL</p>
+            </div>
+        </div>
+
+        <!-- [11. Soft Skills] & [13. Tools I Use] & [18. Data Visualization Skills] -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
+            <div class="border-2 border-black p-4 bg-white dark-card shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                <h5 class="font-black mb-2">[11] Soft Skills</h5>
+                <p class="text-gray-600 dark:text-gray-400">Stakeholder Management, Data Storytelling, Cross-functional Collaboration.</p>
+            </div>
+            <div class="border-2 border-black p-4 bg-white dark-card shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                <h5 class="font-black mb-2">[13] Tools I Use</h5>
+                <p class="text-gray-600 dark:text-gray-400">Git/GitHub, Advanced Excel (Pivot Tables, Data Model), VS Code.</p>
+            </div>
+            <div class="border-2 border-black p-4 bg-white dark-card shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                <h5 class="font-black mb-2">[18] Data Visualization</h5>
+                <p class="text-gray-600 dark:text-gray-400">Dynamic Dashboards, UX/UI Layout design, Conditional Formatting.</p>
+            </div>
+        </div>
+
+        <!-- [30. SQL Snippets] & [31. DAX Snippets] & [32. Power Query Tricks] & [72. Reusable SQL Scripts] -->
+        <div class="border-2 border-black p-6 bg-zinc-900 text-amber-400 font-mono text-xs space-y-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] text-left" dir="ltr">
+            <div>
+                <span class="bg-blue-600 text-white font-sans px-2 py-0.5 rounded font-bold text-[10px]">[30/72] ADVANCED SQL SNIPPET / REUSABLE SCRIPT</span>
+                <pre class="mt-2 overflow-x-auto">
+SELECT TransactionDate, CustomerID, Amount,
+       SUM(Amount) OVER(PARTITION BY CustomerID ORDER BY TransactionDate) AS RunningTotal
+FROM FinancialTransactions;</pre>
+            </div>
+            <div>
+                <span class="bg-amber-500 text-black font-sans px-2 py-0.5 rounded font-bold text-[10px]">[31] ADVANCED DAX SNIPPET</span>
+                <pre class="mt-2 overflow-x-auto">
+Sales YOY % = 
+DIVIDE(
+    [Total Sales] - CALCULATE([Total Sales], SAMEPERIODLASTYEAR('Calendar'[Date])),
+    CALCULATE([Total Sales], SAMEPERIODLASTYEAR('Calendar'[Date]))
+)</pre>
+            </div>
+            <div>
+                <span class="bg-green-600 text-white font-sans px-2 py-0.5 rounded font-bold text-[10px]">[32] POWER QUERY (M) TRICK</span>
+                <p class="font-sans text-gray-300 mt-1">تغيير مسار السورس ديناميكياً لتجنب كسر الـ Pipeline عند تغيير مكان فولدر البيانات المشترك.</p>
+            </div>
+        </div>
+
+        <!-- [33. Query Optimization Examples] & [65. Performance Optimization Examples] -->
+        <div class="border-2 border-black p-6 bg-white dark-card shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+            <h3 class="font-black text-xl mb-4"><i class="fa-solid fa-bolt text-amber-500 ml-1"></i> [33/65] هندسة وتحسين أداء الاستعلامات قبل وبعد</h3>
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm text-right border-collapse border border-black">
+                    <thead>
+                        <tr class="bg-zinc-100 dark:bg-zinc-800 font-bold border-b border-black">
+                            <th class="p-3 border border-black">الحالة والعملية البرمجية</th>
+                            <th class="p-3 border border-black">قبل التحسين</th>
+                            <th class="p-3 border border-black">بعد التحسين (Indexing & Subquery Reduction)</th>
+                            <th class="p-3 border border-black">معدل التحسين والسرعة</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-600 dark:text-gray-300">
+                        <tr>
+                            <td class="p-3 border border-black font-bold">معالجة استعلام مالي ضخم (Exadata)</td>
+                            <td class="p-3 border border-black text-rose-500 font-semibold">45 دقيقة كاملة</td>
+                            <td class="p-3 border border-black text-emerald-500 font-semibold">12 ثانية فقط!</td>
+                            <td class="p-3 border border-black bg-green-50 dark:bg-zinc-800 font-bold text-black dark:text-white">أسرع بنسبة 99.5% 🚀</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- [34. Data Pipeline Architecture] & [35. Data Modeling Showcase] & [66. ETL Workflow] & [67. Data Warehouse Architecture] -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+            <div class="border-2 border-black p-6 bg-white dark-card shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                <h4 class="font-black text-lg mb-3">[34/66/67] هندسة معمارية البيانات ومستودع البيانات (ETL Pipeline)</h4>
+                <div class="p-4 bg-zinc-50 dark:bg-zinc-800 border border-dashed border-gray-400 font-mono text-xs">
+                    [Core Systems] -> [Staging Tables Layer] -> [ETL Transformation via SSIS] -> [Data Warehouse (Fact & Dim Tables Schema)]
+                </div>
+            </div>
+            <div class="border-2 border-black p-6 bg-white dark-card shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                <h4 class="font-black text-lg mb-3">[35] Data Modeling Showcase</h4>
+                <p class="text-gray-600 dark:text-gray-400">بناء وتصميم علاقات الـ **Star Schema** المعيارية (One-to-Many) لضمان أسرع تصفية وحساب لمعادلات الـ DAX وتجنب الـ Many-to-Many الكارثية.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- ==================== TAB 3: معرض المشاريع والإبهار البصري حياً ==================== -->
+    <main id="tab-projects-tab" class="tab-content max-w-7xl mx-auto px-6 space-y-12 py-6 hidden">
+        
+        <!-- أدوات الإبهار والفلترة التفاعلية المباشرة: [84. Search Projects] & [85. Filter by Technology] -->
+        <div class="p-4 border-2 border-black bg-amber-50 dark:bg-zinc-800 flex flex-col md:flex-row gap-4 items-center justify-between shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+            <div class="w-full md:w-1/3 flex items-center bg-white border border-black px-3 py-1">
+                <i class="fa-solid fa-magnifying-glass text-gray-400 ml-2"></i>
+                <!-- [84] -->
+                <input type="text" placeholder="[84] ابحث في المشاريع..." class="w-full text-sm p-1 focus:outline-none text-black">
+            </div>
+            <!-- [85] -->
+            <div class="flex flex-wrap gap-2 justify-center text-xs font-bold text-black">
+                <span>[85] فلترة حسب:</span>
+                <button class="bg-amber-300 border border-black px-2 py-0.5">الكل</button>
+                <button class="bg-white border border-black px-2 py-0.5 hover:bg-amber-100">SQL</button>
+                <button class="bg-white border border-black px-2 py-0.5 hover:bg-amber-100">Power BI</button>
+                <button class="bg-white border border-black px-2 py-0.5 hover:bg-amber-100">Excel</button>
+                <button class="bg-white border border-black px-2 py-0.5 hover:bg-amber-100">Python</button>
+            </div>
+        </div>
+
+        <!-- [51. Embedded Live Power BI Report (Wow Factor)] -->
+        <div class="border-4 border-black p-4 bg-white dark-card shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="font-black text-xl text-indigo-600"><i class="fa-solid fa-rocket ml-2"></i> [51] 🚀 Live Power BI Report Embedded (تقرير تفاعلي حي)</h3>
+                <span class="bg-green-500 text-white font-bold text-xs px-2 py-1 border border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">تفاعلي بالكامل</span>
+            </div>
+            <!-- محاكي للتقرير التفاعلي المدمج عبر الويب -->
+            <div class="w-full h-96 bg-zinc-100 dark:bg-zinc-800 border-2 border-dashed border-gray-400 flex flex-col items-center justify-center p-6 text-center">
+                <i class="fa-solid fa-chart-line text-6xl text-gray-300 mb-4 animate-pulse"></i>
+                <p class="font-bold text-lg">هنا يتم دمج كود الـ iframe المباشر لتقرير الـ Power BI الخاص بك</p>
+                <p class="text-xs text-gray-500 mt-1 max-w-md">يمكن للمستخدم والـ Recruiter الضغط على الفلاتر واستكشاف جودة العمل والأرقام ديناميكياً وبشكل حي كامل من متصفحه دون مغادرة صفحتك.</p>
+            </div>
+        </div>
+
+        <!-- [52. Interactive SQL Playground (Wow Factor)] -->
+        <div class="border-4 border-black p-6 bg-zinc-900 text-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] space-y-4">
+            <h3 class="font-black text-xl text-amber-400"><i class="fa-solid fa-puzzle-piece ml-2"></i> [52] 🧩 Interactive SQL Playground</h3>
+            <p class="text-xs text-gray-300">بيئة برمجية تفاعلية مصغرة؛ اكتب كود استعلام لتجربته على قاعدة بيانات المبيعات التجريبية لدينا:</p>
+            <div class="flex gap-2">
+                <input type="text" id="sql-input" value="SELECT * FROM Sales WHERE Region = 'Egypt';" class="flex-1 font-mono text-xs p-3 bg-zinc-800 border border-gray-700 text-amber-300 focus:outline-none">
+                <button onclick="runMockSql()" class="bg-amber-400 text-black font-bold text-sm px-4 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">تشغيل</button>
+            </div>
+            <div id="sql-result" class="bg-zinc-950 p-3 font-mono text-[11px] text-emerald-400 border border-gray-800 rounded hidden">
+                -- نتيجة الاستعلام الافتراضية بنجاح --
+            </div>
+        </div>
+
+        <!-- [19. Featured Projects] & [20. All Projects Gallery] -> [21][22][23][24][25] -->
+        <div>
+            <h3 class="font-black text-2xl mb-6"><i class="fa-solid fa-folder-open ml-2 text-blue-600"></i> [19/20] معرض كافة المشاريع (Featured & Categories)</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- كارت مشروع 1 يدمج: [21. SQL] + [22. Power BI] + [26. Gallery] + [28. Case Studies] + [29. Problems Solved] + [55. Videos] + [56. Behind Dash] + [68. Impact Story] + [74. Fav Project] -->
+                <div class="border-2 border-black bg-white dark-card shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] flex flex-col">
+                    <div class="h-40 bg-gradient-to-r from-blue-500 to-indigo-600 border-b-2 border-black p-4 flex flex-col justify-between text-white">
+                        <span class="self-start bg-black text-amber-300 text-[10px] font-bold px-2 py-0.5 border border-white">[21][22][74] ⭐ FAVORITE PROJECT</span>
+                        <h4 class="font-black text-xl">Credit Risk & Loan Collections Pipeline</h4>
+                    </div>
+                    <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+                        <div class="space-y-2 text-xs">
+                            <p><strong>[28] دراسة حالة (Case Study):</strong> تتبع القروض الاستهلاكية الممنوحة لتوقع نسب التعثر مبكراً.</p>
+                            <p><strong>[29] حل مشكلة تجارية (Problem Solved):</strong> صعوبة مراقبة أداء مندوبي التحصيل ميدانياً وضياع الأرقام.</p>
+                            <p class="bg-amber-100 text-black p-2 font-semibold border-r-4 border-amber-500">[68] أثر البيزنس (Impact): تقليل معدل تسرب العملاء والتعثر المالي بنسبة 14%.</p>
+                        </div>
+                        <div class="flex flex-wrap gap-2 text-[10px] font-bold pt-2 border-t border-gray-200">
+                            <span class="bg-zinc-100 text-black px-2 py-0.5 border border-black">[55] 🎥 فيديو تجريبي</span>
+                            <span class="bg-zinc-100 text-black px-2 py-0.5 border border-black">[56] 📸 كواليس البناء</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- كارت مشروع 2 يدمج: [23. Excel] + [24. Python] + [25. Machine Learning] + [27. Before & After] -->
+                <div class="border-2 border-black bg-white dark-card shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] flex flex-col">
+                    <div class="h-40 bg-gradient-to-r from-green-500 to-emerald-600 border-b-2 border-black p-4 flex flex-col justify-between text-white">
+                        <span class="self-start bg-black text-white text-[10px] font-bold px-2 py-0.5 border border-white">[23][24][25] EXCEL & MACHINE LEARNING</span>
+                        <h4 class="font-black text-xl">Predictive Sales & Supply Chain Engine</h4>
+                    </div>
+                    <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+                        <div class="space-y-2 text-xs">
+                            <p><strong>[25] تعلم الآلي:</strong> تطبيق خوارزمية Linear Regression للتنبؤ بالطلب المستقبلي على المنتجات التمويلية بالتجزئة.</p>
+                            <p><strong>[27] قبل وبعد (Before & After):</strong> الانتقال من جداول ملفات مبعثرة إلى لوحة تحكم مدمجة مبنية بالـ Data Model والـ Power Pivot بالكامل وسريعة الاستجابة.</p>
+                        </div>
+                        <div class="pt-4 border-t border-gray-200">
+                            <a href="#" class="text-xs font-bold border border-black bg-white text-black px-3 py-1.5 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"><i class="fa-brands fa-github ml-1"></i> تصفح الكود بالكامل</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- [53. Live GitHub Contribution Graph] & [54. GitHub Activity] & [57. Dataset Gallery] -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="border-2 border-black p-4 bg-white dark-card shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] md:col-span-2">
+                <h4 class="font-black text-sm mb-3">[53/54] Live GitHub Contribution & Activity</h4>
+                <!-- محاكاة لمخطط مساهمات غيت هاب الحي -->
+                <div class="w-full h-24 bg-zinc-50 dark:bg-zinc-800 border border-gray-300 flex items-center justify-center p-2">
+                    <i class="fa-brands fa-github text-4xl text-gray-300 ml-4"></i>
+                    <p class="text-xs text-gray-500">مخطط المساهمات المربع الأخضر والنشاط الحي متصل بحسابك تلقائياً.</p>
+                </div>
+            </div>
+            <div class="border-2 border-black p-4 bg-white dark-card shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                <h4 class="font-black text-sm mb-2">[57] Dataset Gallery</h4>
+                <p class="text-xs text-gray-600 dark:text-gray-400 mb-2">مكتبة البيانات المفتوحة والمقشرة والمجهزة من قبلي للمجتمع:</p>
+                <a href="#" class="text-xs underline font-bold text-indigo-600 dark:text-indigo-400 block"><i class="fa-solid fa-file-csv ml-1"></i> Cleaned_Egyptian_Market_Data.csv</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- ==================== TAB 4: التعلم والجانب الإنساني ==================== -->
+    <main id="tab-growth" class="tab-content max-w-7xl mx-auto px-6 space-y-12 py-6 hidden">
+        
+        <!-- [36. KPIs Designed] & [69. KPI Library] & [37. Industries Worked In] & [70. Dashboard Design Principles] & [71. Dashboard Templates] -->
+        <div class="border-2 border-black p-6 bg-white dark-card shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] space-y-6">
+            <h3 class="font-black text-xl text-rose-600"><i class="fa-solid fa-compass ml-1"></i> [36/37/69/70/71] منهجية تصميم المؤشرات وتجربة المستخدم</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs">
+                <div>
+                    <h4 class="font-bold mb-1">[36/69] مكتبة المؤشرات (KPI Library)</h4>
+                    <p class="text-gray-600 dark:text-gray-400">تصميم وتطبيق مؤشرات متقدمة مثل *Loan-to-Deposit Ratio*, *Non-Performing Loans (NPL) Rate*, و*Customer Lifetime Value (CLTV)*.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-1">[37] قطاعات العمل المألوفة (Industries)</h4>
+                    <p class="text-gray-600 dark:text-gray-400">القطاع المصرفي والقروض الاستهلاكية (Banking)، الأسواق المالية وحسابات الاستثمار والـ Mutual Funds وتجارة التجزئة.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-1">[70/71] فلسفة التصميم والقوالب الجاهزة</h4>
+                    <p class="text-gray-600 dark:text-gray-400">الالتزام التام بنسبة الـ (Data-to-Ink Ratio) المريحة للعين، وتوفير ملفات قوالب جاهزة `.pbit` فارغة للتحميل.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- [40. Currently Learning] & [41. Roadmap / Future Goals] & [62. My Learning Journey] & [82. 100-Day Learning Challenge] & [83. Personal Analytics] & [84. Milestones] -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+            <div class="border-2 border-black p-6 bg-white dark-card shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] space-y-4">
+                <h4 class="font-black text-lg text-emerald-600"><i class="fa-solid fa-graduation-cap ml-1"></i> [40/41/62/82] رحلة التطوير والتحدي المستمر</h4>
+                <p class="text-xs text-gray-600 dark:text-gray-300">📈 <strong>[40/41] أتعلم حالياً:</strong> أدوات البيانات الضخمة (PySpark) وهندسة الحوسبة السحابية عبر منصة Azure والتحضير لشهادة (DP-600).</p>
+                <p class="text-xs text-gray-600 dark:text-gray-300">🏅 <strong>[82] تحدي الـ 100 يوم:</strong> التزام يومي بمشاركة معلومة متقدمة في الـ SQL Tuning أو الـ DAX مع المجتمع لتوثيق الاستمرارية.</p>
+            </div>
+            <div class="border-2 border-black p-6 bg-white dark-card shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] space-y-4">
+                <h4 class="font-black text-lg text-indigo-600"><i class="fa-solid fa-square-poll-vertical ml-1"></i> [83/84] لوحة الإنجازات والتحليلات الشخصية</h4>
+                <div class="p-4 bg-zinc-50 dark:bg-zinc-800 border border-black text-xs space-y-2">
+                    <p>📊 [83] عدد ساعات التعلم التقني الموثقة هذا العام: <strong>320 ساعة</strong></p>
+                    <p>🎉 [84] محطة نجاح (Milestone): إطلاق هذا البورتفوليو الشامل بنجاح باهر بنسخته المستقرة لعام 2026.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- [42. Books I Recommend] & [43. Courses Completed] & [44. Blog / Articles] & [63. Tips & Tricks] & [64. Favorite SQL Functions] & [75. Reading List] -->
+        <div class="border-2 border-black p-6 bg-white dark-card shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] space-y-4">
+            <h4 class="font-black text-lg"><i class="fa-solid fa-book-open ml-2 text-amber-500"></i> [42/43/44/63/64/75] المحتوى المعرفي وترشيحات الكتب</h4>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-gray-600 dark:text-gray-400">
+                <div class="space-y-1">
+                    <p>📚 <strong>[42/75] ترشيحات كتب أساسية:</strong> *Storytelling with Data* و *The Definitive Guide to DAX*.</p>
+                    <p>📝 <strong>[44] المقالات الفنية:</strong> كتابة شروحات دورية على LinkedIn و Medium لحل مشاكل جودة البيانات المعقدة.</p>
+                </div>
+                <div class="space-y-1">
+                    <p>💡 <strong>[63] نصيحة برمجية سريعة:</strong> احرص دائماً على عمل دمج للملفات من المصدر (Database Layer) وتجنب الـ Joins الكثيرة في الـ BI لسرعة الأداء.</p>
+                    <p>🔥 <strong>[64] دالتي المفضلة في SQL:</strong> الدالة `COALESCE()` لقوتها الفائقة في معالجة القيم الفارغة بسطر واحد.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- [45. FAQ] & [46. Testimonials] & [56. Services Can Provide] & [57. Clients] & [76. Fun Facts] & [77. Hobbies] & [78. Sports] & [79. Quiz Me] -->
+        <div class="border-2 border-black p-6 bg-amber-50 dark:bg-zinc-800 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] space-y-6">
+            <h3 class="font-black text-xl text-black dark:text-white">[45/46/56/57/76/77/78/79] كسر الجمود والآراء والجانب الإنساني</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs text-gray-700 dark:text-gray-300">
+                <div class="space-y-2">
+                    <p>🤝 <strong>[46] قالوا عني (Testimonials):</strong> "Bishoy يمتلك قدرة فائقة في ترجمة الأرقام الصامتة إلى حلول ملموسة تخدم البيزنس بسرعة فائقة وضغط منخفض."</p>
+                    <p>💼 <strong>[56] خدمات استشارية أقدمها:</strong> أتمتة التقارير الكاملة للشركات الناشئة والمحافظ الاستثمارية.</p>
+                    <p>☕ <strong>[76] حقائق طريفة (Fun Fact):</strong> "أستطيع قراءة وفهم كود SQL معقد من 200 سطر أسهل بكثير من قراءة كتالوج تشغيل أي غسالة ملابس!"</p>
+                </div>
+                <div class="space-y-3">
+                    <p>🏓 <strong>[77/78] خارج أوقات العمل:</strong> ألتزم بممارسة رياضة المشي يومياً بحدود 7500 إلى 8000 خطوة لتصفية الذهن وتجديد النشاط لحل المشاكل الفنية المعقدة.</p>
+                    <!-- [79] -->
+                    <div class="p-3 bg-white dark:bg-zinc-900 border border-black">
+                        <p class="font-bold mb-1">[79] 🎮 Interactive Quiz About Me</p>
+                        <p class="mb-2">ما هي الدالة المفضلة لدي في معالجة الـ Nulls؟</p>
+                        <button onclick="alert('إجابة صحيحة عبقرية! 🎉')" class="bg-zinc-200 dark:bg-zinc-700 text-black dark:text-white px-2 py-1 border border-black font-bold">COALESCE()</button>
+                        <button onclick="alert('للاسف لا، حاول مجدداً! ❌')" class="bg-zinc-200 dark:bg-zinc-700 text-black dark:text-white px-2 py-1 border border-black ml-1">SUM()</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- [45. FAQ Accordion] -->
+            <div class="border-t border-black pt-4">
+                <h4 class="font-bold text-sm mb-2 text-black dark:text-white">[45] الأسئلة الشائعة للـ Recruiter (FAQ)</h4>
+                <details class="bg-white dark:bg-zinc-900 p-2 border border-black text-xs text-black dark:text-white">
+                    <summary class="font-semibold cursor-pointer">هل تفضل العمل باستخدام SQL أم بايثون؟</summary>
+                    <p class="mt-2 text-gray-600 dark:text-gray-400">أختار الأداة بناءً على حجم البيانات؛ SQL لقواعد البيانات الكبيرة والمستودعات الضخمة، وبايثون للتحليلات الإحصائية المتقدمة والـ Custom Automation.</p>
+                </details>
+            </div>
+        </div>
+    </main>
+
+    <!-- ==================== الجزء الأخير: التحميل، التواصل والتذييل ==================== -->
+    <!-- [47. Download Center] & [48. Contact Me] & [49. Social Links] & [50. Footer] & [86. Newsletter] & [88. Availability Calendar & Book Meeting] -->
+    <footer id="contact" class="bg-zinc-900 text-white border-t-4 border-black py-16 px-6 mt-16 text-center">
+        <div class="max-w-4xl mx-auto space-y-8">
+            <h2 class="text-3xl font-black text-amber-400">[48] هل تريد مناقشة فرصة عمل أو مشروع استشاري؟</h2>
+            <p class="text-gray-400 text-sm max-w-lg mx-auto">مستعد لتسخير مهاراتي في هندسة البيانات وتحليلها لدعم أهداف قطاعك المصرفي أو المالي فوراً.</p>
+            
+            <!-- [88. Availability & Booking] -->
+            <div class="flex flex-wrap justify-center gap-3 text-xs">
+                <span class="bg-zinc-800 border border-gray-700 px-3 py-1"><i class="fa-solid fa-calendar-days text-amber-400 ml-1"></i> [88] مؤشر الإتاحة: الأحد - الخميس (مساءً)</span>
+                <a href="#" class="underline text-amber-400 font-bold">[88] 📞 احجز مكالمة عمل سريعة عبر Calendly</a>
+            </div>
+
+            <!-- [47. Download Center] -->
+            <div class="flex flex-wrap justify-center gap-4 pt-4">
+                <a href="#" class="border-2 border-white px-6 py-2 font-bold bg-white text-black shadow-[4px_4px_0px_0px_rgba(251,191,36,1)] hover:translate-y-0.5 hover:shadow-none transition-all">
+                    <i class="fa-solid fa-arrow-down-to-line ml-2"></i> [47] تحميل السيرة الذاتية الـ CV بصيغة PDF
+                </a>
+                <!-- [49] -->
+                <a href="https://linkedin.com" target="_blank" class="border-2 border-white px-6 py-2 font-bold bg-blue-600 text-white shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] hover:translate-y-0.5 hover:shadow-none transition-all">
+                    <i class="fa-brands fa-linkedin ml-2"></i> [49] لينكد إن الاحترافي
+                </a>
+            </div>
+
+            <!-- [86. Newsletter / Updates] -->
+            <div class="max-w-xs mx-auto pt-4">
+                <p class="text-xs text-gray-400 mb-2">[86] اشترك في النشرة البريدية ليصلك جديد مشاريعي:</p>
+                <div class="flex border border-gray-700">
+                    <input type="email" placeholder="بريدك الإلكتروني" class="p-1 text-xs text-black w-full focus:outline-none">
+                    <button class="bg-amber-400 text-black text-xs px-3 font-bold">اشتراك</button>
+                </div>
+            </div>
+
+            <!-- [50. Footer] -->
+            <div class="pt-8 border-t border-zinc-800 text-xs text-gray-500">
+                [50] Designed with Passion & Data Integrity. © 2026 Bishoy George. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript للتحكم بالتبويبات والـ Dark Mode وضمان عدم التداخل وعمل الـ Playgrounds حية -->
+    <script>
+        function switchTab(tabId) {
+            // إخفاء كافة المحتويات
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.add('hidden'));
+            // إظهار التبويب المختار
+            document.getElementById('tab-' + tabId).classList.remove('hidden');
+            
+            // إعادة ضبط أشكال الأزرار
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-amber-400', 'text-black', 'border', 'border-black');
+                btn.classList.add('hover:bg-zinc-700', 'text-white');
+            });
+            // تمييز الزر النشط
+            const activeBtn = document.getElementById('btn-' + tabId);
+            activeBtn.classList.remove('hover:bg-zinc-700', 'text-white');
+            activeBtn.classList.add('bg-amber-400', 'text-black', 'border', 'border-black');
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const icon = document.getElementById('theme-icon');
+            if (document.body.classList.contains('dark-mode')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+            document.querySelectorAll('.dark-card').forEach(card => card.classList.toggle('bg-zinc-900'));
+        }
+
+        function runMockSql() {
+            const resultBox = document.getElementById('sql-result');
+            resultBox.classList.remove('hidden');
+            resultBox.innerHTML = `<strong>[النتيجة]:</strong> تم تنفيذ الاستعلام بنجاح!<br>تم العثور على 1,240 صف مبيعات في منطقة مصر 🇪🇬 بإجمالي أرباح معالجة ومحدثة لعام 2026.`;
+        }
+    </script>
+</body>
+</html>
