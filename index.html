@@ -1,39 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Bishoy George - Senior Data Analyst, BI Developer & Data Engineer. Premium portfolio showcasing expertise in Power BI, SQL, ETL, and Business Intelligence solutions.">
-    <meta name="keywords" content="Data Analyst, BI Developer, Data Engineer, Power BI, SQL, ETL, Business Intelligence, Cairo">
-    <meta name="author" content="Bishoy George">
-    <meta name="theme-color" content="#000000">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Bishoy George - Data Analyst | BI Developer | Data Engineer">
-    <meta property="og:description" content="Premium portfolio of a Senior Data Analyst specializing in Business Intelligence, ETL, and Data Engineering solutions.">
+    <meta name="description" content="بيشوي جورج - محلل بيانات، مطور BI، مهندس البيانات. محفظة احترافية تعرض الخبرة في Power BI و SQL و ETL">
+    <title>Bishoy George - Data Analyst | BI Developer | Data Engineer</title>
     
-    <title>Bishoy George - Data Analyst | BI Developer | Data Engineer | Premium Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --primary: #000000;
-            --secondary: #FAF7F2;
-            --background: #F8F7F4;
-            --accent-yellow: #FFD700;
-            --accent-blue: #0066FF;
-            --accent-pink: #FF1493;
-            --accent-green: #00AA44;
+            --primary: #1a1a1a;
+            --secondary: #ffffff;
+            --accent-1: #FF6B6B;
+            --accent-2: #4ECDC4;
+            --accent-3: #FFE66D;
+            --accent-4: #95E1D3;
+            --dark-bg: #0f0f0f;
+            --card-bg: #f8f7f4;
             --text-dark: #1a1a1a;
             --text-light: #666666;
-            --border: 4px solid #000000;
-            --border-thick: 6px solid #000000;
-            --shadow-sm: 0 4px 8px rgba(0, 0, 0, 0.1);
-            --shadow-md: 0 8px 16px rgba(0, 0, 0, 0.15);
-            --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.2);
-            --shadow-xl: 8px 8px 0 rgba(0, 0, 0, 0.3);
-            --shadow-2xl: 12px 12px 0 rgba(0, 0, 0, 0.25);
+            --border: 4px solid #000;
+            --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.25);
+            --shadow-xl: 12px 12px 0px rgba(0, 0, 0, 0.3);
         }
 
         * {
@@ -44,21 +35,20 @@
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 80px;
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background: var(--background);
+            font-family: 'Cairo', 'Plus Jakarta Sans', sans-serif;
+            background: var(--dark-bg);
             color: var(--text-dark);
-            line-height: 1.6;
+            line-height: 1.7;
             overflow-x: hidden;
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-weight: 800;
-            letter-spacing: -1px;
+            font-family: 'Cairo', 'Plus Jakarta Sans', sans-serif;
+            font-weight: 900;
+            letter-spacing: -0.5px;
         }
 
         ::-webkit-scrollbar {
@@ -66,101 +56,12 @@
         }
 
         ::-webkit-scrollbar-track {
-            background: var(--secondary);
+            background: var(--dark-bg);
         }
 
         ::-webkit-scrollbar-thumb {
-            background: var(--primary);
+            background: var(--accent-1);
             border-radius: 6px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--accent-blue);
-        }
-
-        .loading-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            opacity: 1;
-            transition: opacity 0.8s ease-out 0.5s;
-        }
-
-        .loading-screen.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .loading-content {
-            text-align: center;
-        }
-
-        .loading-logo {
-            font-size: 56px;
-            font-weight: 800;
-            color: var(--secondary);
-            letter-spacing: 4px;
-            margin-bottom: 30px;
-            animation: pulse-scale 2s ease-in-out infinite;
-        }
-
-        .loading-bar {
-            width: 200px;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 2px;
-            overflow: hidden;
-            margin: 0 auto;
-        }
-
-        .loading-bar-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--accent-yellow), var(--accent-pink));
-            width: 0%;
-            animation: loading-fill 2s ease-out forwards;
-        }
-
-        @keyframes pulse-scale {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        @keyframes loading-fill {
-            0% { width: 0%; }
-            100% { width: 100%; }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-30px) rotate(5deg); }
-        }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
         }
 
         .container {
@@ -169,32 +70,52 @@
             padding: 0 20px;
         }
 
-        .section {
-            padding: 120px 0;
-            position: relative;
+        /* LOADING SCREEN */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 0.6s ease-out 0.3s;
         }
 
-        @media (max-width: 768px) {
-            .section {
-                padding: 80px 0;
-            }
+        .loading-screen.hidden {
+            opacity: 0;
+            pointer-events: none;
         }
 
+        .loading-logo {
+            font-size: 64px;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: 3px;
+            animation: pulse 2s ease-in-out infinite;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* NAVIGATION */
         nav {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
-            background: rgba(250, 247, 242, 0.98);
+            background: rgba(15, 15, 15, 0.95);
             backdrop-filter: blur(10px);
             border-bottom: var(--border);
-            padding: 15px 0;
-            transition: all 0.3s ease;
-        }
-
-        nav.scrolled {
-            box-shadow: var(--shadow-md);
+            padding: 20px 0;
         }
 
         .nav-container {
@@ -207,39 +128,28 @@
         }
 
         .logo {
-            font-size: 28px;
+            font-size: 32px;
             font-weight: 800;
-            color: var(--primary);
-            text-decoration: none;
-            border: 3px solid var(--primary);
-            padding: 8px 16px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
+            color: var(--accent-1);
+            font-family: 'Space Grotesk', sans-serif;
             letter-spacing: 2px;
-        }
-
-        .logo:hover {
-            background: var(--primary);
-            color: var(--secondary);
-            transform: translate(-3px, -3px);
-            box-shadow: var(--shadow-xl);
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 50px;
+            gap: 40px;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: var(--text-dark);
+            color: #fff;
             font-weight: 600;
-            position: relative;
-            transition: all 0.3s ease;
             font-size: 14px;
             text-transform: uppercase;
             letter-spacing: 1px;
+            position: relative;
+            transition: color 0.3s;
         }
 
         .nav-links a::after {
@@ -249,8 +159,8 @@
             left: 0;
             width: 0;
             height: 3px;
-            background: var(--accent-blue);
-            transition: width 0.3s ease;
+            background: var(--accent-1);
+            transition: width 0.3s;
         }
 
         .nav-links a:hover::after,
@@ -262,26 +172,15 @@
             display: none;
             flex-direction: column;
             gap: 6px;
+            cursor: pointer;
         }
 
         .hamburger span {
             width: 25px;
             height: 3px;
-            background: var(--primary);
-            transition: all 0.3s ease;
+            background: var(--accent-1);
             border-radius: 2px;
-        }
-
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(8px, 8px);
-        }
-
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(8px, -8px);
+            transition: all 0.3s;
         }
 
         @media (max-width: 768px) {
@@ -291,7 +190,7 @@
                 top: 100%;
                 left: 0;
                 right: 0;
-                background: var(--secondary);
+                background: var(--dark-bg);
                 flex-direction: column;
                 gap: 0;
                 border-bottom: var(--border);
@@ -303,7 +202,7 @@
 
             .nav-links a {
                 padding: 15px 20px;
-                border-bottom: 2px solid #e8e5de;
+                border-bottom: 1px solid #333;
             }
 
             .hamburger {
@@ -311,109 +210,66 @@
             }
         }
 
+        /* HERO */
         .hero {
             min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            padding-top: 80px;
+            padding-top: 100px;
             position: relative;
-            background: linear-gradient(135deg, var(--secondary) 0%, var(--background) 100%);
             overflow: hidden;
         }
 
-        .hero-bg {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: 0;
-        }
-
-        .floating-shape {
-            position: absolute;
-            border: 3px solid var(--primary);
-            opacity: 0.15;
-            animation: float 8s ease-in-out infinite;
-        }
-
-        .shape-1 { width: 280px; height: 280px; border-radius: 50%; top: 10%; right: 10%; animation-delay: 0s; }
-        .shape-2 { width: 200px; height: 80px; border-radius: 40px; bottom: 20%; left: 5%; animation-delay: 1s; }
-        .shape-3 { width: 180px; height: 180px; border-radius: 15px; top: 40%; right: 5%; animation-delay: 2s; }
-        .shape-4 { width: 150px; height: 150px; border-radius: 50%; bottom: 30%; left: 10%; animation-delay: 1.5s; }
-
         .hero-content {
-            position: relative;
-            z-index: 10;
-            max-width: 900px;
-            text-align: center;
-            animation: fadeInUp 0.8s ease 0.3s both;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            width: 100%;
         }
 
-        .hero-title {
+        .hero-text h1 {
             font-size: 72px;
-            line-height: 1.1;
+            color: #fff;
             margin-bottom: 20px;
-            letter-spacing: -2px;
-            background: linear-gradient(135deg, var(--primary), #333);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 800;
+            line-height: 1.1;
         }
 
-        .hero-subtitle {
-            font-size: 28px;
-            color: var(--text-light);
-            margin-bottom: 30px;
-            font-weight: 500;
-        }
-
-        .hero-location {
-            font-size: 14px;
-            color: var(--text-light);
+        .hero-text p {
+            font-size: 24px;
+            color: var(--accent-1);
             margin-bottom: 40px;
+            font-weight: 600;
+        }
+
+        .hero-text .location {
+            color: #999;
+            font-size: 14px;
             text-transform: uppercase;
             letter-spacing: 2px;
-            font-weight: 700;
+            margin-bottom: 30px;
         }
 
         .hero-buttons {
             display: flex;
             gap: 20px;
-            justify-content: center;
-            margin-bottom: 60px;
             flex-wrap: wrap;
         }
 
         .btn {
-            padding: 16px 40px;
+            padding: 16px 32px;
             border: var(--border);
-            background: var(--primary);
-            color: var(--secondary);
+            background: var(--accent-1);
+            color: #fff;
             font-weight: 700;
-            text-decoration: none;
             cursor: pointer;
             border-radius: 8px;
+            text-decoration: none;
             font-size: 14px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: var(--accent-pink);
-            transition: left 0.3s ease;
-            z-index: -1;
+            transition: all 0.3s;
         }
 
         .btn:hover {
@@ -421,301 +277,150 @@
             box-shadow: var(--shadow-xl);
         }
 
-        .btn:hover::before {
-            left: 0;
-        }
-
-        .btn-outline {
+        .btn-dark {
             background: transparent;
-            color: var(--primary);
+            color: #fff;
         }
 
-        .btn-outline::before {
-            background: var(--primary);
+        .btn-dark:hover {
+            background: #333;
         }
 
-        .btn-outline:hover {
-            color: var(--secondary);
-        }
-
-        .hero-availability {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            margin-bottom: 80px;
-            flex-wrap: wrap;
-        }
-
-        .availability-badge {
-            padding: 10px 20px;
-            border: 2px solid var(--primary);
-            border-radius: 25px;
-            font-size: 13px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            background: transparent;
-        }
-
-        .hero-profile {
+        .hero-image {
             position: relative;
-            width: 350px;
-            height: 350px;
-            margin: 0 auto 40px;
         }
 
-        .profile-image {
+        .profile-img {
             width: 100%;
-            height: 100%;
-            border: 6px solid var(--primary);
+            max-width: 450px;
+            border: 6px solid var(--accent-1);
             border-radius: 20px;
-            object-fit: cover;
-            position: relative;
-            z-index: 5;
-            background: var(--secondary);
             box-shadow: var(--shadow-xl);
-            animation: fadeInUp 1s ease 0.4s both;
-        }
-
-        .profile-decoration {
-            position: absolute;
-            border: 3px solid var(--primary);
-            opacity: 0.2;
-            animation: rotate 25s linear infinite;
-        }
-
-        .decoration-circle {
-            width: 390px;
-            height: 390px;
-            border-radius: 50%;
-            top: -20px;
-            left: -20px;
-        }
-
-        .decoration-square {
-            width: 400px;
-            height: 400px;
-            border-radius: 20px;
-            top: -25px;
-            left: -25px;
-            animation-direction: reverse;
-        }
-
-        .floating-star {
-            font-size: 32px;
             animation: float 4s ease-in-out infinite;
         }
 
-        .star-1 { position: absolute; top: -20px; left: -30px; animation-delay: 0s; }
-        .star-2 { position: absolute; top: 50px; right: -40px; animation-delay: 1s; }
-        .star-3 { position: absolute; bottom: 40px; right: -50px; animation-delay: 2s; }
-        .star-4 { position: absolute; bottom: 30px; left: -20px; animation-delay: 1.5s; }
-
-        .hero-socials {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-        }
-
-        .social-btn {
-            width: 50px;
-            height: 50px;
-            border: 3px solid var(--primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            color: var(--primary);
-            font-weight: 700;
-            transition: all 0.3s ease;
-            background: var(--secondary);
-        }
-
-        .social-btn:nth-child(1):hover { background: var(--accent-blue); border-color: var(--accent-blue); color: white; }
-        .social-btn:nth-child(2):hover { background: var(--accent-pink); border-color: var(--accent-pink); color: white; }
-        .social-btn:nth-child(3):hover { background: var(--accent-yellow); border-color: var(--accent-yellow); color: var(--primary); }
-        .social-btn:nth-child(4):hover { background: var(--accent-green); border-color: var(--accent-green); color: white; }
-
-        .social-btn:hover {
-            transform: translate(-4px, -4px);
-            box-shadow: var(--shadow-xl);
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
         }
 
         @media (max-width: 768px) {
-            .hero-title {
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text h1 {
                 font-size: 48px;
             }
 
-            .hero-subtitle {
-                font-size: 22px;
-            }
-
-            .hero-profile {
-                width: 280px;
-                height: 280px;
-            }
-
-            .decoration-circle {
-                width: 320px;
-                height: 320px;
-            }
-
-            .decoration-square {
-                width: 330px;
-                height: 330px;
+            .hero-image {
+                display: none;
             }
         }
 
-        .about {
-            background: linear-gradient(135deg, var(--background) 0%, var(--secondary) 100%);
-        }
-
-        .about-timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .timeline-line {
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: linear-gradient(180deg, var(--accent-yellow), var(--accent-blue));
-            transform: translateX(-50%);
-        }
-
-        .timeline-item {
-            margin-bottom: 60px;
-            display: flex;
-            position: relative;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards;
-        }
-
-        .timeline-item:nth-child(odd) .timeline-content {
-            margin-right: auto;
-            margin-left: 0;
-            text-align: right;
-            padding-right: 60px;
-        }
-
-        .timeline-item:nth-child(even) .timeline-content {
-            margin-left: auto;
-            margin-right: 0;
-            text-align: left;
-            padding-left: 60px;
-        }
-
-        .timeline-item:nth-child(1) { animation-delay: 0.1s; }
-        .timeline-item:nth-child(2) { animation-delay: 0.2s; }
-        .timeline-item:nth-child(3) { animation-delay: 0.3s; }
-        .timeline-item:nth-child(4) { animation-delay: 0.4s; }
-        .timeline-item:nth-child(5) { animation-delay: 0.5s; }
-
-        .timeline-dot {
-            position: absolute;
-            left: 50%;
-            top: 10px;
-            transform: translateX(-50%);
-            width: 24px;
-            height: 24px;
-            background: var(--secondary);
-            border: 6px solid var(--accent-blue);
-            border-radius: 50%;
-            z-index: 10;
-            box-shadow: var(--shadow-md);
-        }
-
-        .timeline-content {
-            width: 50%;
-        }
-
-        .timeline-content h3 {
-            font-size: 22px;
-            margin-bottom: 8px;
-            font-weight: 800;
-        }
-
-        .timeline-content p {
-            color: var(--text-light);
-            font-size: 15px;
-            line-height: 1.7;
-            font-weight: 400;
+        /* SECTION */
+        .section {
+            padding: 120px 0;
+            background: #fff;
         }
 
         .section-title {
             font-size: 56px;
-            text-align: center;
             margin-bottom: 80px;
             position: relative;
             padding-bottom: 30px;
-            font-weight: 800;
+            display: inline-block;
+            font-weight: 900;
+            letter-spacing: -1.5px;
         }
 
         .section-title::after {
             content: '';
             position: absolute;
             bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 150px;
+            left: 0;
+            width: 100%;
             height: 6px;
-            background: linear-gradient(90deg, var(--accent-yellow), var(--accent-pink), var(--accent-blue));
+            background: linear-gradient(90deg, var(--accent-1), var(--accent-2), var(--accent-3));
             border-radius: 3px;
         }
 
-        .statistics {
-            background: var(--secondary);
+        /* ABOUT */
+        .about {
+            background: var(--card-bg);
         }
 
+        .about-timeline {
+            max-width: 800px;
+            position: relative;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 60px;
+            position: relative;
+            padding-left: 60px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 16px;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent-1);
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 12px;
+            width: 24px;
+            height: 24px;
+            background: #fff;
+            border: 4px solid var(--accent-1);
+            border-radius: 50%;
+        }
+
+        .timeline-item h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .timeline-item p {
+            color: var(--text-light);
+            font-size: 15px;
+        }
+
+        /* STATS */
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 30px;
-            margin-bottom: 0;
         }
 
         .stat-card {
             border: var(--border);
             padding: 40px 30px;
-            border-radius: 12px;
+            border-radius: 16px;
             text-align: center;
-            background: white;
-            box-shadow: var(--shadow-md);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .stat-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--accent-yellow);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease;
-        }
-
-        .stat-card:hover::before {
-            transform: scaleX(1);
+            background: #fff;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s;
         }
 
         .stat-card:hover {
-            transform: translate(-4px, -4px);
+            transform: translate(-6px, -6px);
             box-shadow: var(--shadow-xl);
         }
 
         .stat-number {
             font-size: 48px;
             font-weight: 800;
-            color: var(--accent-blue);
+            color: var(--accent-1);
             margin-bottom: 10px;
         }
 
@@ -723,347 +428,228 @@
             font-size: 14px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            font-weight: 700;
             color: var(--text-light);
         }
 
+        /* SKILLS */
         .skills {
-            background: linear-gradient(135deg, var(--background) 0%, var(--secondary) 100%);
-        }
-
-        .skills-category {
-            margin-bottom: 60px;
-        }
-
-        .skills-category h3 {
-            font-size: 20px;
-            margin-bottom: 30px;
-            padding-bottom: 15px;
-            border-bottom: 3px solid var(--accent-yellow);
-            font-weight: 700;
+            background: #fff;
         }
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 25px;
-            margin-bottom: 40px;
         }
 
-        .skill-item {
+        .skill-card {
             border: var(--border);
             padding: 25px;
-            border-radius: 10px;
-            background: white;
-            box-shadow: var(--shadow-sm);
-            transition: all 0.3s ease;
+            border-radius: 12px;
+            background: var(--card-bg);
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s;
         }
 
-        .skill-item:hover {
+        .skill-card:hover {
             transform: translate(-3px, -3px);
             box-shadow: var(--shadow-xl);
-            border-color: var(--accent-pink);
         }
 
         .skill-name {
             font-weight: 700;
             margin-bottom: 12px;
             font-size: 15px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
         .skill-bar {
             width: 100%;
-            height: 10px;
+            height: 8px;
             background: #e0e0e0;
-            border-radius: 5px;
-            border: 2px solid var(--primary);
+            border-radius: 4px;
             overflow: hidden;
+            border: 2px solid #000;
         }
 
         .skill-progress {
             height: 100%;
-            background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
+            background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
             width: 0%;
-            animation: skillFill 1.5s ease forwards;
-            border-radius: 3px;
+            animation: fillBar 1.5s ease forwards;
         }
 
-        @keyframes skillFill {
+        @keyframes fillBar {
             to { width: 100%; }
         }
 
-        .skill-percent {
-            font-size: 12px;
-            color: var(--accent-blue);
-            font-weight: 700;
-            margin-top: 8px;
-        }
-
-        .tools {
-            background: var(--secondary);
-        }
-
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
-        }
-
-        .tool-badge {
-            border: var(--border);
-            padding: 25px 15px;
-            border-radius: 10px;
-            text-align: center;
-            font-weight: 700;
-            font-size: 14px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            background: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .tool-badge::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--accent-yellow);
-            z-index: -1;
-            transform: scaleY(0);
-            transform-origin: bottom;
-            transition: transform 0.3s ease;
-        }
-
-        .tool-badge:nth-child(2n)::before { background: var(--accent-blue); }
-        .tool-badge:nth-child(3n)::before { background: var(--accent-pink); }
-        .tool-badge:nth-child(4n)::before { background: var(--accent-green); }
-
-        .tool-badge:hover {
-            transform: translate(-3px, -3px);
-            box-shadow: var(--shadow-xl);
-            color: white;
-        }
-
-        .tool-badge:hover::before {
-            transform: scaleY(1);
-        }
-
+        /* PROJECTS */
         .projects {
-            background: linear-gradient(135deg, var(--background) 0%, var(--secondary) 100%);
+            background: #fff;
         }
 
-        .projects-container {
+        .projects-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 50px;
         }
 
         .project-card {
-            border: var(--border-thick);
-            border-radius: 15px;
+            border: 6px solid #000;
+            border-radius: 20px;
             overflow: hidden;
-            background: white;
-            box-shadow: var(--shadow-lg);
-            transition: all 0.3s ease;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards;
+            background: #fff;
+            box-shadow: var(--shadow-xl);
+            transition: all 0.3s;
         }
 
-        .project-card:nth-child(1) { animation-delay: 0.1s; }
-        .project-card:nth-child(2) { animation-delay: 0.2s; }
-        .project-card:nth-child(3) { animation-delay: 0.3s; }
-        .project-card:nth-child(4) { animation-delay: 0.4s; }
-        .project-card:nth-child(5) { animation-delay: 0.5s; }
-        .project-card:nth-child(6) { animation-delay: 0.6s; }
-        .project-card:nth-child(7) { animation-delay: 0.7s; }
-
         .project-card:hover {
-            transform: translate(-6px, -6px);
-            box-shadow: var(--shadow-2xl);
-            border-color: var(--accent-blue);
+            transform: translate(-8px, -8px);
+            box-shadow: 16px 16px 0px rgba(0, 0, 0, 0.3);
         }
 
         .project-image {
             width: 100%;
-            height: 300px;
+            height: 350px;
             object-fit: cover;
-            background: var(--background);
-            display: block;
+            background: var(--card-bg);
         }
 
         .project-content {
-            padding: 40px;
-        }
-
-        .project-header {
-            margin-bottom: 20px;
+            padding: 50px;
         }
 
         .project-title {
-            font-size: 28px;
-            margin-bottom: 10px;
-            color: var(--text-dark);
-            font-weight: 800;
+            font-size: 32px;
+            margin-bottom: 15px;
         }
 
-        .project-meta {
+        .project-tags {
             display: flex;
-            gap: 15px;
+            gap: 12px;
+            margin-bottom: 25px;
             flex-wrap: wrap;
-            margin-bottom: 20px;
         }
 
         .project-tag {
-            background: var(--accent-blue);
-            color: white;
+            background: var(--accent-1);
+            color: #fff;
             padding: 8px 16px;
             border-radius: 20px;
             font-size: 12px;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
 
-        .project-tag:nth-child(2) { background: var(--accent-pink); }
-        .project-tag:nth-child(3) { background: var(--accent-green); }
+        .project-tag:nth-child(2) { background: var(--accent-2); }
+        .project-tag:nth-child(3) { background: var(--accent-3); }
 
         .project-description {
             color: var(--text-light);
-            line-height: 1.8;
             margin-bottom: 30px;
-            font-weight: 400;
-        }
-
-        .kpi-section {
-            margin: 30px 0;
-            padding-top: 30px;
-            border-top: 2px solid #f0f0f0;
-        }
-
-        .kpi-section h4 {
-            font-size: 18px;
-            margin-bottom: 20px;
-            font-weight: 800;
-            color: var(--text-dark);
+            line-height: 1.8;
         }
 
         .kpi-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
             gap: 15px;
-            margin-bottom: 25px;
+            margin: 30px 0;
+            padding: 30px 0;
+            border-top: 2px solid #f0f0f0;
+            border-bottom: 2px solid #f0f0f0;
         }
 
         .kpi-card {
-            border: 3px solid var(--primary);
-            border-radius: 10px;
-            padding: 16px;
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.08) 0%, rgba(0, 102, 255, 0.08) 100%);
-            transition: all 0.3s ease;
-            cursor: pointer;
+            border: 3px solid #000;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(78, 205, 196, 0.1));
         }
 
         .kpi-card:nth-child(2n) {
-            background: linear-gradient(135deg, rgba(255, 20, 147, 0.08) 0%, rgba(0, 170, 68, 0.08) 100%);
-        }
-
-        .kpi-card:hover {
-            transform: translate(-2px, -2px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .kpi-icon {
-            font-size: 20px;
-            margin-bottom: 8px;
+            background: linear-gradient(135deg, rgba(255, 230, 109, 0.1), rgba(149, 225, 211, 0.1));
         }
 
         .kpi-label {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            font-size: 12px;
             color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
             font-weight: 700;
-            margin-bottom: 5px;
         }
 
         .kpi-value {
-            font-size: 18px;
+            font-size: 22px;
             font-weight: 800;
-            color: var(--accent-blue);
-            margin-bottom: 3px;
+            color: var(--accent-1);
         }
 
-        .kpi-description {
-            font-size: 10px;
-            color: var(--text-light);
-            line-height: 1.3;
+        .recommendations {
+            background: var(--card-bg);
+            border-left: 6px solid var(--accent-2);
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 30px;
         }
 
-        .recommendations-section {
-            margin-top: 25px;
-            padding-top: 25px;
-            border-top: 2px solid #f0f0f0;
-        }
-
-        .recommendations-section h4 {
-            font-size: 18px;
+        .recommendations h4 {
             margin-bottom: 15px;
-            font-weight: 800;
-            color: var(--text-dark);
+            font-size: 18px;
         }
 
-        .recommendations-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
+        .recommendations ul {
+            list-style: none;
+            padding-left: 0;
         }
 
-        .recommendation-item {
-            border-left: 4px solid var(--accent-blue);
-            padding-left: 15px;
+        .recommendations li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
             font-size: 14px;
             color: var(--text-dark);
-            line-height: 1.6;
-            font-weight: 500;
         }
 
-        .recommendation-item:nth-child(2n) {
-            border-left-color: var(--accent-pink);
+        .recommendations li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-2);
+            font-weight: 800;
         }
 
-        .recommendation-item:nth-child(3n) {
-            border-left-color: var(--accent-green);
-        }
-
-        .project-slider {
-            width: 100%;
-            height: 300px;
-            background: var(--background);
-            border-radius: 10px;
-            overflow: hidden;
+        /* SLIDER */
+        .slider {
             position: relative;
-            margin-bottom: 25px;
+            height: 350px;
+            border: 4px solid #000;
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 30px 0;
         }
 
-        .slider-image {
+        .slider-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: none;
+            animation: fadeIn 0.5s;
         }
 
-        .slider-image.active {
+        .slider-img.active {
             display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         .slider-controls {
             position: absolute;
-            bottom: 15px;
+            bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
@@ -1074,419 +660,30 @@
         .slider-btn {
             width: 40px;
             height: 40px;
-            border: 3px solid white;
-            background: rgba(0, 0, 0, 0.5);
-            color: white;
+            border: 3px solid #fff;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
             border-radius: 50%;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             font-weight: bold;
-            transition: all 0.3s ease;
+            transition: all 0.3s;
         }
 
         .slider-btn:hover {
-            background: var(--accent-blue);
-            border-color: var(--accent-blue);
+            background: var(--accent-1);
+            border-color: var(--accent-1);
             transform: scale(1.1);
         }
 
-        .certifications {
-            background: linear-gradient(135deg, var(--background) 0%, var(--secondary) 100%);
-        }
-
-        .certs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 25px;
-        }
-
-        .cert-card {
-            border: var(--border);
-            padding: 35px 25px;
-            border-radius: 12px;
-            text-align: center;
-            background: white;
-            box-shadow: var(--shadow-md);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cert-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 20, 147, 0.1));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: -1;
-        }
-
-        .cert-card:hover::after {
-            opacity: 1;
-        }
-
-        .cert-card:hover {
-            transform: translate(-3px, -3px);
-            box-shadow: var(--shadow-xl);
-            border-color: var(--accent-pink);
-        }
-
-        .cert-icon {
-            font-size: 40px;
-            margin-bottom: 15px;
-        }
-
-        .cert-name {
-            font-size: 16px;
-            font-weight: 800;
-            margin-bottom: 8px;
-        }
-
-        .cert-issuer {
-            font-size: 13px;
-            color: var(--text-light);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .education {
-            background: var(--secondary);
-        }
-
-        .education-timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .education-item {
-            margin-bottom: 40px;
-            border-left: 6px solid var(--accent-blue);
-            padding-left: 30px;
-            position: relative;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards;
-        }
-
-        .education-item:nth-child(1) { animation-delay: 0.1s; }
-        .education-item:nth-child(2) { animation-delay: 0.2s; }
-        .education-item:nth-child(3) { animation-delay: 0.3s; }
-        .education-item:nth-child(4) { animation-delay: 0.4s; }
-
-        .education-item::before {
-            content: '';
-            position: absolute;
-            left: -15px;
-            top: 8px;
-            width: 24px;
-            height: 24px;
-            background: white;
-            border: 6px solid var(--accent-blue);
-            border-radius: 50%;
-            z-index: 10;
-        }
-
-        .education-year {
-            font-size: 14px;
-            color: var(--accent-blue);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .education-school {
-            font-size: 18px;
-            font-weight: 800;
-            margin: 8px 0;
-        }
-
-        .education-degree {
-            font-size: 14px;
-            color: var(--text-light);
-            font-weight: 400;
-        }
-
-        .awards {
-            background: linear-gradient(135deg, var(--background) 0%, var(--secondary) 100%);
-        }
-
-        .award-card {
-            border: var(--border);
-            padding: 40px;
-            border-radius: 12px;
-            text-align: center;
-            background: white;
-            box-shadow: var(--shadow-md);
-            max-width: 600px;
-            margin: 0 auto;
-            transition: all 0.3s ease;
-        }
-
-        .award-card:hover {
-            transform: translate(-4px, -4px);
-            box-shadow: var(--shadow-xl);
-            border-color: var(--accent-yellow);
-        }
-
-        .award-icon {
-            font-size: 60px;
-            margin-bottom: 20px;
-            animation: bounce 2s ease-in-out infinite;
-        }
-
-        .award-title {
-            font-size: 24px;
-            margin-bottom: 15px;
-            font-weight: 800;
-        }
-
-        .award-description {
-            color: var(--text-light);
-            font-size: 15px;
-            line-height: 1.8;
-            font-weight: 400;
-        }
-
-        .languages {
-            background: var(--secondary);
-        }
-
-        .languages-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .language-card {
-            border: var(--border);
-            padding: 30px 25px;
-            border-radius: 10px;
-            text-align: center;
-            background: white;
-            box-shadow: var(--shadow-md);
-            transition: all 0.3s ease;
-        }
-
-        .language-card:hover {
-            transform: translate(-3px, -3px);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .language-name {
-            font-size: 18px;
-            font-weight: 800;
-            margin-bottom: 15px;
-        }
-
-        .language-level {
-            width: 100%;
-            height: 8px;
-            background: #e0e0e0;
-            border-radius: 4px;
-            overflow: hidden;
-            border: 2px solid var(--primary);
-        }
-
-        .language-progress {
-            height: 100%;
-            background: linear-gradient(90deg, var(--accent-pink), var(--accent-yellow));
-            border-radius: 2px;
-        }
-
-        .interests {
-            background: linear-gradient(135deg, var(--background) 0%, var(--secondary) 100%);
-        }
-
-        .interests-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 25px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .interest-card {
-            border: var(--border);
-            padding: 40px 25px;
-            border-radius: 12px;
-            text-align: center;
-            background: white;
-            box-shadow: var(--shadow-md);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .interest-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: -1;
-        }
-
-        .interest-card:nth-child(1)::before { background: rgba(255, 215, 0, 0.1); }
-        .interest-card:nth-child(2)::before { background: rgba(0, 102, 255, 0.1); }
-        .interest-card:nth-child(3)::before { background: rgba(255, 20, 147, 0.1); }
-        .interest-card:nth-child(4)::before { background: rgba(0, 170, 68, 0.1); }
-
-        .interest-card:hover {
-            transform: translate(-4px, -4px);
-            box-shadow: var(--shadow-xl);
-            background: white;
-        }
-
-        .interest-icon {
-            font-size: 36px;
-            margin-bottom: 12px;
-            display: inline-block;
-            transition: all 0.3s ease;
-        }
-
-        .interest-card:hover .interest-icon {
-            animation: bounce 0.6s ease;
-        }
-
-        .interest-name {
-            font-size: 16px;
-            font-weight: 800;
-        }
-
-        .contact {
-            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact::before {
-            content: '';
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            background: rgba(255, 215, 0, 0.05);
-            border-radius: 50%;
-            top: -100px;
-            right: -100px;
-            animation: float 10s ease-in-out infinite;
-        }
-
-        .contact::after {
-            content: '';
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background: rgba(0, 102, 255, 0.05);
-            border-radius: 50%;
-            bottom: -50px;
-            left: -50px;
-            animation: float 12s ease-in-out infinite 1s;
-        }
-
-        .contact-wrapper {
-            position: relative;
-            z-index: 10;
-        }
-
-        .contact-title {
-            font-size: 48px;
-            text-align: center;
-            margin-bottom: 30px;
-            font-weight: 800;
-        }
-
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
-            max-width: 1000px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .contact-item {
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            padding: 25px;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-        }
-
-        .contact-item:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: var(--accent-blue);
-            transform: translate(-3px, -3px);
-        }
-
-        .contact-label {
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-            font-weight: 700;
-            color: var(--accent-yellow);
-        }
-
-        .contact-value {
-            font-size: 14px;
-            word-break: break-all;
-            font-weight: 500;
-        }
-
-        .contact-buttons {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 40px;
-        }
-
-        .contact-btn {
-            padding: 14px 28px;
-            border: 2px solid white;
-            background: transparent;
-            color: white;
-            font-weight: 700;
-            cursor: pointer;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-        }
-
-        .contact-btn:hover {
-            background: white;
-            color: var(--primary);
-            transform: translate(-3px, -3px);
-        }
-
+        /* FOOTER */
         footer {
             background: var(--primary);
-            color: white;
-            padding: 50px 0 20px;
+            color: #fff;
+            padding: 60px 0 20px;
             border-top: var(--border);
-            position: relative;
         }
 
         .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
@@ -1494,104 +691,49 @@
         }
 
         .footer-section h3 {
+            color: var(--accent-1);
+            margin-bottom: 20px;
             font-size: 14px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
-            color: var(--accent-yellow);
-            font-weight: 800;
+            letter-spacing: 2px;
         }
 
-        .footer-section p {
-            font-size: 13px;
-            line-height: 1.8;
-            color: rgba(255, 255, 255, 0.7);
-            font-weight: 400;
-        }
-
-        .footer-links {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.7);
+        .footer-section p,
+        .footer-section a {
+            color: #999;
+            font-size: 14px;
             text-decoration: none;
-            font-size: 13px;
-            transition: all 0.3s ease;
-            font-weight: 500;
+            line-height: 1.8;
         }
 
-        .footer-links a:hover {
-            color: var(--accent-yellow);
-            margin-left: 5px;
+        .footer-section a:hover {
+            color: var(--accent-1);
         }
 
         .footer-bottom {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            border-top: 1px solid #333;
             padding-top: 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .footer-copyright {
+            text-align: center;
             font-size: 12px;
-            color: rgba(255, 255, 255, 0.6);
-            font-weight: 400;
+            color: #666;
         }
 
-        .back-to-top {
-            width: 50px;
-            height: 50px;
-            border: 3px solid white;
-            background: transparent;
-            color: white;
-            cursor: pointer;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 18px;
-            transition: all 0.3s ease;
-        }
-
-        .back-to-top:hover {
-            background: var(--accent-blue);
-            border-color: var(--accent-blue);
-            transform: translate(-2px, -2px);
-        }
-
-        .back-to-top.hidden {
-            display: none;
-        }
-
+        /* RESPONSIVE */
         @media (max-width: 768px) {
-            .timeline-line {
-                left: 0;
+            .section {
+                padding: 80px 0;
             }
 
-            .timeline-item:nth-child(odd) .timeline-content,
-            .timeline-item:nth-child(even) .timeline-content {
-                margin: 0;
-                text-align: left;
-                padding-left: 50px;
-            }
-
-            .timeline-dot {
-                left: 0;
-                transform: translateX(-50%);
+            .hero-text h1 {
+                font-size: 40px;
             }
 
             .section-title {
                 font-size: 36px;
+            }
+
+            .project-content {
+                padding: 30px;
             }
 
             .kpi-grid {
@@ -1601,18 +743,13 @@
     </style>
 </head>
 <body>
-    <div class="loading-screen" id="loadingScreen">
-        <div class="loading-content">
-            <div class="loading-logo">BG</div>
-            <div class="loading-bar">
-                <div class="loading-bar-fill"></div>
-            </div>
-        </div>
+    <div class="loading-screen" id="loading">
+        <div class="loading-logo">BG</div>
     </div>
 
-    <nav id="navbar">
+    <nav>
         <div class="nav-container">
-            <a href="#home" class="logo">BG</a>
+            <div class="logo">BISHOY</div>
             <div class="hamburger" id="hamburger">
                 <span></span>
                 <span></span>
@@ -1621,7 +758,6 @@
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home" class="nav-link">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#career" class="nav-link">Career</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
@@ -1630,47 +766,20 @@
     </nav>
 
     <section class="hero" id="home">
-        <div class="hero-bg">
-            <div class="floating-shape shape-1"></div>
-            <div class="floating-shape shape-2"></div>
-            <div class="floating-shape shape-3"></div>
-            <div class="floating-shape shape-4"></div>
-        </div>
-
-        <div class="container" style="position: relative; z-index: 10;">
+        <div class="container">
             <div class="hero-content">
-                <h1 class="hero-title">Bishoy George</h1>
-                <p class="hero-subtitle">Data Analyst | BI Developer | Data Engineer</p>
-                <p class="hero-location">📍 Cairo, Egypt</p>
-
-                <div class="hero-buttons">
-                    <a href="Bishoy_George_CV.pdf" download class="btn">Download CV</a>
-                    <a href="#contact" class="btn btn-outline">Get In Touch</a>
+                <div class="hero-text">
+                    <h1>Bishoy George</h1>
+                    <p>Data Analyst | BI Developer | Data Engineer</p>
+                    <p class="location">📍 Cairo, Egypt</p>
+                    <div class="hero-buttons">
+                        <a href="Bishoy_George_CV.pdf" download class="btn">Download CV</a>
+                        <a href="#contact" class="btn btn-dark">Get In Touch</a>
+                        <a href="#projects" class="btn btn-dark">View Work</a>
+                    </div>
                 </div>
-
-                <div class="hero-availability">
-                    <div class="availability-badge">Remote</div>
-                    <div class="availability-badge">On-Site</div>
-                    <div class="availability-badge">Travel</div>
-                </div>
-
-                <div class="hero-profile">
-                    <div class="profile-decoration decoration-circle"></div>
-                    <div class="profile-decoration decoration-square"></div>
-                    
-                    <img src="Profile.jpg" alt="Bishoy George - Data Analyst" class="profile-image">
-                    
-                    <div class="floating-star star-1">⭐</div>
-                    <div class="floating-star star-2">⭐</div>
-                    <div class="floating-star star-3">⭐</div>
-                    <div class="floating-star star-4">⭐</div>
-                </div>
-
-                <div class="hero-socials">
-                    <a href="https://www.linkedin.com/in/bishoy-george24" target="_blank" rel="noopener" class="social-btn" title="LinkedIn">🔗</a>
-                    <a href="https://github.com/bichoygeorge" target="_blank" rel="noopener" class="social-btn" title="GitHub">⚙️</a>
-                    <a href="mailto:bishoygeorge172000@gmail.com" class="social-btn" title="Email">✉️</a>
-                    <a href="tel:+201224731057" class="social-btn" title="Call">☎️</a>
+                <div class="hero-image">
+                    <img src="Profile.jpg" alt="Bishoy George" class="profile-img">
                 </div>
             </div>
         </div>
@@ -1679,118 +788,50 @@
     <section class="section about" id="about">
         <div class="container">
             <h2 class="section-title">My Journey</h2>
-            
             <div class="about-timeline">
-                <div class="timeline-line"></div>
-                
                 <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Beginning</h3>
-                        <p>Born in Minya Governorate, Egypt. Started my academic journey with a passion for problem-solving and analytical thinking.</p>
-                    </div>
+                    <h3>Minya Governorate</h3>
+                    <p>Born and raised in Egypt with a passion for problem-solving and data insights.</p>
                 </div>
-
                 <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Preparatory School Excellence</h3>
-                        <p>Ranked 2nd across the entire governorate with an exceptional score of 382.5, demonstrating strong academic commitment.</p>
-                    </div>
+                    <h3>Preparatory School</h3>
+                    <p>Ranked 2nd in governorate with score 382.5 - Strong foundation in analytical thinking.</p>
                 </div>
-
                 <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Secondary School Achievements</h3>
-                        <p>Consistent top performer: 4th place (1st year), 6th place (2nd year), 2nd place in Mathematics Division (3rd year).</p>
-                    </div>
+                    <h3>Secondary School</h3>
+                    <p>Consistent top performer: 4th, 6th, 2nd place - Mathematics Division excellence.</p>
                 </div>
-
                 <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>University & Discovery</h3>
-                        <p>Studied Computer Science at Minia University's Faculty of Computers and Information. Discovered passion for Data Analytics and Business Intelligence.</p>
-                    </div>
+                    <h3>Minia University</h3>
+                    <p>Faculty of Computers and Information. Discovered passion for Data Analytics & BI.</p>
                 </div>
-
                 <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Professional Journey Begins</h3>
-                        <p>Completed Military Service and launched career as Data Analyst, specializing in transforming raw data into actionable business insights.</p>
-                    </div>
+                    <h3>Professional Career</h3>
+                    <p>Transforming raw data into actionable business insights and strategic intelligence.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section statistics">
+    <section class="section" style="background: var(--card-bg);">
         <div class="container">
             <h2 class="section-title">By The Numbers</h2>
-            
             <div class="stats-grid">
                 <div class="stat-card">
-                    <div class="stat-number counter" data-target="3">0</div>
-                    <div class="stat-label">Years Experience</div>
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">Projects</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number counter" data-target="20">0</div>
-                    <div class="stat-label">Projects Delivered</div>
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Dashboards</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number counter" data-target="50">0</div>
-                    <div class="stat-label">Dashboards Created</div>
+                    <div class="stat-number">3+</div>
+                    <div class="stat-label">Years</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number counter" data-target="6">0</div>
-                    <div class="stat-label">Certificates</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number counter" data-target="15">0</div>
-                    <div class="stat-label">Technologies</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number counter" data-target="8">0</div>
-                    <div class="stat-label">Business Domains</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section about" id="career">
-        <div class="container">
-            <h2 class="section-title">Career Path</h2>
-            
-            <div class="about-timeline">
-                <div class="timeline-line"></div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>ITI - Intern</h3>
-                        <p><strong>Database Development & Business Intelligence Intern</strong></p>
-                        <p style="margin-top: 10px; font-size: 13px;">Comprehensive training in SQL, Database Design, Normalization, PL/SQL, ETL, Power BI, DAX, Data Warehouse Architecture, and Business Intelligence best practices.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Orascom Construction</h3>
-                        <p><strong>Data Analyst</strong></p>
-                        <p style="margin-top: 10px; font-size: 13px;">Designed and implemented enterprise-wide BI solutions. Developed complex ETL pipelines using SSIS. Created executive dashboards in Power BI. Optimized SQL queries and data models.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Banque Misr</h3>
-                        <p><strong>Data Analyst</strong></p>
-                        <p style="margin-top: 10px; font-size: 13px;">Developed critical financial analytics dashboards. Performed comprehensive data quality assessments. Created automated reporting solutions. Translated business requirements into technical implementations.</p>
-                    </div>
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Certifications</div>
                 </div>
             </div>
         </div>
@@ -1799,99 +840,30 @@
     <section class="section skills" id="skills">
         <div class="container">
             <h2 class="section-title">Technical Skills</h2>
-            
-            <div class="skills-category">
-                <h3>Programming & Databases</h3>
-                <div class="skills-grid">
-                    <div class="skill-item">
-                        <div class="skill-name">SQL</div>
-                        <div class="skill-bar"><div class="skill-progress" style="width: 95%;"></div></div>
-                        <div class="skill-percent">95%</div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">SQL Server</div>
-                        <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
-                        <div class="skill-percent">90%</div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">Oracle Database</div>
-                        <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
-                        <div class="skill-percent">90%</div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">PL/SQL</div>
-                        <div class="skill-bar"><div class="skill-progress" style="width: 92%;"></div></div>
-                        <div class="skill-percent">92%</div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">Python</div>
-                        <div class="skill-bar"><div class="skill-progress" style="width: 60%;"></div></div>
-                        <div class="skill-percent">60%</div>
-                    </div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-name">SQL</div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 95%; animation-delay: 0s;"></div></div>
                 </div>
-            </div>
-
-            <div class="skills-category">
-                <h3>Business Intelligence</h3>
-                <div class="skills-grid">
-                    <div class="skill-item">
-                        <div class="skill-name">Power BI</div>
-                        <div class="skill-bar"><div class="skill-progress" style="width: 95%;"></div></div>
-                        <div class="skill-percent">95%</div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">Power Query</div>
-                        <div class="skill-bar"><div class="skill-progress" style="width: 96%;"></div></div>
-                        <div class="skill-percent">96%</div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">DAX</div>
-                        <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
-                        <div class="skill-percent">90%</div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">ETL</div>
-                        <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
-                        <div class="skill-percent">90%</div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">Data Warehousing</div>
-                        <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
-                        <div class="skill-percent">90%</div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">Data Modeling</div>
-                        <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
-                        <div class="skill-percent">90%</div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">SSIS</div>
-                        <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
-                        <div class="skill-percent">85%</div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">Looker Studio</div>
-                        <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
-                        <div class="skill-percent">85%</div>
-                    </div>
+                <div class="skill-card">
+                    <div class="skill-name">Power BI</div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 95%; animation-delay: 0.1s;"></div></div>
                 </div>
-            </div>
-
-            <div style="margin-top: 60px;">
-                <h3 style="font-size: 20px; margin-bottom: 30px; padding-bottom: 15px; border-bottom: 3px solid var(--accent-yellow); font-weight: 700;">Tools & Technologies</h3>
-                <div class="tools-grid">
-                    <div class="tool-badge">Power BI</div>
-                    <div class="tool-badge">SQL Server</div>
-                    <div class="tool-badge">Oracle</div>
-                    <div class="tool-badge">SSMS</div>
-                    <div class="tool-badge">SQL Developer</div>
-                    <div class="tool-badge">Denodo</div>
-                    <div class="tool-badge">Excel</div>
-                    <div class="tool-badge">Git</div>
-                    <div class="tool-badge">GitHub</div>
-                    <div class="tool-badge">Jira</div>
-                    <div class="tool-badge">Azure DevOps</div>
-                    <div class="tool-badge">Visual Studio</div>
+                <div class="skill-card">
+                    <div class="skill-name">Power Query</div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 96%; animation-delay: 0.2s;"></div></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-name">Data Modeling</div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 91%; animation-delay: 0.3s;"></div></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-name">ETL/SSIS</div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 88%; animation-delay: 0.4s;"></div></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-name">Data Warehousing</div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 89%; animation-delay: 0.5s;"></div></div>
                 </div>
             </div>
         </div>
@@ -1900,468 +872,306 @@
     <section class="section projects" id="projects">
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
-            
-            <div class="projects-container">
+            <div class="projects-grid">
+                
                 <div class="project-card">
-                    <img src="Assets/Hotels-Reservations-Dataset.png" alt="Hotel Reservations Dashboard" class="project-image">
+                    <img src="Assets/Hotels-Reservations-Dataset.png" alt="Hotel Reservations" class="project-image">
                     <div class="project-content">
-                        <div class="project-header">
-                            <h3 class="project-title">Hotel Reservations Dashboard</h3>
-                            <div class="project-meta">
-                                <span class="project-tag">Looker Studio</span>
-                                <span class="project-tag">Data Analysis</span>
-                                <span class="project-tag">Visualization</span>
+                        <h3 class="project-title">Hotel Reservations Dashboard</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">Looker Studio</span>
+                            <span class="project-tag">Data Analysis</span>
+                            <span class="project-tag">Visualization</span>
+                        </div>
+                        <p class="project-description">Comprehensive hotel booking analytics dashboard analyzing 36.5K check-ins with $3.7M gross revenue and $2.4M net revenue tracking across room types, meal plans, and market segments.</p>
+                        <div class="kpi-grid">
+                            <div class="kpi-card">
+                                <div class="kpi-label">Check-ins</div>
+                                <div class="kpi-value">36.5K</div>
+                            </div>
+                            <div class="kpi-card">
+                                <div class="kpi-label">Gross Revenue</div>
+                                <div class="kpi-value">$3.7M</div>
+                            </div>
+                            <div class="kpi-card">
+                                <div class="kpi-label">Meal Plan %</div>
+                                <div class="kpi-value">77%</div>
+                            </div>
+                            <div class="kpi-card">
+                                <div class="kpi-label">Online %</div>
+                                <div class="kpi-value">64.92%</div>
                             </div>
                         </div>
-                        <p class="project-description">Comprehensive hotel booking analytics dashboard analyzing guest behavior, revenue patterns, and operational metrics across room types, meal plans, market segments, and temporal trends. 36.5K check-ins analyzed with $3.7M gross revenue tracked.</p>
-                        
-                        <div class="kpi-section">
-                            <h4>📊 Key Insights</h4>
-                            <div class="kpi-grid">
-                                <div class="kpi-card"><div class="kpi-label">Check-ins</div><div class="kpi-value">36.5K</div></div>
-                                <div class="kpi-card"><div class="kpi-label">Gross Revenue</div><div class="kpi-value">$3.7M</div></div>
-                                <div class="kpi-card"><div class="kpi-label">Net Revenue</div><div class="kpi-value">$2.4M</div></div>
-                                <div class="kpi-card"><div class="kpi-label">Adults</div><div class="kpi-value">~70K</div></div>
-                                <div class="kpi-card"><div class="kpi-label">Cancelled</div><div class="kpi-value">12K</div></div>
-                                <div class="kpi-card"><div class="kpi-label">Meal Plan %</div><div class="kpi-value">77%</div></div>
-                                <div class="kpi-card"><div class="kpi-label">Online %</div><div class="kpi-value">64.92%</div></div>
-                                <div class="kpi-card"><div class="kpi-label">Repeat Guests</div><div class="kpi-value">2.6%</div></div>
-                            </div>
-                        </div>
-
-                        <div class="recommendations-section">
+                        <div class="recommendations">
                             <h4>💡 Business Recommendations</h4>
-                            <div class="recommendations-list">
-                                <div class="recommendation-item">Implement dynamic pricing strategy around October peak to maximize high-demand period revenue</div>
-                                <div class="recommendation-item">Develop retention program for repeat guests to increase current 2.6% rate</div>
-                                <div class="recommendation-item">Create parking incentives as 97% skip service (untapped revenue opportunity)</div>
-                                <div class="recommendation-item">Focus online marketing which drives 64.92% of bookings with growth potential</div>
-                            </div>
+                            <ul>
+                                <li>Improve cancellation prediction with machine learning</li>
+                                <li>Increase direct bookings to reduce commission costs</li>
+                                <li>Optimize dynamic pricing during October peak season</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <img src="Assets/Amazon-Data-Sales.png" alt="Amazon Sales Dashboard" class="project-image">
+                    <img src="Assets/Amazon-Data-Sales.png" alt="Amazon Sales" class="project-image">
                     <div class="project-content">
-                        <div class="project-header">
-                            <h3 class="project-title">Amazon Sales Analysis (2010-2017)</h3>
-                            <div class="project-meta">
-                                <span class="project-tag">Power BI</span>
-                                <span class="project-tag">SQL</span>
-                                <span class="project-tag">Analysis</span>
+                        <h3 class="project-title">Amazon Sales Analysis</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">Power BI</span>
+                            <span class="project-tag">SQL</span>
+                            <span class="project-tag">Analytics</span>
+                        </div>
+                        <p class="project-description">8-year comprehensive sales analysis covering 513K products sold generating $137M+ revenue with $44M+ profit. Regional distribution, category performance, and profitability trends analysis.</p>
+                        <div class="kpi-grid">
+                            <div class="kpi-card">
+                                <div class="kpi-label">Revenue</div>
+                                <div class="kpi-value">$137M+</div>
+                            </div>
+                            <div class="kpi-card">
+                                <div class="kpi-label">Profit</div>
+                                <div class="kpi-value">$44M+</div>
+                            </div>
+                            <div class="kpi-card">
+                                <div class="kpi-label">Top Category</div>
+                                <div class="kpi-value">Cosmetics</div>
+                            </div>
+                            <div class="kpi-card">
+                                <div class="kpi-label">Offline %</div>
+                                <div class="kpi-value">57.59%</div>
                             </div>
                         </div>
-                        <p class="project-description">8-year comprehensive sales analysis of 513K products generating $137M revenue with $44M profit. Regional, category, and channel performance analysis with profitability trends across multiple dimensions.</p>
-                        
-                        <div class="kpi-section">
-                            <h4>📊 Key Insights</h4>
-                            <div class="kpi-grid">
-                                <div class="kpi-card"><div class="kpi-label">Revenue</div><div class="kpi-value">$137M+</div></div>
-                                <div class="kpi-card"><div class="kpi-label">Profit</div><div class="kpi-value">$44M+</div></div>
-                                <div class="kpi-card"><div class="kpi-label">Cost</div><div class="kpi-value">$93.18M</div></div>
-                                <div class="kpi-card"><div class="kpi-label">Products</div><div class="kpi-value">513K</div></div>
-                                <div class="kpi-card"><div class="kpi-label">Top Region</div><div class="kpi-value">Sub-Sahara</div></div>
-                                <div class="kpi-card"><div class="kpi-label">Top Category</div><div class="kpi-value">Cosmetics</div></div>
-                                <div class="kpi-card"><div class="kpi-label">Offline %</div><div class="kpi-value">57.59%</div></div>
-                                <div class="kpi-card"><div class="kpi-label">Peak Year</div><div class="kpi-value">2012</div></div>
-                            </div>
-                        </div>
-
-                        <div class="recommendations-section">
+                        <div class="recommendations">
                             <h4>💡 Business Recommendations</h4>
-                            <div class="recommendations-list">
-                                <div class="recommendation-item">Leverage offline channel strength (57.59%) by expanding offline infrastructure partnerships</div>
-                                <div class="recommendation-item">Focus investment on Sub-Saharan Africa for highest revenue potential region</div>
-                                <div class="recommendation-item">Expand cosmetics portfolio as top-performing category across all regions</div>
-                                <div class="recommendation-item">Investigate 2012 peak drivers to replicate success factors in current operations</div>
-                            </div>
+                            <ul>
+                                <li>Expand Sub-Saharan Africa market due to highest revenue potential</li>
+                                <li>Focus on cosmetics category expansion across regions</li>
+                                <li>Strengthen offline channel partnerships and presence</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <img src="Assets/Covid19-Egypt-Data.png" alt="COVID-19 Egypt Dashboard" class="project-image">
+                    <img src="Assets/Covid19-Egypt-Data.png" alt="COVID-19 Egypt" class="project-image">
                     <div class="project-content">
-                        <div class="project-header">
-                            <h3 class="project-title">COVID-19 Egypt Tracking (2020)</h3>
-                            <div class="project-meta">
-                                <span class="project-tag">Analytics</span>
-                                <span class="project-tag">Epidemiology</span>
-                                <span class="project-tag">Trends</span>
+                        <h3 class="project-title">COVID-19 Egypt Tracking Dashboard</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">Analytics</span>
+                            <span class="project-tag">Epidemiology</span>
+                            <span class="project-tag">Health</span>
+                        </div>
+                        <p class="project-description">Daily COVID-19 tracking dashboard for Egypt (Feb-Dec 2020) analyzing 128K confirmed cases and 7,209 deaths. Peak infection tracking, mortality analysis, and regional spread patterns.</p>
+                        <div class="kpi-grid">
+                            <div class="kpi-card">
+                                <div class="kpi-label">Total Cases</div>
+                                <div class="kpi-value">128K</div>
+                            </div>
+                            <div class="kpi-card">
+                                <div class="kpi-label">Total Deaths</div>
+                                <div class="kpi-value">7,209</div>
+                            </div>
+                            <div class="kpi-card">
+                                <div class="kpi-label">Peak Cases</div>
+                                <div class="kpi-value">1,774</div>
+                            </div>
+                            <div class="kpi-card">
+                                <div class="kpi-label">Peak Month</div>
+                                <div class="kpi-value">June</div>
                             </div>
                         </div>
-                        <p class="project-description">Daily COVID-19 tracking dashboard for Egypt (Feb-Dec 2020) analyzing 128K cases and 7,209 deaths. Infection trends, peak periods, and healthcare resource allocation insights with mortality analysis.</p>
-                        
-                        <div class="kpi-section">
-                            <h4>📊 Key Insights</h4>
-                            <div class="kpi-grid">
-                                <div class="kpi-card"><div class="kpi-label">Total Cases</div><div class="kpi-value">128K</div></div>
-                                <div class="kpi-card"><div class="kpi-label">Total Deaths</div><div class="kpi-value">7,209</div></div>
-                                <div class="kpi-card"><div class="kpi-label">Peak Cases</div><div class="kpi-value">1,774</div></div>
-                                <div class="kpi-card"><div class="kpi-label">Peak Deaths</div><div class="kpi-value">97</div></div>
-                                <div class="kpi-card"><div class="kpi-label">Peak Month</div><div class="kpi-value">June</div></div>
-                                <div class="kpi-card"><div class="kpi-label">Case Peak Date</div><div class="kpi-value">Jun 19</div></div>
-                                <div class="kpi-card"><div class="kpi-label">Death Peak Date</div><div class="kpi-value">Jun 15</div></div>
-                                <div class="kpi-card"><div class="kpi-label">Mortality %</div><div class="kpi-value">5.6%</div></div>
-                            </div>
-                        </div>
-
-                        <div class="recommendations-section">
+                        <div class="recommendations">
                             <h4>💡 Business Recommendations</h4>
-                            <div class="recommendations-list">
-                                <div class="recommendation-item">Establish early warning system for healthcare based on June spike pattern</div>
-                                <div class="recommendation-item">Pre-position medical resources before identified seasonal peaks (June)</div>
-                                <div class="recommendation-item">Implement public health communications during high-risk periods</div>
-                                <div class="recommendation-item">Create predictive model using strong infection-death correlation for planning</div>
-                            </div>
+                            <ul>
+                                <li>Establish early warning system for healthcare facilities</li>
+                                <li>Pre-position medical resources before June peak season</li>
+                                <li>Create predictive models for future outbreak planning</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <img src="Assets/16K-Movies-Dataset.png" alt="16K Movies Dataset" class="project-image">
+                    <img src="Assets/16K-Movies-Dataset.png" alt="16K Movies" class="project-image">
                     <div class="project-content">
-                        <div class="project-header">
-                            <h3 class="project-title">16K Movies Dataset Analysis</h3>
-                            <div class="project-meta">
-                                <span class="project-tag">Data Analysis</span>
-                                <span class="project-tag">Entertainment</span>
-                                <span class="project-tag">Trends</span>
+                        <h3 class="project-title">16K Movies Dataset Analysis</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">Data Analysis</span>
+                            <span class="project-tag">Entertainment</span>
+                            <span class="project-tag">Trends</span>
+                        </div>
+                        <p class="project-description">Comprehensive analysis of 1,000 movies covering genres, directors, ratings, and production trends. Genre patterns, director productivity, and quality indicators for content strategy.</p>
+                        <div class="kpi-grid">
+                            <div class="kpi-card">
+                                <div class="kpi-label">Movies</div>
+                                <div class="kpi-value">1,000</div>
+                            </div>
+                            <div class="kpi-card">
+                                <div class="kpi-label">Genres</div>
+                                <div class="kpi-value">1,654</div>
+                            </div>
+                            <div class="kpi-card">
+                                <div class="kpi-label">Top Genre</div>
+                                <div class="kpi-value">Drama</div>
+                            </div>
+                            <div class="kpi-card">
+                                <div class="kpi-label">Peak Year</div>
+                                <div class="kpi-value">2014</div>
                             </div>
                         </div>
-                        <p class="project-description">Comprehensive analysis of 1,000 movies covering genres, directors, ratings, and production trends. Genre patterns, director productivity, and quality indicators for content strategy planning.</p>
-                        
-                        <div class="kpi-section">
-                            <h4>📊 Key Insights</h4>
-                            <div class="kpi-grid">
-                                <div class="kpi-card"><div class="kpi-label">Movies</div><div class="kpi-value">1,000</div></div>
-                                <div class="kpi-card"><div class="kpi-label">Genres</div><div class="kpi-value">1,654</div></div>
-                                <div class="kpi-card"><div class="kpi-label">Top Genre</div><div class="kpi-value">Drama</div></div>
-                                <div class="kpi-card"><div class="kpi-label">Peak Year</div><div class="kpi-value">2014</div></div>
-                                <div class="kpi-card"><div class="kpi-label">Top Director</div><div class="kpi-value">Woody A.</div></div>
-                                <div class="kpi-card"><div class="kpi-label">Directed</div><div class="kpi-value">50</div></div>
-                                <div class="kpi-card"><div class="kpi-label">Written</div><div class="kpi-value">46</div></div>
-                                <div class="kpi-card"><div class="kpi-label">Perfect Ratings</div><div class="kpi-value">Multiple</div></div>
-                            </div>
-                        </div>
-
-                        <div class="recommendations-section">
+                        <div class="recommendations">
                             <h4>💡 Business Recommendations</h4>
-                            <div class="recommendations-list">
-                                <div class="recommendation-item">Acquire more drama content as dominant genre shows sustained market appeal</div>
-                                <div class="recommendation-item">Analyze 2014 production peak conditions to replicate success factors</div>
-                                <div class="recommendation-item">Partner with prolific directors whose filmography shows consistent audience appeal</div>
-                                <div class="recommendation-item">Highlight perfect-rated movies in marketing for quality-based subscriber acquisition</div>
-                            </div>
+                            <ul>
+                                <li>Invest in drama content production as dominant genre</li>
+                                <li>Partner with prolific directors like Woody Allen</li>
+                                <li>Highlight perfect-rated movies for subscriber acquisition</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <img src="Assets/World-Population-2020.png" alt="World Population 2020" class="project-image">
+                    <img src="Assets/World-Population-2020.png" alt="World Population" class="project-image">
                     <div class="project-content">
-                        <div class="project-header">
-                            <h3 class="project-title">World Population 2020 Analysis</h3>
-                            <div class="project-meta">
-                                <span class="project-tag">Demographics</span>
-                                <span class="project-tag">Geographic</span>
-                                <span class="project-tag">Growth</span>
-                            </div>
+                        <h3 class="project-title">World Population 2020 Analysis</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">Demographics</span>
+                            <span class="project-tag">Geographic</span>
+                            <span class="project-tag">Growth</span>
                         </div>
                         <p class="project-description">Global demographic analysis of 235 countries examining population distribution, density, growth rates, and geographic characteristics for market sizing and expansion planning.</p>
-                        
-                        <div class="kpi-section">
-                            <h4>📊 Key Insights</h4>
-                            <div class="kpi-grid">
-                                <div class="kpi-card"><div class="kpi-label">Countries</div><div class="kpi-value">235</div></div>
-                                <div class="kpi-card"><div class="kpi-label">100M+</div><div class="kpi-value">14</div></div>
-                                <div class="kpi-card"><div class="kpi-label">Largest Pop</div><div class="kpi-value">China</div></div>
-                                <div class="kpi-card"><div class="kpi-label">China %</div><div class="kpi-value">18.5%</div></div>
-                                <div class="kpi-card"><div class="kpi-label">Fastest Growth</div><div class="kpi-value">India</div></div>
-                                <div class="kpi-card"><div class="kpi-label">Highest Density</div><div class="kpi-value">Bangladesh</div></div>
-                                <div class="kpi-card"><div class="kpi-label">Urban %</div><div class="kpi-value">24.36%</div></div>
-                                <div class="kpi-card"><div class="kpi-label">Largest Area</div><div class="kpi-value">Russia</div></div>
+                        <div class="kpi-grid">
+                            <div class="kpi-card">
+                                <div class="kpi-label">Countries</div>
+                                <div class="kpi-value">235</div>
+                            </div>
+                            <div class="kpi-card">
+                                <div class="kpi-label">100M+ Pop</div>
+                                <div class="kpi-value">14</div>
+                            </div>
+                            <div class="kpi-card">
+                                <div class="kpi-label">Fastest Growth</div>
+                                <div class="kpi-value">India</div>
+                            </div>
+                            <div class="kpi-card">
+                                <div class="kpi-label">Largest Pop</div>
+                                <div class="kpi-value">China</div>
                             </div>
                         </div>
-
-                        <div class="recommendations-section">
+                        <div class="recommendations">
                             <h4>💡 Business Recommendations</h4>
-                            <div class="recommendations-list">
-                                <div class="recommendation-item">Prioritize India for growth due to largest annual population increase</div>
-                                <div class="recommendation-item">Develop localized strategies for high-density markets (Bangladesh)</div>
-                                <div class="recommendation-item">Target 14-country mega-markets strategy (100M+ population)</div>
-                                <div class="recommendation-item">Focus urban expansion as 24.36% urbanization shows growth opportunity</div>
-                            </div>
+                            <ul>
+                                <li>Prioritize India for growth due to largest population increase</li>
+                                <li>Target mega-markets with 100M+ populations</li>
+                                <li>Focus urban expansion strategies in developing regions</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <img src="Assets/Students-Performance-Analysis.png" alt="Student Performance Analysis" class="project-image">
+                    <img src="Assets/Students-Performance-Analysis.png" alt="Student Performance" class="project-image">
                     <div class="project-content">
-                        <div class="project-header">
-                            <h3 class="project-title">Student Performance Analytics</h3>
-                            <div class="project-meta">
-                                <span class="project-tag">Education</span>
-                                <span class="project-tag">Metrics</span>
-                                <span class="project-tag">Trends</span>
+                        <h3 class="project-title">Student Performance Analytics</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">Education</span>
+                            <span class="project-tag">Metrics</span>
+                            <span class="project-tag">Intervention</span>
+                        </div>
+                        <p class="project-description">Educational analytics analyzing student performance, GPA trends, and factors affecting outcomes including attendance, parental support, and extracurricular participation.</p>
+                        <div class="kpi-grid">
+                            <div class="kpi-card">
+                                <div class="kpi-label">Avg GPA</div>
+                                <div class="kpi-value">1.91</div>
+                            </div>
+                            <div class="kpi-card">
+                                <div class="kpi-label">Grade A %</div>
+                                <div class="kpi-value">4.48%</div>
+                            </div>
+                            <div class="kpi-card">
+                                <div class="kpi-label">Attendance Impact</div>
+                                <div class="kpi-value">High</div>
+                            </div>
+                            <div class="kpi-card">
+                                <div class="kpi-label">Parent Support</div>
+                                <div class="kpi-value">Positive</div>
                             </div>
                         </div>
-                        <p class="project-description">Educational analytics analyzing student performance, GPA trends, and factors affecting outcomes including attendance, parental support, and extracurriculars for intervention programs.</p>
-                        
-                        <div class="kpi-section">
-                            <h4>📊 Key Insights</h4>
-                            <div class="kpi-grid">
-                                <div class="kpi-card"><div class="kpi-label">Avg GPA</div><div class="kpi-value">1.91</div></div>
-                                <div class="kpi-card"><div class="kpi-label">Grade A %</div><div class="kpi-value">4.48%</div></div>
-                                <div class="kpi-card"><div class="kpi-label">Most Grade</div><div class="kpi-value">F</div></div>
-                                <div class="kpi-card"><div class="kpi-label">Perf Gap</div><div class="kpi-value">Failed&gt;Pass</div></div>
-                                <div class="kpi-card"><div class="kpi-label">Attendance</div><div class="kpi-value">Neg Impact</div></div>
-                                <div class="kpi-card"><div class="kpi-label">Gender Gap</div><div class="kpi-value">Nearly = </div></div>
-                                <div class="kpi-card"><div class="kpi-label">Top Extracurr</div><div class="kpi-value">Sports</div></div>
-                                <div class="kpi-card"><div class="kpi-label">Parent Support</div><div class="kpi-value">Positive</div></div>
-                            </div>
-                        </div>
-
-                        <div class="recommendations-section">
+                        <div class="recommendations">
                             <h4>💡 Business Recommendations</h4>
-                            <div class="recommendations-list">
-                                <div class="recommendation-item">Launch attendance improvement as strong GPA correlation indicates intervention point</div>
-                                <div class="recommendation-item">Implement parental engagement initiatives to leverage positive support impact</div>
-                                <div class="recommendation-item">Create early warning system flagging rising absenteeism before GPA decline</div>
-                                <div class="recommendation-item">Develop remedial support for F-graders to boost overall distribution</div>
-                            </div>
+                            <ul>
+                                <li>Launch attendance improvement program as critical intervention</li>
+                                <li>Implement parental engagement initiatives</li>
+                                <li>Develop remedial support for struggling students</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <div style="padding: 40px; position: relative;">
-                        <div class="project-header" style="margin-bottom: 0;">
-                            <h3 class="project-title">E-Commerce Multi-Store Sales</h3>
-                            <div class="project-meta">
-                                <span class="project-tag">Power BI</span>
-                                <span class="project-tag">SQL</span>
-                                <span class="project-tag">Analytics</span>
+                    <div class="slider" id="slider">
+                        <img src="Assets/E-Commerce-Sales-Store-1.png" alt="Store 1" class="slider-img active">
+                        <img src="Assets/E-Commerce-Sales-Store-2.png" alt="Store 2" class="slider-img">
+                        <img src="Assets/E-Commerce-Sales-Store-3.png" alt="Store 3" class="slider-img">
+                        <img src="Assets/E-Commerce-Sales-Store-4.png" alt="Store 4" class="slider-img">
+                        <div class="slider-controls">
+                            <button class="slider-btn" onclick="prevSlide()">❮</button>
+                            <button class="slider-btn" onclick="nextSlide()">❯</button>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">E-Commerce Multi-Store Sales</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">Power BI</span>
+                            <span class="project-tag">SQL</span>
+                            <span class="project-tag">Multi-Store</span>
+                        </div>
+                        <p class="project-description">Unified analytics platform for 4 retail stores with comprehensive sales, regional performance, salesperson metrics, customer segmentation, and shipping analysis.</p>
+                        <div class="kpi-grid">
+                            <div class="kpi-card">
+                                <div class="kpi-label">West Region %</div>
+                                <div class="kpi-value">31.58%</div>
+                            </div>
+                            <div class="kpi-card">
+                                <div class="kpi-label">Top Category</div>
+                                <div class="kpi-value">Technology</div>
+                            </div>
+                            <div class="kpi-card">
+                                <div class="kpi-label">Top Salesperson</div>
+                                <div class="kpi-value">Andrea</div>
+                            </div>
+                            <div class="kpi-card">
+                                <div class="kpi-label">Peak Year</div>
+                                <div class="kpi-value">2017</div>
                             </div>
                         </div>
-                        <p class="project-description" style="margin-top: 20px;">Unified analytics platform for 4 retail stores with comprehensive sales, regional performance, salesperson metrics, customer segmentation, and shipping analysis.</p>
-                        
-                        <div class="project-slider" style="margin: 30px 0;">
-                            <img src="Assets/E-Commerce-Sales-Store-1.png" alt="E-Commerce Store 1" class="slider-image active">
-                            <img src="Assets/E-Commerce-Sales-Store-2.png" alt="E-Commerce Store 2" class="slider-image">
-                            <img src="Assets/E-Commerce-Sales-Store-3.png" alt="E-Commerce Store 3" class="slider-image">
-                            <img src="Assets/E-Commerce-Sales-Store-4.png" alt="E-Commerce Store 4" class="slider-image">
-                            
-                            <div class="slider-controls">
-                                <button class="slider-btn" onclick="previousSlide(this)">❮</button>
-                                <button class="slider-btn" onclick="nextSlide(this)">❯</button>
-                            </div>
-                        </div>
-
-                        <div class="kpi-section">
-                            <h4>📊 Key Insights</h4>
-                            <div class="kpi-grid">
-                                <div class="kpi-card"><div class="kpi-label">West %</div><div class="kpi-value">31.58%</div></div>
-                                <div class="kpi-card"><div class="kpi-label">Top Category</div><div class="kpi-value">Technology</div></div>
-                                <div class="kpi-card"><div class="kpi-label">Top Salesman</div><div class="kpi-value">Andrea</div></div>
-                                <div class="kpi-card"><div class="kpi-label">Peak Year</div><div class="kpi-value">2017</div></div>
-                                <div class="kpi-card"><div class="kpi-label">Top Customer</div><div class="kpi-value">Sean Miller</div></div>
-                                <div class="kpi-card"><div class="kpi-label">Top Segment</div><div class="kpi-value">Consumer</div></div>
-                                <div class="kpi-card"><div class="kpi-label">Shipping</div><div class="kpi-value">Standard</div></div>
-                                <div class="kpi-card"><div class="kpi-label">Sales Corr</div><div class="kpi-value">Positive</div></div>
-                            </div>
-                        </div>
-
-                        <div class="recommendations-section">
+                        <div class="recommendations">
                             <h4>💡 Business Recommendations</h4>
-                            <div class="recommendations-list">
-                                <div class="recommendation-item">Expand West Region operations due to 31.58% sales concentration strength</div>
-                                <div class="recommendation-item">Invest in technology category expansion as top performer</div>
-                                <div class="recommendation-item">Incentivize sales team using Andrea's success metrics as model</div>
-                                <div class="recommendation-item">Implement Row-Level Security strategy for regional category management</div>
-                            </div>
+                            <ul>
+                                <li>Expand West Region operations - proven market strength</li>
+                                <li>Invest in technology category expansion</li>
+                                <li>Replicate Andrea's success model across team</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <section class="section" style="background: linear-gradient(135deg, var(--background) 0%, var(--secondary) 100%);">
+    <section class="section" style="background: var(--card-bg);" id="contact">
         <div class="container">
-            <h2 class="section-title">Certifications</h2>
-            
-            <div class="certs-grid">
-                <div class="cert-card">
-                    <div class="cert-icon">📊</div>
-                    <div class="cert-name">PL-300</div>
-                    <div class="cert-issuer">Microsoft Power BI</div>
-                </div>
-                <div class="cert-card">
-                    <div class="cert-icon">🎓</div>
-                    <div class="cert-name">ITI</div>
-                    <div class="cert-issuer">Database & BI</div>
-                </div>
-                <div class="cert-card">
-                    <div class="cert-icon">🏆</div>
-                    <div class="cert-name">Oracle</div>
-                    <div class="cert-issuer">Database Certification</div>
-                </div>
-                <div class="cert-card">
-                    <div class="cert-icon">🔍</div>
-                    <div class="cert-name">SQL</div>
-                    <div class="cert-issuer">Advanced SQL</div>
-                </div>
-                <div class="cert-card">
-                    <div class="cert-icon">⚡</div>
-                    <div class="cert-name">Power BI</div>
-                    <div class="cert-issuer">Data Visualization</div>
-                </div>
-                <div class="cert-card">
-                    <div class="cert-icon">🎯</div>
-                    <div class="cert-name">ETL</div>
-                    <div class="cert-issuer">Data Integration</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section education" style="background: var(--secondary);">
-        <div class="container">
-            <h2 class="section-title">Education</h2>
-            
-            <div class="education-timeline">
-                <div class="education-item">
-                    <div class="education-year">2008-2011</div>
-                    <div class="education-school">Preparatory School</div>
-                    <div class="education-degree">Ranked 2nd Governorate | 382.5 Score</div>
-                </div>
-
-                <div class="education-item">
-                    <div class="education-year">2011-2014</div>
-                    <div class="education-school">Secondary School</div>
-                    <div class="education-degree">4th, 6th, 2nd Place (Math) | Consistent Excellence</div>
-                </div>
-
-                <div class="education-item">
-                    <div class="education-year">2014-2018</div>
-                    <div class="education-school">Minia University</div>
-                    <div class="education-degree">Faculty of Computers and Information | Computer Science</div>
-                </div>
-
-                <div class="education-item">
-                    <div class="education-year">2018-2019</div>
-                    <div class="education-school">Military Service</div>
-                    <div class="education-degree">Completed Mandatory Service</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section" style="background: linear-gradient(135deg, var(--background) 0%, var(--secondary) 100%);">
-        <div class="container">
-            <h2 class="section-title">Awards & Recognition</h2>
-            
-            <div class="award-card">
-                <div class="award-icon">🏓</div>
-                <h3 class="award-title">Three-Time Table Tennis Champion</h3>
-                <p class="award-description">
-                    Faculty of Computers and Artificial Intelligence, Minia University<br><br>
-                    Won First Place in the Table Tennis Championship three consecutive times, 
-                    demonstrating dedication, precision, and competitive excellence.
+            <h2 class="section-title">Get In Touch</h2>
+            <div style="max-width: 600px; margin: 0 auto; text-align: center;">
+                <p style="font-size: 18px; color: var(--text-light); margin-bottom: 40px;">
+                    Ready to transform your data into actionable insights? Let's connect!
                 </p>
-            </div>
-        </div>
-    </section>
-
-    <section class="section languages">
-        <div class="container">
-            <h2 class="section-title">Languages</h2>
-            
-            <div class="languages-grid">
-                <div class="language-card">
-                    <div class="language-name">Arabic</div>
-                    <div class="language-level">
-                        <div class="language-progress" style="width: 100%; background: linear-gradient(90deg, var(--accent-pink), var(--accent-yellow));"></div>
-                    </div>
-                    <div style="font-size: 12px; color: var(--text-light); margin-top: 8px; font-weight: 700;">Native</div>
-                </div>
-
-                <div class="language-card">
-                    <div class="language-name">English</div>
-                    <div class="language-level">
-                        <div class="language-progress" style="width: 90%; background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));"></div>
-                    </div>
-                    <div style="font-size: 12px; color: var(--text-light); margin-top: 8px; font-weight: 700;">Fluent</div>
-                </div>
-
-                <div class="language-card">
-                    <div class="language-name">Spanish</div>
-                    <div class="language-level">
-                        <div class="language-progress" style="width: 30%; background: linear-gradient(90deg, var(--accent-green), var(--accent-yellow));"></div>
-                    </div>
-                    <div style="font-size: 12px; color: var(--text-light); margin-top: 8px; font-weight: 700;">Basic</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section" style="background: var(--secondary);">
-        <div class="container">
-            <h2 class="section-title">Interests & Hobbies</h2>
-            
-            <div class="interests-grid">
-                <div class="interest-card">
-                    <div class="interest-icon">⚽</div>
-                    <div class="interest-name">Football</div>
-                </div>
-                <div class="interest-card">
-                    <div class="interest-icon">📚</div>
-                    <div class="interest-name">Reading</div>
-                </div>
-                <div class="interest-card">
-                    <div class="interest-icon">💻</div>
-                    <div class="interest-name">Technology</div>
-                </div>
-                <div class="interest-card">
-                    <div class="interest-icon">♟️</div>
-                    <div class="interest-name">Chess</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section contact" id="contact">
-        <div class="contact-wrapper">
-            <div class="container">
-                <h2 class="contact-title">Let's Connect</h2>
-
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-label">Email</div>
-                        <div class="contact-value">bishoygeorge172000@gmail.com</div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-label">Phone</div>
-                        <div class="contact-value">+20 1224731057</div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-label">WhatsApp</div>
-                        <div class="contact-value">+20 1224731057</div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-label">Location</div>
-                        <div class="contact-value">Cairo, Egypt</div>
-                    </div>
-                </div>
-
-                <div class="contact-buttons">
-                    <a href="mailto:bishoygeorge172000@gmail.com" class="contact-btn">Email Me</a>
-                    <a href="https://wa.me/201224731057" target="_blank" rel="noopener" class="contact-btn">WhatsApp</a>
-                    <a href="https://www.linkedin.com/in/bishoy-george24" target="_blank" rel="noopener" class="contact-btn">LinkedIn</a>
-                    <a href="https://github.com/bichoygeorge" target="_blank" rel="noopener" class="contact-btn">GitHub</a>
+                <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
+                    <a href="mailto:bishoygeorge172000@gmail.com" class="btn">Email Me</a>
+                    <a href="https://wa.me/201224731057" target="_blank" class="btn btn-dark">WhatsApp</a>
+                    <a href="https://linkedin.com/in/bishoy-george24" target="_blank" class="btn btn-dark">LinkedIn</a>
+                    <a href="https://github.com/bichoygeorge" target="_blank" class="btn btn-dark">GitHub</a>
                 </div>
             </div>
         </div>
@@ -2371,72 +1181,97 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Bishoy George</h3>
-                <p>Senior Data Analyst & BI Developer specializing in transforming data into competitive advantage. Passionate about solving complex business problems with elegant data solutions.</p>
+                <p>Data Analyst & BI Developer transforming complex data into strategic business intelligence. Specialized in Power BI, SQL, ETL, and data warehouse solutions.</p>
             </div>
-
-            <div class="footer-section">
-                <h3>Navigation</h3>
-                <div class="footer-links">
-                    <a href="#home">Home</a>
-                    <a href="#about">About</a>
-                    <a href="#career">Career</a>
-                    <a href="#skills">Skills</a>
-                    <a href="#projects">Projects</a>
-                    <a href="#contact">Contact</a>
-                </div>
-            </div>
-
             <div class="footer-section">
                 <h3>Quick Links</h3>
-                <div class="footer-links">
-                    <a href="https://www.linkedin.com/in/bishoy-george24" target="_blank" rel="noopener">LinkedIn Profile</a>
-                    <a href="https://github.com/bichoygeorge" target="_blank" rel="noopener">GitHub Portfolio</a>
-                    <a href="mailto:bishoygeorge172000@gmail.com">Send Email</a>
-                </div>
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
             </div>
-
             <div class="footer-section">
-                <h3>Expertise</h3>
-                <p>Power BI • SQL • Python • ETL • Data Warehousing • DAX • Dashboard Design • Business Intelligence</p>
+                <h3>Contact</h3>
+                <p>Email: bishoygeorge172000@gmail.com</p>
+                <p>Phone: +20 1224731057</p>
+                <p>Location: Cairo, Egypt</p>
             </div>
         </div>
-
         <div class="footer-bottom">
-            <p class="footer-copyright">&copy; 2024 Bishoy George. All rights reserved. | Premium Portfolio</p>
-            <button class="back-to-top" id="backToTopBtn" title="Back to Top">↑</button>
+            <p>&copy; 2024 Bishoy George. All rights reserved. | Premium Data Analytics Portfolio</p>
         </div>
     </footer>
 
     <script>
-        window.addEventListener('load', function() {
+        // Loading Screen
+        window.addEventListener('load', () => {
             setTimeout(() => {
-                document.getElementById('loadingScreen').classList.add('hidden');
-            }, 2000);
+                document.getElementById('loading').classList.add('hidden');
+            }, 1500);
         });
 
+        // Mobile Menu
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
 
-        hamburger.addEventListener('click', function() {
-            hamburger.classList.toggle('active');
+        hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('active');
         });
 
-        document.querySelectorAll('.nav-links a').forEach(link => {
+        document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
                 navLinks.classList.remove('active');
             });
         });
 
+        // Slider
+        let sliderIndex = 0;
+        const sliderImages = document.querySelectorAll('.slider-img');
+
+        function showSlide(n) {
+            sliderImages.forEach(img => img.classList.remove('active'));
+            sliderImages[n].classList.add('active');
+        }
+
+        function nextSlide() {
+            sliderIndex = (sliderIndex + 1) % sliderImages.length;
+            showSlide(sliderIndex);
+        }
+
+        function prevSlide() {
+            sliderIndex = (sliderIndex - 1 + sliderImages.length) % sliderImages.length;
+            showSlide(sliderIndex);
+        }
+
+        // Auto play slider
+        setInterval(nextSlide, 5000);
+
+        // Scroll Animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        document.querySelectorAll('.stat-card, .skill-card, .project-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Active nav highlight
         const sections = document.querySelectorAll('section');
-        const navItems = document.querySelectorAll('.nav-links a');
+        const navItems = document.querySelectorAll('.nav-link');
 
         window.addEventListener('scroll', () => {
             let current = '';
             sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (scrollY >= (sectionTop - 200)) {
+                if (window.scrollY >= section.offsetTop - 200) {
                     current = section.getAttribute('id');
                 }
             });
@@ -2445,93 +1280,6 @@
                 item.classList.remove('active');
                 if (item.getAttribute('href').slice(1) === current) {
                     item.classList.add('active');
-                }
-            });
-
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        const counters = document.querySelectorAll('.counter');
-        let hasAnimated = false;
-
-        window.addEventListener('scroll', () => {
-            if (!hasAnimated) {
-                counters.forEach(counter => {
-                    const target = parseInt(counter.getAttribute('data-target'));
-                    let current = 0;
-                    const increment = target / 40;
-                    
-                    const interval = setInterval(() => {
-                        current += increment;
-                        if (current >= target) {
-                            counter.textContent = target;
-                            clearInterval(interval);
-                        } else {
-                            counter.textContent = Math.floor(current);
-                        }
-                    }, 30);
-                });
-                hasAnimated = true;
-            }
-        });
-
-        function nextSlide(button) {
-            const slider = button.closest('.project-slider');
-            const images = slider.querySelectorAll('.slider-image');
-            let current = 0;
-            
-            images.forEach((img, index) => {
-                if (img.classList.contains('active')) {
-                    current = index;
-                }
-            });
-
-            images[current].classList.remove('active');
-            current = (current + 1) % images.length;
-            images[current].classList.add('active');
-        }
-
-        function previousSlide(button) {
-            const slider = button.closest('.project-slider');
-            const images = slider.querySelectorAll('.slider-image');
-            let current = 0;
-            
-            images.forEach((img, index) => {
-                if (img.classList.contains('active')) {
-                    current = index;
-                }
-            });
-
-            images[current].classList.remove('active');
-            current = (current - 1 + images.length) % images.length;
-            images[current].classList.add('active');
-        }
-
-        const backToTopBtn = document.getElementById('backToTopBtn');
-
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 500) {
-                backToTopBtn.classList.remove('hidden');
-            } else {
-                backToTopBtn.classList.add('hidden');
-            }
-        });
-
-        backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                if (href !== '#' && document.querySelector(href)) {
-                    e.preventDefault();
-                    document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
                 }
             });
         });
