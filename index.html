@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bishoy George | Senior Data Analyst Portfolio</title>
-    <!-- استدعاء خط Plus Jakarta Sans الشيك من جوجل -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,600;0,800;1,400&display=swap" rel="stylesheet">
@@ -17,7 +16,10 @@
             --accent-blue: #38bdf8;
             --accent-green: #4ade80;
             --accent-purple: #c084fc;
+            --accent-orange: #ff9a56;
+            --accent-red: #ff6b6b;
             --border: 3px solid #000;
+            --transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         html {
@@ -27,18 +29,20 @@
         body {
             background: var(--bg-main);
             color: var(--text-dark);
-            font-family: 'Plus Jakarta Sans', sans-serif; /* تطبيق الخط الشيك الجديد هنا */
+            font-family: 'Plus Jakarta Sans', sans-serif;
             margin: 0;
             padding: 10px;
+            overflow-x: hidden;
         }
 
         .container {
             max-width: 1200px;
             margin: auto;
-            padding-top: 140px; 
+            padding-top: 140px;
+            padding-bottom: 100px;
         }
 
-        /* حماية الـ Nav من تداخل الكلمات والأسطر */
+        /* ==================== NAVIGATION ==================== */
         nav {
             display: flex;
             gap: 8px;
@@ -52,102 +56,290 @@
             background: var(--accent-yellow);
             border: var(--border);
             padding: 12px;
-            box-shadow: 6px 6px 0px #000;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
             border-radius: 12px;
+            backdrop-filter: blur(10px);
+            animation: slideDown 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
         nav button {
             background: #fff;
             color: #000;
             border: 2px solid #000;
-            padding: 8px 12px;
+            padding: 10px 14px;
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 0.85rem;
-            font-weight: 600;
-            box-shadow: 2px 2px 0px #000;
-            border-radius: 6px;
+            font-weight: 700;
+            box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
             cursor: pointer;
-            transition: all 0.1s;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        nav button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
+            transition: left 0.4s ease;
+            z-index: -1;
         }
 
         nav button:hover {
             background: var(--text-dark);
             color: #fff;
+            transform: translate(-3px, -3px);
+            box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.2);
+        }
+
+        nav button:hover::before {
+            left: 100%;
+        }
+
+        nav button:active {
             transform: translate(-1px, -1px);
-            box-shadow: 3px 3px 0px #000;
+        }
+
+        /* ==================== ANIMATIONS ==================== */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        @keyframes floatBadge {
+            0% { transform: translate(0, 0) rotate(-5deg); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translate(0, -20px) rotate(0deg); opacity: 0; }
         }
 
         .page-section {
             scroll-margin-top: 160px;
-            margin-bottom: 40px;
+            margin-bottom: 70px;
+            animation: fadeInUp 0.7s ease-out;
+            opacity: 0;
+            animation-fill-mode: forwards;
         }
 
+        .page-section:nth-child(1) { animation-delay: 0s; }
+        .page-section:nth-child(2) { animation-delay: 0.1s; }
+        .page-section:nth-child(3) { animation-delay: 0.2s; }
+        .page-section:nth-child(4) { animation-delay: 0.3s; }
+
+        /* ==================== CARDS ==================== */
         .card {
             background: #ffffff;
             border: var(--border);
             border-radius: 12px;
-            padding: 25px;
-            box-shadow: 8px 8px 0px #000;
-            margin-bottom: 25px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
         }
 
-        h1, h2, h3 {
-            font-weight: 800; /* إعطاء وزن عريض للعناوين يناسب الـ Neo-Brutalism */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 222, 77, 0.08) 0%, rgba(56, 189, 248, 0.08) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .card:hover {
+            transform: translate(-6px, -6px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ==================== TYPOGRAPHY ==================== */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 800;
+            letter-spacing: -0.8px;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 3.2rem;
+            line-height: 1.1;
+            margin-bottom: 10px;
+            animation: slideInLeft 0.7s ease-out;
         }
 
         h2.section-title {
-            background: var(--accent-blue);
-            padding: 8px 16px;
+            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-green) 100%);
+            padding: 14px 24px;
             border: var(--border);
-            display: inline-block;
-            font-size: 1.4rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
             margin-top: 0;
-            margin-bottom: 20px;
-            box-shadow: 4px 4px 0px #000;
+            margin-bottom: 35px;
+            box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.15);
+            border-radius: 10px;
+            animation: slideInLeft 0.6s ease-out 0.1s both;
+            color: #fff;
+        }
+
+        h2.section-title i {
+            font-size: 1.4rem;
         }
 
         h3 {
+            margin-top: 30px;
+            font-size: 1.35rem;
+            border-bottom: 4px solid #000;
+            padding-bottom: 12px;
+            animation: slideInLeft 0.5s ease-out 0.15s both;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 i {
+            font-size: 1.2rem;
+            color: var(--accent-blue);
+            flex-shrink: 0;
+        }
+
+        h4 {
+            font-size: 1.1rem;
             margin-top: 0;
-            font-size: 1.25rem;
-            border-bottom: 2px solid #000;
-            padding-bottom: 8px;
+            margin-bottom: 5px;
         }
 
-        .insight-box {
-            background: var(--bg-main);
-            border-left: 5px solid var(--accent-purple);
-            padding: 12px 15px;
-            margin-top: 15px;
-            font-size: 0.95rem;
-            line-height: 1.5;
+        p {
+            line-height: 1.8;
+            margin: 12px 0;
         }
 
-        .insight-box strong {
+        /* ==================== HERO SECTION ==================== */
+        header {
+            background: linear-gradient(135deg, #fff 0%, rgba(255, 222, 77, 0.08) 100%);
+        }
+
+        header h1 {
             color: #000;
-            background: var(--accent-green);
-            padding: 2px 6px;
-            border: 1px solid #000;
-            font-size: 0.85rem;
-        }
-
-        .grid-2 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
-        }
-
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
         }
 
         .image-container {
             position: relative;
             max-width: 100%;
-            width: 450px;
+            width: 480px;
             margin: auto;
+            animation: slideInRight 0.7s ease-out;
+            z-index: 10;
         }
+
+        .image-container::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 400px;
+            height: 400px;
+            border: 4px dashed rgba(56, 189, 248, 0.25);
+            border-radius: 50%;
+            z-index: 0;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .image-container::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            width: 350px;
+            height: 350px;
+            border: 4px solid rgba(255, 222, 77, 0.2);
+            border-radius: 25%;
+            z-index: 0;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        /* Floating tech badges */
+        .floating-badges {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .badge-float {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid #000;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.75rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            animation: float 5s ease-in-out infinite;
+            z-index: 20;
+        }
+
+        .badge-float:nth-child(1) { top: -20px; right: 20px; animation-delay: 0s; }
+        .badge-float:nth-child(2) { top: 50px; right: -30px; animation-delay: 1s; }
+        .badge-float:nth-child(3) { bottom: 30px; left: -25px; animation-delay: 2s; }
+        .badge-float:nth-child(4) { bottom: 60px; right: 20px; animation-delay: 0.5s; }
 
         .profile-frame {
             width: 100%;
@@ -155,55 +347,523 @@
             aspect-ratio: 1;
             object-fit: cover;
             border: var(--border);
-            border-radius: 12px;
-            box-shadow: 6px 6px 0px #000;
+            border-radius: 18px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 10;
+            transition: var(--transition);
+            transform-origin: center;
         }
 
-        .project-img {
-            width: 100%;
-            border: var(--border);
-            border-radius: 6px;
-            margin-top: 12px;
-            box-shadow: 4px 4px 0px #000;
+        .profile-frame:hover {
+            transform: translate(-4px, -4px) scale(1.01);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
         }
 
-        .tag {
-            background: #fff;
-            padding: 4px 8px;
+        /* ==================== GRIDS ==================== */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        /* ==================== INSIGHT BOXES ==================== */
+        .insight-box {
+            background: linear-gradient(135deg, var(--bg-main) 0%, rgba(255, 255, 255, 0.7) 100%);
+            border-left: 6px solid var(--accent-purple);
+            border-top: 3px solid var(--accent-purple);
+            border-radius: 10px;
+            padding: 22px 24px;
+            margin-top: 20px;
+            font-size: 0.98rem;
+            line-height: 1.7;
+            transition: var(--transition);
+            box-shadow: 0 4px 12px rgba(192, 132, 252, 0.1);
+            animation: slideInLeft 0.5s ease-out 0.2s both;
+        }
+
+        .insight-box:hover {
+            box-shadow: 0 8px 24px rgba(192, 132, 252, 0.15);
+            transform: translateY(-3px);
+            border-top-width: 4px;
+        }
+
+        .insight-box strong {
+            color: #fff;
+            background: linear-gradient(135deg, var(--accent-purple) 0%, #a855f7 100%);
+            padding: 5px 10px;
             border: 2px solid #000;
-            border-radius: 4px;
             font-size: 0.8rem;
-            font-weight: 600;
-            display: inline-block;
-            margin: 3px;
+            border-radius: 5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-right: 8px;
+            font-weight: 700;
         }
 
+        /* ==================== TIMELINE ==================== */
         .story-timeline {
-            border-left: 2px dashed #000;
-            padding-left: 15px;
-            margin-top: 15px;
+            border-left: 4px solid #000;
+            padding-left: 25px;
+            margin-top: 20px;
+            position: relative;
         }
 
         .timeline-item {
-            margin-bottom: 15px;
+            margin-bottom: 28px;
+            font-size: 0.98rem;
+            line-height: 1.8;
+            position: relative;
+            animation: slideInLeft 0.5s ease-out;
+            padding-left: 5px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -28px;
+            top: 6px;
+            width: 18px;
+            height: 18px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
+            border: 3px solid #fff;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            z-index: 5;
+        }
+
+        .timeline-item:hover::before {
+            transform: scale(1.2);
+            box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
+        }
+
+        .timeline-item strong {
+            color: var(--accent-blue);
+            font-weight: 800;
+        }
+
+        /* ==================== KPI BOXES ==================== */
+        .kpi-box {
+            border: 3px solid #000;
+            padding: 28px 20px;
+            background: linear-gradient(135deg, #fff 0%, rgba(255, 222, 77, 0.08) 100%);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+            transition: var(--transition);
+            animation: scaleIn 0.5s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .kpi-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent-yellow), var(--accent-blue), var(--accent-green));
+            z-index: 1;
+        }
+
+        .kpi-box:hover {
+            transform: translate(-5px, -5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .kpi-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+            display: inline-block;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .kpi-box strong {
+            font-size: 1.3rem;
+            display: block;
+            margin: 10px 0;
+        }
+
+        .kpi-box p {
+            font-size: 0.85rem;
+            color: #666;
+            margin: 0;
+        }
+
+        /* ==================== PROJECTS ==================== */
+        .project-img {
+            width: 100%;
+            border: var(--border);
+            border-radius: 14px;
+            margin-top: 18px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+            transition: var(--transition);
+            animation: scaleIn 0.6s ease-out;
+        }
+
+        .project-img:hover {
+            transform: translate(-4px, -4px) scale(1.02);
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
+        }
+
+        /* ==================== TAGS ==================== */
+        .tag {
+            background: linear-gradient(135deg, #fff 0%, rgba(56, 189, 248, 0.08) 100%);
+            padding: 8px 14px;
+            border: 2px solid #000;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin: 5px 5px 5px 0;
+            transition: var(--transition);
+            cursor: default;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .tag:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+            background: linear-gradient(135deg, var(--accent-yellow) 0%, rgba(255, 222, 77, 0.3) 100%);
+        }
+
+        .tag i {
+            font-size: 0.8rem;
+        }
+
+        /* ==================== TECH SKILLS DISPLAY ==================== */
+        .tech-skill-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .tech-skill-item {
+            background: linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.6) 100%);
+            border: 2px solid #000;
+            border-radius: 10px;
+            padding: 18px;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            animation: scaleIn 0.5s ease-out;
+        }
+
+        .tech-skill-item:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            background: linear-gradient(135deg, var(--accent-yellow) 0%, rgba(255, 222, 77, 0.15) 100%);
+        }
+
+        .tech-logo {
+            font-size: 36px;
+            margin-bottom: 10px;
+            display: block;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tech-name {
+            font-weight: 700;
             font-size: 0.95rem;
+        }
+
+        /* ==================== CERTIFICATION CARDS ==================== */
+        .cert-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .cert-item {
+            background: linear-gradient(135deg, #fff 0%, rgba(74, 222, 128, 0.08) 100%);
+            border: 3px solid #000;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 8px 20px rgba(74, 222, 128, 0.1);
+            transition: var(--transition);
+            animation: slideInLeft 0.5s ease-out;
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .cert-item:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 0 15px 35px rgba(74, 222, 128, 0.15);
+        }
+
+        .cert-icon {
+            font-size: 32px;
+            color: var(--accent-green);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .cert-content h4 {
+            color: var(--accent-blue);
+            margin-bottom: 5px;
+        }
+
+        .cert-content p {
+            font-size: 0.9rem;
+            color: #555;
+            margin: 0;
+        }
+
+        /* ==================== BUTTONS ==================== */
+        a[href*="pdf"], a[href*="linkedin"], a[href*="github"] {
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        a[href*="pdf"] {
+            background: var(--accent-yellow);
+            color: #000;
+            padding: 12px 24px;
+            border: var(--border);
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 8px;
+            box-shadow: 0 6px 16px rgba(255, 222, 77, 0.2);
+        }
+
+        a[href*="pdf"]:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 0 12px 30px rgba(255, 222, 77, 0.3);
+        }
+
+        a[href*="linkedin"], a[href*="github"] {
+            padding: 12px 20px;
+            border: 3px solid #000;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 8px;
+            background: #fff;
+            color: #000;
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        a[href*="linkedin"]:hover {
+            background: var(--accent-blue);
+            color: white;
+            transform: translate(-3px, -3px);
+            box-shadow: 0 10px 25px rgba(56, 189, 248, 0.2);
+        }
+
+        a[href*="github"]:hover {
+            background: #000;
+            color: white;
+            transform: translate(-3px, -3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ==================== LIST ITEMS ==================== */
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 16px;
+            padding-left: 35px;
+            line-height: 1.7;
+            position: relative;
+            font-size: 0.98rem;
+            animation: slideInLeft 0.5s ease-out;
+        }
+
+        ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 6px;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-blue) 100%);
+            border: 2px solid #000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        ul li::after {
+            content: '✓';
+            position: absolute;
+            left: 4px;
+            top: 1px;
+            color: white;
+            font-weight: 800;
+            font-size: 0.85rem;
+        }
+
+        ul li strong {
+            color: var(--accent-blue);
+            font-weight: 800;
+        }
+
+        /* ==================== FOOTER ==================== */
+        footer {
+            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+            color: #fff;
+            text-align: center;
+            padding: 40px 20px 30px;
+            border-top: var(--border);
+            margin-top: 80px;
+            animation: slideUp 0.6s ease-out;
+            box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        footer p {
+            margin: 10px 0;
+            font-size: 0.95rem;
+            opacity: 0.95;
             line-height: 1.6;
         }
-        
-        .kpi-box {
-            border: 2px solid #000;
-            padding: 12px;
-            background: #fff;
-            box-shadow: 3px 3px 0px #000;
-            font-weight: 600;
-            border-radius: 6px;
-            text-align: center;
+
+        footer a {
+            color: var(--accent-yellow);
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition);
+        }
+
+        footer a:hover {
+            color: var(--accent-blue);
+            text-decoration: underline;
+        }
+
+        footer i {
+            margin-right: 4px;
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 1024px) {
+            .container {
+                padding-top: 160px;
+            }
+            
+            h1 {
+                font-size: 2.4rem;
+            }
+
+            .card {
+                padding: 30px;
+            }
         }
 
         @media (max-width: 768px) {
-            .container { padding-top: 200px; }
-            nav { padding: 8px; }
-            nav button { font-size: 0.75rem; padding: 6px 10px; }
+            .container {
+                padding-top: 200px;
+                padding-left: 12px;
+                padding-right: 12px;
+            }
+            
+            nav {
+                padding: 10px;
+                gap: 5px;
+            }
+            
+            nav button {
+                font-size: 0.7rem;
+                padding: 8px 10px;
+            }
+            
+            .card {
+                padding: 22px;
+                box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+            }
+            
+            .card:hover {
+                box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+            }
+
+            h1 {
+                font-size: 1.9rem;
+            }
+
+            h2.section-title {
+                font-size: 1.2rem;
+                padding: 10px 16px;
+                margin-bottom: 20px;
+            }
+
+            h3 {
+                font-size: 1.1rem;
+            }
+
+            .image-container {
+                width: 100%;
+                max-width: 380px;
+            }
+
+            .image-container::before,
+            .image-container::after {
+                display: none;
+            }
+
+            header.grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .tech-skill-group {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 12px;
+            }
+
+            footer {
+                padding: 30px 15px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.6rem;
+            }
+
+            h2.section-title {
+                font-size: 1rem;
+            }
+
+            .card {
+                padding: 16px;
+                margin-bottom: 25px;
+            }
+
+            .tech-skill-group {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            nav button i {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -212,35 +872,41 @@
 <div class="container">
 
     <nav>
-        <button onclick="scrollToSection('page1')">1. About</button>
-        <button onclick="scrollToSection('page2')">2. Arsenal</button>
-        <button onclick="scrollToSection('page3')">3. Corporate</button>
-        <button onclick="scrollToSection('page4')">4. E-Commerce</button>
-        <button onclick="scrollToSection('page5')">5. Datasets</button>
-        <button onclick="scrollToSection('page6')">6. Certs</button>
-        <button onclick="scrollToSection('page7')">7. FAQ</button>
-        <button onclick="scrollToSection('page8')">8. Connect</button>
+        <button onclick="scrollToSection('page1')"><i class="fas fa-user"></i> About</button>
+        <button onclick="scrollToSection('page2')"><i class="fas fa-toolbox"></i> Arsenal</button>
+        <button onclick="scrollToSection('page3')"><i class="fas fa-building"></i> Corporate</button>
+        <button onclick="scrollToSection('page4')"><i class="fas fa-shopping-cart"></i> E-Commerce</button>
+        <button onclick="scrollToSection('page5')"><i class="fas fa-database"></i> Datasets</button>
+        <button onclick="scrollToSection('page6')"><i class="fas fa-certificate"></i> Certs</button>
+        <button onclick="scrollToSection('page7')"><i class="fas fa-question-circle"></i> FAQ</button>
+        <button onclick="scrollToSection('page8')"><i class="fas fa-envelope"></i> Connect</button>
     </nav>
 
-    <!-- ==================== PAGE 1 ==================== -->
+    <!-- PAGE 1: ABOUT -->
     <div id="page1" class="page-section">
         <header class="card grid-2" style="align-items: center;">
             <div>
-                <h1>Bishoy George</h1>
-                <p style="font-size: 1.4rem; font-weight: 600; color: #4b5563;">Senior Data Analyst</p>
-                <p>I build enterprise data warehouses, optimize backend queries, and transform massive financial tracking pipelines into flawless executive assets.</p>
+                <h1><i class="fas fa-user-tie"></i> Bishoy George</h1>
+                <p style="font-size: 1.35rem; font-weight: 700; color: #4b5563; margin: 5px 0 15px 0;">Senior Data Analyst</p>
+                <p style="font-size: 1rem; line-height: 1.8; color: #333;">I build enterprise data warehouses, optimize backend queries, and transform massive financial tracking pipelines into flawless executive assets.</p>
                 <br>
-                <a href="https://raw.githubusercontent.com/bichoygeorge/bichoygeorge.github.io/Profile/Bishoy_George_CV.pdf" target="_blank" style="background: var(--accent-yellow); color: #000; padding: 10px 20px; border: var(--border); box-shadow: 4px 4px 0px #000; text-decoration: none; font-weight: 600; border-radius: 6px; display: inline-block;">
+                <a href="https://raw.githubusercontent.com/bichoygeorge/bichoygeorge.github.io/Profile/Bishoy_George_CV.pdf" target="_blank">
                     <i class="fa-solid fa-file-pdf"></i> Download CV
                 </a>
             </div>
             <div class="image-container">
+                <div class="floating-badges">
+                    <div class="badge-float">SQL</div>
+                    <div class="badge-float">Power BI</div>
+                    <div class="badge-float">ETL</div>
+                    <div class="badge-float">Data</div>
+                </div>
                 <img src="https://raw.githubusercontent.com/bichoygeorge/bichoygeorge.github.io/Profile/Profile.jpg" alt="Bishoy George" class="profile-frame">
             </div>
         </header>
 
         <section class="card">
-            <h2 class="section-title">Academic & Professional Excellence</h2>
+            <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Academic & Professional Excellence</h2>
             <div class="story-timeline">
                 <div class="timeline-item"><strong>Preparatory Stage:</strong> Ranked **2nd Place Governorate-level** with a score of **382.5/300**.</div>
                 <div class="timeline-item"><strong>Secondary Stage (Thanaweya Amma):</strong> Graduated **2nd Place (Math Division)** school-wide.</div>
@@ -249,131 +915,239 @@
         </section>
     </div>
 
-    <!-- ==================== PAGE 2 ==================== -->
+    <!-- PAGE 2: ARSENAL -->
     <div id="page2" class="page-section">
         <div class="card">
-            <h2 class="section-title">Technical Competencies</h2>
+            <h2 class="section-title"><i class="fas fa-tools"></i> Technical Competencies</h2>
             <div class="grid-2">
                 <div>
-                    <h3>Database & Optimization</h3>
-                    <span class="tag">SQL Server</span> <span class="tag">Oracle DB</span> <span class="tag">PL/SQL</span> <span class="tag">Denodo VQL</span>
+                    <h3><i class="fas fa-database"></i> Database & Optimization</h3>
                     <p>Proficient in indexing, recursive queries, and performance tuning for critical backend architectures.</p>
+                    <div class="tech-skill-group">
+                        <div class="tech-skill-item">
+                            <span class="tech-logo"><i class="fas fa-server"></i></span>
+                            <span class="tag" style="margin: 0; display: block; border: 2px solid #000;">SQL Server</span>
+                        </div>
+                        <div class="tech-skill-item">
+                            <span class="tech-logo"><i class="fas fa-database"></i></span>
+                            <span class="tag" style="margin: 0; display: block; border: 2px solid #000;">Oracle DB</span>
+                        </div>
+                        <div class="tech-skill-item">
+                            <span class="tech-logo"><i class="fas fa-code"></i></span>
+                            <span class="tag" style="margin: 0; display: block; border: 2px solid #000;">PL/SQL</span>
+                        </div>
+                        <div class="tech-skill-item">
+                            <span class="tech-logo"><i class="fas fa-project-diagram"></i></span>
+                            <span class="tag" style="margin: 0; display: block; border: 2px solid #000;">Denodo VQL</span>
+                        </div>
+                    </div>
                 </div>
                 <div>
-                    <h3>BI & Engineering</h3>
-                    <span class="tag">Power BI</span> <span class="tag">SSIS</span> <span class="tag">Advanced DAX</span> <span class="tag">Data Modeling</span>
+                    <h3><i class="fas fa-chart-bar"></i> BI & Engineering</h3>
                     <p>Engineering stable Star Schemas and complex analytical metrics to support data transparency.</p>
+                    <div class="tech-skill-group">
+                        <div class="tech-skill-item">
+                            <span class="tech-logo"><i class="fas fa-chart-line"></i></span>
+                            <span class="tag" style="margin: 0; display: block; border: 2px solid #000;">Power BI</span>
+                        </div>
+                        <div class="tech-skill-item">
+                            <span class="tech-logo"><i class="fas fa-cogs"></i></span>
+                            <span class="tag" style="margin: 0; display: block; border: 2px solid #000;">SSIS</span>
+                        </div>
+                        <div class="tech-skill-item">
+                            <span class="tech-logo"><i class="fas fa-square"></i></span>
+                            <span class="tag" style="margin: 0; display: block; border: 2px solid #000;">DAX</span>
+                        </div>
+                        <div class="tech-skill-item">
+                            <span class="tech-logo"><i class="fas fa-cube"></i></span>
+                            <span class="tag" style="margin: 0; display: block; border: 2px solid #000;">Modeling</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- ==================== PAGE 3 ==================== -->
+    <!-- PAGE 3: CORPORATE -->
     <div id="page3" class="page-section">
         <div class="card">
-            <h2 class="section-title">Banking & Corporate Footprint</h2>
+            <h2 class="section-title"><i class="fas fa-landmark"></i> Banking & Corporate Footprint</h2>
             <div class="grid-3">
-                <div class="kpi-box">Banque Misr<p style="font-size:0.85rem; font-weight:normal; margin-top: 5px;">Automated retail cash loan data processing pipelines.</p></div>
-                <div class="kpi-box">Orascom<p style="font-size:0.85rem; font-weight:normal; margin-top: 5px;">Tracked material cost controlling and actual variances.</p></div>
-                <div class="kpi-box">SSAS Cubes<p style="font-size:0.85rem; font-weight:normal; margin-top: 5px;">Optimized semantic layers to drop latency from minutes to milliseconds.</p></div>
+                <div class="kpi-box">
+                    <div class="kpi-icon"><i class="fas fa-bank"></i></div>
+                    <strong>Banque Misr</strong>
+                    <p>Automated retail cash loan data processing pipelines.</p>
+                </div>
+                <div class="kpi-box">
+                    <div class="kpi-icon"><i class="fas fa-building"></i></div>
+                    <strong>Orascom</strong>
+                    <p>Tracked material cost controlling and actual variances.</p>
+                </div>
+                <div class="kpi-box">
+                    <div class="kpi-icon"><i class="fas fa-cube"></i></div>
+                    <strong>SSAS Cubes</strong>
+                    <p>Optimized semantic layers to drop latency from minutes to milliseconds.</p>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- ==================== PAGE 4 ==================== -->
+    <!-- PAGE 4: E-COMMERCE -->
     <div id="page4" class="page-section">
         <div class="card">
-            <h2 class="section-title">E-Commerce Architecture & Performance</h2>
+            <h2 class="section-title"><i class="fas fa-shopping-cart"></i> E-Commerce Architecture & Performance</h2>
             
-            <h3>Amazon Global Sales Audit</h3>
-            <img src="https://raw.githubusercontent.com/bichoygeorge/bichoygeorge.github.io/Assets/Amazon-Data-Sales.png" class="project-img">
+            <h3><i class="fab fa-amazon"></i> Amazon Global Sales Audit</h3>
+            <div style="margin-top: 15px;">
+                <span class="tag"><i class="fas fa-chart-line"></i> Power BI</span>
+                <span class="tag"><i class="fas fa-database"></i> SQL</span>
+                <span class="tag"><i class="fas fa-globe"></i> Global Analysis</span>
+            </div>
+            <img src="https://raw.githubusercontent.com/bichoygeorge/bichoygeorge.github.io/Assets/Amazon-Data-Sales.png" class="project-img" alt="Amazon Sales Dashboard">
             <div class="insight-box">
-                <strong>CORE INSIGHT</strong> Identified structural bottleneck in global shipping pipelines; automating regional multi-currency data processing preserved margin tracking accuracy across **$137M+** log transactions.
+                <strong><i class="fas fa-lightbulb"></i> CORE INSIGHT</strong> Identified structural bottleneck in global shipping pipelines; automating regional multi-currency data processing preserved margin tracking accuracy across **$137M+** log transactions.
             </div>
 
-            <h3 style="margin-top:30px;">Multi-Store Electronics Workspace</h3>
+            <h3 style="margin-top:35px;"><i class="fas fa-store"></i> Multi-Store Electronics Workspace</h3>
             <div class="grid-2">
                 <div>
-                    <img src="https://raw.githubusercontent.com/bichoygeorge/bichoygeorge.github.io/Assets/E-Commerce-Sales-Store-1.png" class="project-img">
-                    <div class="insight-box"><strong>Page 1 Insight</strong> Executive summary dashboard linking overall net profitability to active marketing campaign expenditure.</div>
+                    <h4><i class="fas fa-chart-pie"></i> Store 1 - Executive Summary</h4>
+                    <span class="tag"><i class="fas fa-chart-bar"></i> Dashboard</span>
+                    <span class="tag"><i class="fas fa-line-chart"></i> Profitability</span>
+                    <img src="https://raw.githubusercontent.com/bichoygeorge/bichoygeorge.github.io/Assets/E-Commerce-Sales-Store-1.png" class="project-img" alt="E-Commerce Store 1">
+                    <div class="insight-box"><strong><i class="fas fa-chart-pie"></i> Page 1</strong> Executive summary dashboard linking overall net profitability to active marketing campaign expenditure.</div>
                 </div>
                 <div>
-                    <img src="https://raw.githubusercontent.com/bichoygeorge/bichoygeorge.github.io/Assets/E-Commerce-Sales-Store-2.png" class="project-img">
-                    <div class="insight-box"><strong>Page 2 Insight</strong> Product performance matrix revealing that 14% of low-margin SKUs were cannibalizing high-tier assets.</div>
+                    <h4><i class="fas fa-box"></i> Store 2 - Product Matrix</h4>
+                    <span class="tag"><i class="fas fa-boxes"></i> SKU Analysis</span>
+                    <span class="tag"><i class="fas fa-percent"></i> Margins</span>
+                    <img src="https://raw.githubusercontent.com/bichoygeorge/bichoygeorge.github.io/Assets/E-Commerce-Sales-Store-2.png" class="project-img" alt="E-Commerce Store 2">
+                    <div class="insight-box"><strong><i class="fas fa-box"></i> Page 2</strong> Product performance matrix revealing that 14% of low-margin SKUs were cannibalizing high-tier assets.</div>
                 </div>
                 <div>
-                    <img src="https://raw.githubusercontent.com/bichoygeorge/bichoygeorge.github.io/Assets/E-Commerce-Sales-Store-3.png" class="project-img">
-                    <div class="insight-box"><strong>Page 3 Insight</strong> Geospatial distribution indicating over-penetration in metropolitan areas while rural areas lagged by 22%.</div>
+                    <h4><i class="fas fa-map"></i> Store 3 - Geospatial</h4>
+                    <span class="tag"><i class="fas fa-location-dot"></i> Geography</span>
+                    <span class="tag"><i class="fas fa-city"></i> Regional</span>
+                    <img src="https://raw.githubusercontent.com/bichoygeorge/bichoygeorge.github.io/Assets/E-Commerce-Sales-Store-3.png" class="project-img" alt="E-Commerce Store 3">
+                    <div class="insight-box"><strong><i class="fas fa-map"></i> Page 3</strong> Geospatial distribution indicating over-penetration in metropolitan areas while rural areas lagged by 22%.</div>
                 </div>
                 <div>
-                    <img src="https://raw.githubusercontent.com/bichoygeorge/bichoygeorge.github.io/Assets/E-Commerce-Sales-Store-4.png" class="project-img">
-                    <div class="insight-box"><strong>Page 4 Insight</strong> Cohort retention visualization demonstrating a steady 4.2% lift in customer lifetime value (LTV).</div>
+                    <h4><i class="fas fa-users"></i> Store 4 - Cohort LTV</h4>
+                    <span class="tag"><i class="fas fa-users-line"></i> Cohorts</span>
+                    <span class="tag"><i class="fas fa-chart-area"></i> Retention</span>
+                    <img src="https://raw.githubusercontent.com/bichoygeorge/bichoygeorge.github.io/Assets/E-Commerce-Sales-Store-4.png" class="project-img" alt="E-Commerce Store 4">
+                    <div class="insight-box"><strong><i class="fas fa-users"></i> Page 4</strong> Cohort retention visualization demonstrating a steady 4.2% lift in customer lifetime value (LTV).</div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- ==================== PAGE 5 ==================== -->
+    <!-- PAGE 5: DATASETS -->
     <div id="page5" class="page-section">
         <div class="card">
-            <h2 class="section-title">Advanced Analytical Frameworks</h2>
+            <h2 class="section-title"><i class="fas fa-table"></i> Advanced Analytical Frameworks</h2>
             
-            <h3>1. Hospitality Revenue Tracker</h3>
-            <img src="https://raw.githubusercontent.com/bichoygeorge/bichoygeorge.github.io/Assets/Hotels-Reservations-Dataset.png" class="project-img">
-            <div class="insight-box"><strong>Insight:</strong> Cleaned 36K+ records; isolated a direct correlation between leading cancellation rates and un-optimized booking lead times.</div>
+            <h3><i class="fas fa-hotel"></i> Hospitality Revenue Tracker</h3>
+            <div style="margin-top: 10px;">
+                <span class="tag"><i class="fas fa-chart-bar"></i> Analytics</span>
+                <span class="tag"><i class="fas fa-calendar"></i> Booking Data</span>
+            </div>
+            <img src="https://raw.githubusercontent.com/bichoygeorge/bichoygeorge.github.io/Assets/Hotels-Reservations-Dataset.png" class="project-img" alt="Hotel Reservations">
+            <div class="insight-box"><strong><i class="fas fa-info-circle"></i> Insight:</strong> Cleaned 36K+ records; isolated a direct correlation between leading cancellation rates and un-optimized booking lead times.</div>
 
-            <h3>2. Student Performance Impact</h3>
-            <img src="https://raw.githubusercontent.com/bichoygeorge/bichoygeorge.github.io/Assets/Students-Performance-Analysis.png" class="project-img">
-            <div class="insight-box"><strong>Insight:</strong> Leveraged statistical coefficients to isolate environmental and parental literacy trends affecting testing outcomes.</div>
+            <h3><i class="fas fa-graduation-cap"></i> Student Performance Impact</h3>
+            <div style="margin-top: 10px;">
+                <span class="tag"><i class="fas fa-bar-chart"></i> Education</span>
+                <span class="tag"><i class="fas fa-book"></i> Academic Data</span>
+            </div>
+            <img src="https://raw.githubusercontent.com/bichoygeorge/bichoygeorge.github.io/Assets/Students-Performance-Analysis.png" class="project-img" alt="Student Performance">
+            <div class="insight-box"><strong><i class="fas fa-info-circle"></i> Insight:</strong> Leveraged statistical coefficients to isolate environmental and parental literacy trends affecting testing outcomes.</div>
 
-            <h3>3. Covid-19 Epidemic Modeling (Egypt)</h3>
-            <img src="https://raw.githubusercontent.com/bichoygeorge/bichoygeorge.github.io/Assets/Covid19-Egypt-Data.png" class="project-img">
-            <div class="insight-box"><strong>Insight:</strong> Modeled regional recovery rates across governorates using time-series scripts to evaluate peak resource utilization.</div>
+            <h3><i class="fas fa-virus"></i> Covid-19 Epidemic Modeling (Egypt)</h3>
+            <div style="margin-top: 10px;">
+                <span class="tag"><i class="fas fa-chart-line"></i> Time Series</span>
+                <span class="tag"><i class="fas fa-map-location-dot"></i> Regional</span>
+            </div>
+            <img src="https://raw.githubusercontent.com/bichoygeorge/bichoygeorge.github.io/Assets/Covid19-Egypt-Data.png" class="project-img" alt="COVID-19 Data">
+            <div class="insight-box"><strong><i class="fas fa-info-circle"></i> Insight:</strong> Modeled regional recovery rates across governorates using time-series scripts to evaluate peak resource utilization.</div>
 
-            <h3>4. Cinema Industry Dynamics</h3>
-            <img src="https://raw.githubusercontent.com/bichoygeorge/bichoygeorge.github.io/Assets/16K-Movies-Dataset.png" class="project-img">
-            <div class="insight-box"><strong>Insight:</strong> Mapped 16,000 films to prove that production budget sizes do not inherently correlate with audience approval scores.</div>
+            <h3><i class="fas fa-film"></i> Cinema Industry Dynamics</h3>
+            <div style="margin-top: 10px;">
+                <span class="tag"><i class="fas fa-star"></i> Entertainment</span>
+                <span class="tag"><i class="fas fa-popcorn"></i> Movie Data</span>
+            </div>
+            <img src="https://raw.githubusercontent.com/bichoygeorge/bichoygeorge.github.io/Assets/16K-Movies-Dataset.png" class="project-img" alt="Movies Dataset">
+            <div class="insight-box"><strong><i class="fas fa-info-circle"></i> Insight:</strong> Mapped 16,000 films to prove that production budget sizes do not inherently correlate with audience approval scores.</div>
 
-            <h3>5. Macro Population Vectors</h3>
-            <img src="https://raw.githubusercontent.com/bichoygeorge/bichoygeorge.github.io/Assets/World-Population-2020.png" class="project-img">
-            <div class="insight-box"><strong>Insight:</strong> Constructed geospatial dashboards tracking global density changes, resource pressure, and growth velocity metrics.</div>
+            <h3><i class="fas fa-globe"></i> Macro Population Vectors</h3>
+            <div style="margin-top: 10px;">
+                <span class="tag"><i class="fas fa-earth-americas"></i> Geospatial</span>
+                <span class="tag"><i class="fas fa-people-group"></i> Demographics</span>
+            </div>
+            <img src="https://raw.githubusercontent.com/bichoygeorge/bichoygeorge.github.io/Assets/World-Population-2020.png" class="project-img" alt="World Population">
+            <div class="insight-box"><strong><i class="fas fa-info-circle"></i> Insight:</strong> Constructed geospatial dashboards tracking global density changes, resource pressure, and growth velocity metrics.</div>
         </div>
     </div>
 
-    <!-- ==================== PAGE 6 ==================== -->
+    <!-- PAGE 6: CERTIFICATIONS -->
     <div id="page6" class="page-section">
         <div class="card">
-            <h2 class="section-title">Credentials & Certifications</h2>
-            <ul>
-                <li style="margin-bottom: 8px;"><strong>PL-300:</strong> Microsoft Certified Power BI Data Analyst.</li>
-                <li style="margin-bottom: 8px;"><strong>Oracle Database Specialist:</strong> Advanced SQL & PL/SQL Query Tuning.</li>
-                <li style="margin-bottom: 8px;"><strong>Data Warehouse Engineering:</strong> Backend ETL pipelines utilizing SSIS architecture.</li>
-            </ul>
+            <h2 class="section-title"><i class="fas fa-certificate"></i> Credentials & Certifications</h2>
+            <div class="cert-list">
+                <div class="cert-item">
+                    <div class="cert-icon"><i class="fas fa-check-circle"></i></div>
+                    <div class="cert-content">
+                        <h4>PL-300</h4>
+                        <p>Microsoft Certified Power BI Data Analyst.</p>
+                    </div>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-icon"><i class="fas fa-check-circle"></i></div>
+                    <div class="cert-content">
+                        <h4>Oracle Database Specialist</h4>
+                        <p>Advanced SQL & PL/SQL Query Tuning.</p>
+                    </div>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-icon"><i class="fas fa-check-circle"></i></div>
+                    <div class="cert-content">
+                        <h4>Data Warehouse Engineering</h4>
+                        <p>Backend ETL pipelines utilizing SSIS architecture.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- ==================== PAGE 7 ==================== -->
+    <!-- PAGE 7: FAQ -->
     <div id="page7" class="page-section">
         <div class="card">
-            <h2 class="section-title">FAQ & Core Philosophy</h2>
-            <h3>How do you approach heavily corrupted or missing records?</h3>
+            <h2 class="section-title"><i class="fas fa-question-circle"></i> FAQ & Core Philosophy</h2>
+            <h3><i class="fas fa-comment"></i> How do you approach heavily corrupted or missing records?</h3>
             <p>I execute strict profiling routines to isolate errors first, then map custom transformation scripts in Power Query or SQL to preserve core transactional semantics without altering analytical truths.</p>
         </div>
     </div>
 
-    <!-- ==================== PAGE 8 ==================== -->
+    <!-- PAGE 8: CONNECT -->
     <div id="page8" class="page-section">
         <div class="card" style="text-align: center;">
-            <h2 class="section-title">Initiate Business Intelligence Engagements</h2>
-            <p>Let's talk about corporate roles, structural database audits, or end-to-end dashboard builds.</p>
-            <div style="margin-top: 20px;">
-                <a href="https://linkedin.com" target="_blank" class="tag" style="padding:10px 15px; background:var(--accent-blue); text-decoration:none; color:#000;"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-                <a href="https://github.com/bichoygeorge" target="_blank" class="tag" style="padding:10px 15px; background:var(--bg-main); text-decoration:none; color:#000;"><i class="fa-brands fa-github"></i> GitHub</a>
+            <h2 class="section-title"><i class="fas fa-handshake"></i> Initiate Business Intelligence Engagements</h2>
+            <p style="font-size: 1.05rem; margin: 20px 0;">Let's talk about corporate roles, structural database audits, or end-to-end dashboard builds.</p>
+            <div style="margin-top: 40px; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                <a href="https://linkedin.com" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                <a href="https://github.com/bichoygeorge" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
             </div>
         </div>
     </div>
 
 </div>
+
+<!-- FOOTER -->
+<footer>
+    <p><i class="fas fa-code"></i> Crafted with precision and data-driven excellence</p>
+    <p>© 2024 Bishoy George | <strong>Senior Data Analyst</strong> | Cairo, Egypt</p>
+    <p><i class="fas fa-phone"></i> <a href="tel:+201224731057">+20 1224731057</a> | <i class="fas fa-envelope"></i> <a href="mailto:bishoygeorge172000@gmail.com">bishoygeorge172000@gmail.com</a></p>
+</footer>
 
 <script>
     function scrollToSection(sectionId) {
@@ -382,6 +1156,24 @@
             targetElement.scrollIntoView({ behavior: 'smooth' });
         }
     }
+
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animationPlayState = 'running';
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.page-section, .card, .insight-box, .kpi-box, .cert-item').forEach(el => {
+        observer.observe(el);
+    });
 </script>
 
 </body>
