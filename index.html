@@ -287,8 +287,13 @@ section{padding:100px 0;position:relative;}
 .stars{display:flex;gap:2px;justify-content:center;color:var(--line);font-size:.72rem;}
 .stars i.on{color:var(--gold);}
 
-.skills-categories{margin-top:52px;display:grid;grid-template-columns:1fr;gap:18px;}
-@media(min-width:760px){.skills-categories{grid-template-columns:1fr 1fr;}}
+.skills-block{margin-bottom:40px;}
+.skills-block:last-child{margin-bottom:0;}
+.skills-block-head{display:flex;align-items:center;gap:12px;margin-bottom:18px;}
+.skills-block-head i{width:36px;height:36px;border-radius:10px;background:rgba(15,118,110,.1);color:var(--blue);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+.skills-block-head h3{font-size:1.08rem;font-weight:700;color:var(--ink);}
+.skills-block.soft .skills-block-head i{background:rgba(124,58,237,.12);color:#7C3AED;}
+
 /* modal */
 .modal-overlay{position:fixed;inset:0;background:rgba(10,17,40,.6);backdrop-filter:blur(4px);z-index:2000;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .3s var(--ease);}
 .modal-overlay.open{opacity:1;pointer-events:auto;}
@@ -603,7 +608,7 @@ footer{background:var(--paper);color:var(--text-soft);padding:60px 0 26px;border
       <h2 class="section-title">Technical Skills</h2>
       <p class="section-sub">Tap any technology for experience level, key skills and related projects.</p>
     </div>
-    <div class="tech-grid reveal-stagger" id="techGrid"></div>
+    <div id="techGrid"></div>
   </div>
 </section>
 
@@ -884,14 +889,34 @@ function starHTML(level,size){
   return h;
 }
 
-/* ============ RENDER TECH STACK ============ */
+/* ============ RENDER TECH STACK (grouped) ============ */
 const techGrid=document.getElementById('techGrid');
-techData.forEach((t,i)=>{
-  const el=document.createElement('div');
-  el.className='tech-card';
-  el.innerHTML=`<div class="icon">${t.icon}</div><div class="name">${t.name}</div><div class="stars">${starHTML(t.level)}</div>`;
-  el.addEventListener('click',()=>openTechModal(i));
-  techGrid.appendChild(el);
+const techCategories=[
+  {title:"Databases & Query Languages",icon:"fa-database",names:["SQL Server","PL/SQL","Oracle","OLAP"]},
+  {title:"Data Visualization & Reporting",icon:"fa-chart-pie",names:["Power BI","Tableau","Looker Studio","Excel","SSRS","SAP BO","SAP InfoView"]},
+  {title:"Data Modeling & Analysis",icon:"fa-diagram-project",names:["DAX","Data Modeling","SSAS","Power Pivot","Data Analytics","Python"]},
+  {title:"ETL & Data Management",icon:"fa-arrows-rotate",names:["Power Query","SSIS","Denodo Studio","Denodo VQL","Data Wrangling","Data Warehousing"]},
+  {title:"Version Control & Collaboration",icon:"fa-people-group",names:["Git","GitHub","Jira","Notion"]},
+  {title:"Soft Skills",icon:"fa-brain",soft:true,names:["Analytical Thinking","Problem Solving","Attention to Detail","Communication","Teamwork & Collaboration","Time Management","Adaptability"]}
+];
+techCategories.forEach(cat=>{
+  const block=document.createElement('div');
+  block.className='skills-block reveal'+(cat.soft?' soft':'');
+  const grid=document.createElement('div');
+  grid.className='tech-grid reveal-stagger';
+  cat.names.forEach(name=>{
+    const idx=techData.findIndex(t=>t.name===name);
+    if(idx===-1) return;
+    const t=techData[idx];
+    const el=document.createElement('div');
+    el.className='tech-card';
+    el.innerHTML=`<div class="icon">${t.icon}</div><div class="name">${t.name}</div><div class="stars">${starHTML(t.level)}</div>`;
+    el.addEventListener('click',()=>openTechModal(idx));
+    grid.appendChild(el);
+  });
+  block.innerHTML=`<div class="skills-block-head"><i class="fas ${cat.icon}"></i><h3>${cat.title}</h3></div>`;
+  block.appendChild(grid);
+  techGrid.appendChild(block);
 });
 
 
