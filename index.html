@@ -238,6 +238,10 @@ section{padding:100px 0;position:relative;}
 .timeline{position:relative;max-width:920px;margin:0 auto;}
 .timeline::before{content:'';position:absolute;left:24px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--blue) 0%,var(--line) 100%);}
 @media(min-width:840px){.timeline::before{left:50%;transform:translateX(-50%);}}
+.timeline-cap{position:absolute;left:24px;width:30px;height:30px;border-radius:50%;background:var(--paper-2);border:2px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:.8rem;color:var(--blue);transform:translateX(-50%);z-index:2;}
+.timeline-cap.start{top:-38px;}
+.timeline-cap.end{bottom:-38px;}
+@media(min-width:840px){.timeline-cap{left:50%;}}
 .t-item{position:relative;padding:0 0 56px 64px;}
 @media(min-width:840px){
   .t-item{width:50%;padding:0 0 64px 0;}
@@ -268,6 +272,7 @@ section{padding:100px 0;position:relative;}
 @media(min-width:840px){.timeline-deco{display:block;}}
 .timeline-deco .td{position:absolute;color:var(--blue);opacity:.22;animation:float 6s ease-in-out infinite;}
 .timeline-deco .td-dot{position:absolute;width:6px;height:6px;border-radius:50%;background:var(--blue);opacity:.28;}
+.timeline-deco .td-circle{position:absolute;border-radius:50%;border:1.5px solid var(--blue);opacity:.16;animation:float 7s ease-in-out infinite;}
 .timeline-deco .td-line{position:absolute;width:26px;height:1px;background:var(--line);}
 
 /* ================= TECH STACK ================= */
@@ -281,6 +286,20 @@ section{padding:100px 0;position:relative;}
 .tech-card .name{font-weight:700;font-size:.88rem;margin-bottom:8px;}
 .stars{display:flex;gap:2px;justify-content:center;color:var(--line);font-size:.72rem;}
 .stars i.on{color:var(--gold);}
+
+.skills-categories{margin-top:52px;display:grid;grid-template-columns:1fr;gap:18px;}
+@media(min-width:760px){.skills-categories{grid-template-columns:1fr 1fr;}}
+.skill-cat{background:var(--paper-2);border:1px solid var(--line);border-radius:var(--radius-md);padding:24px 26px;transition:box-shadow .35s var(--ease),transform .35s var(--ease);}
+.skill-cat:hover{box-shadow:var(--shadow-md);transform:translateY(-3px);}
+.skill-cat h4{font-size:.92rem;font-weight:700;color:var(--ink);margin-bottom:14px;display:flex;align-items:center;gap:9px;}
+.skill-cat h4 i{width:30px;height:30px;border-radius:9px;background:rgba(15,118,110,.1);color:var(--blue);display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0;}
+.skill-pills{display:flex;flex-wrap:wrap;gap:8px;}
+.skill-pill{padding:7px 14px;border-radius:999px;background:var(--paper);border:1px solid var(--line);font-size:.8rem;font-weight:600;color:var(--text-soft);transition:all .3s var(--ease);}
+.skill-pill:hover{border-color:var(--blue);color:var(--blue);background:rgba(15,118,110,.06);transform:translateY(-2px);}
+.skill-cat.soft{grid-column:1/-1;}
+.skill-cat.soft h4 i{background:rgba(124,58,237,.12);color:#7C3AED;}
+.skill-cat.soft .skill-pill{background:rgba(124,58,237,.05);border-color:rgba(124,58,237,.16);color:#6D28D9;}
+.skill-cat.soft .skill-pill:hover{border-color:#7C3AED;color:#7C3AED;background:rgba(124,58,237,.1);}
 
 /* modal */
 .modal-overlay{position:fixed;inset:0;background:rgba(10,17,40,.6);backdrop-filter:blur(4px);z-index:2000;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .3s var(--ease);}
@@ -538,15 +557,35 @@ footer{background:var(--paper);color:var(--text-soft);padding:60px 0 26px;border
       <h2 class="section-title">Professional Experience</h2>
     </div>
     <div class="timeline" id="timelineWrap">
+      <div class="timeline-cap start" aria-hidden="true"><i class="fas fa-flag"></i></div>
+      <div class="timeline-cap end" aria-hidden="true"><i class="fas fa-rocket"></i></div>
       <div class="timeline-deco" aria-hidden="true">
-        <i class="fas fa-star td" style="top:3%;left:2%;font-size:13px;"></i>
-        <span class="td-dot" style="top:12%;right:4%;"></span>
-        <i class="fas fa-circle-nodes td" style="top:27%;left:1%;font-size:16px;animation-delay:.6s;"></i>
-        <span class="td-dot" style="top:40%;right:2%;"></span>
-        <i class="fas fa-star td" style="top:54%;left:3%;font-size:10px;animation-delay:1.2s;"></i>
-        <span class="td-dot" style="top:66%;right:5%;"></span>
-        <i class="fas fa-plus td" style="top:79%;left:2%;font-size:12px;animation-delay:1.8s;"></i>
-        <span class="td-dot" style="top:92%;right:3%;"></span>
+        <span class="td-dot" style="top:2.0%;left:2.3%;animation-delay:0.4s;"></span>
+        <i class="fas fa-star td" style="top:5.8%;right:0.9%;font-size:17px;animation-delay:1.3s;"></i>
+        <i class="fas fa-circle-nodes td" style="top:9.7%;left:1.7%;font-size:10px;animation-delay:0.2s;"></i>
+        <span class="td-dot" style="top:13.5%;right:3.5%;animation-delay:0.1s;"></span>
+        <span class="td-dot" style="top:17.4%;left:5.7%;animation-delay:1.5s;"></span>
+        <i class="fas fa-circle-nodes td" style="top:21.2%;right:0.8%;font-size:9px;animation-delay:1.4s;"></i>
+        <i class="fas fa-diamond td" style="top:25.0%;left:3.6%;font-size:10px;animation-delay:0.3s;"></i>
+        <span class="td-dot" style="top:28.9%;right:3.6%;animation-delay:1.3s;"></span>
+        <i class="fas fa-star td" style="top:32.7%;left:1.1%;font-size:17px;animation-delay:1.4s;"></i>
+        <span class="td-dot" style="top:36.6%;right:4.4%;animation-delay:1.4s;"></span>
+        <span class="td-dot" style="top:40.4%;left:3.2%;animation-delay:1.3s;"></span>
+        <i class="fas fa-circle-nodes td" style="top:44.2%;right:3.1%;font-size:11px;animation-delay:2.2s;"></i>
+        <span class="td-dot" style="top:48.1%;left:4.3%;animation-delay:0.6s;"></span>
+        <span class="td-dot" style="top:51.9%;right:3.4%;animation-delay:2.1s;"></span>
+        <i class="fas fa-sparkles td" style="top:55.8%;left:2.1%;font-size:11px;animation-delay:2.4s;"></i>
+        <i class="fas fa-star td" style="top:59.6%;right:4.7%;font-size:10px;animation-delay:0.4s;"></i>
+        <span class="td-circle" style="top:63.4%;left:4.7%;width:15px;height:15px;animation-delay:1.4s;"></span>
+        <i class="fas fa-sparkles td" style="top:67.3%;right:2.4%;font-size:10px;animation-delay:0.8s;"></i>
+        <i class="fas fa-star td" style="top:71.1%;left:5.1%;font-size:9px;animation-delay:2.3s;"></i>
+        <span class="td-dot" style="top:75.0%;right:4.5%;animation-delay:0.7s;"></span>
+        <span class="td-dot" style="top:78.8%;left:4.2%;animation-delay:1.1s;"></span>
+        <span class="td-circle" style="top:82.6%;right:5.4%;width:15px;height:15px;animation-delay:0.8s;"></span>
+        <i class="fas fa-plus td" style="top:86.5%;left:1.4%;font-size:11px;animation-delay:0.3s;"></i>
+        <span class="td-circle" style="top:90.3%;right:4.6%;width:17px;height:17px;animation-delay:1.0s;"></span>
+        <span class="td-dot" style="top:94.2%;left:0.9%;animation-delay:1.1s;"></span>
+        <span class="td-circle" style="top:98.0%;right:5.4%;width:14px;height:14px;animation-delay:2.0s;"></span>
       </div>
     </div>
   </div>
@@ -558,9 +597,11 @@ footer{background:var(--paper);color:var(--text-soft);padding:60px 0 26px;border
     <div class="section-head reveal">
       <div class="eyebrow">Toolkit</div>
       <h2 class="section-title">Technical Skills</h2>
-      <p class="section-sub">Tap any technology for experience level, key skills and related projects.</p>
+      <p class="section-sub">Tap any technology for experience level, key skills and related projects — plus the full toolkit and soft skills below.</p>
     </div>
     <div class="tech-grid reveal-stagger" id="techGrid"></div>
+
+    <div class="skills-categories reveal-stagger" id="skillsCategories"></div>
   </div>
 </section>
 
@@ -830,6 +871,22 @@ techData.forEach((t,i)=>{
   el.innerHTML=`<div class="icon">${t.icon}</div><div class="name">${t.name}</div><div class="stars">${starHTML(t.level)}</div>`;
   el.addEventListener('click',()=>openTechModal(i));
   techGrid.appendChild(el);
+});
+
+/* ============ ADDITIONAL SKILLS CATEGORIES ============ */
+const skillCategories = [
+  {title:"Data Visualization & Reporting",icon:"fa-chart-pie",skills:["Power BI","Tableau","Looker Studio","Excel","SQL Server Reporting Services (SSRS)","SAP BO","SAP InfoView","Denodo Studio"]},
+  {title:"Programming & Analysis",icon:"fa-code",skills:["Python","SQL Server","SQL Server Analysis Services (SSAS)","OLAP","Power Pivot","DAX","Data Analytics","Data Modeling","Denodo VQL"]},
+  {title:"ETL & Data Management",icon:"fa-arrows-rotate",skills:["SQL Server Integration Services (SSIS)","Power Query","Data Wrangling","Data Warehousing"]},
+  {title:"Project & Collaboration Tools",icon:"fa-people-group",skills:["Jira","Notion"]},
+  {title:"Soft Skills",icon:"fa-brain",soft:true,skills:["Analytical Thinking","Problem Solving","Attention to Detail","Communication","Teamwork & Collaboration","Time Management","Adaptability"]}
+];
+const skillsCatWrap=document.getElementById('skillsCategories');
+skillCategories.forEach(cat=>{
+  const el=document.createElement('div');
+  el.className='skill-cat'+(cat.soft?' soft':'');
+  el.innerHTML=`<h4><i class="fas ${cat.icon}"></i> ${cat.title}</h4><div class="skill-pills">${cat.skills.map(s=>`<span class="skill-pill">${s}</span>`).join('')}</div>`;
+  skillsCatWrap.appendChild(el);
 });
 
 const techModal=document.getElementById('techModal');
