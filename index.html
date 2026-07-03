@@ -276,23 +276,22 @@ section{padding:100px 0;position:relative;}
 .timeline-deco .td-line{position:absolute;width:26px;height:1px;background:var(--line);}
 
 /* ================= TECH STACK ================= */
-.tech-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.tech-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:13px;}
 @media(min-width:640px){.tech-grid{grid-template-columns:repeat(3,1fr);}}
 @media(min-width:960px){.tech-grid{grid-template-columns:repeat(5,1fr);}}
-.tech-card{background:var(--paper-2);border:1px solid var(--line);border-radius:var(--radius-md);padding:22px 16px;text-align:center;cursor:pointer;transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s;}
-.tech-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(15,118,110,.16);border-color:transparent;}
-.tech-card .icon{font-size:2rem;margin-bottom:10px;transition:transform .35s var(--ease);}
-.tech-card:hover .icon{transform:scale(1.1);}
-.tech-card .name{font-weight:700;font-size:.88rem;margin-bottom:8px;}
-.stars{display:flex;gap:2px;justify-content:center;color:var(--line);font-size:.72rem;}
+.tech-card{background:var(--paper-2);border:1px solid var(--line);border-radius:13px;padding:17px 12px;text-align:center;cursor:pointer;box-shadow:0 1px 2px rgba(11,18,40,.04);transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s;}
+.tech-card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(15,118,110,.14);border-color:rgba(15,118,110,.25);}
+.tech-card .icon{font-size:1.7rem;margin-bottom:8px;display:flex;align-items:center;justify-content:center;color:var(--blue);transition:transform .3s var(--ease),color .3s;}
+.tech-card:hover .icon{transform:scale(1.08);color:var(--blue-deep);}
+.tech-card .name{font-weight:700;font-size:.78rem;margin-bottom:6px;line-height:1.25;}
+.stars{display:flex;gap:1.5px;justify-content:center;color:var(--line);font-size:.6rem;}
 .stars i.on{color:var(--gold);}
 
-.skills-block{margin-bottom:40px;}
+.skills-block{margin-bottom:52px;}
 .skills-block:last-child{margin-bottom:0;}
 .skills-block-head{display:flex;align-items:center;gap:12px;margin-bottom:18px;}
 .skills-block-head i{width:36px;height:36px;border-radius:10px;background:rgba(15,118,110,.1);color:var(--blue);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
 .skills-block-head h3{font-size:1.08rem;font-weight:700;color:var(--ink);}
-.skills-block.soft .skills-block-head i{background:rgba(124,58,237,.12);color:#7C3AED;}
 
 /* modal */
 .modal-overlay{position:fixed;inset:0;background:rgba(10,17,40,.6);backdrop-filter:blur(4px);z-index:2000;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .3s var(--ease);}
@@ -605,8 +604,8 @@ footer{background:var(--paper);color:var(--text-soft);padding:60px 0 26px;border
   <div class="container">
     <div class="section-head reveal">
       <div class="eyebrow">Toolkit</div>
-      <h2 class="section-title">Technical Skills</h2>
-      <p class="section-sub">Tap any technology for experience level, key skills and related projects.</p>
+      <h2 class="section-title">Technical Competencies</h2>
+      <p class="section-sub">Core technologies, platforms, languages, and enterprise tools I use to design, build, optimize, and deliver modern data solutions.</p>
     </div>
     <div id="techGrid"></div>
   </div>
@@ -715,8 +714,9 @@ footer{background:var(--paper);color:var(--text-soft);padding:60px 0 26px;border
     <div class="modal-icon" id="mIcon"></div>
     <h3 id="mName"></h3>
     <div class="modal-level"><span id="mLevelLabel" style="font-size:.8rem;font-weight:700;color:var(--text-faint)"></span><div class="stars" id="mStars"></div></div>
+    <div style="font-size:.8rem;color:var(--text-soft);font-weight:600;margin-bottom:4px;"><i class="fas fa-clock" style="color:var(--blue);margin-right:6px;"></i><span id="mYears"></span> experience</div>
     <p class="desc" id="mDesc"></p>
-    <div class="modal-section"><h5>Key Skills</h5><div class="tag-row" id="mSkills"></div></div>
+    <div class="modal-section"><h5>Key Use Cases</h5><div class="tag-row" id="mSkills"></div></div>
     <div class="modal-section"><h5>Related Projects</h5><div class="tag-row" id="mProjects"></div></div>
   </div>
 </div>
@@ -724,40 +724,27 @@ footer{background:var(--paper);color:var(--text-soft);padding:60px 0 26px;border
 <script>
 /* ============ DATA ============ */
 const techData = [
-  {name:"SQL Server",icon:"🗄️",level:5,label:"Expert",desc:"Core relational engine for enterprise reporting — query tuning, indexing and stored procedure design at production scale.",skills:["T-SQL","Query Optimization","Indexing","Stored Procedures"],projects:["Amazon Global Sales","Hotel Reservations"]},
-  {name:"PL/SQL",icon:"🔐",level:5,label:"Expert",desc:"Procedural extension of SQL used for banking-grade batch processing and complex business logic.",skills:["Procedures","Triggers","Cursors","Packages"],projects:["Banque Misr Pipelines"]},
-  {name:"Oracle",icon:"🦁",level:4,label:"Advanced",desc:"Enterprise database platform used for large-scale transactional systems in banking.",skills:["Schema Design","Performance Tuning","Backup & Recovery"],projects:["Banque Misr Pipelines"]},
-  {name:"Power BI",icon:"📊",level:5,label:"Expert",desc:"Primary BI tool for building executive dashboards, from data modeling to publish & row-level security.",skills:["Report Design","RLS","Data Modeling","Publishing"],projects:["Amazon Global Sales","E-Commerce Multi-Store"]},
-  {name:"Power Query",icon:"⚙️",level:5,label:"Expert",desc:"M-language transformation layer used to clean and shape raw data before it hits the model.",skills:["Data Cleaning","M Language","ETL Steps"],projects:["Amazon Global Sales","Hotel Reservations"]},
-  {name:"DAX",icon:"📈",level:5,label:"Expert",desc:"Formula language for building the calculations executives actually look at — margins, YoY, segmentation.",skills:["Measures","Time Intelligence","Row Context"],projects:["Amazon Global Sales","E-Commerce Multi-Store"]},
-  {name:"SSIS",icon:"🔄",level:4,label:"Advanced",desc:"ETL orchestration for moving and transforming data between systems on a schedule.",skills:["ETL Design","Package Orchestration","Error Handling"],projects:["Banque Misr Pipelines","Orascom Cost Tracking"]},
-  {name:"Data Modeling",icon:"🏗️",level:5,label:"Expert",desc:"Dimensional modeling for warehouses that stay fast and understandable as they grow.",skills:["Star Schema","Fact & Dim Tables","Normalization"],projects:["Amazon Global Sales","E-Commerce Multi-Store"]},
-  {name:"SSAS",icon:"🔷",level:4,label:"Advanced",desc:"Analysis Services cubes for fast, pre-aggregated dimensional analysis on banking products.",skills:["OLAP Cubes","MDX Basics","Aggregations"],projects:["Banque Misr Pipelines"]},
-  {name:"Python",icon:"🐍",level:3,label:"Intermediate",desc:"Scripting for data cleaning and ad-hoc analysis outside the BI stack.",skills:["Pandas","Data Cleaning","Automation"],projects:["Movies Analytics","Student Performance"]},
-  {name:"Tableau",icon:"📉",level:4,label:"Advanced",desc:"Alternative visualization platform for building highly interactive, presentation-ready dashboards.",skills:["Calculated Fields","Storyboards","Dashboards"],projects:["Personal BI Projects"]},
-  {name:"Excel",icon:"📋",level:5,label:"Expert",desc:"Still the fastest tool for quick modeling, pivot analysis, and stakeholder handoffs.",skills:["Pivot Tables","Advanced Formulas","Financial Models"],projects:["Orascom Cost Tracking"]},
-  {name:"Git",icon:"🌿",level:4,label:"Advanced",desc:"Version control for scripts, DAX documentation and collaborative BI projects.",skills:["Branching","Commits","Merge Workflows"],projects:["All Projects"]},
-  {name:"GitHub",icon:"🐙",level:4,label:"Advanced",desc:"Hosting portfolio work, documentation and version history publicly.",skills:["Repositories","Pages","Documentation"],projects:["Portfolio"]},
-  {name:"Looker Studio",icon:"👁️",level:4,label:"Advanced",desc:"Lightweight, shareable dashboards for fast client-facing reporting.",skills:["Blended Data","Sharing","Report Design"],projects:["Hotel Reservations"]},
-  {name:"SSRS",icon:"📑",level:4,label:"Advanced",desc:"Report Server used for scheduled, parameterized enterprise reporting.",skills:["Report Design","Subscriptions","Parameterization"],projects:["Orascom Cost Tracking"]},
-  {name:"SAP BO",icon:"🧩",level:3,label:"Intermediate",desc:"Enterprise BI suite used for ad-hoc reporting and semantic-layer analysis in corporate environments.",skills:["Web Intelligence","Universe Design","Ad-hoc Reporting"],projects:["Enterprise Reporting"]},
-  {name:"SAP InfoView",icon:"🗂️",level:3,label:"Intermediate",desc:"Web portal for accessing, scheduling and distributing SAP BusinessObjects reports.",skills:["Report Scheduling","Distribution","Access Management"],projects:["Enterprise Reporting"]},
-  {name:"Denodo Studio",icon:"🧬",level:3,label:"Intermediate",desc:"Data virtualization IDE for building views across disparate systems without physical replication.",skills:["Data Virtualization","View Design","VQL"],projects:["Enterprise Data Layer"]},
-  {name:"OLAP",icon:"🧊",level:4,label:"Advanced",desc:"Multidimensional analysis concepts underpinning fast slice-and-dice reporting on cubes.",skills:["Cubes","Dimensions & Measures","Aggregations"],projects:["Banque Misr Pipelines"]},
-  {name:"Power Pivot",icon:"🧮",level:4,label:"Advanced",desc:"In-Excel data modeling engine for building relationships and DAX measures without leaving spreadsheets.",skills:["Data Model","Relationships","DAX in Excel"],projects:["Orascom Cost Tracking"]},
-  {name:"Data Analytics",icon:"🔍",level:5,label:"Expert",desc:"End-to-end analysis translating raw numbers into decisions executives can act on.",skills:["Exploratory Analysis","Trend Analysis","Storytelling"],projects:["All Projects"]},
-  {name:"Denodo VQL",icon:"📝",level:3,label:"Intermediate",desc:"Denodo's SQL-like query language for defining virtual views and transformations.",skills:["View Definitions","Query Optimization"],projects:["Enterprise Data Layer"]},
-  {name:"Data Wrangling",icon:"🧹",level:5,label:"Expert",desc:"Cleaning, reshaping and validating messy real-world data before it's analysis-ready.",skills:["Data Cleaning","Validation","Reshaping"],projects:["Amazon Global Sales","Hotel Reservations"]},
-  {name:"Data Warehousing",icon:"🏢",level:5,label:"Expert",desc:"Designing centralized, dimensional stores that scale cleanly as reporting needs grow.",skills:["Star Schema","Fact Tables","Historical Loads"],projects:["Banque Misr Pipelines","E-Commerce Multi-Store"]},
-  {name:"Jira",icon:"🗒️",level:4,label:"Advanced",desc:"Tracking BI development tasks, sprints and stakeholder requests in an agile workflow.",skills:["Sprint Boards","Backlog Grooming","Ticket Tracking"],projects:["Team Projects"]},
-  {name:"Notion",icon:"🗃️",level:4,label:"Advanced",desc:"Documentation and knowledge base for DAX libraries, data dictionaries and project notes.",skills:["Documentation","Knowledge Base","Planning"],projects:["Portfolio"]},
-  {name:"Analytical Thinking",icon:"🧠",level:5,label:"Core Strength",desc:"Breaking down complex business problems into structured, data-driven questions.",skills:["Structured Thinking","Root-Cause Analysis"],projects:["All Projects"]},
-  {name:"Problem Solving",icon:"🛠️",level:5,label:"Core Strength",desc:"Finding practical, scalable solutions when data or requirements aren't clean.",skills:["Troubleshooting","Creative Solutions"],projects:["All Projects"]},
-  {name:"Attention to Detail",icon:"🔎",level:5,label:"Core Strength",desc:"Catching the edge cases and data-quality issues that break executive trust.",skills:["QA & Validation","Precision"],projects:["All Projects"]},
-  {name:"Communication",icon:"💬",level:5,label:"Core Strength",desc:"Translating technical findings into language stakeholders act on.",skills:["Stakeholder Reporting","Presentation"],projects:["All Projects"]},
-  {name:"Teamwork & Collaboration",icon:"🤝",level:5,label:"Core Strength",desc:"Working cross-functionally with finance, ops and engineering teams to ship dashboards.",skills:["Cross-functional Work","Peer Review"],projects:["Team Projects"]},
-  {name:"Time Management",icon:"⏱️",level:4,label:"Strong",desc:"Balancing multiple dashboard deadlines and stakeholder priorities.",skills:["Prioritization","Deadline Management"],projects:["All Projects"]},
-  {name:"Adaptability",icon:"🌱",level:4,label:"Strong",desc:"Comfortable switching between tools, industries and shifting requirements.",skills:["Quick Learning","Flexibility"],projects:["All Projects"]}
+  {name:"SQL Server",icon:"fa-solid fa-server",level:5,label:"Expert",years:"3+ yrs",desc:"Core relational engine for enterprise reporting — query tuning, indexing and stored procedure design at production scale.",skills:["T-SQL","Query Optimization","Indexing","Stored Procedures"],projects:["Amazon Global Sales","Hotel Reservations"]},
+  {name:"Oracle Database",icon:"fa-solid fa-database",level:4,label:"Advanced",years:"2+ yrs",desc:"Enterprise database platform used for large-scale transactional systems in banking.",skills:["Schema Design","Performance Tuning","Backup & Recovery"],projects:["Banque Misr Pipelines"]},
+  {name:"PL/SQL",icon:"fa-solid fa-code",level:5,label:"Expert",years:"2+ yrs",desc:"Procedural extension of SQL used for banking-grade batch processing and complex business logic.",skills:["Procedures","Triggers","Cursors","Packages"],projects:["Banque Misr Pipelines"]},
+  {name:"OLAP",icon:"fa-solid fa-cubes",level:4,label:"Advanced",years:"2+ yrs",desc:"Multidimensional analysis concepts underpinning fast slice-and-dice reporting on cubes.",skills:["Cubes","Dimensions & Measures","Aggregations"],projects:["Banque Misr Pipelines"]},
+  {name:"Power BI",icon:"fa-solid fa-chart-column",level:5,label:"Expert",years:"3+ yrs",desc:"Primary BI tool for building executive dashboards, from data modeling to publish & row-level security.",skills:["Report Design","RLS","Data Modeling","Publishing"],projects:["Amazon Global Sales","E-Commerce Multi-Store"]},
+  {name:"Tableau",icon:"fa-solid fa-chart-line",level:4,label:"Advanced",years:"1+ yr",desc:"Alternative visualization platform for building highly interactive, presentation-ready dashboards.",skills:["Calculated Fields","Storyboards","Dashboards"],projects:["Personal BI Projects"]},
+  {name:"Looker Studio",icon:"fa-brands fa-google",level:4,label:"Advanced",years:"1+ yr",desc:"Lightweight, shareable dashboards for fast client-facing reporting.",skills:["Blended Data","Sharing","Report Design"],projects:["Hotel Reservations"]},
+  {name:"Microsoft Excel",icon:"fa-brands fa-microsoft",level:5,label:"Expert",years:"3+ yrs",desc:"Still the fastest tool for quick modeling, pivot analysis, and stakeholder handoffs.",skills:["Pivot Tables","Advanced Formulas","Financial Models"],projects:["Orascom Cost Tracking"]},
+  {name:"SSRS",icon:"fa-solid fa-file-lines",level:4,label:"Advanced",years:"1+ yr",desc:"Report Server used for scheduled, parameterized enterprise reporting.",skills:["Report Design","Subscriptions","Parameterization"],projects:["Orascom Cost Tracking"]},
+  {name:"SAP BusinessObjects",icon:"fa-solid fa-layer-group",level:3,label:"Intermediate",years:"1+ yr",desc:"Enterprise BI suite used for ad-hoc reporting and semantic-layer analysis in corporate environments.",skills:["Web Intelligence","Universe Design","Ad-hoc Reporting"],projects:["Enterprise Reporting"]},
+  {name:"SAP InfoView",icon:"fa-solid fa-window-restore",level:3,label:"Intermediate",years:"1+ yr",desc:"Web portal for accessing, scheduling and distributing SAP BusinessObjects reports.",skills:["Report Scheduling","Distribution","Access Management"],projects:["Enterprise Reporting"]},
+  {name:"DAX",icon:"fa-solid fa-square-root-variable",level:5,label:"Expert",years:"3+ yrs",desc:"Formula language for building the calculations executives actually look at — margins, YoY, segmentation.",skills:["Measures","Time Intelligence","Row Context"],projects:["Amazon Global Sales","E-Commerce Multi-Store"]},
+  {name:"SSAS",icon:"fa-solid fa-cube",level:4,label:"Advanced",years:"2+ yrs",desc:"Analysis Services cubes for fast, pre-aggregated dimensional analysis on banking products.",skills:["OLAP Cubes","MDX Basics","Aggregations"],projects:["Banque Misr Pipelines"]},
+  {name:"Data Modeling",icon:"fa-solid fa-diagram-project",level:5,label:"Expert",years:"3+ yrs",desc:"Dimensional modeling for warehouses that stay fast and understandable as they grow.",skills:["Star Schema","Fact & Dim Tables","Normalization"],projects:["Amazon Global Sales","E-Commerce Multi-Store"]},
+  {name:"Power Pivot",icon:"fa-solid fa-table-cells",level:4,label:"Advanced",years:"2+ yrs",desc:"In-Excel data modeling engine for building relationships and DAX measures without leaving spreadsheets.",skills:["Data Model","Relationships","DAX in Excel"],projects:["Orascom Cost Tracking"]},
+  {name:"SSIS",icon:"fa-solid fa-right-left",level:4,label:"Advanced",years:"2+ yrs",desc:"ETL orchestration for moving and transforming data between systems on a schedule.",skills:["ETL Design","Package Orchestration","Error Handling"],projects:["Banque Misr Pipelines","Orascom Cost Tracking"]},
+  {name:"Power Query",icon:"fa-solid fa-filter",level:5,label:"Expert",years:"3+ yrs",desc:"M-language transformation layer used to clean and shape raw data before it hits the model.",skills:["Data Cleaning","M Language","ETL Steps"],projects:["Amazon Global Sales","Hotel Reservations"]},
+  {name:"Denodo Platform",icon:"fa-solid fa-network-wired",level:3,label:"Intermediate",years:"1+ yr",desc:"Data virtualization platform for building views across disparate systems without physical replication.",skills:["Data Virtualization","View Design","VQL"],projects:["Enterprise Data Layer"]},
+  {name:"Denodo VQL",icon:"fa-solid fa-terminal",level:3,label:"Intermediate",years:"1+ yr",desc:"Denodo's SQL-like query language for defining virtual views and transformations.",skills:["View Definitions","Query Optimization"],projects:["Enterprise Data Layer"]},
+  {name:"Data Warehousing",icon:"fa-solid fa-warehouse",level:5,label:"Expert",years:"3+ yrs",desc:"Designing centralized, dimensional stores that scale cleanly as reporting needs grow.",skills:["Star Schema","Fact Tables","Historical Loads"],projects:["Banque Misr Pipelines","E-Commerce Multi-Store"]},
+  {name:"Python",icon:"fa-brands fa-python",level:3,label:"Intermediate",years:"1+ yr",desc:"Scripting for data cleaning and ad-hoc analysis outside the BI stack.",skills:["Pandas","Data Cleaning","Automation"],projects:["Movies Analytics","Student Performance"]}
 ];
 
 const timelineData = [
@@ -892,12 +879,11 @@ function starHTML(level,size){
 /* ============ RENDER TECH STACK (grouped) ============ */
 const techGrid=document.getElementById('techGrid');
 const techCategories=[
-  {title:"Databases & Query Languages",icon:"fa-database",names:["SQL Server","PL/SQL","Oracle","OLAP"]},
-  {title:"Data Visualization & Reporting",icon:"fa-chart-pie",names:["Power BI","Tableau","Looker Studio","Excel","SSRS","SAP BO","SAP InfoView"]},
-  {title:"Data Modeling & Analysis",icon:"fa-diagram-project",names:["DAX","Data Modeling","SSAS","Power Pivot","Data Analytics","Python"]},
-  {title:"ETL & Data Management",icon:"fa-arrows-rotate",names:["Power Query","SSIS","Denodo Studio","Denodo VQL","Data Wrangling","Data Warehousing"]},
-  {title:"Version Control & Collaboration",icon:"fa-people-group",names:["Git","GitHub","Jira","Notion"]},
-  {title:"Soft Skills",icon:"fa-brain",soft:true,names:["Analytical Thinking","Problem Solving","Attention to Detail","Communication","Teamwork & Collaboration","Time Management","Adaptability"]}
+  {title:"Databases & Query Languages",icon:"fa-database",names:["SQL Server","Oracle Database","PL/SQL","OLAP"]},
+  {title:"Business Intelligence & Reporting",icon:"fa-chart-pie",names:["Power BI","Tableau","Looker Studio","Microsoft Excel","SSRS","SAP BusinessObjects","SAP InfoView"]},
+  {title:"Data Modeling & Analytics",icon:"fa-diagram-project",names:["DAX","SSAS","Data Modeling","Power Pivot","OLAP"]},
+  {title:"ETL & Data Engineering",icon:"fa-arrows-rotate",names:["SSIS","Power Query","Denodo Platform","Denodo VQL","Data Warehousing"]},
+  {title:"Programming",icon:"fa-code",names:["Python"]}
 ];
 techCategories.forEach(cat=>{
   const block=document.createElement('div');
@@ -910,7 +896,7 @@ techCategories.forEach(cat=>{
     const t=techData[idx];
     const el=document.createElement('div');
     el.className='tech-card';
-    el.innerHTML=`<div class="icon">${t.icon}</div><div class="name">${t.name}</div><div class="stars">${starHTML(t.level)}</div>`;
+    el.innerHTML=`<div class="icon"><i class="${t.icon}"></i></div><div class="name">${t.name}</div><div class="stars">${starHTML(t.level)}</div>`;
     el.addEventListener('click',()=>openTechModal(idx));
     grid.appendChild(el);
   });
@@ -924,10 +910,11 @@ techCategories.forEach(cat=>{
 const techModal=document.getElementById('techModal');
 function openTechModal(i){
   const t=techData[i];
-  document.getElementById('mIcon').textContent=t.icon;
+  document.getElementById('mIcon').innerHTML=`<i class="${t.icon}" style="color:var(--blue);"></i>`;
   document.getElementById('mName').textContent=t.name;
   document.getElementById('mLevelLabel').textContent=t.label;
   document.getElementById('mStars').innerHTML=starHTML(t.level);
+  document.getElementById('mYears').textContent=t.years||'';
   document.getElementById('mDesc').textContent=t.desc;
   document.getElementById('mSkills').innerHTML=t.skills.map(s=>`<span class="tag">${s}</span>`).join('');
   document.getElementById('mProjects').innerHTML=t.projects.map(s=>`<span class="tag">${s}</span>`).join('');
