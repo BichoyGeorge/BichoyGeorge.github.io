@@ -289,20 +289,6 @@ section{padding:100px 0;position:relative;}
 
 .skills-categories{margin-top:52px;display:grid;grid-template-columns:1fr;gap:18px;}
 @media(min-width:760px){.skills-categories{grid-template-columns:1fr 1fr;}}
-.skill-cat{background:var(--paper-2);border:1px solid var(--line);border-radius:var(--radius-md);padding:24px 26px;transition:box-shadow .35s var(--ease),transform .35s var(--ease);}
-.skill-cat:hover{box-shadow:var(--shadow-md);transform:translateY(-3px);}
-.skill-cat h4{font-size:.92rem;font-weight:700;color:var(--ink);margin-bottom:16px;display:flex;align-items:center;gap:9px;}
-.skill-cat h4 i{width:30px;height:30px;border-radius:9px;background:rgba(15,118,110,.1);color:var(--blue);display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0;}
-.skill-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:10px;}
-.skill-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-md);padding:16px 10px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px;font-weight:700;font-size:.8rem;color:var(--text);transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s;}
-.skill-card i{font-size:1.05rem;color:var(--blue);}
-.skill-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-md);border-color:transparent;}
-.skill-cat.soft{grid-column:1/-1;}
-.skill-cat.soft h4 i{background:rgba(124,58,237,.12);color:#7C3AED;}
-.skill-cat.soft .skill-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));}
-.skill-cat.soft .skill-card i{color:#7C3AED;}
-.skill-cat.soft .skill-card:hover{box-shadow:0 16px 34px rgba(124,58,237,.18);}
-
 /* modal */
 .modal-overlay{position:fixed;inset:0;background:rgba(10,17,40,.6);backdrop-filter:blur(4px);z-index:2000;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .3s var(--ease);}
 .modal-overlay.open{opacity:1;pointer-events:auto;}
@@ -562,32 +548,48 @@ footer{background:var(--paper);color:var(--text-soft);padding:60px 0 26px;border
       <div class="timeline-cap start" aria-hidden="true"><i class="fas fa-flag"></i></div>
       <div class="timeline-cap end" aria-hidden="true"><i class="fas fa-rocket"></i></div>
       <div class="timeline-deco" aria-hidden="true">
-        <span class="td-dot" style="top:2.0%;left:2.3%;animation-delay:0.4s;"></span>
-        <i class="fas fa-star td" style="top:5.8%;right:0.9%;font-size:17px;animation-delay:1.3s;"></i>
-        <i class="fas fa-circle-nodes td" style="top:9.7%;left:1.7%;font-size:10px;animation-delay:0.2s;"></i>
-        <span class="td-dot" style="top:13.5%;right:3.5%;animation-delay:0.1s;"></span>
-        <span class="td-dot" style="top:17.4%;left:5.7%;animation-delay:1.5s;"></span>
-        <i class="fas fa-circle-nodes td" style="top:21.2%;right:0.8%;font-size:9px;animation-delay:1.4s;"></i>
-        <i class="fas fa-diamond td" style="top:25.0%;left:3.6%;font-size:10px;animation-delay:0.3s;"></i>
-        <span class="td-dot" style="top:28.9%;right:3.6%;animation-delay:1.3s;"></span>
-        <i class="fas fa-star td" style="top:32.7%;left:1.1%;font-size:17px;animation-delay:1.4s;"></i>
-        <span class="td-dot" style="top:36.6%;right:4.4%;animation-delay:1.4s;"></span>
-        <span class="td-dot" style="top:40.4%;left:3.2%;animation-delay:1.3s;"></span>
-        <i class="fas fa-circle-nodes td" style="top:44.2%;right:3.1%;font-size:11px;animation-delay:2.2s;"></i>
-        <span class="td-dot" style="top:48.1%;left:4.3%;animation-delay:0.6s;"></span>
-        <span class="td-dot" style="top:51.9%;right:3.4%;animation-delay:2.1s;"></span>
-        <i class="fas fa-sparkles td" style="top:55.8%;left:2.1%;font-size:11px;animation-delay:2.4s;"></i>
-        <i class="fas fa-star td" style="top:59.6%;right:4.7%;font-size:10px;animation-delay:0.4s;"></i>
-        <span class="td-circle" style="top:63.4%;left:4.7%;width:15px;height:15px;animation-delay:1.4s;"></span>
-        <i class="fas fa-sparkles td" style="top:67.3%;right:2.4%;font-size:10px;animation-delay:0.8s;"></i>
-        <i class="fas fa-star td" style="top:71.1%;left:5.1%;font-size:9px;animation-delay:2.3s;"></i>
-        <span class="td-dot" style="top:75.0%;right:4.5%;animation-delay:0.7s;"></span>
-        <span class="td-dot" style="top:78.8%;left:4.2%;animation-delay:1.1s;"></span>
-        <span class="td-circle" style="top:82.6%;right:5.4%;width:15px;height:15px;animation-delay:0.8s;"></span>
-        <i class="fas fa-plus td" style="top:86.5%;left:1.4%;font-size:11px;animation-delay:0.3s;"></i>
-        <span class="td-circle" style="top:90.3%;right:4.6%;width:17px;height:17px;animation-delay:1.0s;"></span>
-        <span class="td-dot" style="top:94.2%;left:0.9%;animation-delay:1.1s;"></span>
-        <span class="td-circle" style="top:98.0%;right:5.4%;width:14px;height:14px;animation-delay:2.0s;"></span>
+        <span class="td-dot" style="top:1.0%;left:1.4%;animation-delay:1.8s;"></span>
+        <span class="td-dot" style="top:3.4%;right:3.5%;animation-delay:0.6s;"></span>
+        <span class="td-dot" style="top:5.8%;left:5.7%;animation-delay:1.3s;"></span>
+        <i class="fas fa-diamond td" style="top:8.2%;right:1.9%;font-size:14px;animation-delay:0.0s;"></i>
+        <i class="fas fa-circle-nodes td" style="top:10.6%;left:0.8%;font-size:19px;animation-delay:2.1s;"></i>
+        <span class="td-dot" style="top:13.0%;right:0.6%;animation-delay:2.6s;"></span>
+        <i class="fas fa-plus td" style="top:15.3%;left:6.2%;font-size:16px;animation-delay:1.6s;"></i>
+        <span class="td-circle" style="top:17.7%;right:3.6%;width:20px;height:20px;animation-delay:0.3s;"></span>
+        <i class="fas fa-star td" style="top:20.1%;left:0.5%;font-size:15px;animation-delay:1.9s;"></i>
+        <i class="fas fa-circle-nodes td" style="top:22.5%;right:1.4%;font-size:10px;animation-delay:1.9s;"></i>
+        <span class="td-circle" style="top:24.9%;left:4.8%;width:11px;height:11px;animation-delay:1.2s;"></span>
+        <span class="td-circle" style="top:27.3%;right:5.5%;width:11px;height:11px;animation-delay:0.5s;"></span>
+        <span class="td-circle" style="top:29.7%;left:1.1%;width:15px;height:15px;animation-delay:1.2s;"></span>
+        <span class="td-dot" style="top:32.1%;right:2.6%;animation-delay:0.4s;"></span>
+        <span class="td-dot" style="top:34.5%;left:2.3%;animation-delay:2.5s;"></span>
+        <i class="fas fa-star td" style="top:36.9%;right:2.4%;font-size:10px;animation-delay:1.3s;"></i>
+        <i class="fas fa-sparkles td" style="top:39.2%;left:5.1%;font-size:9px;animation-delay:2.6s;"></i>
+        <i class="fas fa-diamond td" style="top:41.6%;right:4.0%;font-size:13px;animation-delay:1.9s;"></i>
+        <i class="fas fa-circle-nodes td" style="top:44.0%;left:4.0%;font-size:18px;animation-delay:1.6s;"></i>
+        <i class="fas fa-diamond td" style="top:46.4%;right:2.6%;font-size:12px;animation-delay:2.4s;"></i>
+        <span class="td-circle" style="top:48.8%;left:1.9%;width:14px;height:14px;animation-delay:0.4s;"></span>
+        <span class="td-dot" style="top:51.2%;right:5.5%;animation-delay:1.0s;"></span>
+        <span class="td-circle" style="top:53.6%;left:4.8%;width:22px;height:22px;animation-delay:2.3s;"></span>
+        <span class="td-dot" style="top:56.0%;right:6.4%;animation-delay:0.4s;"></span>
+        <span class="td-dot" style="top:58.4%;left:0.4%;animation-delay:0.9s;"></span>
+        <i class="fas fa-diamond td" style="top:60.8%;right:4.8%;font-size:9px;animation-delay:2.4s;"></i>
+        <span class="td-dot" style="top:63.1%;left:3.2%;animation-delay:1.1s;"></span>
+        <span class="td-circle" style="top:65.5%;right:0.7%;width:18px;height:18px;animation-delay:0.7s;"></span>
+        <i class="fas fa-plus td" style="top:67.9%;left:0.5%;font-size:18px;animation-delay:0.6s;"></i>
+        <span class="td-dot" style="top:70.3%;right:6.3%;animation-delay:2.6s;"></span>
+        <span class="td-circle" style="top:72.7%;left:3.5%;width:24px;height:24px;animation-delay:0.7s;"></span>
+        <span class="td-circle" style="top:75.1%;right:0.5%;width:13px;height:13px;animation-delay:0.6s;"></span>
+        <i class="fas fa-diamond td" style="top:77.5%;left:6.2%;font-size:15px;animation-delay:1.6s;"></i>
+        <i class="fas fa-asterisk td" style="top:79.9%;right:2.4%;font-size:8px;animation-delay:1.4s;"></i>
+        <span class="td-dot" style="top:82.3%;left:2.9%;animation-delay:0.3s;"></span>
+        <i class="fas fa-diamond td" style="top:84.7%;right:2.1%;font-size:14px;animation-delay:0.8s;"></i>
+        <span class="td-circle" style="top:87.0%;left:2.0%;width:13px;height:13px;animation-delay:1.1s;"></span>
+        <i class="fas fa-star td" style="top:89.4%;right:1.2%;font-size:18px;animation-delay:0.2s;"></i>
+        <span class="td-circle" style="top:91.8%;left:3.3%;width:18px;height:18px;animation-delay:0.4s;"></span>
+        <i class="fas fa-sparkles td" style="top:94.2%;right:1.1%;font-size:11px;animation-delay:1.4s;"></i>
+        <span class="td-circle" style="top:96.6%;left:4.5%;width:15px;height:15px;animation-delay:0.5s;"></span>
+        <i class="fas fa-asterisk td" style="top:99.0%;right:5.1%;font-size:16px;animation-delay:1.4s;"></i>
       </div>
     </div>
   </div>
@@ -599,11 +601,9 @@ footer{background:var(--paper);color:var(--text-soft);padding:60px 0 26px;border
     <div class="section-head reveal">
       <div class="eyebrow">Toolkit</div>
       <h2 class="section-title">Technical Skills</h2>
-      <p class="section-sub">Tap any technology for experience level, key skills and related projects — plus the full toolkit and soft skills below.</p>
+      <p class="section-sub">Tap any technology for experience level, key skills and related projects.</p>
     </div>
     <div class="tech-grid reveal-stagger" id="techGrid"></div>
-
-    <div class="skills-categories reveal-stagger" id="skillsCategories"></div>
   </div>
 </section>
 
@@ -733,7 +733,26 @@ const techData = [
   {name:"Excel",icon:"📋",level:5,label:"Expert",desc:"Still the fastest tool for quick modeling, pivot analysis, and stakeholder handoffs.",skills:["Pivot Tables","Advanced Formulas","Financial Models"],projects:["Orascom Cost Tracking"]},
   {name:"Git",icon:"🌿",level:4,label:"Advanced",desc:"Version control for scripts, DAX documentation and collaborative BI projects.",skills:["Branching","Commits","Merge Workflows"],projects:["All Projects"]},
   {name:"GitHub",icon:"🐙",level:4,label:"Advanced",desc:"Hosting portfolio work, documentation and version history publicly.",skills:["Repositories","Pages","Documentation"],projects:["Portfolio"]},
-  {name:"Looker Studio",icon:"👁️",level:4,label:"Advanced",desc:"Lightweight, shareable dashboards for fast client-facing reporting.",skills:["Blended Data","Sharing","Report Design"],projects:["Hotel Reservations"]}
+  {name:"Looker Studio",icon:"👁️",level:4,label:"Advanced",desc:"Lightweight, shareable dashboards for fast client-facing reporting.",skills:["Blended Data","Sharing","Report Design"],projects:["Hotel Reservations"]},
+  {name:"SSRS",icon:"📑",level:4,label:"Advanced",desc:"Report Server used for scheduled, parameterized enterprise reporting.",skills:["Report Design","Subscriptions","Parameterization"],projects:["Orascom Cost Tracking"]},
+  {name:"SAP BO",icon:"🧩",level:3,label:"Intermediate",desc:"Enterprise BI suite used for ad-hoc reporting and semantic-layer analysis in corporate environments.",skills:["Web Intelligence","Universe Design","Ad-hoc Reporting"],projects:["Enterprise Reporting"]},
+  {name:"SAP InfoView",icon:"🗂️",level:3,label:"Intermediate",desc:"Web portal for accessing, scheduling and distributing SAP BusinessObjects reports.",skills:["Report Scheduling","Distribution","Access Management"],projects:["Enterprise Reporting"]},
+  {name:"Denodo Studio",icon:"🧬",level:3,label:"Intermediate",desc:"Data virtualization IDE for building views across disparate systems without physical replication.",skills:["Data Virtualization","View Design","VQL"],projects:["Enterprise Data Layer"]},
+  {name:"OLAP",icon:"🧊",level:4,label:"Advanced",desc:"Multidimensional analysis concepts underpinning fast slice-and-dice reporting on cubes.",skills:["Cubes","Dimensions & Measures","Aggregations"],projects:["Banque Misr Pipelines"]},
+  {name:"Power Pivot",icon:"🧮",level:4,label:"Advanced",desc:"In-Excel data modeling engine for building relationships and DAX measures without leaving spreadsheets.",skills:["Data Model","Relationships","DAX in Excel"],projects:["Orascom Cost Tracking"]},
+  {name:"Data Analytics",icon:"🔍",level:5,label:"Expert",desc:"End-to-end analysis translating raw numbers into decisions executives can act on.",skills:["Exploratory Analysis","Trend Analysis","Storytelling"],projects:["All Projects"]},
+  {name:"Denodo VQL",icon:"📝",level:3,label:"Intermediate",desc:"Denodo's SQL-like query language for defining virtual views and transformations.",skills:["View Definitions","Query Optimization"],projects:["Enterprise Data Layer"]},
+  {name:"Data Wrangling",icon:"🧹",level:5,label:"Expert",desc:"Cleaning, reshaping and validating messy real-world data before it's analysis-ready.",skills:["Data Cleaning","Validation","Reshaping"],projects:["Amazon Global Sales","Hotel Reservations"]},
+  {name:"Data Warehousing",icon:"🏢",level:5,label:"Expert",desc:"Designing centralized, dimensional stores that scale cleanly as reporting needs grow.",skills:["Star Schema","Fact Tables","Historical Loads"],projects:["Banque Misr Pipelines","E-Commerce Multi-Store"]},
+  {name:"Jira",icon:"🗒️",level:4,label:"Advanced",desc:"Tracking BI development tasks, sprints and stakeholder requests in an agile workflow.",skills:["Sprint Boards","Backlog Grooming","Ticket Tracking"],projects:["Team Projects"]},
+  {name:"Notion",icon:"🗃️",level:4,label:"Advanced",desc:"Documentation and knowledge base for DAX libraries, data dictionaries and project notes.",skills:["Documentation","Knowledge Base","Planning"],projects:["Portfolio"]},
+  {name:"Analytical Thinking",icon:"🧠",level:5,label:"Core Strength",desc:"Breaking down complex business problems into structured, data-driven questions.",skills:["Structured Thinking","Root-Cause Analysis"],projects:["All Projects"]},
+  {name:"Problem Solving",icon:"🛠️",level:5,label:"Core Strength",desc:"Finding practical, scalable solutions when data or requirements aren't clean.",skills:["Troubleshooting","Creative Solutions"],projects:["All Projects"]},
+  {name:"Attention to Detail",icon:"🔎",level:5,label:"Core Strength",desc:"Catching the edge cases and data-quality issues that break executive trust.",skills:["QA & Validation","Precision"],projects:["All Projects"]},
+  {name:"Communication",icon:"💬",level:5,label:"Core Strength",desc:"Translating technical findings into language stakeholders act on.",skills:["Stakeholder Reporting","Presentation"],projects:["All Projects"]},
+  {name:"Teamwork & Collaboration",icon:"🤝",level:5,label:"Core Strength",desc:"Working cross-functionally with finance, ops and engineering teams to ship dashboards.",skills:["Cross-functional Work","Peer Review"],projects:["Team Projects"]},
+  {name:"Time Management",icon:"⏱️",level:4,label:"Strong",desc:"Balancing multiple dashboard deadlines and stakeholder priorities.",skills:["Prioritization","Deadline Management"],projects:["All Projects"]},
+  {name:"Adaptability",icon:"🌱",level:4,label:"Strong",desc:"Comfortable switching between tools, industries and shifting requirements.",skills:["Quick Learning","Flexibility"],projects:["All Projects"]}
 ];
 
 const timelineData = [
@@ -875,21 +894,7 @@ techData.forEach((t,i)=>{
   techGrid.appendChild(el);
 });
 
-/* ============ ADDITIONAL SKILLS CATEGORIES ============ */
-const skillCategories = [
-  {title:"Data Visualization & Reporting",icon:"fa-chart-pie",skills:["Power BI","Tableau","Looker Studio","Excel","SQL Server Reporting Services (SSRS)","SAP BO","SAP InfoView","Denodo Studio"]},
-  {title:"Programming & Analysis",icon:"fa-code",skills:["Python","SQL Server","SQL Server Analysis Services (SSAS)","OLAP","Power Pivot","DAX","Data Analytics","Data Modeling","Denodo VQL"]},
-  {title:"ETL & Data Management",icon:"fa-arrows-rotate",skills:["SQL Server Integration Services (SSIS)","Power Query","Data Wrangling","Data Warehousing"]},
-  {title:"Project & Collaboration Tools",icon:"fa-people-group",skills:["Jira","Notion"]},
-  {title:"Soft Skills",icon:"fa-brain",soft:true,skills:["Analytical Thinking","Problem Solving","Attention to Detail","Communication","Teamwork & Collaboration","Time Management","Adaptability"]}
-];
-const skillsCatWrap=document.getElementById('skillsCategories');
-skillCategories.forEach(cat=>{
-  const el=document.createElement('div');
-  el.className='skill-cat'+(cat.soft?' soft':'');
-  el.innerHTML=`<h4><i class="fas ${cat.icon}"></i> ${cat.title}</h4><div class="skill-grid">${cat.skills.map(s=>`<div class="skill-card"><i class="fas ${cat.soft?'fa-star':'fa-circle-check'}"></i><span>${s}</span></div>`).join('')}</div>`;
-  skillsCatWrap.appendChild(el);
-});
+
 
 const techModal=document.getElementById('techModal');
 function openTechModal(i){
