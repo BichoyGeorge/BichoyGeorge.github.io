@@ -38,47 +38,28 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
 :root{
-  --ink:#1F2937;
+  --ink:#111827;
   --ink-2:#0a0f1f;
   --blue:#0F766E;
   --blue-deep:#065F57;
-  --blue-glow:rgba(15,118,110,.35);
-  --gold:#0F766E;
+  --blue-glow:rgba(15,118,110,.32);
+  --gold:#C89A3D;
+  --gold-deep:#A87D2A;
+  --gold-glow:rgba(200,154,61,.32);
   --paper:#FAF9F6;
   --paper-2:#FFFFFF;
-  --line:#E5E7EB;
+  --line:#E7E4DD;
   --text:#1F2937;
-  --text-soft:#6B7280;
-  --text-faint:#9CA3AF;
+  --text-soft:#5B6472;
+  --text-faint:#93949B;
   --radius-lg:22px;
   --radius-md:16px;
   --radius-sm:10px;
-  --shadow-sm:0 2px 10px rgba(11,18,40,.05);
-  --shadow-md:0 12px 32px rgba(11,18,40,.08);
-  --shadow-lg:0 24px 64px rgba(11,18,40,.14);
+  --shadow-sm:0 2px 10px rgba(20,24,38,.05);
+  --shadow-md:0 12px 32px rgba(20,24,38,.08);
+  --shadow-lg:0 24px 64px rgba(20,24,38,.14);
   --ease:cubic-bezier(.22,1,.36,1);
 }
-html[data-theme="dark"]{
-  --ink:#F1F5F4;
-  --ink-2:#F1F5F4;
-  --blue:#2DD4BF;
-  --blue-deep:#5EEAD4;
-  --blue-glow:rgba(45,212,191,.28);
-  --gold:#2DD4BF;
-  --paper:#0B1220;
-  --paper-2:#111A2B;
-  --line:#22304A;
-  --text:#E5E9F0;
-  --text-soft:#9AA7BD;
-  --text-faint:#6B7893;
-  --shadow-sm:0 2px 10px rgba(0,0,0,.35);
-  --shadow-md:0 12px 32px rgba(0,0,0,.45);
-  --shadow-lg:0 24px 64px rgba(0,0,0,.55);
-}
-html[data-theme="dark"] body{background:linear-gradient(180deg,#0B1220 0%,#0A0F1A 100%);}
-html[data-theme="dark"] .hero{background:radial-gradient(1200px 640px at 82% -10%,rgba(45,212,191,.10) 0%,transparent 60%),radial-gradient(900px 500px at 8% 110%,rgba(45,212,191,.06) 0%,transparent 55%),linear-gradient(180deg,#0B1220 0%,#0A0F1A 100%);}
-html[data-theme="dark"] .cert-logo-img,html[data-theme="dark"] .trust-logo-img{background:#fff;}
-html[data-theme="dark"] .p-preview{background:#05080f;}
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{
@@ -87,36 +68,6 @@ body{
   font-family:'Inter',sans-serif;
   line-height:1.65;
   overflow-x:hidden;
-  transition:background .4s var(--ease),color .4s var(--ease);
-}
-body,body *{transition:background-color .35s var(--ease),border-color .35s var(--ease),color .35s var(--ease);}
-
-/* theme toggle */
-.theme-toggle{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--paper-2);color:var(--text-soft);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.9rem;flex-shrink:0;transition:transform .3s var(--ease),background .3s,color .3s,border-color .3s;}
-.theme-toggle:hover{transform:translateY(-2px) rotate(12deg);color:var(--blue);border-color:var(--blue);}
-.theme-toggle .fa-sun{display:none;}
-html[data-theme="dark"] .theme-toggle .fa-moon{display:none;}
-html[data-theme="dark"] .theme-toggle .fa-sun{display:inline;}
-
-/* side scroll-spy dots */
-.side-nav{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:950;display:none;flex-direction:column;gap:14px;}
-@media(min-width:1180px){.side-nav{display:flex;}}
-.side-nav a{position:relative;width:9px;height:9px;border-radius:50%;background:var(--line);transition:all .35s var(--ease);}
-.side-nav a::before{content:attr(data-label);position:absolute;right:20px;top:50%;transform:translateY(-50%);white-space:nowrap;font-size:.72rem;font-weight:700;color:var(--text-soft);background:var(--paper-2);border:1px solid var(--line);padding:4px 10px;border-radius:8px;opacity:0;pointer-events:none;transition:opacity .25s var(--ease);box-shadow:var(--shadow-sm);}
-.side-nav a:hover::before{opacity:1;}
-.side-nav a.active{background:var(--blue);transform:scale(1.5);box-shadow:0 0 0 4px var(--blue-glow);}
-
-/* toast */
-.toast{position:fixed;left:50%;bottom:34px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:var(--paper-2);font-weight:600;font-size:.85rem;padding:12px 20px;border-radius:999px;display:flex;align-items:center;gap:8px;opacity:0;pointer-events:none;transition:all .35s var(--ease);z-index:2100;box-shadow:var(--shadow-lg);}
-.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
-.toast i{color:var(--blue);}
-.c-card.clickable{cursor:pointer;}
-.c-card.clickable:hover .ic{background:var(--blue);color:#fff;}
-
-@media print{
-  nav,.side-nav,.back-to-top,.theme-toggle,.cursor-glow,.scroll-progress,footer,#contact .avail-row,#contact .contact-social{display:none!important;}
-  section{padding:20px 0!important;}
-  body{background:#fff!important;}
 }
 h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;letter-spacing:-0.02em;color:var(--ink);}
 img{max-width:100%;display:block;}
@@ -174,6 +125,8 @@ nav.hidden{transform:translateY(-100%);}
 .btn-sm{padding:10px 16px;font-size:.8rem;border-radius:10px;}
 .btn-lg{padding:17px 32px;font-size:1rem;border-radius:14px;box-shadow:0 14px 36px var(--blue-glow);}
 .btn-lg:hover{box-shadow:0 20px 46px var(--blue-glow);}
+.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-deep));color:#241A05;box-shadow:0 14px 36px var(--gold-glow);}
+.btn-gold:hover{transform:translateY(-3px);box-shadow:0 20px 46px var(--gold-glow);}
 
 /* section shell */
 section{padding:100px 0;position:relative;}
@@ -442,7 +395,8 @@ section{padding:100px 0;position:relative;}
 .c-card .ic{width:38px;height:38px;border-radius:10px;background:var(--paper);color:var(--blue);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .c-card strong{display:block;font-size:.7rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-faint);margin-bottom:3px;}
 .c-card span{font-size:.92rem;font-weight:600;color:var(--ink);}
-.cta-band{background:var(--paper-2);border:1px solid var(--line);border-radius:var(--radius-lg);padding:42px;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between;color:var(--text);}
+.cta-band{background:var(--paper-2);border:1px solid var(--line);border-radius:var(--radius-lg);padding:42px;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between;color:var(--text);position:relative;overflow:hidden;}
+.cta-band::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--blue),var(--gold));}
 .cta-band h3{color:var(--ink);font-size:1.3rem;margin-bottom:6px;}
 .cta-band p{color:var(--text-soft);font-size:.92rem;}
 .contact-social{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;}
@@ -488,21 +442,8 @@ footer{background:var(--paper);color:var(--text-soft);padding:60px 0 26px;border
       <li><a href="#certificates">Certifications</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <div style="display:flex;align-items:center;">
-      <a href="#contact" class="nav-cta"><i class="fas fa-arrow-right"></i> Let's talk</a>
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" style="margin-left:12px;"><i class="fas fa-moon"></i><i class="fas fa-sun"></i></button>
-    </div>
+    <a href="#contact" class="nav-cta"><i class="fas fa-arrow-right"></i> Let's talk</a>
   </div>
-</nav>
-
-<nav class="side-nav" aria-label="Section navigation">
-  <a href="#about" data-label="About"></a>
-  <a href="#impact" data-label="Impact"></a>
-  <a href="#experience" data-label="Experience"></a>
-  <a href="#skills" data-label="Skills"></a>
-  <a href="#projects" data-label="Projects"></a>
-  <a href="#certificates" data-label="Certifications"></a>
-  <a href="#contact" data-label="Contact"></a>
 </nav>
 
 <!-- ============ HERO ============ -->
@@ -518,7 +459,7 @@ footer{background:var(--paper);color:var(--text-soft);padding:60px 0 26px;border
         <div class="hero-titles"><span id="typedText"></span><span class="cursor">|</span></div>
         <p class="hero-description">I build enterprise data warehouses, optimize backend queries, and transform massive financial tracking pipelines into flawless executive assets. 3+ years across banking, construction and e‑commerce, delivering 30+ dashboards that drive real decisions.</p>
         <div class="hero-buttons">
-          <a href="https://raw.githubusercontent.com/bichoygeorge/bichoygeorge.github.io/Profile/Bishoy_George_CV.pdf" class="btn btn-primary" target="_blank"><i class="fas fa-download"></i> Download CV</a>
+          <a href="https://raw.githubusercontent.com/bichoygeorge/bichoygeorge.github.io/Profile/Bishoy_George_CV.pdf" class="btn btn-gold" target="_blank"><i class="fas fa-download"></i> Download CV</a>
           <a href="#projects" class="btn btn-outline"><i class="fas fa-folder-open"></i> View Projects</a>
           <a href="#contact" class="btn btn-outline"><i class="fas fa-envelope"></i> Contact Me</a>
         </div>
@@ -736,7 +677,7 @@ footer{background:var(--paper);color:var(--text-soft);padding:60px 0 26px;border
       <div class="c-card"><div class="ic"><i class="fas fa-briefcase"></i></div><div><strong>Current Role</strong><span>Data Analyst · BI Developer</span></div></div>
       <div class="c-card"><div class="ic"><i class="fas fa-location-dot"></i></div><div><strong>Location</strong><span>Cairo, Egypt</span></div></div>
       <div class="c-card"><div class="ic"><i class="fas fa-phone"></i></div><div><strong>Phone</strong><span>+20 122 473 1057</span></div></div>
-      <div class="c-card clickable" id="copyEmailCard"><div class="ic"><i class="fas fa-envelope"></i></div><div><strong>Email · Tap to copy</strong><span>bishoygeorge172000@gmail.com</span></div></div>
+      <div class="c-card"><div class="ic"><i class="fas fa-envelope"></i></div><div><strong>Email</strong><span>bishoygeorge172000@gmail.com</span></div></div>
       <div class="c-card"><div class="ic"><i class="fas fa-clock"></i></div><div><strong>Response Time</strong><span>Within 24 hours</span></div></div>
     </div>
 
@@ -745,7 +686,7 @@ footer{background:var(--paper);color:var(--text-soft);padding:60px 0 26px;border
         <h3>Let's build data that drives decisions.</h3>
         <p>Grab the CV — one page, straight to the point.</p>
       </div>
-      <a href="https://raw.githubusercontent.com/bichoygeorge/bichoygeorge.github.io/Profile/Bishoy_George_CV.pdf" target="_blank" class="btn btn-primary btn-lg"><i class="fas fa-file-pdf"></i> Download CV</a>
+      <a href="https://raw.githubusercontent.com/bichoygeorge/bichoygeorge.github.io/Profile/Bishoy_George_CV.pdf" target="_blank" class="btn btn-gold btn-lg"><i class="fas fa-file-pdf"></i> Download CV</a>
     </div>
 
     <div class="contact-social reveal">
@@ -802,8 +743,6 @@ footer{background:var(--paper);color:var(--text-soft);padding:60px 0 26px;border
     <div class="modal-section"><h5>Related Projects</h5><div class="tag-row" id="mProjects"></div></div>
   </div>
 </div>
-
-<div class="toast" id="toast"><i class="fas fa-circle-check"></i><span id="toastMsg">Copied</span></div>
 
 <script>
 /* ============ DATA ============ */
@@ -1233,52 +1172,6 @@ if(window.matchMedia('(hover:hover) and (pointer:fine)').matches && !window.matc
     btn.addEventListener('mouseleave',()=>{ btn.style.transform=''; });
   });
 }
-
-/* ============ DARK MODE TOGGLE ============ */
-(function(){
-  const root=document.documentElement;
-  const toggle=document.getElementById('themeToggle');
-  const saved=localStorage.getItem('bg-theme');
-  const prefersDark=window.matchMedia('(prefers-color-scheme: dark)').matches;
-  if(saved==='dark' || (!saved && prefersDark)) root.setAttribute('data-theme','dark');
-  toggle.addEventListener('click',()=>{
-    const isDark=root.getAttribute('data-theme')==='dark';
-    if(isDark){ root.removeAttribute('data-theme'); localStorage.setItem('bg-theme','light'); }
-    else{ root.setAttribute('data-theme','dark'); localStorage.setItem('bg-theme','dark'); }
-  });
-})();
-
-/* ============ TOAST + COPY EMAIL ============ */
-function showToast(msg){
-  const t=document.getElementById('toast');
-  document.getElementById('toastMsg').textContent=msg;
-  t.classList.add('show');
-  clearTimeout(t._timer);
-  t._timer=setTimeout(()=>t.classList.remove('show'),2400);
-}
-const copyEmailCard=document.getElementById('copyEmailCard');
-if(copyEmailCard){
-  copyEmailCard.addEventListener('click',async()=>{
-    const email='bishoygeorge172000@gmail.com';
-    try{
-      await navigator.clipboard.writeText(email);
-      showToast('Email copied to clipboard');
-    }catch(err){
-      showToast('Copy failed — email: '+email);
-    }
-  });
-}
-
-/* ============ SIDE NAV SCROLL SPY ============ */
-const sideLinks=document.querySelectorAll('.side-nav a');
-function updateSideNav(){
-  const sections=document.querySelectorAll('section[id]');
-  let current='';
-  sections.forEach(s=>{ if(window.scrollY>=s.offsetTop-260) current=s.id; });
-  sideLinks.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+current));
-}
-window.addEventListener('scroll',updateSideNav);
-updateSideNav();
 </script>
 </body>
 </html>
