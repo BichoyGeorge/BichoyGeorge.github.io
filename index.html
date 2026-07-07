@@ -66,7 +66,8 @@
   --ease:cubic-bezier(.22,1,.36,1);
 }
 /* premium preloader */
-.preloader{position:fixed;inset:0;z-index:9999;background:linear-gradient(180deg,#FAF9F6 0%,#F3F0EA 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;transition:opacity .5s var(--ease),visibility .5s var(--ease);}
+.preloader{position:fixed;inset:0;z-index:9999;background:linear-gradient(180deg,#FAF9F6 0%,#F3F0EA 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;transition:opacity .5s var(--ease),visibility .5s var(--ease);animation:preloaderForceHide .01s linear 3.6s forwards;}
+@keyframes preloaderForceHide{to{opacity:0;visibility:hidden;pointer-events:none;}}
 .preloader.hide{opacity:0;visibility:hidden;pointer-events:none;}
 .preloader-mark{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:2.3rem;color:var(--ink);letter-spacing:.02em;position:relative;padding-bottom:12px;animation:preloaderPulse 1.6s ease-in-out infinite;}
 .preloader-mark::after{content:'';position:absolute;left:50%;bottom:0;height:2px;background:linear-gradient(90deg,var(--blue),var(--gold));transform:translateX(-50%);animation:preloaderUnderline 1.2s var(--ease) forwards;}
@@ -87,6 +88,11 @@ body.site-ready .hero-description{opacity:1;transform:translateY(0);transition-d
 body.site-ready .hero-buttons{opacity:1;transform:translateY(0);transition-delay:.4s;}
 body.site-ready .hero-stats-card{opacity:1;transform:translateY(0);transition-delay:.48s;}
 body.site-ready .hero-visual{opacity:1;transform:scale(1);transition-delay:.2s;}
+/* pure-CSS safety net: reveals hero content on its own if JS is ever delayed or blocked */
+@keyframes revealFallbackY{to{opacity:1;transform:translateY(0);}}
+@keyframes revealFallbackScale{to{opacity:1;transform:scale(1);}}
+.hero-kicker,.hero h1,.hero-titles,.hero-description,.hero-buttons,.hero-stats-card{animation:revealFallbackY .6s var(--ease) 3.2s forwards;}
+.hero-visual{animation:revealFallbackScale .6s var(--ease) 3.2s forwards;}
 @media(prefers-reduced-motion:reduce){
   .hero-kicker,.hero h1,.hero-titles,.hero-description,.hero-buttons,.hero-stats-card,.hero-visual{opacity:1!important;transform:none!important;transition:none!important;}
 }
@@ -620,8 +626,8 @@ footer{background:var(--paper);color:var(--text-soft);padding:60px 0 26px;border
   <div class="container">
     <div class="trust-label reveal">Experience &amp; Training</div>
     <div class="trust-logos reveal-stagger">
-      <div class="trust-logo-card"><div class="trust-logo-img"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Banque_Misr.svg" alt="Banque Misr logo" loading="lazy"></div><div class="trust-logo-text"><span class="trust-logo-name">Banque Misr</span><span class="trust-logo-sub">Banking</span></div></div>
-      <div class="trust-logo-card"><div class="trust-logo-img"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Logo_Orascom.svg" alt="Orascom Construction logo" loading="lazy"></div><div class="trust-logo-text"><span class="trust-logo-name">Orascom Construction</span><span class="trust-logo-sub">Construction</span></div></div>
+      <div class="trust-logo-card"><div class="trust-logo-img"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Banque_Misr.svg" alt="Banque Misr logo" loading="lazy" onerror="this.closest('.trust-logo-img').outerHTML='<div class=&quot;trust-logo-mark&quot; style=&quot;background:linear-gradient(150deg,#059669,#047857)&quot;>BM</div>'"></div><div class="trust-logo-text"><span class="trust-logo-name">Banque Misr</span><span class="trust-logo-sub">Banking</span></div></div>
+      <div class="trust-logo-card"><div class="trust-logo-img"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Logo_Orascom.svg" alt="Orascom Construction logo" loading="lazy" onerror="this.closest('.trust-logo-img').outerHTML='<div class=&quot;trust-logo-mark&quot; style=&quot;background:linear-gradient(150deg,#D97706,#B45309)&quot;>OC</div>'"></div><div class="trust-logo-text"><span class="trust-logo-name">Orascom Construction</span><span class="trust-logo-sub">Construction</span></div></div>
       <div class="trust-logo-card"><div class="trust-logo-mark" style="background:linear-gradient(150deg,#7C3AED,#6D28D9)">ITI</div><div class="trust-logo-text"><span class="trust-logo-name">ITI</span><span class="trust-logo-sub">Training</span></div></div>
       <div class="trust-logo-card"><div class="trust-logo-mark" style="background:linear-gradient(150deg,var(--blue),var(--blue-deep))"><i class="fas fa-chart-simple"></i></div><div class="trust-logo-text"><span class="trust-logo-name">Personal BI Projects</span><span class="trust-logo-sub">Portfolio</span></div></div>
     </div>
@@ -878,12 +884,19 @@ footer{background:var(--paper);color:var(--text-soft);padding:60px 0 26px;border
 (function(){
   const start=Date.now();
   const pre=document.getElementById('preloader');
+  let hidden=false;
   function hidePreloader(){
-    if(!pre || pre.classList.contains('hide')) return;
+    if(!pre || hidden) return;
+    hidden=true;
     pre.classList.add('hide');
     document.body.classList.add('site-ready');
-    setTimeout(()=>pre.remove(),600);
+    setTimeout(()=>{ if(pre && pre.parentNode) pre.remove(); },600);
   }
+  document.addEventListener('DOMContentLoaded',()=>{
+    const elapsed=Date.now()-start;
+    const wait=Math.max(0,900-elapsed);
+    setTimeout(hidePreloader,wait);
+  });
   window.addEventListener('load',()=>{
     const elapsed=Date.now()-start;
     const wait=Math.max(0,900-elapsed);
@@ -1097,22 +1110,4 @@ techModal.addEventListener('click',e=>{if(e.target===techModal) techModal.classL
 
 /* ============ RENDER TIMELINE ============ */
 const timelineWrap=document.getElementById('timelineWrap');
-timelineData.forEach(item=>{
-  const el=document.createElement('div');
-  el.className='t-item reveal';
-  const logoHTML = item.logo
-    ? `<div class="t-logo t-logo-img"><img src="${item.logo}" alt="${item.company} logo" loading="lazy"></div>`
-    : `<div class="t-logo" style="background:${item.color}">${item.initials}</div>`;
-  el.innerHTML=`<div class="t-node" style="border-color:${item.color}"></div><div class="t-card" style="--accent:${item.color}"><div class="t-card-head">${logoHTML}<div><span class="t-period">${item.period}</span><h3 class="t-role">${item.role}</h3><div class="t-company" style="color:${item.color}">${item.company}</div></div></div><p>${item.text}</p></div>`;
-  timelineWrap.appendChild(el);
-});
-
-/* ============ RENDER ACHIEVEMENTS ============ */
-const achvGrid=document.getElementById('achvGrid');
-achievements.forEach(a=>{
-  const el=document.createElement('div');
-  el.className='achv-card';
-  el.style.setProperty('--accent',a.color);
-  el.style.setProperty('--accent-tint',a.tint);
-  el.style.setProperty('--accent-soft',a.soft);
-  el.innerHTML=`<div class="achv-icon"><i class="fas ${a.icon}"></i></div><div class="achv-
+timelineData.forEach
