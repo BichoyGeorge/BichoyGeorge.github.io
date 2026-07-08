@@ -66,8 +66,7 @@
   --ease:cubic-bezier(.22,1,.36,1);
 }
 /* premium preloader */
-.preloader{position:fixed;inset:0;z-index:9999;background:linear-gradient(180deg,#FAF9F6 0%,#F3F0EA 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;transition:opacity .5s var(--ease),visibility .5s var(--ease);animation:preloaderForceHide .01s linear 3.6s forwards;}
-@keyframes preloaderForceHide{to{opacity:0;visibility:hidden;pointer-events:none;}}
+.preloader{position:fixed;inset:0;z-index:9999;background:linear-gradient(180deg,#FAF9F6 0%,#F3F0EA 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;transition:opacity .5s var(--ease),visibility .5s var(--ease);}
 .preloader.hide{opacity:0;visibility:hidden;pointer-events:none;}
 .preloader-mark{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:2.3rem;color:var(--ink);letter-spacing:.02em;position:relative;padding-bottom:12px;animation:preloaderPulse 1.6s ease-in-out infinite;}
 .preloader-mark::after{content:'';position:absolute;left:50%;bottom:0;height:2px;background:linear-gradient(90deg,var(--blue),var(--gold));transform:translateX(-50%);animation:preloaderUnderline 1.2s var(--ease) forwards;}
@@ -79,22 +78,17 @@
 @media(prefers-reduced-motion:reduce){.preloader-mark,.preloader-bar span{animation:none;}}
 
 /* premium hero entrance sequence */
-.hero-kicker,.hero h1,.hero-titles,.hero-description,.hero-buttons,.hero-stats-card{opacity:0;transform:translateY(22px);transition:opacity .75s var(--ease),transform .75s var(--ease);}
+.hero-kicker,.hero h1,.hero-titles,.hero-description,.hero-buttons,.hero-stats{opacity:0;transform:translateY(22px);transition:opacity .75s var(--ease),transform .75s var(--ease);}
 .hero-visual{opacity:0;transform:scale(.94);transition:opacity .9s var(--ease),transform .9s var(--ease);}
 body.site-ready .hero-kicker{opacity:1;transform:translateY(0);transition-delay:.05s;}
 body.site-ready .hero h1{opacity:1;transform:translateY(0);transition-delay:.15s;}
 body.site-ready .hero-titles{opacity:1;transform:translateY(0);transition-delay:.25s;}
 body.site-ready .hero-description{opacity:1;transform:translateY(0);transition-delay:.32s;}
 body.site-ready .hero-buttons{opacity:1;transform:translateY(0);transition-delay:.4s;}
-body.site-ready .hero-stats-card{opacity:1;transform:translateY(0);transition-delay:.48s;}
+body.site-ready .hero-stats{opacity:1;transform:translateY(0);transition-delay:.48s;}
 body.site-ready .hero-visual{opacity:1;transform:scale(1);transition-delay:.2s;}
-/* pure-CSS safety net: reveals hero content on its own if JS is ever delayed or blocked */
-@keyframes revealFallbackY{to{opacity:1;transform:translateY(0);}}
-@keyframes revealFallbackScale{to{opacity:1;transform:scale(1);}}
-.hero-kicker,.hero h1,.hero-titles,.hero-description,.hero-buttons,.hero-stats-card{animation:revealFallbackY .6s var(--ease) 3.2s forwards;}
-.hero-visual{animation:revealFallbackScale .6s var(--ease) 3.2s forwards;}
 @media(prefers-reduced-motion:reduce){
-  .hero-kicker,.hero h1,.hero-titles,.hero-description,.hero-buttons,.hero-stats-card,.hero-visual{opacity:1!important;transform:none!important;transition:none!important;}
+  .hero-kicker,.hero h1,.hero-titles,.hero-description,.hero-buttons,.hero-stats,.hero-visual{opacity:1!important;transform:none!important;transition:none!important;}
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%;}
@@ -185,8 +179,6 @@ nav.hidden{transform:translateY(-100%);}
 .btn-primary:hover{transform:translateY(-3px);box-shadow:0 18px 46px var(--blue-glow),0 1px 0 rgba(255,255,255,.15) inset;}
 .btn-outline{background:var(--surface-glass);backdrop-filter:blur(10px);color:var(--ink);border:1.5px solid var(--line);}
 .btn-outline:hover{border-color:var(--blue);color:var(--blue-deep);transform:translateY(-3px);box-shadow:0 14px 32px rgba(15,118,110,.14);}
-.btn-contact{background:linear-gradient(135deg,rgba(15,118,110,.08),rgba(15,118,110,.02));border:1.5px solid rgba(15,118,110,.28);color:var(--blue-deep);}
-.btn-contact:hover{background:linear-gradient(135deg,rgba(15,118,110,.14),rgba(15,118,110,.05));border-color:var(--blue);transform:translateY(-3px);box-shadow:0 14px 32px rgba(15,118,110,.18);}
 .btn-ghost-light{background:rgba(255,255,255,.08);color:#fff;border:1.5px solid rgba(255,255,255,.25);}
 .btn-ghost-light:hover{background:rgba(255,255,255,.16);transform:translateY(-3px);}
 .btn-sm{height:42px;padding:0 16px;font-size:.8rem;border-radius:10px;}
@@ -240,17 +232,16 @@ section{padding:100px 0;position:relative;}
 .hero-description{color:var(--text-soft);font-size:1.02rem;max-width:560px;margin-bottom:34px;}
 .hero-buttons{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:52px;}
 
-.hero-stats-card{background:var(--paper-2);border:1px solid var(--line);border-radius:20px;padding:26px 10px;max-width:560px;box-shadow:0 14px 40px rgba(11,18,40,.06);}
-.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;max-width:100%;}
-.hero-stats .stat-item{border-right:1px solid var(--line);padding:0 10px;display:flex;flex-direction:column;align-items:center;text-align:center;}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line);padding-top:28px;max-width:560px;}
+.hero-stats .stat-item{border-right:1px solid var(--line);padding-right:14px;}
 .hero-stats .stat-item:last-child{border-right:none;}
-.stat-icon{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;margin-bottom:10px;}
-.stat-value{font-family:'Space Grotesk';font-weight:700;font-size:clamp(1.3rem,2.6vw,1.7rem);color:var(--ink);}
-.stat-label{font-size:.68rem;color:var(--text-soft);font-weight:600;text-transform:uppercase;letter-spacing:.03em;margin-top:5px;line-height:1.35;}
+.stat-value{font-family:'Space Grotesk';font-weight:700;font-size:clamp(1.5rem,2.6vw,2rem);color:var(--ink);}
+.stat-label{font-size:.72rem;color:var(--text-soft);font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-top:4px;}
 @media(max-width:760px){
-  .hero-stats-card{padding:20px 4px;}
-  .hero-stats{gap:10px 2px;}
-  .hero-stats .stat-item{padding:0 4px;}
+  .hero-stats{max-width:100%;gap:8px 4px;justify-items:center;}
+  .hero-stats .stat-item{border-right:none;padding-right:0;display:flex;flex-direction:column;align-items:center;text-align:center;}
+  .stat-value{text-align:center;}
+  .stat-label{text-align:center;}
 }
 
 /* hero portrait with decorative graphics */
@@ -265,10 +256,6 @@ section{padding:100px 0;position:relative;}
 .portrait-frame{position:absolute;inset:0;border-radius:32px;overflow:hidden;border:1.5px solid rgba(255,255,255,.75);box-shadow:0 22px 50px rgba(15,118,110,.13),0 8px 20px rgba(20,24,38,.07);}
 .portrait-frame img{width:100%;height:100%;object-fit:cover;object-position:center top;}
 .deco{position:absolute;filter:drop-shadow(0 6px 14px rgba(15,118,110,.2));opacity:.85;}
-.deco-line{position:absolute;left:-16%;bottom:2%;width:34%;height:34%;pointer-events:none;}
-.deco-dotgrid{position:absolute;bottom:-6%;right:-14%;display:grid;grid-template-columns:repeat(3,6px);gap:6px;pointer-events:none;}
-.deco-dotgrid span{width:4px;height:4px;border-radius:50%;background:var(--blue);opacity:.3;}
-@media(max-width:560px){.deco-line,.deco-dotgrid{display:none;}}
 .hero-particle{position:absolute;border-radius:50%;background:var(--blue);opacity:.18;pointer-events:none;animation:float 7s ease-in-out infinite;}
 .deco-star{color:var(--gold);animation:float 5s ease-in-out infinite;}
 .deco-star.s1{top:-6%;left:-10%;font-size:26px;animation-delay:0s;}
@@ -574,13 +561,11 @@ footer{background:var(--paper);color:var(--text-soft);padding:60px 0 26px;border
           <a href="#projects" class="btn btn-outline"><i class="fas fa-folder-open"></i> View Projects</a>
           <a href="#contact" class="btn btn-outline btn-contact"><i class="fas fa-envelope"></i> Contact Me</a>
         </div>
-        <div class="hero-stats-card">
-          <div class="hero-stats">
-            <div class="stat-item"><div class="stat-icon" style="background:rgba(5,150,105,.12);color:#059669"><i class="fas fa-briefcase"></i></div><div class="stat-value" data-counter data-target="3" data-suffix="+">0</div><div class="stat-label">Years<br>Experience</div></div>
-            <div class="stat-item"><div class="stat-icon" style="background:rgba(217,119,6,.13);color:#D97706"><i class="fas fa-chart-column"></i></div><div class="stat-value" data-counter data-target="30" data-suffix="+">0</div><div class="stat-label">Dashboards<br>Delivered</div></div>
-            <div class="stat-item"><div class="stat-icon" style="background:rgba(5,150,105,.12);color:#059669"><i class="fas fa-building"></i></div><div class="stat-value" data-counter data-target="4" data-suffix="">0</div><div class="stat-label">Industries<br>Served</div></div>
-            <div class="stat-item"><div class="stat-icon" style="background:rgba(37,99,235,.12);color:#2563EB"><i class="fas fa-layer-group"></i></div><div class="stat-value" data-counter data-target="20" data-suffix="+">0</div><div class="stat-label">Technologies<br>Mastered</div></div>
-          </div>
+        <div class="hero-stats">
+          <div class="stat-item"><div class="stat-value" data-counter data-target="3" data-suffix="+">0</div><div class="stat-label">Years Exp.</div></div>
+          <div class="stat-item"><div class="stat-value" data-counter data-target="30" data-suffix="+">0</div><div class="stat-label">Dashboards</div></div>
+          <div class="stat-item"><div class="stat-value" data-counter data-target="4" data-suffix="">0</div><div class="stat-label">Industries</div></div>
+          <div class="stat-item"><div class="stat-value" data-counter data-target="20" data-suffix="+">0</div><div class="stat-label">Technologies</div></div>
         </div>
       </div>
       <div class="scroll-cue"><span class="mouse"></span> Scroll</div>
@@ -601,18 +586,6 @@ footer{background:var(--paper);color:var(--text-soft);padding:60px 0 26px;border
           <i class="fas fa-circle deco" style="top:50%;left:-13%;font-size:8px;color:var(--blue);opacity:.7;animation:float 5.5s ease-in-out infinite .4s;"></i>
           <span class="deco" style="bottom:10%;left:-6%;width:9px;height:9px;border-radius:50%;border:2px solid var(--gold);animation:float 5s ease-in-out infinite .9s;"></span>
           <i class="fas fa-plus deco" style="top:14%;left:-9%;font-size:13px;color:var(--blue-deep);opacity:.55;animation:float 6s ease-in-out infinite .2s;"></i>
-          <!-- extra decorative flourishes: stars, rings, dots — balanced left & right -->
-          <i class="fas fa-star deco" style="top:6%;right:-4%;font-size:14px;color:var(--gold);opacity:.85;animation:float 4.8s ease-in-out infinite .7s;"></i>
-          <i class="fas fa-star deco" style="bottom:-2%;left:18%;font-size:10px;color:var(--blue);opacity:.7;animation:float 5.3s ease-in-out infinite 1.5s;"></i>
-          <i class="fas fa-sparkle deco" style="top:32%;left:-18%;font-size:11px;color:var(--gold);opacity:.75;animation:float 5.7s ease-in-out infinite .3s;"></i>
-          <i class="fas fa-sparkle deco" style="bottom:24%;right:-18%;font-size:13px;color:var(--blue-deep);opacity:.6;animation:float 6.2s ease-in-out infinite 1.9s;"></i>
-          <span class="deco" style="top:22%;right:-9%;width:13px;height:13px;border-radius:50%;border:2px solid var(--blue);opacity:.55;animation:float 6.5s ease-in-out infinite .5s;"></span>
-          <span class="deco" style="top:-4%;left:22%;width:7px;height:7px;border-radius:50%;border:2px solid var(--gold);opacity:.7;animation:float 5.1s ease-in-out infinite 1.1s;"></span>
-          <i class="fas fa-circle deco" style="bottom:6%;right:6%;font-size:6px;color:var(--gold);opacity:.65;animation:float 5.9s ease-in-out infinite 2.3s;"></i>
-          <i class="fas fa-circle deco" style="top:64%;left:-4%;font-size:5px;color:var(--blue-deep);opacity:.6;animation:float 6.1s ease-in-out infinite 1.7s;"></i>
-          <svg class="deco-line" viewBox="0 0 100 100" aria-hidden="true"><path d="M2,70 Q25,55 18,25" fill="none" stroke="var(--gold)" stroke-width="1" stroke-dasharray="3 4" opacity=".45"/></svg>
-          <svg class="deco-line" style="left:auto;right:-14%;top:8%;transform:scaleX(-1);" viewBox="0 0 100 100" aria-hidden="true"><path d="M2,70 Q25,55 18,25" fill="none" stroke="var(--blue)" stroke-width="1" stroke-dasharray="3 4" opacity=".4"/></svg>
-          <div class="deco-dotgrid" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
         </div>
       </div>
     </div>
@@ -626,8 +599,8 @@ footer{background:var(--paper);color:var(--text-soft);padding:60px 0 26px;border
   <div class="container">
     <div class="trust-label reveal">Experience &amp; Training</div>
     <div class="trust-logos reveal-stagger">
-      <div class="trust-logo-card"><div class="trust-logo-img"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Banque_Misr.svg" alt="Banque Misr logo" loading="lazy" onerror="this.closest('.trust-logo-img').outerHTML='<div class=&quot;trust-logo-mark&quot; style=&quot;background:linear-gradient(150deg,#059669,#047857)&quot;>BM</div>'"></div><div class="trust-logo-text"><span class="trust-logo-name">Banque Misr</span><span class="trust-logo-sub">Banking</span></div></div>
-      <div class="trust-logo-card"><div class="trust-logo-img"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Logo_Orascom.svg" alt="Orascom Construction logo" loading="lazy" onerror="this.closest('.trust-logo-img').outerHTML='<div class=&quot;trust-logo-mark&quot; style=&quot;background:linear-gradient(150deg,#D97706,#B45309)&quot;>OC</div>'"></div><div class="trust-logo-text"><span class="trust-logo-name">Orascom Construction</span><span class="trust-logo-sub">Construction</span></div></div>
+      <div class="trust-logo-card"><div class="trust-logo-img"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Banque_Misr.svg" alt="Banque Misr logo" loading="lazy"></div><div class="trust-logo-text"><span class="trust-logo-name">Banque Misr</span><span class="trust-logo-sub">Banking</span></div></div>
+      <div class="trust-logo-card"><div class="trust-logo-img"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Logo_Orascom.svg" alt="Orascom Construction logo" loading="lazy"></div><div class="trust-logo-text"><span class="trust-logo-name">Orascom Construction</span><span class="trust-logo-sub">Construction</span></div></div>
       <div class="trust-logo-card"><div class="trust-logo-mark" style="background:linear-gradient(150deg,#7C3AED,#6D28D9)">ITI</div><div class="trust-logo-text"><span class="trust-logo-name">ITI</span><span class="trust-logo-sub">Training</span></div></div>
       <div class="trust-logo-card"><div class="trust-logo-mark" style="background:linear-gradient(150deg,var(--blue),var(--blue-deep))"><i class="fas fa-chart-simple"></i></div><div class="trust-logo-text"><span class="trust-logo-name">Personal BI Projects</span><span class="trust-logo-sub">Portfolio</span></div></div>
     </div>
@@ -884,19 +857,12 @@ footer{background:var(--paper);color:var(--text-soft);padding:60px 0 26px;border
 (function(){
   const start=Date.now();
   const pre=document.getElementById('preloader');
-  let hidden=false;
   function hidePreloader(){
-    if(!pre || hidden) return;
-    hidden=true;
+    if(!pre || pre.classList.contains('hide')) return;
     pre.classList.add('hide');
     document.body.classList.add('site-ready');
-    setTimeout(()=>{ if(pre && pre.parentNode) pre.remove(); },600);
+    setTimeout(()=>pre.remove(),600);
   }
-  document.addEventListener('DOMContentLoaded',()=>{
-    const elapsed=Date.now()-start;
-    const wait=Math.max(0,900-elapsed);
-    setTimeout(hidePreloader,wait);
-  });
   window.addEventListener('load',()=>{
     const elapsed=Date.now()-start;
     const wait=Math.max(0,900-elapsed);
@@ -1110,4 +1076,76 @@ techModal.addEventListener('click',e=>{if(e.target===techModal) techModal.classL
 
 /* ============ RENDER TIMELINE ============ */
 const timelineWrap=document.getElementById('timelineWrap');
-timelineData.forEach
+timelineData.forEach(item=>{
+  const el=document.createElement('div');
+  el.className='t-item reveal';
+  const logoHTML = item.logo
+    ? `<div class="t-logo t-logo-img"><img src="${item.logo}" alt="${item.company} logo" loading="lazy"></div>`
+    : `<div class="t-logo" style="background:${item.color}">${item.initials}</div>`;
+  el.innerHTML=`<div class="t-node" style="border-color:${item.color}"></div><div class="t-card" style="--accent:${item.color}"><div class="t-card-head">${logoHTML}<div><span class="t-period">${item.period}</span><h3 class="t-role">${item.role}</h3><div class="t-company" style="color:${item.color}">${item.company}</div></div></div><p>${item.text}</p></div>`;
+  timelineWrap.appendChild(el);
+});
+
+/* ============ RENDER ACHIEVEMENTS ============ */
+const achvGrid=document.getElementById('achvGrid');
+achievements.forEach(a=>{
+  const el=document.createElement('div');
+  el.className='achv-card';
+  el.style.setProperty('--accent',a.color);
+  el.style.setProperty('--accent-tint',a.tint);
+  el.style.setProperty('--accent-soft',a.soft);
+  el.innerHTML=`<div class="achv-icon"><i class="fas ${a.icon}"></i></div><div class="achv-value" data-counter data-target="${a.target}" data-prefix="${a.prefix}" data-suffix="${a.suffix}">${a.prefix}0${a.suffix}</div><div class="achv-label">${a.label}</div>`;
+  achvGrid.appendChild(el);
+});
+
+/* ============ RENDER PROJECTS ============ */
+const projectsGrid=document.getElementById('projectsGrid');
+projects.forEach((p,i)=>{
+  const el=document.createElement('div');
+  el.className='p-card';
+  el.setAttribute('tabindex','0');
+  el.setAttribute('role','button');
+  el.setAttribute('aria-expanded','false');
+  el.innerHTML=`
+    <div class="p-preview"><img src="${p.img}" alt="${p.title}" loading="lazy"><div class="p-preview-overlay"><span><i class="fas fa-arrow-up-right-from-square"></i> View Case Study</span></div></div>
+    <div class="p-body">
+      <h3 class="p-title">${p.emoji} ${p.title}</h3>
+      <div class="p-kpis">${p.kpis.map(k=>`<div class="p-kpi"><div class="p-kpi-value">${k[0]}</div><div class="p-kpi-label">${k[1]}</div></div>`).join('')}</div>
+      <div class="p-tech">${p.tech.map(t=>`<span>${t}</span>`).join('')}</div>
+      <p class="p-desc">${p.overview}</p>
+      <div class="p-actions">
+        <a href="${p.img}" target="_blank" class="btn btn-outline btn-sm"><i class="fas fa-eye"></i> Live Preview</a>
+        <a href="https://github.com/bichoygeorge" target="_blank" class="btn btn-outline btn-sm"><i class="fab fa-github"></i> GitHub</a>
+        <a href="${p.img}" class="btn btn-outline btn-sm js-download" data-file="${p.title.replace(/[^a-z0-9]+/gi,'-')}.png"><i class="fas fa-download"></i> Download</a>
+        <button class="btn btn-primary btn-sm case-toggle" data-i="${i}"><i class="fas fa-book-open"></i> Case Study</button>
+      </div>
+      <div class="p-detail" id="detail-${i}">
+        <div class="p-detail-inner">
+          <h5><i class="fas fa-database"></i> Dataset Overview</h5><p>${p.dataset}</p>
+          <div class="cs-group">
+            <div class="cs-col"><h5><i class="fas fa-bullseye"></i> Business Problem</h5><p>${p.problem}</p></div>
+            <div class="cs-col"><h5><i class="fas fa-flag-checkered"></i> Business Goal</h5><p>${p.goal}</p></div>
+          </div>
+          <h5><i class="fas fa-diagram-project"></i> Approach &amp; Methodology</h5>
+          <ol class="approach-list">${p.approach.map(a=>`<li>${a}</li>`).join('')}</ol>
+          <h5><i class="fas fa-chart-simple"></i> Key Insights</h5>
+          <div class="mini-insights">${p.insights.map(ins=>`<div class="mini-insight"><strong>${ins[0]}</strong><span>${ins[1]}</span></div>`).join('')}</div>
+          <div class="cs-group">
+            <div class="cs-col cs-challenge"><h5><i class="fas fa-triangle-exclamation"></i> Challenge</h5><p>${p.challenge}</p></div>
+            <div class="cs-col cs-solution"><h5><i class="fas fa-check"></i> Solution</h5><p>${p.solution}</p></div>
+          </div>
+          <h5><i class="fas fa-trophy"></i> Business Impact &amp; Results</h5><p>${p.results}</p>
+          <h5><i class="fas fa-graduation-cap"></i> Key Learnings</h5><p>${p.learning}</p>
+          <h5><i class="fas fa-lightbulb"></i> Recommendations</h5>
+          <ul>${p.recs.map(r=>`<li>${r}</li>`).join('')}</ul>
+          <div class="cs-nav">
+            <button type="button" class="cs-nav-btn cs-prev" data-i="${i}"><i class="fas fa-arrow-left"></i> Previous</button>
+            <button type="button" class="cs-nav-btn cs-next" data-i="${i}">Next <i class="fas fa-arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>`;
+  projectsGrid.appendChild(el);
+});
+function toggleProjectDetail(card,forceOpen){
+  const i=[...p
